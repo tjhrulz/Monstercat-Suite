@@ -20,4 +20,4 @@ TODO in order of priority
 - [ ] Fix user config for update frequency not working
 - [ ] Notification system
 - [ ] Update installer
-- [ ] Look into hacking in Google play music support to the music reader (I believe Google Talk/G+ used to expose this info)
+- [ ] Look into hacking in Google play music (And youtube?) support to the music reader (I believe Google Talk/G+ used to expose this info)
