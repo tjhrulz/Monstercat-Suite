@@ -210,6 +210,7 @@ function Update()
     local temp = tonumber(Handles.Temperature_Measure:GetStringValue())
     -- WebParser will not have returned values for the first few update ticks
     if temp ~= nil then
-        setMeterText(Handles.Main_Meter, getMainString(temp) .. ", " .. getSubString(temp, Settings.Unit))
+		local currText = SKIN:GetMeasure('MeasureTime'):GetStringValue()
+        setMeterText(Handles.Main_Meter, "Its " .. currText .. " and " .. getMainString(temp) .. ", " .. getSubString(temp, Settings.Unit))
     end
 end
