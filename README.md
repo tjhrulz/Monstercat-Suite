@@ -3,7 +3,7 @@ A WIP rainmeter suite based on the Monstercat Visulizer skin by marcopixel.
 Includes Do I need a jacket support from FlyingHyrax, multiple system info and networking meters. More to come
 
 TODO in order of priority
-- [ ] Add optional DINAJ versions with reduced text
+- [X] Add optional DINAJ versions with reduced text
 - [ ] Design and add in text and text with bars versions of currently existing meter
 - [ ] Making Monstercat clock for images show images in a directory and slideshow through them
 - [ ] Add backgrounds everything so clicking is not a pain (Will become very useful for text only meters
