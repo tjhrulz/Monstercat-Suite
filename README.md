@@ -14,6 +14,7 @@ TODO in order of priority
 - [ ] Add blur effect to album art background toggle, since as I learned album art is not high res
 - [ ] Update auto color gen and make it have multiple shades, possibly pull from album art since it will be a background option
 - [ ] Add missing part of DINAJ hovertext
+- [ ] Fix issues with ping and GPU conditionals
 - [ ] Fix spacing issue on Monstercat clock
 - [ ] Fix user config for update frequency not working
 - [ ] Notification system
