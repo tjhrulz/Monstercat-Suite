@@ -7,7 +7,7 @@ TODO in order of priority
 - [ ] Design and add in text and text with bars versions of currently existing meters
 - [ ] Making Monstercat clock for images show images in a directory and slideshow through them
 - [X] Add backgrounds to everything so clicking is not a pain (Will become very useful for text only meters
-- [ ] Look into adding HDD bars, as perfmon does not have a way to get max possible HDD usage.
+- [ ] Look into adding better HDD bars, as perfmon does not have a way to get max possible HDD usage.
 - [ ] Add news RSS
 - [ ] Weather stuffs (May be hard with free weather services (yahoo) shutting down and not wanting to expose private keys for weather apps, may look into how DINAJ is doing it
 - [ ] Calender for the month meter
