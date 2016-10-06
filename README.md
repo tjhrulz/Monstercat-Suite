@@ -20,12 +20,20 @@ TODO in order of priority
 - [ ] Redo color options for meters (Add 3 different color choices?)
 - [ ] Add missing part of DINAJ hovertext?
 - [ ] Right align right hand stats as an option? Or maybe by default if I can making the sizeing not changing with different numbers
-- [ ] Fix issues with ping and GPU conditionals
-- [ ] Fix ping sticking at max (Likely to do with the high frequency may resolve itself with update ratio fix)
-- [ ] Fix spacing issue on Monstercat clock
-- [X] Fix user config for update frequency not working
 - [ ] Finish implementing padding or remove it
+- [ ] Make desktop and laptop versions of some meters, ie desktop doesnt need wifi or battery info, laptop may not need GPU info
 - [ ] Notification system
 - [ ] Look into if average size variable increases or decrease performance based on size
+- [ ] Make middle click always cause a refresh of data and double click cycle through varients
 - [ ] Update installer
 - [ ] Look into hacking in Google play music (And youtube?) support to the music reader (I believe Google Talk/G+ used to expose this info)
+- [ ] Get real fact from fact repository and mix them in with fact sphere facts
+- [ ] Add support for audio playback of fact sphere on left click
+
+BUGs
+- [ ] Ping meter on network combined seems to never be updating after first update (Update it only changes after really long time probably got multiplied by 10 somehow)
+- [ ] Pinging and GPU conditionals do not work after first time they are triggered
+- [ ] Fix ping sticking at max (Likely to do with the high frequency may resolve itself with update ratio fix)
+- [ ] Fix right aligned monster clocks requiring x value to display (Needs a lua rewrite to work)
+- [X] Fix user config for update frequency not working
+- [ ] Check and possibly fix if DINTFMI only working on first laod since afterwards it may always use old data
