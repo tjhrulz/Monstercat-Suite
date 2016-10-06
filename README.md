@@ -8,19 +8,24 @@ TODO in order of priority
 - [X] Making Monstercat clock for images show images in a directory and slideshow through them
 - [X] Add backgrounds to everything so clicking is not a pain (Will become very useful for text only meters
 - [ ] Look into adding better HDD bars, as perfmon does not have a way to get max possible HDD usage.
+- [ ] Make image path use one defined in variables
 - [ ] Add top processes meter, with the ability to sort by memory, cpu, and network usage.
 - [ ] Add news RSS
 - [ ] Weather stuffs (May be hard with free weather services (yahoo) shutting down and not wanting to expose private keys for weather apps, may look into how DINAJ is doing it
 - [ ] Calender for the month meter
 - [ ] Appointments meter
 - [ ] Add blur effect to album art background toggle, since as I learned album art is not high res
+- [ ] Add monstercat logo as a background toggle option
 - [ ] Update auto color gen and make it have multiple shades, possibly pull from album art since it will be a background option
-- [ ] Add missing part of DINAJ hovertext
+- [ ] Redo color options for meters (Add 3 different color choices?)
+- [ ] Add missing part of DINAJ hovertext?
 - [ ] Right align right hand stats as an option? Or maybe by default if I can making the sizeing not changing with different numbers
 - [ ] Fix issues with ping and GPU conditionals
 - [ ] Fix ping sticking at max (Likely to do with the high frequency may resolve itself with update ratio fix)
 - [ ] Fix spacing issue on Monstercat clock
 - [X] Fix user config for update frequency not working
+- [ ] Finish implementing padding or remove it
 - [ ] Notification system
+- [ ] Look into if average size variable increases or decrease performance based on size
 - [ ] Update installer
 - [ ] Look into hacking in Google play music (And youtube?) support to the music reader (I believe Google Talk/G+ used to expose this info)

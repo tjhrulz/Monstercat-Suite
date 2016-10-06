@@ -211,6 +211,6 @@ function Update()
     -- WebParser will not have returned values for the first few update ticks
     if temp ~= nil then
 		local currText = SKIN:GetMeasure('MeasureTime'):GetStringValue()
-        setMeterText(Handles.Main_Meter, "Its " .. currText .. " and " .. getMainString(temp))
+        setMeterText(Handles.Main_Meter, "It's " .. currText .. " and " .. getMainString(temp))
     end
 end
