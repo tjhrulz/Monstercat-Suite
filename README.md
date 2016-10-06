@@ -16,10 +16,11 @@ TODO in order of priority
 - [ ] Add blur effect to album art background toggle, since as I learned album art is not high res
 - [ ] Update auto color gen and make it have multiple shades, possibly pull from album art since it will be a background option
 - [ ] Add missing part of DINAJ hovertext
+- [ ] Right align right hand stats as an option? Or maybe by default if I can making the sizeing not changing with different numbers
 - [ ] Fix issues with ping and GPU conditionals
 - [ ] Fix ping sticking at max (Likely to do with the high frequency may resolve itself with update ratio fix)
 - [ ] Fix spacing issue on Monstercat clock
-- [ ] Fix user config for update frequency not working
+- [X] Fix user config for update frequency not working
 - [ ] Notification system
 - [ ] Update installer
 - [ ] Look into hacking in Google play music (And youtube?) support to the music reader (I believe Google Talk/G+ used to expose this info)
