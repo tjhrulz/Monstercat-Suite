@@ -8,7 +8,7 @@ TODO in order of priority
 - [X] Making Monstercat clock for images show images in a directory and slideshow through them
 - [X] Add backgrounds to everything so clicking is not a pain (Will become very useful for text only meters
 - [ ] Look into adding better HDD bars, as perfmon does not have a way to get max possible HDD usage.
-- [ ] Make image path use one defined in variables
+- [X] Make image path use one defined in variables
 - [ ] Add top processes meter, with the ability to sort by memory, cpu, and network usage.
 - [ ] Add news RSS
 - [ ] Weather stuffs (May be hard with free weather services (yahoo) shutting down and not wanting to expose private keys for weather apps, may look into how DINAJ is doing it
@@ -31,7 +31,7 @@ TODO in order of priority
 - [ ] Add support for audio playback of fact sphere on left click
 
 BUGs
-- [ ] Ping meter on network combined seems to never be updating after first update (Update it only changes after really long time probably got multiplied by 10 somehow)
+- [X] Ping meter on network combined seems to never be updating after first update (Update it only changes after really long time probably got multiplied by 10 somehow)
 - [ ] Pinging and GPU conditionals do not work after first time they are triggered
 - [ ] Fix ping sticking at max (Likely to do with the high frequency may resolve itself with update ratio fix)
 - [ ] Fix right aligned monster clocks requiring x value to display (Needs a lua rewrite to work)
