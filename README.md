@@ -32,6 +32,7 @@ TODO in order of priority/similar items (It was at one point in priority order b
 - [ ] Add support for audio playback of fact sphere on left click
 - [ ] Top Processes visually inconsistant, change?
 - [ ] Add option for users to define (or automagically?) max internet and HDD speeds if they dont want those meters to dynamically scale based on best known since refresh
+- [ ] Add combined Top Processes with paging
 
 BUGs
 - [X] Ping meter on network combined seems to never be updating after first update (Update it only changes after really long time probably got multiplied by 10 somehow)
