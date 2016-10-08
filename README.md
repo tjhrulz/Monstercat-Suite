@@ -2,14 +2,13 @@ A WIP rainmeter suite based on the Monstercat Visulizer skin by marcopixel.
 
 Includes Do I need a jacket support from FlyingHyrax, multiple system info and networking meters. More to come
 
-TODO in order of priority
+TODO in order of priority/similar items (It was at one point in priority order but now its more similar itmes)
 - [X] Add optional DINAJ versions with reduced text
 - [X] Design and add in text and text with bars versions of currently existing meters
 - [X] Making Monstercat clock for images show images in a directory and slideshow through them
 - [X] Add backgrounds to everything so clicking is not a pain (Will become very useful for text only meters
-- [ ] Look into adding better HDD bars, as perfmon does not have a way to get max possible HDD usage.
 - [X] Make image path use one defined in variables
-- [ ] Add top processes meter, with the ability to sort by memory, cpu, and network usage.
+- [X] Add top processes meter, with the ability to sort by memory, cpu, and network usage.
 - [ ] Replace # with - in top process meter? Look into network version of the meters and possibly remove duplicate
 - [ ] Decide if I want to make max for top process meters be less user configurable/Require more knowledge of your machine to change (How many cores)
 - [ ] Add news RSS
@@ -32,6 +31,7 @@ TODO in order of priority
 - [ ] Get real fact from fact repository and mix them in with fact sphere facts
 - [ ] Add support for audio playback of fact sphere on left click
 - [ ] Top Processes visually inconsistant, change?
+- [ ] Add option for users to define (or automagically?) max internet and HDD speeds if they dont want those meters to dynamically scale based on best known since refresh
 
 BUGs
 - [X] Ping meter on network combined seems to never be updating after first update (Update it only changes after really long time probably got multiplied by 10 somehow)
