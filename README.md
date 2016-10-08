@@ -11,6 +11,7 @@ TODO in order of priority
 - [X] Make image path use one defined in variables
 - [ ] Add top processes meter, with the ability to sort by memory, cpu, and network usage.
 - [ ] Replace # with - in top process meter? Look into network version of the meters and possibly remove duplicate
+- [ ] Decide if I want to make max for top process meters be less user configurable/Require more knowledge of your machine to change (How many cores)
 - [ ] Add news RSS
 - [ ] Weather stuffs (May be hard with free weather services (yahoo) shutting down and not wanting to expose private keys for weather apps, may look into how DINAJ is doing it
 - [ ] Calendar for the month meter
