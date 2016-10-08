@@ -39,4 +39,5 @@ BUGs
 - [ ] Fix right aligned monster clocks requiring x value to display (Needs a lua rewrite to work)
 - [X] Fix user config for update frequency not working
 - [ ] Check and possibly fix if DINTFMI only working on first laod since afterwards it may always use old data
-- [ ] Look into if cpu being off by about a factor of about 2 on cpu reader and the new AdvancedCPU top process test meter is a bug in task maanger, rainmeter dlls and if it exists in nomferp or if it just my machine
+- [ ] Look into if cpu being off by about a factor of about 2 on cpu reader and top processes is a bug in task maanger, rainmeter dlls, or if it is just my machine
+- [ ] Process is spelled Proces in several places throughout the codebase, not causing any bugs as it is spelled that way throughtout the file but it bothers me
