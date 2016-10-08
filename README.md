@@ -36,6 +36,7 @@ TODO in order of priority/similar items (It was at one point in priority order b
 - [ ] Several bars varients need to be checked for code consistency, such as percentual being set on some of the ferpnom meters, process being spelled wrong, or other logical bugs, and missoptimizations within them
 - [ ] Optimization pass
 - [ ] Horizontal bars primary color or white option in config, maybe add just more in depth config to every type of meter and have them default to primary and secondary colors?
+- [ ] Update metadata instead of using deprecated called and better attribute authors of various parts (Do before exposing to public)
 
 BUGs
 - [X] Ping meter on network combined seems to never be updating after first update (Update it only changes after really long time probably got multiplied by 10 somehow)
