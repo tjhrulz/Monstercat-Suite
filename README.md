@@ -10,6 +10,7 @@ TODO in order of priority
 - [ ] Look into adding better HDD bars, as perfmon does not have a way to get max possible HDD usage.
 - [X] Make image path use one defined in variables
 - [ ] Add top processes meter, with the ability to sort by memory, cpu, and network usage.
+- [ ] Replace # with - in top process meter? Look into network version of the meters and possibly remove duplicate
 - [ ] Add news RSS
 - [ ] Weather stuffs (May be hard with free weather services (yahoo) shutting down and not wanting to expose private keys for weather apps, may look into how DINAJ is doing it
 - [ ] Calendar for the month meter
