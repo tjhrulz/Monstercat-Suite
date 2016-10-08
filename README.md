@@ -46,5 +46,5 @@ BUGs
 - [ ] Look into if cpu being off by about a factor of about 2 (Seems to be half actual on advancedCPU and ferpnom seems to vary) on cpu reader and top processes is a bug in task maanger, rainmeter dlls, or if it is just my machine
 - [X] Ferpnom seems to be half actual CPU usage on 1-5, yet be double on 1-10 minibar (Percentual was set, likely causing issues elsewhere may be able to use to fix CPU missreading)
 - [ ] Process is spelled Proces in several places throughout the codebase, not causing any bugs as it is spelled that way throughtout the file but it bothers me
-- [ ] Top processes are not scalled on AdvancedCPU meters
+- [ ] Top processes are not scalled on AdvancedCPU meters (May not happen due to percentual possibly scalling based on max value causing for percentage changes)
 - [ ] Fix random logic bugs that likely exist
