@@ -33,14 +33,18 @@ TODO in order of priority/similar items (It was at one point in priority order b
 - [ ] Top Processes visually inconsistant, change?
 - [ ] Add option for users to define (or automagically?) max internet and HDD speeds if they dont want those meters to dynamically scale based on best known since refresh
 - [ ] Add combined Top Processes with paging
+- [ ] Several bars varients need to be checked for code consistency, such as percentual being set on some of the ferpnom meters, process being spelled wrong, or other logical bugs, and missoptimizations within them
+- [ ] Optimization pass
 
 BUGs
 - [X] Ping meter on network combined seems to never be updating after first update (Update it only changes after really long time probably got multiplied by 10 somehow)
 - [ ] Pinging and GPU conditionals do not work after first time they are triggered
-- [ ] Fix ping sticking at max (Likely to do with the high frequency may resolve itself with update ratio fix)
+- [ ] Fix ping sticking at max (Likely to do with the high frequency may resolve itself with update ratio fix) Update: Seems to have resolved itself with update ratio fix, will look into if it reapears with small numbers. Investigating
 - [ ] Fix right aligned monster clocks requiring x value to display (Needs a lua rewrite to work)
 - [X] Fix user config for update frequency not working
 - [ ] Check and possibly fix if DINTFMI only working on first laod since afterwards it may always use old data
-- [ ] Look into if cpu being off by about a factor of about 2 on cpu reader and top processes is a bug in task maanger, rainmeter dlls, or if it is just my machine
+- [ ] Look into if cpu being off by about a factor of about 2 (Seems to be half actual on advancedCPU and ferpnom seems to vary) on cpu reader and top processes is a bug in task maanger, rainmeter dlls, or if it is just my machine
+- [X] Ferpnom seems to be half actual CPU usage on 1-5, yet be double on 1-10 minibar (Percentual was set, likely causing issues elsewhere may be able to use to fix CPU missreading)
 - [ ] Process is spelled Proces in several places throughout the codebase, not causing any bugs as it is spelled that way throughtout the file but it bothers me
 - [ ] Top processes are not scalled on AdvancedCPU meters
+- [ ] Fix random logic bugs that likely exist
