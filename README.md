@@ -12,7 +12,7 @@ TODO in order of priority
 - [ ] Add top processes meter, with the ability to sort by memory, cpu, and network usage.
 - [ ] Add news RSS
 - [ ] Weather stuffs (May be hard with free weather services (yahoo) shutting down and not wanting to expose private keys for weather apps, may look into how DINAJ is doing it
-- [ ] Calender for the month meter
+- [ ] Calendar for the month meter
 - [ ] Appointments meter
 - [ ] Add blur effect to album art background toggle, since as I learned album art is not high res
 - [ ] Add monstercat logo as a background toggle option
@@ -37,3 +37,4 @@ BUGs
 - [ ] Fix right aligned monster clocks requiring x value to display (Needs a lua rewrite to work)
 - [X] Fix user config for update frequency not working
 - [ ] Check and possibly fix if DINTFMI only working on first laod since afterwards it may always use old data
+- [ ] Look into if cpu being off by about a factor of about 2 on cpu reader and the new AdvancedCPU top process test meter is a bug in task maanger, rainmeter dlls and if it exists in nomferp or if it just my machine
