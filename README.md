@@ -12,7 +12,7 @@ TODO in order of priority/similar items (It was at one point in priority order b
 - [ ] Replace # with - in top process meter? Look into network version of the meters and possibly remove duplicate
 - [ ] Decide if I want to make max for top process meters be less user configurable/Require more knowledge of your machine to change (How many cores)
 - [ ] Add news RSS
-- [ ] Weather stuffs (May be hard with free weather services (yahoo) shutting down and not wanting to expose private keys for weather apps, may look into how DINAJ is doing it
+- [ ] Weather stuffs (May be hard with free weather services (yahoo) shutting down and not wanting to expose private keys for weather apps, may look into how DINAJ is doing it. Update: Uses regex page parsing and I hate that as it is likely to break, may just make users supply their own key on one version and regex the other version
 - [ ] Calendar for the month meter
 - [ ] Appointments meter
 - [ ] Add blur effect to album art background toggle, since as I learned album art is not high res
@@ -35,6 +35,7 @@ TODO in order of priority/similar items (It was at one point in priority order b
 - [ ] Add combined Top Processes with paging
 - [ ] Several bars varients need to be checked for code consistency, such as percentual being set on some of the ferpnom meters, process being spelled wrong, or other logical bugs, and missoptimizations within them
 - [ ] Optimization pass
+- [ ] Horizontal bars primary color or white option in config, maybe add just more in depth config to every type of meter and have them default to primary and secondary colors?
 
 BUGs
 - [X] Ping meter on network combined seems to never be updating after first update (Update it only changes after really long time probably got multiplied by 10 somehow)
