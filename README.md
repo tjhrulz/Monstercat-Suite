@@ -31,6 +31,7 @@ TODO in order of priority
 - [ ] Look into hacking in Google play music (And youtube?) support to the music reader (I believe Google Talk/G+ used to expose this info)
 - [ ] Get real fact from fact repository and mix them in with fact sphere facts
 - [ ] Add support for audio playback of fact sphere on left click
+- [ ] Top Processes visually inconsistant, change?
 
 BUGs
 - [X] Ping meter on network combined seems to never be updating after first update (Update it only changes after really long time probably got multiplied by 10 somehow)
@@ -41,3 +42,4 @@ BUGs
 - [ ] Check and possibly fix if DINTFMI only working on first laod since afterwards it may always use old data
 - [ ] Look into if cpu being off by about a factor of about 2 on cpu reader and top processes is a bug in task maanger, rainmeter dlls, or if it is just my machine
 - [ ] Process is spelled Proces in several places throughout the codebase, not causing any bugs as it is spelled that way throughtout the file but it bothers me
+- [ ] Top processes are not scalled on AdvancedCPU meters
