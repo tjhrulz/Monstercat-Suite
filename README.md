@@ -19,6 +19,7 @@ TODO in order of priority/similar items (It was at one point in priority order b
 - [ ] Add monstercat logo as a background toggle option
 - [ ] Update auto color gen and make it have multiple shades, possibly pull from album art since it will be a background option
 - [ ] Redo color options for meters (Add 3 different color choices?)
+- [ ] Genre colors need at least 3 different matching colors for each one, not sure how I want to choose those colors
 - [ ] Add missing part of DINAJ hovertext?
 - [ ] Right align right hand stats as an option? Or maybe by default if I can making the sizeing not changing with different numbers
 - [ ] Finish implementing padding or remove it
