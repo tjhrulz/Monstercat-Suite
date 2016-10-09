@@ -54,9 +54,15 @@ IfMatchAction13=[!SetVariable GenreColor "192,255,99"]
 BarColor=#Color#
 [StyleStaticMeter]
 SolidColor=#Color#
+[StyleStaticTint]
+ImageTint=#Color#
+
 [StyleGenreMeter]
 SolidColor=#GenreColor#
 DynamicVariables=1
 [StyleGenreBar]
 BarColor=#GenreColor#
+DynamicVariables=1
+[StyleGenreTint]
+ImageTint=#GenreColor#
 DynamicVariables=1
