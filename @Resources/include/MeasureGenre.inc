@@ -2,7 +2,7 @@
 @include=#@#variables.ini
 
 [Rainmeter]
-OnRefreshAction=[!CommandMeasure CalcVarationScript "colorSelector('[MeasureGenre]')"]
+OnRefreshAction=[!CommandMeasure CalcVarationScript "colorSelector('[MeasureGenre]')"][!SetOptionGroup DynamicDynamic DynamicVariables 0]
 
 [CalcVarationScript]
 Measure=Script
