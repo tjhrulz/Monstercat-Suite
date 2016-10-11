@@ -59,12 +59,14 @@ end
 
 function varationizer(baseColorRGB)
 
-	--print("baseColorRGB:" .. baseColorRGB)
+	print("baseColorRGB:" .. baseColorRGB)
 	
 	local baseColorR = tonumber(string.sub(baseColorRGB, 0, 3))
 	local baseColorG = tonumber(string.sub(baseColorRGB, 5, 7))
 	local baseColorB = tonumber(string.sub(baseColorRGB, 9, 11))
 
+	
+	local vizColor = varationize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("VizColorModifier", '1.0'))
 	local baseColor = varationize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("ColorModifier", '1.0'))
 	local secondaryColor = varationize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("Color2Modifier", '1.0'))
 	local wallpaperColor = varationize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("WallpaperColorModifier", '1.0'))
@@ -75,16 +77,21 @@ function varationizer(baseColorRGB)
 	local minColor = varationize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("MinColorModifier", '1.0'))
 	local hourColor = varationize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("HourColorModifier", '1.0'))
 	local secColor = varationize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("SecColorModifier", '1.0'))
+	local backgroundBarColor = varationize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("BackgroundBarColorModifier", '1.0'))
 	
+	print("TransTest: " .. backgroundBarColor .. "," .. SKIN:GetVariable("BackgroundBarColorTransparency", ',255'))
+	
+	if vizColor ~= -1 then SKIN:Bang('!SetVariable', "VizColor", vizColor) end
 	if baseColor ~= -1 then SKIN:Bang('!SetVariable', "Color", baseColor) end
 	if secondaryColor ~= -1 then SKIN:Bang('!SetVariable', "Color2", secondaryColor) end
 	if wallpaperColor ~= -1 then SKIN:Bang('!SetVariable', "WallpaperColor", wallpaperColor) end
 	--if backgroundColor ~= -1 then SKIN:Bang('!SetVariable', "BackgroundColor", backgroundColor) end
 	--if transBackgroundColor ~= -1 then SKIN:Bang('!SetVariable', "BackgroundNonColor", transBackgroundColor .. SKIN:GetVariable(BackgroundNonColorTransparency, '255')) end
 	if textColor ~= -1 then SKIN:Bang('!SetVariable', "TextColor", textColor) end
-	if clockColor ~= -1 then SKIN:Bang('!SetVariable', "ClockRingColor", clockColor .. SKIN:GetVariable("ClockRingColorTransparency", '255')) end
+	if clockColor ~= -1 then SKIN:Bang('!SetVariable', "ClockRingColor", clockColor .. SKIN:GetVariable("ClockRingColorTransparency", ',255')) end
 	if minColor ~= -1 then SKIN:Bang('!SetVariable', "MinColor", minColor) end
 	if hourColor ~= -1 then SKIN:Bang('!SetVariable', "HourColor", hourColor) end
 	if secColor ~= -1 then SKIN:Bang('!SetVariable', "SecColor", secColor) end
+	if backgroundBarColor ~= -1 then SKIN:Bang('!SetVariable', "BackgroundBarColor", backgroundBarColor .. SKIN:GetVariable("BackgroundBarColorTransparency", ',255')) end
 		
 end

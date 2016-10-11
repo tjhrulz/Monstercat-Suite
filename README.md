@@ -16,6 +16,7 @@ TODO in order of priority/similar items (It was at one point in priority order b
 - [ ] Calendar for the month meter
 - [ ] Appointments meter
 - [ ] Add blur effect to album art background toggle, since as I learned album art is not high res
+- [ ] For side and top bars explain variables and get height programatically
 - [X] Add monstercat logo as a background toggle option
 - [ ] Pull colors from album art since it will be a background option
 - [X] Redo color options for meters (Add 3 different color choices?)

@@ -19,18 +19,8 @@ OnChangeAction=[!CommandMeasure CalcVarationScript "colorSelector('[MeasureGenre
 
 ; Styles
 [StyleStaticBar]
-BarColor=#Color#
-[StyleStaticMeter]
-SolidColor=#Color#
-[StyleStaticTint]
-ImageTint=#Color#
+BarColor=#VizColor#
 
-[StyleGenreMeter]
-SolidColor=#Color#
-DynamicVariables=1
 [StyleGenreBar]
-BarColor=#Color#
-DynamicVariables=1
-[StyleGenreTint]
-ImageTint=#Color#
+BarColor=#VizColor#
 DynamicVariables=1
