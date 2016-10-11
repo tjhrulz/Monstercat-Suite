@@ -15,44 +15,44 @@ UpdateDivider=10
 ; Use | as dividier and replace spaces with \s (otherwise it won't work)
 ; Electro
 IfMatch=Electro
-IfMatchAction=[!SetVariable Color "#Electro#"][!CommandMeasure CalcVarationScript "varationize(#Electro#, #Color2Modifier#)"]
+IfMatchAction=[!CommandMeasure CalcVarationScript "varationizer(#Electro#)"]
 ; Electronic/EDM
 IfMatch2=EDM|Electronic|Breaks|Chillout|Bounce|Chill
-IfMatchAction2=[!SetVariable Color "#EDM#"][!CommandMeasure CalcVarationScript "varationize(#EDM#, #Color2Modifier#)"]
+IfMatchAction2=[!CommandMeasure CalcVarationScript "varationizer(#EDM#)"]
 ; House/Progressive House
 IfMatch3=House|Electro\sHouse|Progressive\sHouse
-IfMatchAction3=[!SetVariable Color "#House#"][!CommandMeasure CalcVarationScript "varationize(#House#, #Color2Modifier#)"]
+IfMatchAction3=[!CommandMeasure CalcVarationScript "varationizer(#House#)"]
 ; Drum & Bass
 IfMatch4=Drum\s&\sBass|DnB
-IfMatchAction4=[!SetVariable Color "#DnB#"][!CommandMeasure CalcVarationScript "varationize(#DnB#, #Color2Modifier#)"]
+IfMatchAction4=[!CommandMeasure CalcVarationScript "varationizer(#DnB#)"]
 ; Dubstep
 IfMatch5=Dubstep
-IfMatchAction5=[!SetVariable Color "#Dubstep#"][!CommandMeasure CalcVarationScript "varationize(#Dubstep#, #Color2Modifier#)"]
+IfMatchAction5=[!CommandMeasure CalcVarationScript "varationizer(#Dubstep#)"]
 ; Drumstep
 IfMatch6=Drumstep
-IfMatchAction6=[!SetVariable Color "#Drumstep#"][!CommandMeasure CalcVarationScript "varationize(#Drumstep#, #Color2Modifier#)"]
+IfMatchAction6=[!CommandMeasure CalcVarationScript "varationizer(#Drumstep#)"]
 ; Glitch Hop
 IfMatch7=Glitch\sHop|GlitchHop
-IfMatchAction7=[!SetVariable Color "#GlitchHop#"][!CommandMeasure CalcVarationScript "varationize(#GlitchHop#, #Color2Modifier#)"]
+IfMatchAction7=[!CommandMeasure CalcVarationScript "varationizer(#GlitchHop#)"]
 ; Trap
 IfMatch8=Trap
-IfMatchAction8=[!SetVariable Color "#Trap#"][!CommandMeasure CalcVarationScript "varationize(#Trap#, #Color2Modifier#)"]
+IfMatchAction8=[!CommandMeasure CalcVarationScript "varationizer(#Trap#)"]
 ; Trance
 IfMatch9=Trance|Deep\sHouse
-IfMatchAction9=[!SetVariable Color "#Trance#"][!CommandMeasure CalcVarationScript "varationize(#Trance#, #Color2Modifier#)"]
+IfMatchAction9=[!CommandMeasure CalcVarationScript "varationizer(#Trance#)"]
 ; Hard Dance
 IfMatch10=Hard\sDance
-IfMatchAction10=[!SetVariable Color "#HardDance#"][!CommandMeasure CalcVarationScript "varationize(#HardDance#, #Color2Modifier#)"]
+IfMatchAction10=][!CommandMeasure CalcVarationScript "varationizer(#HardDance#)"]
 ; Nu Disco/Indie Dance
 IfMatch11=Nu\sDisco|NuDisco|Disco|Indie\sDance|Electro\sSwing
-IfMatchAction11=[!SetVariable Color "#NuDisco#"][!CommandMeasure CalcVarationScript "varationize(#NuDisco#, #Color2Modifier#)"]
+IfMatchAction11=[!CommandMeasure CalcVarationScript "varationizer(#NuDisco#)"]
 ; Future Bass
 IfMatch12=Future|Future\sBass
-IfMatchAction12=[!SetVariable Color "#FutureBass#"][!CommandMeasure CalcVarationScript "varationize(#FutureBass#, #Color2Modifier#)"]
+IfMatchAction12=[!CommandMeasure CalcVarationScript "varationizer(#FutureBass#)"]
 ; Here is an example for an custom genre. Colors need to be rgb(a) values.
 IfMatch13=Mashup|Mash\sUp
-IfMatchAction13=[!SetVariable Color "#Mashup#"][!CommandMeasure CalcVarationScript "varationize(#Mashup#, #Color2Modifier#)"]
-IfNotMatchAction=[!SetVariable Color "#DefaultDynamicColor#"][!CommandMeasure CalcVarationScript "varationize(#DefaultDynamicColor#, #Color2Modifier#)"]
+IfMatchAction13=[!CommandMeasure CalcVarationScript "varationizer(#Mashup#)"]
+IfNotMatchAction=[!CommandMeasure CalcVarationScript "varationizer(#DefaultDynamicColor#)"]
 
 ; Styles
 [StyleStaticBar]
