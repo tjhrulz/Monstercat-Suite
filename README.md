@@ -2,58 +2,48 @@ A WIP rainmeter suite based on the Monstercat Visulizer skin by marcopixel.
 
 Includes Do I need a jacket support from FlyingHyrax, multiple system info and networking meters. More to come
 
-TODO in order of priority/similar items (It was at one point in priority order but now its more similar itmes)
-- [X] Add optional DINAJ versions with reduced text
-- [X] Design and add in text and text with bars versions of currently existing meters
-- [X] Making Monstercat clock for images show images in a directory and slideshow through them
-- [X] Add backgrounds to everything so clicking is not a pain (Will become very useful for text only meters
-- [X] Make image path use one defined in variables
-- [X] Add top processes meter, with the ability to sort by memory, cpu, and network usage.
-- [ ] Replace # with - in top process meter? Look into network version of the meters and possibly remove duplicate
-- [ ] Decide if I want to make max for top process meters be less user configurable/Require more knowledge of your machine to change (How many cores)
+TODO
 - [ ] Add news RSS
 - [ ] Weather stuffs (May be hard with free weather services (yahoo) shutting down and not wanting to expose private keys for weather apps, may look into how DINAJ is doing it. Update: Uses regex page parsing and I hate that as it is likely to break, may just make users supply their own key on one version and regex the other version
 - [ ] Calendar for the month meter
 - [ ] Appointments meter
 - [ ] Add blur effect to album art background toggle, since as I learned album art is not high res
-- [ ] For side and top bars explain variables and get height programatically
-- [X] Add monstercat logo as a background toggle option
+- [ ] For side and top background panels the variables are not documented and height is not programmatic on top and bottom bar (will expose all to user
+- [ ] Background panels are all variants at the moment
 - [ ] Pull colors from album art since it will be a background option
-- [X] Redo color options for meters (Add 3 different color choices?)
-- [X] Genre colors need at least 3 different matching colors for each one, not sure how I want to choose those colors Update: Now going to be called color variation system, will come online when color choosing script is rewritten
-- [ ] Add genre color complimentary color that user can toggle on, (Is there a way to do this progomatically? Not sure how complimentary colors work) Ie the one I see all the time blue background with yellow everything else
-- [ ] Add missing part of DINAJ hovertext?
-- [ ] Right align right hand stats as an option? Or maybe by default if I can making the sizeing not changing with different numbers
-- [ ] Finish implementing padding or remove it
-- [ ] Make desktop and laptop versions of some meters, ie desktop doesnt need wifi or battery info, laptop may not need GPU info
+- [ ] Add genre color complimentary color that user can toggle on, (Is there a way to do this programmatically? Not sure how complimentary colors work) Ie the one I see all the time blue background with yellow everything else
+- [ ] Right align right hand stats as an option? Or maybe by default if I can making the sizing not changing with different numbers
+- [ ] Make desktop and laptop versions of some meters, ie desktop doesn't need wifi or battery info, laptop may not need GPU info
 - [ ] Notification system
-- [ ] Look into if average size variable increases or decrease performance based on size
-- [ ] Make middle click always cause a refresh of data and double click cycle through varients
-- [ ] Update installer
 - [ ] Get real fact from fact repository and mix them in with fact sphere facts
 - [ ] Add support for audio playback of fact sphere on left click
-- [ ] Top Processes visually inconsistant, change?
-- [ ] Add option for users to define (or automagically?) max internet and HDD speeds if they dont want those meters to dynamically scale based on best known since refresh
+- [ ] Add option for users to define (or automagically?) max Internet and HDD speeds if they dont want those meters to dynamically scale based on best known since refresh (Honestly not a big deal)
 - [ ] Add combined Top Processes with paging
-- [ ] Several bars varients need to be checked for code consistency, such as percentual being set on some of the ferpnom meters, process being spelled wrong, or other logical bugs, and missoptimizations within them
-- [ ] Optimization pass
-- [X] Horizontal bars primary color or white option in config, maybe add just more in depth config to every type of meter and have them default to primary and secondary colors?
+- [ ] Several bars variants need to be checked for code consistency, such as percentual being set on some of the ferpnom meters, process being spelled wrong, or other logical bugs, and missoptimizations within them
+- [ ] Final optimization pass
+- [ ] Update installer meter to make initial setup nicer (Do before v1.0)
 - [ ] Update metadata instead of using deprecated call and better attribute authors of various parts (Do before exposing to public)
-- [ ] Make meter backgrounds dynamic? (User can use transparency to achieve this effect now pretty well now so I doubt I will do this)
 - [ ] Look into hacking in Google play music (And youtube?) support to the music reader (I believe Google Talk/G+ used to expose this info)
 - [ ] Look into making networking top process plugin
-BUGs
-- [X] Ping meter on network combined seems to never be updating after first update (Update it only changes after really long time probably got multiplied by 10 somehow)
+- [ ] Look into if average size variable increases or decrease performance based on size (kind of irrelevant now with CPU usage being better I just want to document it right)
+Bugs
 - [ ] Pinging and GPU conditionals do not work after first time they are triggered
-- [X] Fix ping sticking at max (Likely to do with the high frequency may resolve itself with update ratio fix) Update: Seems to have resolved itself with update ratio fix, will look into if it reapears with small numbers. Investigating
-- [ ] Fix right aligned monster clocks requiring a nondynamic x value to display (Needs a lua rewrite to work)
-- [X] Fix user config for update frequency not working
-- [ ] Check and possibly fix if DINTFMI only working on first laod since afterwards it may always use old data
+- [ ] Fix right aligned monster clocks requiring a non-dynamic x value to display (Needs a lua rewrite to work)
+- [ ] Check and possibly fix if DINTFMI only working on first load since afterwards it may always use old data
 - [ ] Look into if cpu being off by about a factor of about 2 (Seems to be half actual on advancedCPU and ferpnom seems to vary) on cpu reader and top processes is a bug in task maanger, rainmeter dlls, or if it is just my machine
-- [X] Ferpnom seems to be half actual CPU usage on 1-5, yet be double on 1-10 minibar (Percentual was set, likely causing issues elsewhere may be able to use to fix CPU missreading)
-- [ ] Process is spelled Proces in several places throughout the codebase, not causing any bugs as it is spelled that way throughtout the file but it bothers me
-- [ ] Top processes bars are not scalled on AdvancedCPU meters (May not happen due to percentual possibly scalling based on max value causing for percentage changes)
+- [ ] Process is spelled Proces in several places throughout the codebase, not causing any bugs as it is spelled that way throughout the file but it bothers me
+- [ ] Top processes bars are not scaled on AdvancedCPU meters (May not happen due to percentual possibly scaling based on max value causing for percentage changes)
 - [ ] Fix random logic bugs that likely exist/missed dynamicdynamic group on items
 - [ ] Investigate CPU being really high sometimes Update: still exists post dynamicdynamic update, I think happens when you change songs very quickly, refresh all does nothing EQ accounts for around 7% - 10% (May have been coincidence as wasnt able to repeat). Album art is the rest at least I know this is the source may fix itself when those get the dynamic color system my way. Restarting rainmeter resolves, toggle to spotify and back may resolved
 - [ ] Meter play pause may need dynamic variables
-- [X] When paused a skip meter thinks song has started
+Possible Future Changes
+- [ ] Regroup small meters by the size variation?
+- [ ] Replace # with - in top process meter?
+- [ ] Once released see if advancedCPU is really needed and remove it?
+- [ ] Decide if I want to make max for top process meters be less user configurable/Require more knowledge of your machine to change (How many cores)
+- [ ] Add missing part of DINAJ hovertext?
+- [ ] Padding has been removed do I want to add it back as a toggle? Would it apply to everything or just text?
+- [ ] Make middle click always cause a refresh of data and double click cycle through variants?
+- [ ] Make meter backgrounds dynamic? (User can use transparency to achieve this effect now pretty well now so I doubt I will do this, especially since background panels are dynamic)
+- [ ] Make it so info fits height perfectly on a 1080p display/user defined value? (Would like to do this but it would be hard unless I do something like make the number of top processes dynamic to fill the gap at the bottom as I do not define height specifically on any meter)
+- [ ] Make it so meters can be auto scaled to fit width given by user. IE 1920,10 would make 10 meters perfectly spaced across a 1080p display (Really dont think I will do this unless I make meters intended to do on the top and bottom of screen that are not the notification system)
