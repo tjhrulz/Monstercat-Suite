@@ -1,6 +1,9 @@
 [Variables]
 @include=#@#variables.ini
 
+[Rainmeter]
+OnRefreshAction=[!CommandMeasure CalcVarationScript "colorSelector('[MeasureGenre]')"]
+
 [CalcVarationScript]
 Measure=Script
 ScriptFile=#ROOTCONFIGPATH#\colorVariationer.lua
