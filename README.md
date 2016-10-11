@@ -52,3 +52,4 @@ BUGs
 - [ ] Process is spelled Proces in several places throughout the codebase, not causing any bugs as it is spelled that way throughtout the file but it bothers me
 - [ ] Top processes bars are not scalled on AdvancedCPU meters (May not happen due to percentual possibly scalling based on max value causing for percentage changes)
 - [ ] Fix random logic bugs that likely exist
+- [ ] Investigate CPU being really high sometimes
