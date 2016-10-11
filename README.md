@@ -13,11 +13,11 @@ TODO
 - [ ] Pull colors from album art since it will be a background option
 - [ ] Add genre color complimentary color that user can toggle on, (Is there a way to do this programmatically? Not sure how complimentary colors work) Ie the one I see all the time blue background with yellow everything else
 - [ ] Right align right hand stats as an option? Or maybe by default if I can making the sizing not changing with different numbers
-- [ ] Make desktop and laptop versions of some meters, ie desktop doesn't need wifi or battery info, laptop may not need GPU info
-- [ ] Notification system
+- [ ] Make desktop and laptop versions of some meters, ie. desktop doesn't need wifi or battery info, laptop may not need GPU info
+- [ ] Notification system (using IFTTT and pushover?) Edit: Nevermind Pushover only allows apps to send notifications, receiving must be done in a special app and is as the name implies push based not pull based.
 - [ ] Get real fact from fact repository and mix them in with fact sphere facts
 - [ ] Add support for audio playback of fact sphere on left click
-- [ ] Add option for users to define (or automagically?) max Internet and HDD speeds if they dont want those meters to dynamically scale based on best known since refresh (Honestly not a big deal)
+- [ ] Add option for users to define (or automagically?) max Internet and HDD speeds if they don't want those meters to dynamically scale based on best known since refresh (Honestly not a big deal)
 - [ ] Add combined Top Processes with paging
 - [ ] Several bars variants need to be checked for code consistency, such as percentual being set on some of the ferpnom meters, process being spelled wrong, or other logical bugs, and missoptimizations within them
 - [ ] Final optimization pass
@@ -42,8 +42,8 @@ Possible Future Changes
 - [ ] Once released see if advancedCPU is really needed and remove it?
 - [ ] Decide if I want to make max for top process meters be less user configurable/Require more knowledge of your machine to change (How many cores)
 - [ ] Add missing part of DINAJ hovertext?
-- [ ] Padding has been removed do I want to add it back as a toggle? Would it apply to everything or just text?
+- [ ] Padding has been removed do I want to add it back as a toggle? Would it apply to everything or just text? (If I do apply AccurateText)
 - [ ] Make middle click always cause a refresh of data and double click cycle through variants?
 - [ ] Make meter backgrounds dynamic? (User can use transparency to achieve this effect now pretty well now so I doubt I will do this, especially since background panels are dynamic)
 - [ ] Make it so info fits height perfectly on a 1080p display/user defined value? (Would like to do this but it would be hard unless I do something like make the number of top processes dynamic to fill the gap at the bottom as I do not define height specifically on any meter)
-- [ ] Make it so meters can be auto scaled to fit width given by user. IE 1920,10 would make 10 meters perfectly spaced across a 1080p display (Really dont think I will do this unless I make meters intended to do on the top and bottom of screen that are not the notification system)
+- [ ] Make it so meters can be auto scaled to fit width given by user. ie. 1920,10 would make 10 meters perfectly spaced across a 1080p display (Really dont think I will do this unless I make meters intended to do on the top and bottom of screen that are not the notification system))
