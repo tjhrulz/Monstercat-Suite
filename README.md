@@ -29,7 +29,6 @@ TODO in order of priority/similar items (It was at one point in priority order b
 - [ ] Look into if average size variable increases or decrease performance based on size
 - [ ] Make middle click always cause a refresh of data and double click cycle through varients
 - [ ] Update installer
-- [ ] Look into hacking in Google play music (And youtube?) support to the music reader (I believe Google Talk/G+ used to expose this info)
 - [ ] Get real fact from fact repository and mix them in with fact sphere facts
 - [ ] Add support for audio playback of fact sphere on left click
 - [ ] Top Processes visually inconsistant, change?
@@ -40,7 +39,8 @@ TODO in order of priority/similar items (It was at one point in priority order b
 - [X] Horizontal bars primary color or white option in config, maybe add just more in depth config to every type of meter and have them default to primary and secondary colors?
 - [ ] Update metadata instead of using deprecated call and better attribute authors of various parts (Do before exposing to public)
 - [ ] Make meter backgrounds dynamic? (User can use transparency to achieve this effect now pretty well now so I doubt I will do this)
-
+- [ ] Look into hacking in Google play music (And youtube?) support to the music reader (I believe Google Talk/G+ used to expose this info)
+- [ ] Look into making networking top process plugin
 BUGs
 - [X] Ping meter on network combined seems to never be updating after first update (Update it only changes after really long time probably got multiplied by 10 somehow)
 - [ ] Pinging and GPU conditionals do not work after first time they are triggered
