@@ -80,6 +80,7 @@ function varationizer(baseColorRGB)
 	local backgroundBarColor = varationize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("BackgroundBarColorModifier", '1.0'))
 	
 	--print("TransTest: " .. backgroundBarColor .. "," .. SKIN:GetVariable("BackgroundBarColorTransparency", ',255'))
+	--print("Test: " .. wallpaperColor)
 	
 	if vizColor ~= -1 then SKIN:Bang('!SetVariable', "VizColor", vizColor) end
 	if baseColor ~= -1 then SKIN:Bang('!SetVariable', "Color", baseColor) end
