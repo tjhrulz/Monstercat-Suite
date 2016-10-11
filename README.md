@@ -20,6 +20,7 @@ TODO in order of priority/similar items (It was at one point in priority order b
 - [ ] Pull colors from album art since it will be a background option
 - [X] Redo color options for meters (Add 3 different color choices?)
 - [X] Genre colors need at least 3 different matching colors for each one, not sure how I want to choose those colors Update: Now going to be called color variation system, will come online when color choosing script is rewritten
+- [ ] Add genre color complimentary color that user can toggle on, (Is there a way to do this progomatically? Not sure how complimentary colors work) Ie the one I see all the time blue background with yellow everything else
 - [ ] Add missing part of DINAJ hovertext?
 - [ ] Right align right hand stats as an option? Or maybe by default if I can making the sizeing not changing with different numbers
 - [ ] Finish implementing padding or remove it

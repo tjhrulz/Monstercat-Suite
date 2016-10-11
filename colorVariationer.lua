@@ -68,6 +68,8 @@ function varationizer(baseColorRGB)
 	--local transBackgroundColor = varationize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("BackgroundNonColorModifier", '1.0'))
 	local textColor = varationize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("TextColorModifier", '1.0'))
 	local clockColor = varationize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("ClockColorModifier", '1.0'))
+	local minColor = varationize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("ClockMinModifier", '1.0'))
+	local hourColor = varationize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("ClockHourModifier", '1.0'))
 	
 	if baseColor ~= -1 then SKIN:Bang('!SetVariable', "Color", baseColor) end
 	if secondaryColor ~= -1 then SKIN:Bang('!SetVariable', "Color2", secondaryColor) end
@@ -75,5 +77,8 @@ function varationizer(baseColorRGB)
 	--if backgroundColor ~= -1 then SKIN:Bang('!SetVariable', "BackgroundColor", backgroundColor) end
 	--if transBackgroundColor ~= -1 then SKIN:Bang('!SetVariable', "BackgroundNonColor", transBackgroundColor .. SKIN:GetVariable(BackgroundNonColorTransparency, '255')) end
 	if textColor ~= -1 then SKIN:Bang('!SetVariable', "TextColor", textColor) end
-	if clockColor ~= -1 then SKIN:Bang('!SetVariable', "ClockRing", clockColor .. SKIN:GetVariable(ClockRingTransparency, '255')) end
+	if clockColor ~= -1 then SKIN:Bang('!SetVariable', "ClockRing", clockColor .. SKIN:GetVariable("ClockRingTransparency", '255')) end
+	if minColor ~= -1 then SKIN:Bang('!SetVariable', "ClockMin", minColor) end
+	if hourColor ~= -1 then SKIN:Bang('!SetVariable', "ClockHour", hourColor) end
+	
 end
