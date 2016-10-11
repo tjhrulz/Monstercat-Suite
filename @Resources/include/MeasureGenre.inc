@@ -52,7 +52,6 @@ IfMatchAction12=[!CommandMeasure CalcVarationScript "varationizer(#FutureBass#)"
 ; Here is an example for an custom genre. Colors need to be rgb(a) values.
 IfMatch13=Mashup|Mash\sUp
 IfMatchAction13=[!CommandMeasure CalcVarationScript "varationizer(#Mashup#)"]
-IfNotMatchAction=[!CommandMeasure CalcVarationScript "varationizer(#DefaultDynamicColor#)"]
 
 ; Styles
 [StyleStaticBar]
