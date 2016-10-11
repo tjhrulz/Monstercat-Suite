@@ -41,7 +41,7 @@ function varationize(colorR, colorG, colorB, modifyPercent)
 	if (modifyPercent == -1)
 		then
 			--print("Color Denied")
-			return("-1")
+			return(-1)
 		else
 			--print("Color:" .. colorR .. "," .. colorG .. "," .. colorB)
 			colorR = colorR * modifyPercent
@@ -59,7 +59,7 @@ end
 
 function varationizer(baseColorRGB)
 
-	print("baseColorRGB:" .. baseColorRGB)
+	--print("baseColorRGB:" .. baseColorRGB)
 	
 	local baseColorR = tonumber(string.sub(baseColorRGB, 0, 3))
 	local baseColorG = tonumber(string.sub(baseColorRGB, 5, 7))
@@ -79,7 +79,7 @@ function varationizer(baseColorRGB)
 	local secColor = varationize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("SecColorModifier", '1.0'))
 	local backgroundBarColor = varationize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("BackgroundBarColorModifier", '1.0'))
 	
-	print("TransTest: " .. backgroundBarColor .. "," .. SKIN:GetVariable("BackgroundBarColorTransparency", ',255'))
+	--print("TransTest: " .. backgroundBarColor .. "," .. SKIN:GetVariable("BackgroundBarColorTransparency", ',255'))
 	
 	if vizColor ~= -1 then SKIN:Bang('!SetVariable', "VizColor", vizColor) end
 	if baseColor ~= -1 then SKIN:Bang('!SetVariable', "Color", baseColor) end
