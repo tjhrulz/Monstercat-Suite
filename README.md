@@ -53,4 +53,5 @@ BUGs
 - [ ] Process is spelled Proces in several places throughout the codebase, not causing any bugs as it is spelled that way throughtout the file but it bothers me
 - [ ] Top processes bars are not scalled on AdvancedCPU meters (May not happen due to percentual possibly scalling based on max value causing for percentage changes)
 - [ ] Fix random logic bugs that likely exist
-- [ ] Investigate CPU being really high sometimes
+- [ ] Investigate CPU being really high sometimes Update: still exists post dynamicdynamic update, I think happens when you change songs very quickly, refresh all does nothing EQ accounts for around 7% - 10% (May have been coincidence as wasnt able to repeat). Album art is the rest at least I know this is the source may fix itself when those get the dynamic color system my way. Restarting rainmeter resolves, toggle to spotify and back may resolved
+- [ ] Meter play pause may need dynamic variables
