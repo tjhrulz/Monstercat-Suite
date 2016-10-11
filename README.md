@@ -16,10 +16,10 @@ TODO in order of priority/similar items (It was at one point in priority order b
 - [ ] Calendar for the month meter
 - [ ] Appointments meter
 - [ ] Add blur effect to album art background toggle, since as I learned album art is not high res
-- [ ] Add monstercat logo as a background toggle option
-- [ ] Update auto color gen and make it have multiple shades, possibly pull from album art since it will be a background option
-- [ ] Redo color options for meters (Add 3 different color choices?)
-- [ ] Genre colors need at least 3 different matching colors for each one, not sure how I want to choose those colors Update: Now going to be called color variation system, will come online when color choosing script is rewritten
+- [X] Add monstercat logo as a background toggle option
+- [ ] Pull colors from album art since it will be a background option
+- [X] Redo color options for meters (Add 3 different color choices?)
+- [X] Genre colors need at least 3 different matching colors for each one, not sure how I want to choose those colors Update: Now going to be called color variation system, will come online when color choosing script is rewritten
 - [ ] Add missing part of DINAJ hovertext?
 - [ ] Right align right hand stats as an option? Or maybe by default if I can making the sizeing not changing with different numbers
 - [ ] Finish implementing padding or remove it
@@ -36,8 +36,9 @@ TODO in order of priority/similar items (It was at one point in priority order b
 - [ ] Add combined Top Processes with paging
 - [ ] Several bars varients need to be checked for code consistency, such as percentual being set on some of the ferpnom meters, process being spelled wrong, or other logical bugs, and missoptimizations within them
 - [ ] Optimization pass
-- [ ] Horizontal bars primary color or white option in config, maybe add just more in depth config to every type of meter and have them default to primary and secondary colors?
-- [ ] Update metadata instead of using deprecated called and better attribute authors of various parts (Do before exposing to public)
+- [X] Horizontal bars primary color or white option in config, maybe add just more in depth config to every type of meter and have them default to primary and secondary colors?
+- [ ] Update metadata instead of using deprecated call and better attribute authors of various parts (Do before exposing to public)
+- [ ] Make meter backgrounds dynamic? (User can use transparency to achieve this effect now pretty well now so I doubt I will do this)
 
 BUGs
 - [X] Ping meter on network combined seems to never be updating after first update (Update it only changes after really long time probably got multiplied by 10 somehow)
