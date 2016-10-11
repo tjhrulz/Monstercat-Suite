@@ -1,5 +1,6 @@
 function colorSelector(genre)
-	if(genre ~= nil) and (string.len(genre) ~= 0) then
+	if (SKIN:GetVariable("EnableGenreColors") ~= "-1") and (genre ~= nil) and (string.len(genre) ~= 0) then
+		--print("test:" .. SKIN:GetVariable("EnableGenreColors"))
 		if string.find(genre, "Electro") then
 			--print("test:" .. SKIN:GetVariable("Electro"))
 			varationizer(SKIN:GetVariable("Electro"))
