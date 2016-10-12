@@ -3,10 +3,8 @@ A WIP rainmeter suite based on the Monstercat Visulizer skin by marcopixel.
 Includes Do I need a jacket support from FlyingHyrax, multiple system info and networking meters. More to come
 
 Tentative Roadmap (things may take longer or be scrapped based on difficulty)
-v0.6 - Current release
-v0.6.1 - Current version
-v0.6.2r aka the alt update - Changes to small meters to be visually consistent, top processes will have small versions, text and text with bars with have large versions and small versions with more info
-v0.6.3 - Small meter graphs visual upgrade
+v0.6.3r aka the alt update - Changes to small meters to be visually consistent, top processes will have small versions, text and text with bars with have large versions and small versions with more info
+v0.6.4 - Small meter graphs visual upgrade
 v0.6.5r - Meters will change to variant on middle click, combined top processes, CPU and GPU will have more info versions?
 v0.6.6r - Complimentary colors, may happen in a prior release or 0.7.0
 
