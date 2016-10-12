@@ -35,28 +35,27 @@ TODO
 - [ ] Several bars variants need to be checked for code consistency, such as percentual being set on some of the ferpnom meters, process being spelled wrong, or other logical bugs, and missoptimizations within them
 - [ ] Final optimization pass
 - [ ] Update installer meter to make initial setup nicer (Do before v1.0)
-- [ ] Update metadata instead of using deprecated call and better attribute authors of various parts (Do before exposing to public)
 - [ ] Look into hacking in Google play music (And youtube?) support to the music reader (I believe Google Talk/G+ used to expose this info)
 - [ ] Look into making networking top process plugin
 - [ ] Look into if average size variable increases or decrease performance based on size (kind of irrelevant now with CPU usage being better I just want to document it right)
 Bugs
-- [ ] Pinging and GPU conditionals do not work after first time they are triggered
+- [ ] Pinging conditionals do not work after first time they are triggered
 - [ ] Fix right aligned monster clocks requiring a non-dynamic x value to display (Needs a lua rewrite to work)
 - [ ] Check and possibly fix if DINTFMI only working on first load since afterwards it may always use old data
 - [ ] Look into if cpu being off by about a factor of about 2 (Seems to be half actual on advancedCPU and ferpnom seems to vary) on cpu reader and top processes is a bug in task maanger, rainmeter dlls, or if it is just my machine
 - [ ] Process is spelled Proces in several places throughout the codebase, not causing any bugs as it is spelled that way throughout the file but it bothers me
 - [ ] Top processes bars are not scaled on AdvancedCPU meters (May not happen due to percentual possibly scaling based on max value causing for percentage changes)
 - [ ] Fix random logic bugs that likely exist/missed dynamicdynamic group on items
-- [ ] Investigate CPU being really high sometimes Update: still exists post dynamicdynamic update, I think happens when you change songs very quickly, refresh all does nothing EQ accounts for around 7% - 10% (May have been coincidence as wasnt able to repeat). Album art is the rest at least I know this is the source may fix itself when those get the dynamic color system my way. Restarting rainmeter resolves, toggle to spotify and back may resolved
-- [ ] Meter play pause may need dynamic variables
+- [X] Investigate CPU being really high sometimes Update: still exists post dynamicdynamic update, I think happens when you change songs very quickly, refresh all does nothing EQ accounts for around 7% - 10% (May have been coincidence as wasnt able to repeat). Album art is the rest at least I know this is the source may fix itself when those get the dynamic color system my way. Restarting rainmeter resolves, toggle to spotify and back may resolved
+- [X] Meter play pause may need dynamic variables
 - [ ] GPU and CPU graphs do not seem to follow max value
 Possible Future Changes
-- [ ] Regroup small meters by the size variation?
+- [ ] Regroup small meters by the size variation? (Scrapped for other regrouping changes (Instead called alts))
 - [ ] Replace # with - in top process meter?
-- [ ] Once released see if advancedCPU is really needed and remove it?
+- [ ] Once released see if advancedCPU is really needed and remove it? (Not till after I get enough people using it to make a judgment on this)
 - [ ] Decide if I want to make max for top process meters be less user configurable/Require more knowledge of your machine to change (How many cores)
 - [ ] Add missing part of DINAJ hovertext?
-- [ ] Right align right hand stats as an option? Look into fixed number position (Either start or honestly it looks good enough if just the postfixes started at the same place it would be good enough)
+- [ ] Look into fixed number position (Either start or honestly it looks good enough if just the postfixes started at the same place it would be good enough)
 - [ ] Padding has been removed do I want to add it back as a toggle? Would it apply to everything or just text? (If I do apply AccurateText)
 - [ ] Make middle click always cause a refresh of data (likely will not do with this giving me issues before and CPU usage being so low now) and double click cycle through variants?
 - [ ] Make meter backgrounds dynamic? (User can use transparency to achieve this effect now pretty well now so I doubt I will do this, especially since background panels are dynamic)
