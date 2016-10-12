@@ -49,6 +49,7 @@ Bugs
 - [ ] Fix random logic bugs that likely exist/missed dynamicdynamic group on items
 - [ ] Investigate CPU being really high sometimes Update: still exists post dynamicdynamic update, I think happens when you change songs very quickly, refresh all does nothing EQ accounts for around 7% - 10% (May have been coincidence as wasnt able to repeat). Album art is the rest at least I know this is the source may fix itself when those get the dynamic color system my way. Restarting rainmeter resolves, toggle to spotify and back may resolved
 - [ ] Meter play pause may need dynamic variables
+- [ ] GPU and CPU graphs do not seem to follow max value
 Possible Future Changes
 - [ ] Regroup small meters by the size variation?
 - [ ] Replace # with - in top process meter?
