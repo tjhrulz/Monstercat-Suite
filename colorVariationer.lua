@@ -77,9 +77,9 @@ function varationizer(baseColorRGB)
 	local minColor = varationize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("MinColorModifier", '1.0'))
 	local hourColor = varationize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("HourColorModifier", '1.0'))
 	local secColor = varationize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("SecColorModifier", '1.0'))
-	local backgroundBarColor = varationize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("BackgroundBarColorModifier", '1.0'))
+	local BackgroundPanelColor = varationize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("BackgroundPanelColorModifier", '1.0'))
 	
-	--print("TransTest: " .. backgroundBarColor .. "," .. SKIN:GetVariable("BackgroundBarColorTransparency", ',255'))
+	--print("TransTest: " .. BackgroundPanelColor .. "," .. SKIN:GetVariable("BackgroundPanelColorTransparency", ',255'))
 	--print("Test: " .. wallpaperColor)
 	
 	if vizColor ~= -1 then SKIN:Bang('!SetVariable', "VizColor", vizColor) end
@@ -93,6 +93,6 @@ function varationizer(baseColorRGB)
 	if minColor ~= -1 then SKIN:Bang('!SetVariable', "MinColor", minColor) end
 	if hourColor ~= -1 then SKIN:Bang('!SetVariable', "HourColor", hourColor) end
 	if secColor ~= -1 then SKIN:Bang('!SetVariable', "SecColor", secColor) end
-	if backgroundBarColor ~= -1 then SKIN:Bang('!SetVariable', "BackgroundBarColor", backgroundBarColor .. SKIN:GetVariable("BackgroundBarColorTransparency", ',255')) end
+	if BackgroundPanelColor ~= -1 then SKIN:Bang('!SetVariable', "BackgroundPanelColor", BackgroundPanelColor .. SKIN:GetVariable("BackgroundPanelColorTransparency", ',255')) end
 		
 end
