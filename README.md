@@ -7,7 +7,7 @@ v0.6 - Current release
 v0.6.1 - Current version
 v0.6.2r aka the alt update - Changes to small meters to be visually consistent, top processes will have small versions, text and text with bars with have large versions and small versions with more info
 v0.6.3 - Small meter graphs visual upgrade
-v0.6.5r - Meters will change to variant on middle click, combined top processes
+v0.6.5r - Meters will change to variant on middle click, combined top processes, CPU and GPU will have more info versions?
 v0.6.6r - Complimentary colors, may happen in a prior release or 0.7.0
 
 v0.7.0r aka Laptop/Desktop support - GPU, Wireless, multiHDD toggles, blur wallpaper support (Maybe 0.7.5), album art color support
@@ -25,8 +25,7 @@ TODO
 - [ ] Calendar for the month meter
 - [ ] Appointments meter
 - [ ] Add blur effect to album art background toggle, since as I learned album art is not high res
-- [X] For side and top background panels the variables are not documented and height is not programmatic on top and bottom bar (will expose all to user
-- [X] Background panels are all variants at the moment
+- [ ] Add more info to gpu and cpu meters
 - [ ] Pull colors from album art since it will be a background option
 - [ ] Add genre color complimentary color that user can toggle on, (Is there a way to do this programmatically? Not sure how complimentary colors work) Ie the one I see all the time blue background with yellow everything else
 - [ ] Make desktop and laptop versions of some meters, ie. desktop doesn't need wifi or battery info, laptop may not need GPU info

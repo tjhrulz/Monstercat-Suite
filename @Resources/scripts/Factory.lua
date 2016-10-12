@@ -26,10 +26,17 @@ function Initialize()
 		
 		while true do
 			local opt = SELF:GetOption("Option" .. j)
+			--print(opt)
 			if opt == "" then
 				break
 			end
-			table.insert(t, opt .. "=" .. doSub(SELF:GetOption("Value" .. j), i))
+			if(opt=="X") and (i==0) then
+				--print(opt .. "=" .. doSub(("0"), i))
+				table.insert(t, opt .. "=" .. doSub(("0"), i))
+			else
+				--print(opt .. "=" .. doSub(SELF:GetOption("Value" .. j), i))
+				table.insert(t, opt .. "=" .. doSub(SELF:GetOption("Value" .. j), i))
+			end
 			j = j + 1
 		end
 	end
