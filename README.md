@@ -5,13 +5,13 @@ Includes Do I need a jacket support from FlyingHyrax, multiple system info and n
 Tentative Roadmap (things may take longer or be scrapped based on difficulty)
 v0.6 - Current release
 v0.6.1 - Current version
-v0.6.2r - Changes to small meters to be visually consistent, top processes will have small versions, text and text with bars with have large versions and small versions with more info
+v0.6.2r aka the alt update - Changes to small meters to be visually consistent, top processes will have small versions, text and text with bars with have large versions and small versions with more info
 v0.6.3 - Small meter graphs visual upgrade
 v0.6.5r - Meters will change to variant on middle click, combined top processes
-v0.6.6r - Complimentary colors, may happen in a prior release
+v0.6.6r - Complimentary colors, may happen in a prior release or 0.7.0
 
-v0.7.0r - GPU, Wireless, multiHDD toggles aka Laptop/Desktop support, blur wallpaper support (Maybe 0.7.5), album art color support
-v0.8.0r - Weather & News support
+v0.7.0r aka Laptop/Desktop support - GPU, Wireless, multiHDD toggles, blur wallpaper support (Maybe 0.7.5), album art color support
+v0.8.0r MVP - Weather & News support, likely first public release
 v0.9.0r - Appointments
 v0.9.5r - Calendar
 v1.0.0r - Installer updated, Notification system, full planned meter feature set
