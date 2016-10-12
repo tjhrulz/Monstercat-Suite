@@ -3,9 +3,7 @@ A WIP rainmeter suite based on the Monstercat Visulizer skin by marcopixel.
 Includes Do I need a jacket support from FlyingHyrax, multiple system info and networking meters. More to come
 
 Tentative Roadmap (things may take longer or be scrapped based on difficulty)
-v0.6.3r aka the alt update - Changes to small meters to be visually consistent, top processes will have small versions, text and text with bars with have large versions and small versions with more info
-v0.6.4 - Small meter graphs visual upgrade
-v0.6.5r - Meters will change to variant on middle click, combined top processes, CPU and GPU will have more info versions?
+v0.6.5r - Meters will change to variant on middle click(Maybe not as alts will not work well with this system), combined top processes, CPU and GPU will have more info versions?
 v0.6.6r - Complimentary colors, may happen in a prior release or 0.7.0
 
 v0.7.0r aka Laptop/Desktop support - GPU, Wireless, multiHDD toggles, blur wallpaper support (Maybe 0.7.5), album art color support
@@ -48,9 +46,10 @@ Bugs
 - [ ] Fix random logic bugs that likely exist/missed dynamicdynamic group on items
 - [X] Investigate CPU being really high sometimes Update: still exists post dynamicdynamic update, I think happens when you change songs very quickly, refresh all does nothing EQ accounts for around 7% - 10% (May have been coincidence as wasnt able to repeat). Album art is the rest at least I know this is the source may fix itself when those get the dynamic color system my way. Restarting rainmeter resolves, toggle to spotify and back may resolved
 - [X] Meter play pause may need dynamic variables
-- [ ] GPU and CPU graphs do not seem to follow max value
+- [ ] GPU and CPU graphs do not seem to follow max value Update: maybe not as now they are no longer doing it?
 Possible Future Changes
 - [ ] Regroup small meters by the size variation? (Scrapped for other regrouping changes (Instead called alts))
+- [ ] Dual graph CPU and GPU info (Similar to how combined processing graph works but instead one for just GPU and just CPU, would use things like temp and RAM usage on extra bars)
 - [ ] Replace # with - in top process meter?
 - [ ] Once released see if advancedCPU is really needed and remove it? (Not till after I get enough people using it to make a judgment on this)
 - [ ] Decide if I want to make max for top process meters be less user configurable/Require more knowledge of your machine to change (How many cores)
