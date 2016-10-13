@@ -10,7 +10,7 @@ function RGBtoHSL(colorR, colorG, colorB)
 	colorMin = math.min(colorR, colorG, colorB)
 	delta = colorMax - colorMin
 	
-	colorL = (colorMin + colorMax) / 2)
+	colorL = ((colorMin + colorMax) / 2)
 	if(delta == 0) then
 		colorH = 0
 		colorS = 0		
@@ -26,11 +26,12 @@ function RGBtoHSL(colorR, colorG, colorB)
 		local deltaB = (((colorMax - colorB) / 6) + (delta / 2)) / delta
 		
 		if (colorR == colorMax) then colorH = deltaB - deltaG
-		elseif (colorG == colorMax ) then colorH = (1 / 3) + deltaR - deltaB
-		elseif (colorB == colorMax ) then colorH = (2 / 3) + deltaG - deltaR
-
-		if (colorH < 0 ) then colorH += 1
-		if (colorH > 1 ) then colorH -= 1
+		elseif (colorG == colorMax) then colorH = (1 / 3) + deltaR - deltaB
+		elseif (colorB == colorMax) then colorH = (2 / 3) + deltaG - deltaR
+		end
+		
+		if (colorH < 0) then colorH = colorH + 1 end
+		if (colorH > 1) then colorH = colorH - 1 end
 	
 	end
 	
@@ -38,28 +39,36 @@ function RGBtoHSL(colorR, colorG, colorB)
 end
 
 function HSLtoRGB(colorH, colorS, colorL)
+
+	local colorR, colorG, colorB
+
 	if (colorS == 0 ) then
 	   colorR = colorL * 255
 	   colorG = colorL * 255
 	   colorB = colorL * 255
 	else
-	   if (colorL < 0.5) then local var_2 = colorL * (1 + colorS)
-	   else var_2 = (colorL + colorS) - (colorS * colorL) end
+		local var_2
+		if (colorL < 0.5) then var_2 = colorL * (1 + colorS)
+		else var_2 = (colorL + colorS) - (colorS * colorL) end
 
-	   local var_1 = 2 * colorL - var_2
-
-	   R = 255 * Hue_2_RGB( var_1, var_2, colorH + (1 / 3)) 
-	   G = 255 * Hue_2_RGB( var_1, var_2, colorH )
-	   B = 255 * Hue_2_RGB( var_1, var_2, colorH - (1 / 3))
+		local var_1 = 2 * colorL - var_2
+	
+		colorR = 255 * HuetoRGB( var_1, var_2, colorH + (1 / 3)) 
+		colorG = 255 * HuetoRGB( var_1, var_2, colorH )
+		colorB = 255 * HuetoRGB( var_1, var_2, colorH - (1 / 3))
 	end
+	
+	return colorR, colorG, colorB
+	
+	--print("ColorHSLtoRGB:" .. colorR .. "," .. colorG .. "," .. colorB)
 end
 
 function HuetoRGB( v1, v2, vH )
-   if (vH < 0) then vH += 1
-   if (vH > 1) then vH -= 1
-   if ((6 * vH) < 1) then return (v1 + (v2 - v1) * 6 * vH)
-   if ((2 * vH) < 1) then return (v2)
-   if ((3 * vH) < 2) then return (v1 + (v2 - v1) * ((2 / 3) - vH) * 6)
+   if (vH < 0) then vH = vH+1 end
+   if (vH > 1) then vH = vH-1 end
+   if ((6 * vH) < 1) then return (v1 + (v2 - v1) * 6 * vH) end
+   if ((2 * vH) < 1) then return (v2) end
+   if ((3 * vH) < 2) then return (v1 + (v2 - v1) * ((2 / 3) - vH) * 6) end
    return v1
 end
 
@@ -123,6 +132,8 @@ end
 
 function colorize(colorR, colorG, colorB, colorType)
 
+	--print("ColorRGB:" .. colorR .. "," .. colorG .. "," .. colorB)
+
 	local newColorRGB = -1
 	local colorSpin = 150 --The only non magic number, this is the color we want different on the color wheel in degrees, since we are doing just split complementary for now its 150
 	
@@ -130,7 +141,7 @@ function colorize(colorR, colorG, colorB, colorType)
 		--print("Color Denied")
 		return(newColorRGB)
 	elseif(colorType == 1) then
-		newColorRGB = colorR .. "," colorG .. "," colorB
+		newColorRGB = colorR .. "," .. colorG .. "," .. colorB
 	else
 
 		local colorH, colorS, colorL = RGBtoHSL(colorR, colorG, colorB)
@@ -140,7 +151,7 @@ function colorize(colorR, colorG, colorB, colorType)
 		elseif(colorType == 3) then
 			colorH = colorH - colorSpin
 		end
-
+		--print("ColorHSL:" .. colorH .. "," .. colorS .. "," .. colorL)
 		--fml I have to convert it back, I cant imagine this is going to be nice on the CPU. Sorry CPU, thankfully you only have to do this a few times every couple minutes
 		
 		colorR, colorG, colorB = HSLtoRGB(colorH, colorS, colorL)
@@ -148,6 +159,7 @@ function colorize(colorR, colorG, colorB, colorType)
 		newColorRGB = colorR .. "," .. colorG .. "," .. colorB
 	end
 
+	print("newColorRGB:" .. newColorRGB)
 	return newColorRGB
 end
 
@@ -209,5 +221,4 @@ function variationizer(baseColorRGB)
 	if hourColor ~= -1 then SKIN:Bang('!SetVariable', "HourColor", hourColor) end
 	if secColor ~= -1 then SKIN:Bang('!SetVariable', "SecColor", secColor) end
 	if BackgroundPanelColor ~= -1 then SKIN:Bang('!SetVariable', "BackgroundPanelColor", BackgroundPanelColor .. SKIN:GetVariable("BackgroundPanelColorTransparency", ',255')) end
-		
 end
