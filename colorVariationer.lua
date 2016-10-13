@@ -57,6 +57,11 @@ function varationize(colorR, colorG, colorB, modifyPercent)
 	end
 end
 
+funciton colorize(colorR, colorG, colorB, colorType)
+
+end
+
+
 function varationizer(baseColorRGB)
 
 	--print("baseColorRGB:" .. baseColorRGB)
@@ -64,20 +69,41 @@ function varationizer(baseColorRGB)
 	local baseColorR = tonumber(string.sub(baseColorRGB, 0, 3))
 	local baseColorG = tonumber(string.sub(baseColorRGB, 5, 7))
 	local baseColorB = tonumber(string.sub(baseColorRGB, 9, 11))
-
 	
-	local vizColor = varationize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("VizColorModifier", '1.0'))
-	local baseColor = varationize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("ColorModifier", '1.0'))
-	local secondaryColor = varationize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("Color2Modifier", '1.0'))
-	local wallpaperColor = varationize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("WallpaperColorModifier", '1.0'))
-	--local backgroundColor = varationize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("BackgroundColorModifier", '1.0'))
-	--local transBackgroundColor = varationize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("BackgroundNonColorModifier", '1.0'))
-	local textColor = varationize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("TextColorModifier", '1.0'))
-	local clockColor = varationize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("ClockRingColorModifier", '1.0'))
-	local minColor = varationize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("MinColorModifier", '1.0'))
-	local hourColor = varationize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("HourColorModifier", '1.0'))
-	local secColor = varationize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("SecColorModifier", '1.0'))
-	local BackgroundPanelColor = varationize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("BackgroundPanelColorModifier", '1.0'))
+	local vizColor,baseColor,secondaryColor,wallpaperColor,backgroundColor,transBackgroundColor,textColor,BackgroundPanelColor
+	local clockColor,minColor,hourColor,secColor
+
+	if(SKIN:GetVariable("EnableSplitComplementaryColors", '0') == '0') then
+	
+		vizColor = varationize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("VizColorModifier", '1.0'))
+		baseColor = varationize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("ColorModifier", '1.0'))
+		secondaryColor = varationize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("Color2Modifier", '1.0'))
+		wallpaperColor = varationize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("WallpaperColorModifier", '1.0'))
+		--backgroundColor = varationize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("BackgroundColorModifier", '1.0'))
+		--transBackgroundColor = varationize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("BackgroundNonColorModifier", '1.0'))
+		textColor = varationize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("TextColorModifier", '1.0'))
+		clockColor = varationize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("ClockRingColorModifier", '1.0'))
+		minColor = varationize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("MinColorModifier", '1.0'))
+		hourColor = varationize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("HourColorModifier", '1.0'))
+		secColor = varationize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("SecColorModifier", '1.0'))
+		BackgroundPanelColor = varationize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("BackgroundPanelColorModifier", '1.0'))
+		
+	else
+	
+		vizColor = colorize(baseColorR, baseColorG, baseColorB)
+		baseColor = colorize(baseColorR, baseColorG, baseColorB))
+		secondaryColor = colorize(baseColorR, baseColorG, baseColorB)
+		wallpaperColor = colorize(baseColorR, baseColorG, baseColorB)
+		--backgroundColor = colorize(baseColorR, baseColorG, baseColorB)
+		--transBackgroundColor = colorize(baseColorR, baseColorG, baseColorB)
+		textColor = colorize(baseColorR, baseColorG, baseColorB)
+		clockColor = colorize(baseColorR, baseColorG, baseColorB)
+		minColor = colorize(baseColorR, baseColorG, baseColorB)
+		hourColor = colorize(baseColorR, baseColorG, baseColorB)
+		secColor = colorize(baseColorR, baseColorG, baseColorB)
+		BackgroundPanelColor = colorize(baseColorR, baseColorG, baseColorB)
+	
+	end
 	
 	--print("TransTest: " .. BackgroundPanelColor .. "," .. SKIN:GetVariable("BackgroundPanelColorTransparency", ',255'))
 	--print("Test: " .. wallpaperColor)
