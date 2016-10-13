@@ -132,10 +132,10 @@ end
 
 function colorize(colorR, colorG, colorB, colorType)
 
-	print("ColorRGB:" .. colorR .. "," .. colorG .. "," .. colorB)
+	--print("ColorRGB:" .. colorR .. "," .. colorG .. "," .. colorB)
 
 	local newColorRGB = -1
-	local colorSpin = 0.0625 --The only non magic number, this is the color we want different on the color wheel in degrees, since we are doing just split complementary for now its 150
+	local colorSpin = 0.04 --The only non magic number, this is the color we want different on the color wheel in degrees, since we are doing just split complementary for now its 150
 	--print("Colortype: " .. colorType)
 	if (tonumber(colorType) == -1) then
 		--print("Color Denied")
@@ -148,16 +148,28 @@ function colorize(colorR, colorG, colorB, colorType)
 			
 		if(tonumber(colorType) == 2) then
 			colorH = colorH + colorSpin
+			colorL = colorL +.2
 		elseif(tonumber(colorType) == 3) then
 			colorH = colorH - colorSpin
+			colorL = colorL +.2
 		end
 		if(colorH<0) then
+			--print("colortosmall")
 			colorH = colorH + 1
 		end
 		if(colorH>1) then
+			--print("colortobig")
 			colorH = colorH - 1
 		end
-		print("ColorHSL:" .. colorH .. "," .. colorS .. "," .. colorL)
+		if(colorL<0) then
+			--print("colortosmall")
+			colorL = 0
+		end
+		if(colorL>1) then
+			--print("colortobig")
+			colorL = 1
+		end
+		--print("ColorHSL:" .. colorH .. "," .. colorS .. "," .. colorL)
 		--fml I have to convert it back, I cant imagine this is going to be nice on the CPU. Sorry CPU, thankfully you only have to do this a few times every couple minutes
 		
 		colorR, colorG, colorB = HSLtoRGB(colorH, colorS, colorL)
@@ -165,7 +177,7 @@ function colorize(colorR, colorG, colorB, colorType)
 		newColorRGB = colorR .. "," .. colorG .. "," .. colorB
 	end
 
-	print("newColorRGB:" .. newColorRGB)
+	--print("newColorRGB:" .. newColorRGB)
 	return newColorRGB
 end
 
