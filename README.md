@@ -3,9 +3,9 @@ A WIP rainmeter suite based on the Monstercat Visulizer skin by marcopixel.
 Includes Do I need a jacket support from FlyingHyrax, multiple system info and networking meters. More to come
 
 Tentative Roadmap (things may take longer or be scrapped based on difficulty)
-v0.6.6 - Complimentary colors, may happen in a prior release or 0.7.0
+v0.6.8r - Complimentary colors, album art color support (Will offer both a single color and a multi color support), blur wallpaper support (Maybe 0.7)
 
-v0.7.0r aka Laptop/Desktop support - GPU, Wireless, multiHDD toggles, blur wallpaper support (Maybe 0.7.5), album art color support, add plguins to this release
+v0.7.0r aka Laptop/Desktop support - GPU, Wireless, multiHDD toggles, add plguins to this release
 v0.7.5r - Multigraph CPU and GPU graphs (Would match the networking and processing combined graphs) 
 v0.8.0r MVP - Weather & News support, likely first public release
 v0.9.0r - Appointments
