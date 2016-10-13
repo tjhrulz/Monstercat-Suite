@@ -38,7 +38,29 @@ function RGBtoHSL(colorR, colorG, colorB)
 end
 
 function HSLtoRGB(colorH, colorS, colorL)
+	if (colorS == 0 ) then
+	   colorR = colorL * 255
+	   colorG = colorL * 255
+	   colorB = colorL * 255
+	else
+	   if (colorL < 0.5) then local var_2 = colorL * (1 + colorS)
+	   else var_2 = (colorL + colorS) - (colorS * colorL) end
 
+	   local var_1 = 2 * colorL - var_2
+
+	   R = 255 * Hue_2_RGB( var_1, var_2, colorH + (1 / 3)) 
+	   G = 255 * Hue_2_RGB( var_1, var_2, colorH )
+	   B = 255 * Hue_2_RGB( var_1, var_2, colorH - (1 / 3))
+	end
+end
+
+function HuetoRGB( v1, v2, vH )
+   if (vH < 0) then vH += 1
+   if (vH > 1) then vH -= 1
+   if ((6 * vH) < 1) then return (v1 + (v2 - v1) * 6 * vH)
+   if ((2 * vH) < 1) then return (v2)
+   if ((3 * vH) < 2) then return (v1 + (v2 - v1) * ((2 / 3) - vH) * 6)
+   return v1
 end
 
 function colorSelector(genre)
