@@ -41,6 +41,7 @@ TODO
 - [ ] Look into making networking top process plugin
 - [ ] Look into if average size variable increases or decrease performance based on size (kind of irrelevant now with CPU usage being better I just want to document it right)
 Bugs
+- [X] Selector circles for multi info meters do not update on song change only on change of button, I think it may have something to do with the selectors being set the color instead of the variable.
 - [ ] Pinging conditionals do not work after first time they are triggered
 - [ ] Fix right aligned monster clocks requiring a non-dynamic x value to display (Needs a lua rewrite to work)
 - [ ] Check and possibly fix if DINTFMI only working on first load since afterwards it may always use old data
