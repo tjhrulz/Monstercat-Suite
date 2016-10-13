@@ -1,3 +1,46 @@
+function RGBtoHSL(colorR, colorG, colorB)
+	--I hate magic numbers, this makes me want to pull my hair out, but every number in here is litterally magic to me and will never change
+	local colorH, colorS, colorL
+
+	colorR = colorR / 255
+	colorG = colorG / 255
+	colorB = colorB / 255
+	
+	colorMax = math.max(colorR, colorG, colorB)
+	colorMin = math.min(colorR, colorG, colorB)
+	delta = colorMax - colorMin
+	
+	colorL = (colorMin + colorMax) / 2)
+	if(delta == 0) then
+		colorH = 0
+		colorS = 0		
+	else
+		if (colorL < 0.5) then
+			colorS = delta / (colorMax + colorMin)
+		else
+			colorS = delta / (2 - colorMax - colorMin)
+		end
+		
+		local deltaR = (((colorMax - colorR) / 6) + (delta / 2)) / delta
+		local deltaG = (((colorMax - colorG) / 6) + (delta / 2)) / delta
+		local deltaB = (((colorMax - colorB) / 6) + (delta / 2)) / delta
+		
+		if (colorR == colorMax) then colorH = deltaB - deltaG
+		elseif (colorG == colorMax ) then colorH = (1 / 3) + deltaR - deltaB
+		elseif (colorB == colorMax ) then colorH = (2 / 3) + deltaG - deltaR
+
+		if (colorH < 0 ) then colorH += 1
+		if (colorH > 1 ) then colorH -= 1
+	
+	end
+	
+	return colorH, colorS, colorL
+end
+
+function HSLtoRGB(colorH, colorS, colorL)
+
+end
+
 function colorSelector(genre)
 	if (SKIN:GetVariable("EnableGenreColors") ~= "-1") and (genre ~= nil) and (string.len(genre) ~= 0) then
 		--print("test:" .. SKIN:GetVariable("EnableGenreColors"))
@@ -66,56 +109,9 @@ function colorize(colorR, colorG, colorB, colorType)
 		return(newColorRGB)
 	elseif(colorType == 1) then
 		newColorRGB = colorR .. "," colorG .. "," colorB
-	else	
-	
-		--convert from RGB to HSL
-		local colorH, colorS, colorL
-	
-		colorR = colorR / 255
-		colorG = colorG / 255
-		colorB = colorB / 255
-		
-		colorMax = math.max(colorR, colorG, colorB)
-		colorMin = math.min(colorR, colorG, colorB)
-		
-		colorL = math.floor(0.5+100*((colorMin + colorMax) / 2))
-	
-		--I hate magic numbers, this makes me want to pull my hair out, but every number in here is litterally magic to me and will never change
-		if(colorL > 50) then
-		
-			colorS = math.floor(0.5+100*(colorMax-colorMin)/(2.0-colorMax-colorMin))
-			
-		elseif(colorL < 50) then
-		
-			colorS = math.floor(0.5+100*(colorMax-colorMin)/(colorMax+colorMin))
-			
-		else
-		
-			colorS = 0
-			
-		end
-		
-		if ((colorR > colorG) and (colorR > colorB)) then
-		
-			colorH = 60 * ((colorG-colorB)/(colorMax-colorMin))
-			
-		elseif ((colorG > colorR) and (colorR > colorB)) then
-		
-			colorH = 60 * (2.0 + (colorB-colorR)/(colorMax-colorMin))
-			
-		elseif ((colorB > colorG) and (colorB > colorR)) then
-		
-			colorH = 60 * (4.0 + (colorR-colorG)/(colorMax-colorMin))
-			
-		elseif colorS = 0 then
-		
-			colorH = 0
-			
-		else
-		
-			print("Unable to convert RGB to HSL please inform tjhrulz with this color code: " .. colorR .. colorG .. colorB)
-			
-		end
+	else
+
+		local colorH, colorS, colorL = RGBtoHSL(colorR, colorG, colorB)
 			
 		if(colorType == 2) then
 			colorH = colorH + colorSpin
@@ -125,6 +121,9 @@ function colorize(colorR, colorG, colorB, colorType)
 
 		--fml I have to convert it back, I cant imagine this is going to be nice on the CPU. Sorry CPU, thankfully you only have to do this a few times every couple minutes
 		
+		colorR, colorG, colorB = HSLtoRGB(colorH, colorS, colorL)
+		
+		newColorRGB = colorR .. "," .. colorG .. "," .. colorB
 	end
 
 	return newColorRGB
