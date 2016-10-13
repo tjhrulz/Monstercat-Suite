@@ -3,7 +3,7 @@ A WIP rainmeter suite based on the Monstercat Visulizer skin by marcopixel.
 Includes Do I need a jacket support from FlyingHyrax, multiple system info and networking meters. More to come
 
 Tentative Roadmap (things may take longer or be scrapped based on difficulty)
-v0.6.5r - Meters will change to variant on middle click(Maybe not as alts will not work well with this system), combined top processes, CPU and GPU will have more info versions?
+v0.6.5r - Combined top processes, CPU and GPU will have more info versions?
 v0.6.6r - Complimentary colors, may happen in a prior release or 0.7.0
 
 v0.7.0r aka Laptop/Desktop support - GPU, Wireless, multiHDD toggles, blur wallpaper support (Maybe 0.7.5), album art color support
@@ -14,6 +14,8 @@ v1.0.0r - Installer updated, Notification system, full planned meter feature set
 v1.1r - Google play music plugin
 v1.2r - Networking top processes plugin
 
+May happen eventually
+Meters will change to variant on middle click, I only wanna do this if it can include the alt system
 
 TODO
 - [ ] Add news RSS
