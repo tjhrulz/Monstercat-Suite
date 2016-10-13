@@ -3,7 +3,7 @@ A WIP rainmeter suite based on the Monstercat Visulizer skin by marcopixel.
 Includes Do I need a jacket support from FlyingHyrax, multiple system info and networking meters. More to come
 
 Tentative Roadmap (things may take longer or be scrapped based on difficulty)
-v0.6.10r - Blur wallpaper support (Maybe 0.7), album art color support (Will offer both a single color and a multi color support (See palette system for android for what I want to do)
+v0.6.10r - Complimentary colors, album art color support (Will offer both a single color and a multi color support), blur wallpaper support (Maybe 0.7)
 
 v0.7.0r aka Laptop/Desktop support - GPU, Wireless, multiHDD toggles, add plguins to this release and may start showing off suite, Multigraph CPU and GPU graphs (Would match the networking and processing combined graphs) 
 v0.8.0r MVP - Weather & News support, likely first public release
@@ -17,11 +17,9 @@ May happen eventually
 Meters will change to variant on middle click, I only wanna do this if it can include the alt system
 Add more versions of CPU and GPU info (I dont think I will do this as the info is not too needed (And I dont need to see my FPS hit 59 and want to replace my computer) and all new and old info would need to be labeled to differentiate it 
 Lua based 12 hour clock (With variant where 12hr is replaced by Monstercat logo)
-A version of the RSS display for displaying mobile versions of websites? I found a way to display in an iframe in rainmeter, doubt I will do this though as it feel too much.
-Complimentary colors update, I wrote the whole system for this and my calculations are sometimes off by a little bit which is fine but it really does not look good.
+A version of the RSS display for displaying normal websites? I found a way to display in an iframe in rainmeter, doubt I will do this though as it feel too much.
 
 TODO
-- [ ] Color pallete system, I was originally going to make something similar to colorThief but I dislike the possiblity for very close colors, the pallete system in android prevents that and can pick out highlists  from and image which I want (ie if the album art as grass sky and an apple I want the apple color to be the dominant color)
 - [ ] Add news RSS
 - [ ] Weather stuffs (Use http://wxdata.weather.com/wxdata/weather/local/#LocationCode#?cc=*&unit=#TempUnit#&dayf=6 and parse, thanks to jsmorley for his post on that had no idea weather.com had an rss version (It even is wind direction!))
 - [ ] Calendar for the month meter
