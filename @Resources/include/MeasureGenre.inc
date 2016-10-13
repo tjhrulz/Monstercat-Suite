@@ -16,11 +16,3 @@ PlayerType=Genre
 RegExpSubstitute=1
 Substitute="[^a-zA-Z0-9]":""
 OnChangeAction=[!CommandMeasure CalcVarationScript "colorSelector('[MeasureGenre]')"][!SetOptionGroup DynamicDynamic DynamicVariables 0]
-
-; Styles
-[StyleStaticBar]
-BarColor=#VizColor#
-
-[StyleGenreBar]
-BarColor=#VizColor#
-DynamicVariables=1
