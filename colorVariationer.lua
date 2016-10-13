@@ -73,38 +73,45 @@ function HuetoRGB( v1, v2, vH )
 end
 
 function colorSelector(genre)
-	if (SKIN:GetVariable("EnableGenreColors") ~= "-1") and (genre ~= nil) and (string.len(genre) ~= 0) then
-		--print("test:" .. SKIN:GetVariable("EnableGenreColors"))
-		if string.find(genre, "Electro") then
+	if (tonumber(SKIN:GetVariable("EnableDynamicColors")) == 1) then
+		if (tonumber(SKIN:GetVariable("EnableGenreColors")) ~= -1) then
+		
+			if (genre ~= nil) or (string.len(genre)) ~= 0 then genre="" end
+		
+			--print("test:" .. SKIN:GetVariable("EnableGenreColors"))
+			if string.find(genre, "Electro") then
+				--print("test:" .. SKIN:GetVariable("Electro"))
+				variationizer(SKIN:GetVariable("Electro"))
+			elseif string.find(genre, "EDM") or string.find(genre, "Electronic") or string.find(genre, "Breaks") or string.find(genre, "Chillout") or string.find(genre, "Bounce") or string.find(genre, "Chill") then
+				variationizer(SKIN:GetVariable("EDM"))
+			elseif string.find(genre, "House") or string.find(genre, "Electro House") or string.find(genre, "Progressive House") then
+				variationizer(SKIN:GetVariable("House"))
+			elseif string.find(genre, "Drum & Bass") or string.find(genre, "DnB") then
+				variationizer(SKIN:GetVariable("DnB"))
+			elseif string.find(genre, "Dubstep") then
+				variationizer(SKIN:GetVariable("Dubstep"))
+			elseif string.find(genre, "Drumstep") then
+				variationizer(SKIN:GetVariable("Drumstep"))
+			elseif string.find(genre, "Glitch Hop") or string.find(genre, "GlitchHop") then
+				variationizer(SKIN:GetVariable("GlitchHop"))
+			elseif string.find(genre, "Trap") then
+				variationizer(SKIN:GetVariable("Trap"))
+			elseif string.find(genre, "Trance") or string.find(genre, "Deep House") then
+				variationizer(SKIN:GetVariable("Trance"))
+			elseif string.find(genre, "Hard Dance") then
+			variationizer(SKIN:GetVariable("HardDance"))
+			elseif string.find(genre, "Nu Disco") or string.find(genre, "NuDisco") or string.find(genre, "Disco") or string.find(genre, "Indie Dance") or string.find(genre, "Electro Swing") then
+				variationizer(SKIN:GetVariable("NuDisco"))
+			elseif string.find(genre, "Future") or string.find(genre, "Future Bass") then
 			--print("test:" .. SKIN:GetVariable("Electro"))
-			variationizer(SKIN:GetVariable("Electro"))
-		elseif string.find(genre, "EDM") or string.find(genre, "Electronic") or string.find(genre, "Breaks") or string.find(genre, "Chillout") or string.find(genre, "Bounce") or string.find(genre, "Chill") then
-			variationizer(SKIN:GetVariable("EDM"))
-		elseif string.find(genre, "House") or string.find(genre, "Electro House") or string.find(genre, "Progressive House") then
-			variationizer(SKIN:GetVariable("House"))
-		elseif string.find(genre, "Drum & Bass") or string.find(genre, "DnB") then
-			variationizer(SKIN:GetVariable("DnB"))
-		elseif string.find(genre, "Dubstep") then
-			variationizer(SKIN:GetVariable("Dubstep"))
-		elseif string.find(genre, "Drumstep") then
-			variationizer(SKIN:GetVariable("Drumstep"))
-		elseif string.find(genre, "Glitch Hop") or string.find(genre, "GlitchHop") then
-			variationizer(SKIN:GetVariable("GlitchHop"))
-		elseif string.find(genre, "Trap") then
-			variationizer(SKIN:GetVariable("Trap"))
-		elseif string.find(genre, "Trance") or string.find(genre, "Deep House") then
-			variationizer(SKIN:GetVariable("Trance"))
-		elseif string.find(genre, "Hard Dance") then
-		variationizer(SKIN:GetVariable("HardDance"))
-		elseif string.find(genre, "Nu Disco") or string.find(genre, "NuDisco") or string.find(genre, "Disco") or string.find(genre, "Indie Dance") or string.find(genre, "Electro Swing") then
-			variationizer(SKIN:GetVariable("NuDisco"))
-		elseif string.find(genre, "Future") or string.find(genre, "Future Bass") then
-		--print("test:" .. SKIN:GetVariable("Electro"))
-			variationizer(SKIN:GetVariable("FutureBass"))
-		elseif string.find(genre, "Mashup") or string.find(genre, "Mash Up") then
-			variationizer(SKIN:GetVariable("Mashup"))
+				variationizer(SKIN:GetVariable("FutureBass"))
+			elseif string.find(genre, "Mashup") or string.find(genre, "Mash Up") then
+				variationizer(SKIN:GetVariable("Mashup"))
+			else
+				variationizer(SKIN:GetVariable("DefaultDynamicColor"))
+			end
 		else
-			variationizer(SKIN:GetVariable("DefaultDynamicColor"))
+				variationizer(SKIN:GetVariable("DefaultDynamicColor"))
 		end
 	end
 end
@@ -195,6 +202,7 @@ function variationizer(baseColorRGB)
 	if(SKIN:GetVariable("EnableSplitComplementaryColors", '0') == '0') then
 	
 		vizColor = variationize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("VizColorModifier", '1.0'))
+		print(vizColor)
 		baseColor = variationize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("ColorModifier", '1.0'))
 		secondaryColor = variationize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("Color2Modifier", '1.0'))
 		wallpaperColor = variationize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("WallpaperColorModifier", '1.0'))
