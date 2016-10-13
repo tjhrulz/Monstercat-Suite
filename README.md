@@ -3,10 +3,11 @@ A WIP rainmeter suite based on the Monstercat Visulizer skin by marcopixel.
 Includes Do I need a jacket support from FlyingHyrax, multiple system info and networking meters. More to come
 
 Tentative Roadmap (things may take longer or be scrapped based on difficulty)
-v0.6.5r - Combined top processes, CPU and GPU will have more info versions?
-v0.6.6r - Complimentary colors, may happen in a prior release or 0.7.0
+v0.6.5 - Combined top processes, CPU and GPU will have more info versions?
+v0.6.6 - Complimentary colors, may happen in a prior release or 0.7.0
 
-v0.7.0r aka Laptop/Desktop support - GPU, Wireless, multiHDD toggles, blur wallpaper support (Maybe 0.7.5), album art color support
+v0.7.0r aka Laptop/Desktop support - GPU, Wireless, multiHDD toggles, blur wallpaper support (Maybe 0.7.5), album art color support, add plguins to this release
+v0.7.5r - Multigraph CPU and GPU graphs (Would match the networking and processing combined graphs) 
 v0.8.0r MVP - Weather & News support, likely first public release
 v0.9.0r - Appointments
 v0.9.5r - Calendar
@@ -16,6 +17,8 @@ v1.2r - Networking top processes plugin
 
 May happen eventually
 Meters will change to variant on middle click, I only wanna do this if it can include the alt system
+Add disk usage top processes (Wont do unless I can combine all disks to one meter dynamically, ie if you have 3 disks it will count all 3 if you have 1 it will count just that 1)
+Add more versions of CPU and GPU info (I dont think I will do this as the info is not too needed (And I dont need to see my FPS hit 59 and want to replace my computer) and all new and old info would need to be labeled to differentiate it 
 
 TODO
 - [ ] Add news RSS
