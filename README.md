@@ -3,7 +3,6 @@ A WIP rainmeter suite based on the Monstercat Visulizer skin by marcopixel.
 Includes Do I need a jacket support from FlyingHyrax, multiple system info and networking meters. More to come
 
 Tentative Roadmap (things may take longer or be scrapped based on difficulty)
-v0.6.5 - Combined top processes, CPU and GPU will have more info versions?
 v0.6.6 - Complimentary colors, may happen in a prior release or 0.7.0
 
 v0.7.0r aka Laptop/Desktop support - GPU, Wireless, multiHDD toggles, blur wallpaper support (Maybe 0.7.5), album art color support, add plguins to this release
@@ -17,8 +16,8 @@ v1.2r - Networking top processes plugin
 
 May happen eventually
 Meters will change to variant on middle click, I only wanna do this if it can include the alt system
-Add disk usage top processes (Wont do unless I can combine all disks to one meter dynamically, ie if you have 3 disks it will count all 3 if you have 1 it will count just that 1)
 Add more versions of CPU and GPU info (I dont think I will do this as the info is not too needed (And I dont need to see my FPS hit 59 and want to replace my computer) and all new and old info would need to be labeled to differentiate it 
+Lua based 12 hour clock (With variant where 12hr is replaced by Monstercat logo)
 
 TODO
 - [ ] Add news RSS
@@ -49,8 +48,7 @@ Bugs
 - [ ] Process is spelled Proces in several places throughout the codebase, not causing any bugs as it is spelled that way throughout the file but it bothers me
 - [ ] Top processes bars are not scaled on AdvancedCPU meters (May not happen due to percentual possibly scaling based on max value causing for percentage changes)
 - [ ] Fix random logic bugs that likely exist/missed dynamicdynamic group on items
-- [X] Investigate CPU being really high sometimes Update: still exists post dynamicdynamic update, I think happens when you change songs very quickly, refresh all does nothing EQ accounts for around 7% - 10% (May have been coincidence as wasnt able to repeat). Album art is the rest at least I know this is the source may fix itself when those get the dynamic color system my way. Restarting rainmeter resolves, toggle to spotify and back may resolved
-- [X] Meter play pause may need dynamic variables
+- [ ] Top processes that contain IO data do not have a max value and thus smaller values can have larger bars (This is a bigger deal than the normal HDDs not having one which is fine IMO)
 - [ ] GPU and CPU graphs do not seem to follow max value Update: maybe not as now they are no longer doing it?
 Possible Future Changes
 - [ ] Regroup small meters by the size variation? (Scrapped for other regrouping changes (Instead called alts))
