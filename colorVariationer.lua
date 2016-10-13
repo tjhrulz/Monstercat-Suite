@@ -3,76 +3,134 @@ function colorSelector(genre)
 		--print("test:" .. SKIN:GetVariable("EnableGenreColors"))
 		if string.find(genre, "Electro") then
 			--print("test:" .. SKIN:GetVariable("Electro"))
-			varationizer(SKIN:GetVariable("Electro"))
+			variationizer(SKIN:GetVariable("Electro"))
 		elseif string.find(genre, "EDM") or string.find(genre, "Electronic") or string.find(genre, "Breaks") or string.find(genre, "Chillout") or string.find(genre, "Bounce") or string.find(genre, "Chill") then
-			varationizer(SKIN:GetVariable("EDM"))
+			variationizer(SKIN:GetVariable("EDM"))
 		elseif string.find(genre, "House") or string.find(genre, "Electro House") or string.find(genre, "Progressive House") then
-			varationizer(SKIN:GetVariable("House"))
+			variationizer(SKIN:GetVariable("House"))
 		elseif string.find(genre, "Drum & Bass") or string.find(genre, "DnB") then
-			varationizer(SKIN:GetVariable("DnB"))
+			variationizer(SKIN:GetVariable("DnB"))
 		elseif string.find(genre, "Dubstep") then
-			varationizer(SKIN:GetVariable("Dubstep"))
+			variationizer(SKIN:GetVariable("Dubstep"))
 		elseif string.find(genre, "Drumstep") then
-			varationizer(SKIN:GetVariable("Drumstep"))
+			variationizer(SKIN:GetVariable("Drumstep"))
 		elseif string.find(genre, "Glitch Hop") or string.find(genre, "GlitchHop") then
-			varationizer(SKIN:GetVariable("GlitchHop"))
+			variationizer(SKIN:GetVariable("GlitchHop"))
 		elseif string.find(genre, "Trap") then
-			varationizer(SKIN:GetVariable("Trap"))
+			variationizer(SKIN:GetVariable("Trap"))
 		elseif string.find(genre, "Trance") or string.find(genre, "Deep House") then
-			varationizer(SKIN:GetVariable("Trance"))
+			variationizer(SKIN:GetVariable("Trance"))
 		elseif string.find(genre, "Hard Dance") then
-		varationizer(SKIN:GetVariable("HardDance"))
+		variationizer(SKIN:GetVariable("HardDance"))
 		elseif string.find(genre, "Nu Disco") or string.find(genre, "NuDisco") or string.find(genre, "Disco") or string.find(genre, "Indie Dance") or string.find(genre, "Electro Swing") then
-			varationizer(SKIN:GetVariable("NuDisco"))
+			variationizer(SKIN:GetVariable("NuDisco"))
 		elseif string.find(genre, "Future") or string.find(genre, "Future Bass") then
 		--print("test:" .. SKIN:GetVariable("Electro"))
-			varationizer(SKIN:GetVariable("FutureBass"))
+			variationizer(SKIN:GetVariable("FutureBass"))
 		elseif string.find(genre, "Mashup") or string.find(genre, "Mash Up") then
-			varationizer(SKIN:GetVariable("Mashup"))
+			variationizer(SKIN:GetVariable("Mashup"))
 		else
-			varationizer(SKIN:GetVariable("DefaultDynamicColor"))
+			variationizer(SKIN:GetVariable("DefaultDynamicColor"))
 		end
 	end
 end
 
-function varationize(colorR, colorG, colorB, modifyPercent)
+function variationize(colorR, colorG, colorB, modifyPercent)
 	--print("Modify:" .. modifyPercent)
 	modifyPercent = tonumber(modifyPercent)
-	if (modifyPercent == -1)
-		then
+	if (modifyPercent == -1) then
 			--print("Color Denied")
 			return(-1)
-		else
-			--print("Color:" .. colorR .. "," .. colorG .. "," .. colorB)
-			colorR = colorR * modifyPercent
-			colorG = colorG * modifyPercent
-			colorB = colorB * modifyPercent
-			
-			if (colorR > 255) then colorR = 255 end
-			if (colorG > 255) then colorG = 255 end
-			if (colorB > 255) then colorB = 255 end
-			
-			local newColorRGB = colorR .. "," .. colorG .. "," .. colorB
-			return (newColorRGB)
+	else
+		--print("Color:" .. colorR .. "," .. colorG .. "," .. colorB)
+		colorR = colorR * modifyPercent
+		colorG = colorG * modifyPercent
+		colorB = colorB * modifyPercent
+		
+		if (colorR > 255) then colorR = 255 end
+		if (colorG > 255) then colorG = 255 end
+		if (colorB > 255) then colorB = 255 end
+		
+		local newColorRGB = colorR .. "," .. colorG .. "," .. colorB
+		return (newColorRGB)
 	end
 end
 
-funciton colorize(colorR, colorG, colorB, colorType)
+function colorize(colorR, colorG, colorB, colorType)
 
 	local newColorRGB = -1
+	local colorSpin = 150 --The only non magic number, this is the color we want different on the color wheel in degrees, since we are doing just split complementary for now its 150
 	
-	if(colorType == 1)
+	if (modifyPercent == -1) then
+		--print("Color Denied")
+		return(newColorRGB)
+	elseif(colorType == 1) then
+		newColorRGB = colorR .. "," colorG .. "," colorB
+	else	
 	
-	elseif(colorType ==2)
+		--convert from RGB to HSL
+		local colorH, colorS, colorL
 	
-	elseif(colorType ==3)
+		colorR = colorR / 255
+		colorG = colorG / 255
+		colorB = colorB / 255
+		
+		colorMax = math.max(colorR, colorG, colorB)
+		colorMin = math.min(colorR, colorG, colorB)
+		
+		colorL = math.floor(0.5+100*((colorMin + colorMax) / 2))
 	
+		--I hate magic numbers, this makes me want to pull my hair out, but every number in here is litterally magic to me and will never change
+		if(colorL > 50) then
+		
+			colorS = math.floor(0.5+100*(colorMax-colorMin)/(2.0-colorMax-colorMin))
+			
+		elseif(colorL < 50) then
+		
+			colorS = math.floor(0.5+100*(colorMax-colorMin)/(colorMax+colorMin))
+			
+		else
+		
+			colorS = 0
+			
+		end
+		
+		if ((colorR > colorG) and (colorR > colorB)) then
+		
+			colorH = 60 * ((colorG-colorB)/(colorMax-colorMin))
+			
+		elseif ((colorG > colorR) and (colorR > colorB)) then
+		
+			colorH = 60 * (2.0 + (colorB-colorR)/(colorMax-colorMin))
+			
+		elseif ((colorB > colorG) and (colorB > colorR)) then
+		
+			colorH = 60 * (4.0 + (colorR-colorG)/(colorMax-colorMin))
+			
+		elseif colorS = 0 then
+		
+			colorH = 0
+			
+		else
+		
+			print("Unable to convert RGB to HSL please inform tjhrulz with this color code: " .. colorR .. colorG .. colorB)
+			
+		end
+			
+		if(colorType == 2) then
+			colorH = colorH + colorSpin
+		elseif(colorType == 3) then
+			colorH = colorH - colorSpin
+		end
+
+		--fml I have to convert it back, I cant imagine this is going to be nice on the CPU. Sorry CPU, thankfully you only have to do this a few times every couple minutes
+		
 	end
 
 	return newColorRGB
 end
 
-function varationizer(baseColorRGB)
+function variationizer(baseColorRGB)
 
 	--print("baseColorRGB:" .. baseColorRGB)
 	
@@ -82,21 +140,21 @@ function varationizer(baseColorRGB)
 	
 	local vizColor,baseColor,secondaryColor,wallpaperColor,backgroundColor,transBackgroundColor,textColor,BackgroundPanelColor
 	local clockColor,minColor,hourColor,secColor
-
+	
 	if(SKIN:GetVariable("EnableSplitComplementaryColors", '0') == '0') then
 	
 		vizColor = variationize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("VizColorModifier", '1.0'))
-		baseColor = varationize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("ColorModifier", '1.0'))
-		secondaryColor = varationize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("Color2Modifier", '1.0'))
-		wallpaperColor = varationize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("WallpaperColorModifier", '1.0'))
-		--backgroundColor = varationize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("BackgroundColorModifier", '1.0'))
-		--transBackgroundColor = varationize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("BackgroundNonColorModifier", '1.0'))
-		textColor = varationize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("TextColorModifier", '1.0'))
-		clockColor = varationize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("ClockRingColorModifier", '1.0'))
-		minColor = varationize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("MinColorModifier", '1.0'))
-		hourColor = varationize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("HourColorModifier", '1.0'))
-		secColor = varationize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("SecColorModifier", '1.0'))
-		BackgroundPanelColor = varationize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("BackgroundPanelColorModifier", '1.0'))
+		baseColor = variationize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("ColorModifier", '1.0'))
+		secondaryColor = variationize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("Color2Modifier", '1.0'))
+		wallpaperColor = variationize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("WallpaperColorModifier", '1.0'))
+		--backgroundColor = variationize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("BackgroundColorModifier", '1.0'))
+		--transBackgroundColor = variationize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("BackgroundNonColorModifier", '1.0'))
+		textColor = variationize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("TextColorModifier", '1.0'))
+		clockColor = variationize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("ClockRingColorModifier", '1.0'))
+		minColor = variationize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("MinColorModifier", '1.0'))
+		hourColor = variationize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("HourColorModifier", '1.0'))
+		secColor = variationize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("SecColorModifier", '1.0'))
+		BackgroundPanelColor = variationize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("BackgroundPanelColorModifier", '1.0'))
 		
 	else
 	
