@@ -1,9 +1,9 @@
 function colorSelector(genre)
 	doAlbumColor = false
 	if (tonumber(SKIN:GetVariable("EnableDynamicColors")) == 1) then
-		if (tonumber(SKIN:GetVariable("EnableGenreColors")) ~= -1) then
+		if (tonumber(SKIN:GetVariable("EnableGenreColors")) == 1) then
 		
-			if (genre ~= nil) or (string.len(genre)) ~= 0 then genre="" end
+			if (genre == nil) or ((string.len(genre)) == 0) then genre="" end
 		
 			--print("test:" .. SKIN:GetVariable("EnableGenreColors"))
 			if string.find(genre, "Electro") then
@@ -38,6 +38,7 @@ function colorSelector(genre)
 				if (tonumber(SKIN:GetVariable("EnableAlbumColor")) == 0) then
 					colorizer(SKIN:GetVariable("DefaultDynamicColor"))
 				else
+					print("true" .. genre)
 					doAlbumColor = true
 				end
 			end
@@ -45,6 +46,7 @@ function colorSelector(genre)
 			if (tonumber(SKIN:GetVariable("EnableAlbumColor")) == 0) then
 				colorizer(SKIN:GetVariable("DefaultDynamicColor"))
 			else
+				print("truet")
 				doAlbumColor = true
 			end
 		end
@@ -55,15 +57,21 @@ function colorizer(baseColorRGB)
 
 	--print("baseColorRGB:" .. baseColorRGB)
 	
-	local baseColorR = tonumber(string.sub(baseColorRGB, 0, string.find(baseColorRGB, ",", 0))
-	local baseColorG = tonumber(string.sub(baseColorRGB, string.find(baseColorRGB, ",", 0)+1, string.find(baseColorRGB, ",", 1)))
-	local baseColorB = tonumber(string.sub(baseColorRGB, string.find(baseColorRGB, ",", 1)+1, string.find(baseColorRGB, ",", 2)))
 	
-	local vizColor,baseColor,secondaryColor,wallpaperColor,backgroundColor,transBackgroundColor,textColor,BackgroundPanelColor
-	local clockColor,minColor,hourColor,secColor
+	--I dislike lua strings, -1 is to not put the comma in the color, +2 is to skip over it, this is why you follow standard program conventions when making a language
+	local baseColorR = string.sub(baseColorRGB, 0, string.find(baseColorRGB, ",")-1)
+	baseColorRGB = string.sub(baseColorRGB, string.len(baseColorR)+2)
+	local baseColorG = string.sub(baseColorRGB, 0, string.find(baseColorRGB, ",")-1)
+	baseColorRGB = string.sub(baseColorRGB, string.len(baseColorR)+2)
+	local baseColorB = string.sub(baseColorRGB, 0, string.find(baseColorRGB, ","))
+
+	--print("Color: " .. baseColorR .. baseColorG .. baseColorB)
 	
-	if(tonumber(SKIN:GetVariable("EnableAlbumColor", 0)) == 0) or (doAlbumColor = false) then
-		if(SKIN:GetVariable("EnableMultiColors", '0') == '0') then
+	local vizColor, baseColor, secondaryColor, wallpaperColor, backgroundColor, transBackgroundColor, textColor, BackgroundPanelColor
+	local clockColor, minColor, hourColor, secColor
+	
+	if (tonumber(SKIN:GetVariable("EnableAlbumColor", 0)) == 0) or (doAlbumColor == false) then
+		if(tonumber(SKIN:GetVariable("EnableMultiColors", 0)) == 0) then
 		
 			vizColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("VizColorModifier", '1.0'))
 			baseColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("ColorModifier", '1.0'))
@@ -163,6 +171,7 @@ end
 
 function percentColorize(colorR, colorG, colorB, modifyPercent)
 	--print("Modify:" .. modifyPercent)
+	
 	modifyPercent = tonumber(modifyPercent)
 	if (modifyPercent == -1) then
 			--print("Color Denied")
