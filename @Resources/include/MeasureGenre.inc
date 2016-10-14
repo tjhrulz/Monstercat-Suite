@@ -2,7 +2,12 @@
 @include=#@#variables.ini
 
 [Rainmeter]
-OnRefreshAction=[!CommandMeasure CalcBlurAlbumArt "blur('#@#images\coverB.png')"][!CommandMeasure CalcVarationScript "colorSelector('[MeasureGenre]')"][!SetOptionGroup DynamicDynamic DynamicVariables 0]
+OnRefreshAction=[!CommandMeasure CalcBlurAlbumArt "blur('[CalcEscapedFilePath]')"][!CommandMeasure CalcVarationScript "colorSelector('[MeasureGenre]')"][!SetOptionGroup DynamicDynamic DynamicVariables 0]
+
+[CalcEscapedFilePath]
+Measure=String
+String="#@#images\"
+Substitute="\":"\\"
 
 [CalcBlurAlbumArt]
 Measure=Script
@@ -19,4 +24,4 @@ PlayerName=#PlayerName#
 PlayerType=Genre
 RegExpSubstitute=1
 Substitute="[^a-zA-Z0-9]":""
-OnChangeAction=[!CommandMeasure CalcBlurAlbumArt "blur('#@#images\\coverB.png')"][!CommandMeasure CalcVarationScript "colorSelector('[MeasureGenre]')"][!SetOptionGroup DynamicDynamic DynamicVariables 0]
+OnChangeAction=[!CommandMeasure CalcBlurAlbumArt "blur('[CalcEscapedFilePath]')"][!CommandMeasure CalcVarationScript "colorSelector('[MeasureGenre]')"][!SetOptionGroup DynamicDynamic DynamicVariables 0]
