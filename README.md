@@ -19,6 +19,7 @@ Add more versions of CPU and GPU info (I dont think I will do this as the info i
 Lua based 12 hour clock (With variant where 12hr is replaced by Monstercat logo)
 A version of the RSS display for displaying mobile versions of websites? I found a way to display in an iframe in rainmeter, doubt I will do this though as it feel too much.
 Complimentary colors update, I wrote the whole system for this and my calculations are sometimes off by a little bit which is fine but it really does not look good.
+Button to toggle small meters and side panels
 
 TODO
 - [ ] Color pallete system, I was originally going to make something similar to colorThief but I dislike the possiblity for very close colors, the pallete system in android prevents that and can pick out highlists  from and image which I want (ie if the album art as grass sky and an apple I want the apple color to be the dominant color)

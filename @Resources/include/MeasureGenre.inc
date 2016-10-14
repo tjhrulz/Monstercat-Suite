@@ -2,7 +2,11 @@
 @include=#@#variables.ini
 
 [Rainmeter]
-OnRefreshAction=[!CommandMeasure CalcVarationScript "colorSelector('[MeasureGenre]')"][!SetOptionGroup DynamicDynamic DynamicVariables 0]
+OnRefreshAction=[!CommandMeasure CalcBlurAlbumArt "blur('#@#images\coverB.png')"][!CommandMeasure CalcVarationScript "colorSelector('[MeasureGenre]')"][!SetOptionGroup DynamicDynamic DynamicVariables 0]
+
+[CalcBlurAlbumArt]
+Measure=Script
+ScriptFile=#ROOTCONFIGPATH#\albumArtBlur.lua
 
 [CalcVarationScript]
 Measure=Script
@@ -15,4 +19,4 @@ PlayerName=#PlayerName#
 PlayerType=Genre
 RegExpSubstitute=1
 Substitute="[^a-zA-Z0-9]":""
-OnChangeAction=[!CommandMeasure CalcVarationScript "colorSelector('[MeasureGenre]')"][!SetOptionGroup DynamicDynamic DynamicVariables 0]
+OnChangeAction=[!CommandMeasure CalcBlurAlbumArt "blur('#@#images\\coverB.png')"][!CommandMeasure CalcVarationScript "colorSelector('[MeasureGenre]')"][!SetOptionGroup DynamicDynamic DynamicVariables 0]
