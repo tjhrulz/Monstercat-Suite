@@ -46,7 +46,7 @@ function colorSelector(genre)
 			if (tonumber(SKIN:GetVariable("EnableAlbumColor")) == 0) then
 				colorizer(SKIN:GetVariable("DefaultDynamicColor"))
 			else
-				print("truet")
+				print("truet" .. genre)
 				doAlbumColor = true
 			end
 		end
@@ -68,12 +68,13 @@ function colorizer(baseColorRGB)
 	--print("Color: " .. baseColorR .. baseColorG .. baseColorB)
 	
 	local vizColor, baseColor, secondaryColor, wallpaperColor, backgroundColor, transBackgroundColor, textColor, BackgroundPanelColor
-	local clockColor, minColor, hourColor, secColor
+	local clockColor, minColor, hourColor, secColor, PCMRColor
 	
 	if (tonumber(SKIN:GetVariable("EnableAlbumColor", 0)) == 0) or (doAlbumColor == false) then
 		if(tonumber(SKIN:GetVariable("EnableMultiColors", 0)) == 0) then
 		
 			vizColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("VizColorModifier", '1.0'))
+			PCMRColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("PCMRColorModifier", '1.0'))
 			baseColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("ColorModifier", '1.0'))
 			secondaryColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("Color2Modifier", '1.0'))
 			wallpaperColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("WallpaperColorModifier", '1.0'))
@@ -89,6 +90,7 @@ function colorizer(baseColorRGB)
 		else
 		
 			vizColor = hueColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("VizColorType", '1.0'))
+			PCMRColor = hueColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("PCMRColorType", '1.0'))
 			baseColor = hueColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("ColorType", '1.0'))
 			secondaryColor = hueColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("Color2Type", '1.0'))
 			wallpaperColor = hueColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("WallpaperColorType", '1.0'))
@@ -108,6 +110,7 @@ function colorizer(baseColorRGB)
 			--albumColorize
 		
 			--vizColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("VizColorModifier", '1.0'))
+			--PCMRColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("PCMRColorModifier", '1.0'))
 			--baseColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("ColorModifier", '1.0'))
 			--secondaryColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("Color2Modifier", '1.0'))
 			--wallpaperColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("WallpaperColorModifier", '1.0'))
@@ -125,6 +128,7 @@ function colorizer(baseColorRGB)
 			--albumPalette
 		
 			--vizColor = hueColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("VizColorType", '1.0'))
+			--PCMRColor = hueColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("PCMRColorType", '1.0'))
 			--baseColor = hueColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("ColorType", '1.0'))
 			--secondaryColor = hueColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("Color2Type", '1.0'))
 			--wallpaperColor = hueColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("WallpaperColorType", '1.0'))
@@ -144,6 +148,7 @@ function colorizer(baseColorRGB)
 	--print("Test: " .. wallpaperColor)
 	
 	if vizColor ~= -1 then SKIN:Bang('!SetVariable', "VizColor", vizColor) end
+	if PCMRColor ~= -1 then SKIN:Bang('!SetVariable', "PCMRColor", PCMRColor) end
 	if baseColor ~= -1 then SKIN:Bang('!SetVariable', "Color", baseColor) end
 	if secondaryColor ~= -1 then SKIN:Bang('!SetVariable', "Color2", secondaryColor) end
 	if wallpaperColor ~= -1 then SKIN:Bang('!SetVariable', "WallpaperColor", wallpaperColor) end
