@@ -14,6 +14,7 @@ v1.1r - Google play music plugin
 v1.2r - Networking top processes plugin
 
 May happen eventually
+Circle PCMR radius and X location be dynamic
 Meters will change to variant on middle click, I only wanna do this if it can include the alt system
 Add more versions of CPU and GPU info (I dont think I will do this as the info is not too needed (And I dont need to see my FPS hit 59 and want to replace my computer) and all new and old info would need to be labeled to differentiate it 
 Lua based 12 hour clock (With variant where 12hr is replaced by Monstercat logo)
