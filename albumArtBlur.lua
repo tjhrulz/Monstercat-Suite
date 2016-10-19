@@ -2,8 +2,8 @@ function blur(inputPath, outputPath)
 	--Converts Cover.png to CoverB.png
 	--local inputPath = path .. "cover.png"
 	
-	if(outputPath ~= nil) 
-	then
+	--if(outputPath ~= nil) 
+	--then
 		outputPath = outputPath .. "coverB.png"
 		
 		--convert rose: -scale 1x1\! -format '%[pixel:s]' info:- -- get average color imagemagick
@@ -16,5 +16,5 @@ function blur(inputPath, outputPath)
 		print(test)
 		
 		print(path)
-	end
+	--end
 end

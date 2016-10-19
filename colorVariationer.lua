@@ -38,7 +38,7 @@ function colorSelector(genre)
 				if (tonumber(SKIN:GetVariable("EnableAlbumColor")) == 0) then
 					colorizer(SKIN:GetVariable("DefaultDynamicColor"))
 				else
-					print("true" .. genre)
+					--print("true" .. genre)
 					doAlbumColor = true
 				end
 			end
@@ -46,7 +46,7 @@ function colorSelector(genre)
 			if (tonumber(SKIN:GetVariable("EnableAlbumColor")) == 0) then
 				colorizer(SKIN:GetVariable("DefaultDynamicColor"))
 			else
-				print("truet" .. genre)
+				--print("truet" .. genre)
 				doAlbumColor = true
 			end
 		end
