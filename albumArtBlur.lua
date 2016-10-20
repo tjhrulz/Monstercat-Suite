@@ -22,7 +22,7 @@ function blur(rootPath, inputPath, outputPath)
 		fallbackPath = outputPath .. "artworkB.png"
 		outputPath = outputPath .. "coverB.png"
 		
-		--os.execute("copy" .. " " .. fallbackPath .. " " .. outputPath)
+		os.execute("copy" .. " " .. fallbackPath .. " " .. outputPath)
 	end
 	
 	--background = SKIN:GetMeter('Background')
