@@ -1,1 +1,1 @@
-convert %1 -channel RGBA -blur 0x32 %2
+%1 %2 -channel RGBA -blur 0x32 %3

@@ -8,14 +8,16 @@ function blur(rootPath, inputPath, outputPath)
 	
 	if(inputPath ~= nil) and  (inputPath ~= "")
 	then
+		magickPath = rootPath .. "@Resources\\ImageMagickScripts\\convert.exe"
 		outputPath = outputPath .. "coverB.png"
+		
 		
 		--convert rose: -scale 1x1\! -format '%[pixel:s]' info:- -- get average color imagemagick
 		--Does not appear to be a way to get several colors found in the source image in imagemagick except for
 		--convert  tree.gif  -define histogram:unique-colors=true -format %c histogram:info:-
 		--convert %1 -channel RGBA -blur 0x32 %2
 		--print("cmd /k" .. rootPath .. "imageMagickBlur.bat " .. inputPath .. " " .. outputPath)
-		os.execute(rootPath .. "imageMagickBlur.bat " .. inputPath .. " " .. outputPath)
+		os.execute(rootPath .. "imageMagickBlur.bat " .. magickPath .. " " .. inputPath .. " " .. outputPath)
 		
 	else
 		print("TODO make a fallback albumart")
