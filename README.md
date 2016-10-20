@@ -14,11 +14,10 @@ v1.1r - Google play music plugin
 v1.2r - Networking top processes plugin
 
 May happen eventually
-Circle PCMR radius and X location be dynamic
 Meters will change to variant on middle click, I only wanna do this if it can include the alt system
 Add more versions of CPU and GPU info (I dont think I will do this as the info is not too needed (And I dont need to see my FPS hit 59 and want to replace my computer) and all new and old info would need to be labeled to differentiate it 
 Lua based 12 hour clock (With variant where 12hr is replaced by Monstercat logo)
-A version of the RSS display for displaying mobile versions of websites? I found a way to display in an iframe in rainmeter, doubt I will do this though as it feel too much.
+A version of the RSS display for displaying mobile versions of websites? I found a way to display in an iframe in rainmeter, doubt I will do this though as it feels too much.
 Complimentary colors update, I wrote the whole system for this and my calculations are sometimes off by a little bit which is fine but it really does not look good.
 Button to toggle small meters and side panels
 
@@ -56,7 +55,7 @@ Bugs
 - [ ] Fix random logic bugs that likely exist/missed dynamicdynamic group on items
 - [ ] Top processes that contain IO data do not have a max value and thus smaller values can have larger bars (This is a bigger deal than the normal HDDs not having one which is fine IMO)
 - [X] GPU and CPU graphs do not seem to follow max value Update: maybe not as now they are no longer doing it? Update: autoscale was set
-- [ ] Blurred album art sometimes does not run or apply (I think I fixed apply) Update: Never runs when song naturally changes?
+- [X] Blurred album art sometimes does not run or apply (I think I fixed apply) Update: Never runs when song naturally changes?
 Possible Future Changes
 - [ ] Regroup small meters by the size variation? (Scrapped for other regrouping changes (Instead called alts))
 - [ ] Dual graph CPU and GPU info (Similar to how combined processing graph works but instead one for just GPU and just CPU, would use things like temp and RAM usage on extra bars)
