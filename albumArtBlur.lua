@@ -27,5 +27,5 @@ function blur(rootPath, inputPath, outputPath)
 	
 	--background = SKIN:GetMeter('Background')
 	--May be unneeded but sometimes fails to update background after finishing, need to be careful that this doesnt cause an infinite loop on load if I re enable onrefresh
-	SKIN:Bang('!Refresh')
+	--SKIN:Bang('!Refresh')
 end
