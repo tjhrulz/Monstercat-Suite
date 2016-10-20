@@ -56,6 +56,7 @@ Bugs
 - [ ] Fix random logic bugs that likely exist/missed dynamicdynamic group on items
 - [ ] Top processes that contain IO data do not have a max value and thus smaller values can have larger bars (This is a bigger deal than the normal HDDs not having one which is fine IMO)
 - [X] GPU and CPU graphs do not seem to follow max value Update: maybe not as now they are no longer doing it? Update: autoscale was set
+- [ ] Blurred album art sometimes does not run or apply (I think I fixed apply) Update: Never runs when song naturally changes?
 Possible Future Changes
 - [ ] Regroup small meters by the size variation? (Scrapped for other regrouping changes (Instead called alts))
 - [ ] Dual graph CPU and GPU info (Similar to how combined processing graph works but instead one for just GPU and just CPU, would use things like temp and RAM usage on extra bars)

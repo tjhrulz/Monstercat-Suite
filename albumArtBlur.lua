@@ -5,12 +5,11 @@ function blur(rootPath, inputPath, outputPath)
 	--print("dir1 " .. rootPath)
 	--print("dir2 " .. inputPath)
 	--print("dir3 " .. outputPath)
+	magickPath = rootPath .. "@Resources\\ImageMagickScripts\\convert.exe"
 	
 	if(inputPath ~= nil) and  (inputPath ~= "")
 	then
-		magickPath = rootPath .. "@Resources\\ImageMagickScripts\\convert.exe"
 		outputPath = outputPath .. "coverB.png"
-		
 		
 		--convert rose: -scale 1x1\! -format '%[pixel:s]' info:- -- get average color imagemagick
 		--Does not appear to be a way to get several colors found in the source image in imagemagick except for
@@ -20,7 +19,10 @@ function blur(rootPath, inputPath, outputPath)
 		os.execute(rootPath .. "imageMagickBlur.bat " .. magickPath .. " " .. inputPath .. " " .. outputPath)
 		
 	else
-		print("TODO make a fallback albumart")
+		fallbackPath = outputPath .. "artworkB.png"
+		outputPath = outputPath .. "coverB.png"
+		
+		os.execute("copy" .. " " .. fallbackPath .. " " .. outputPath)
 	end
 	
 	--background = SKIN:GetMeter('Background')
