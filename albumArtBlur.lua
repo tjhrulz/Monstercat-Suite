@@ -23,7 +23,7 @@ function blur(rootPath, inputPath, outputPath)
 		SKIN:Bang(command)
 		
 	else
-		fallbackPath = outputPath .. "artworkB.png"
+		fallbackPath = outputPath .. "Fallback.png"
 		outputPath = outputPath .. "coverB.png"
 		
 		--os.execute("copy" .. " " .. fallbackPath .. " " .. outputPath)
