@@ -1,1 +1,0 @@
-%1 %2 -channel RGBA -blur 0x32 %3

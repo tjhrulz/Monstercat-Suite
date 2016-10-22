@@ -1,5 +1,6 @@
+doAlbumColor = false
+
 function colorSelector(genre)
-	doAlbumColor = false
 	if (tonumber(SKIN:GetVariable("EnableDynamicColors")) == 1) then
 		if (tonumber(SKIN:GetVariable("EnableGenreColors")) == 1) then
 		
@@ -40,6 +41,7 @@ function colorSelector(genre)
 				else
 					--print("true" .. genre)
 					doAlbumColor = true
+					colorizer(SKIN:GetVariable("DefaultDynamicColor"))
 				end
 			end
 		else
@@ -48,6 +50,7 @@ function colorSelector(genre)
 			else
 				--print("truet" .. genre)
 				doAlbumColor = true
+				colorizer(SKIN:GetVariable("DefaultDynamicColor"))
 			end
 		end
 	end
@@ -70,80 +73,63 @@ function colorizer(baseColorRGB)
 	local vizColor, baseColor, secondaryColor, wallpaperColor, backgroundColor, transBackgroundColor, textColor, BackgroundPanelColor
 	local clockColor, minColor, hourColor, secColor, PCMRColor
 	
-	if (tonumber(SKIN:GetVariable("EnableAlbumColor", 0)) == 0) or (doAlbumColor == false) then
-		if(tonumber(SKIN:GetVariable("EnableMultiColors", 0)) == 0) then
+	if(tonumber(SKIN:GetVariable("EnableMultiColors", 0)) == 0) then
+
+		baseColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("ColorModifier", '1.0'))
+		secondaryColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("Color2Modifier", '1.0'))
+		wallpaperColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("WallpaperColorModifier", '1.0'))
+		--backgroundColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("BackgroundColorModifier", '1.0'))
+		--transBackgroundColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("BackgroundNonColorModifier", '1.0'))
+		textColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("TextColorModifier", '1.0'))
+		clockColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("ClockRingColorModifier", '1.0'))
+		minColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("MinColorModifier", '1.0'))
+		hourColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("HourColorModifier", '1.0'))
+		secColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("SecColorModifier", '1.0'))
+		BackgroundPanelColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("BackgroundPanelColorModifier", '1.0'))
+		vizColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("VizColorModifier", '1.0'))
+		PCMRColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("PCMRColorModifier", '1.0'))
 		
-			vizColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("VizColorModifier", '1.0'))
-			PCMRColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("PCMRColorModifier", '1.0'))
-			baseColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("ColorModifier", '1.0'))
-			secondaryColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("Color2Modifier", '1.0'))
-			wallpaperColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("WallpaperColorModifier", '1.0'))
-			--backgroundColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("BackgroundColorModifier", '1.0'))
-			--transBackgroundColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("BackgroundNonColorModifier", '1.0'))
-			textColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("TextColorModifier", '1.0'))
-			clockColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("ClockRingColorModifier", '1.0'))
-			minColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("MinColorModifier", '1.0'))
-			hourColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("HourColorModifier", '1.0'))
-			secColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("SecColorModifier", '1.0'))
-			BackgroundPanelColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("BackgroundPanelColorModifier", '1.0'))
-			
-		else
-		
-			vizColor = hueColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("VizColorType", '1.0'))
-			PCMRColor = hueColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("PCMRColorType", '1.0'))
-			baseColor = hueColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("ColorType", '1.0'))
-			secondaryColor = hueColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("Color2Type", '1.0'))
-			wallpaperColor = hueColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("WallpaperColorType", '1.0'))
-			--backgroundColor = hueColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("BackgroundColorType", '1.0'))
-			--transBackgroundColor = hueColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("BackgroundNonColorType", '1.0'))
-			textColor = hueColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("TextColorType", '1.0'))
-			clockColor = hueColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("ClockRingColorType", '1.0'))
-			minColor = hueColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("MinColorType", '1.0'))
-			hourColor = hueColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("HourColorType", '1.0'))
-			secColor = hueColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("SecColorType", '1.0'))
-			BackgroundPanelColor = hueColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("BackgroundPanelColorType", '1.0'))
-		
-		end
 	else
-		if(SKIN:GetVariable("EnableMultiColors", '0') == '0') then
+	
+		baseColor = hueColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("ColorType", '1.0'))
+		secondaryColor = hueColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("Color2Type", '1.0'))
+		wallpaperColor = hueColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("WallpaperColorType", '1.0'))
+		--backgroundColor = hueColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("BackgroundColorType", '1.0'))
+		--transBackgroundColor = hueColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("BackgroundNonColorType", '1.0'))
+		textColor = hueColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("TextColorType", '1.0'))
+		clockColor = hueColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("ClockRingColorType", '1.0'))
+		minColor = hueColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("MinColorType", '1.0'))
+		hourColor = hueColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("HourColorType", '1.0'))
+		secColor = hueColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("SecColorType", '1.0'))
+		BackgroundPanelColor = hueColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("BackgroundPanelColorType", '1.0'))
+		vizColor = hueColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("VizColorType", '1.0'))
+		PCMRColor = hueColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("PCMRColorType", '1.0'))
 		
-			--albumColorize
-		
-			--vizColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("VizColorModifier", '1.0'))
-			--PCMRColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("PCMRColorModifier", '1.0'))
-			--baseColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("ColorModifier", '1.0'))
-			--secondaryColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("Color2Modifier", '1.0'))
-			--wallpaperColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("WallpaperColorModifier", '1.0'))
-			----backgroundColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("BackgroundColorModifier", '1.0'))
-			----transBackgroundColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("BackgroundNonColorModifier", '1.0'))
-			--textColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("TextColorModifier", '1.0'))
-			--clockColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("ClockRingColorModifier", '1.0'))
-			--minColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("MinColorModifier", '1.0'))
-			--hourColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("HourColorModifier", '1.0'))
-			--secColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("SecColorModifier", '1.0'))
-			--BackgroundPanelColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("BackgroundPanelColorModifier", '1.0'))
-			
-		else
-		
-			--albumPalette
-		
-			--vizColor = hueColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("VizColorType", '1.0'))
-			--PCMRColor = hueColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("PCMRColorType", '1.0'))
-			--baseColor = hueColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("ColorType", '1.0'))
-			--secondaryColor = hueColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("Color2Type", '1.0'))
-			--wallpaperColor = hueColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("WallpaperColorType", '1.0'))
-			----backgroundColor = hueColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("BackgroundColorType", '1.0'))
-			----transBackgroundColor = hueColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("BackgroundNonColorType", '1.0'))
-			--textColor = hueColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("TextColorType", '1.0'))
-			--clockColor = hueColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("ClockRingColorType", '1.0'))
-			--minColor = hueColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("MinColorType", '1.0'))
-			--hourColor = hueColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("HourColorType", '1.0'))
-			--secColor = hueColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("SecColorType", '1.0'))
-			--BackgroundPanelColor = hueColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("BackgroundPanelColorType", '1.0'))
-		
-		end	
 	end
+	
+	if(tonumber(SKIN:GetVariable("EnableAlbumColor", 1)) == 1) and (doAlbumColor == true) then
+		--print("Do album palette here")
 		
+		palette = makePalette()
+		
+		baseColor = palette[tonumber(SKIN:GetVariable("ColorPalette", '1.0'))]
+		secondaryColor = palette[tonumber(SKIN:GetVariable("Color2Palette", '1.0'))]
+		wallpaperColor = palette[tonumber(SKIN:GetVariable("WallpaperColorPalette", '1.0'))]
+		--backgroundColor = palette[tonumber(SKIN:GetVariable("BackgroundColorPalette", '1.0'))]
+		--transBackgroundColor = palette[tonumber(SKIN:GetVariable("BackgroundNonColorPalette", '1.0'))]
+		textColor = palette[tonumber(SKIN:GetVariable("TextColorPalette", '1.0'))]
+		clockColor = palette[tonumber(SKIN:GetVariable("ClockRingColorPalette", '1.0'))]
+		minColor = palette[tonumber(SKIN:GetVariable("MinColorPalette", '1.0'))]
+		hourColor = palette[tonumber(SKIN:GetVariable("HourColorPalette", '1.0'))]
+		secColor = palette[tonumber(SKIN:GetVariable("SecColorPalette", '1.0'))]
+		BackgroundPanelColor = palette[tonumber(SKIN:GetVariable("BackgroundPanelColorPalette", '1.0'))]
+		vizColor = palette[tonumber(SKIN:GetVariable("VizColorPalette", '1.0'))]
+		PCMRColor = palette[tonumber(SKIN:GetVariable("PCMRColorPalette", '1.0'))]
+		
+		doAlbumColor = false
+	end	
+	
+	
 	--print("TransTest: " .. BackgroundPanelColor .. "," .. SKIN:GetVariable("BackgroundPanelColorTransparency", ',255'))
 	--print("Test: " .. wallpaperColor)
 	
@@ -160,18 +146,6 @@ function colorizer(baseColorRGB)
 	if hourColor ~= -1 then SKIN:Bang('!SetVariable', "HourColor", hourColor) end
 	if secColor ~= -1 then SKIN:Bang('!SetVariable', "SecColor", secColor) end
 	if BackgroundPanelColor ~= -1 then SKIN:Bang('!SetVariable', "BackgroundPanelColor", BackgroundPanelColor .. SKIN:GetVariable("BackgroundPanelColorTransparency", ',255')) end
-end
-
-function albumColorize(imagePath)
-
-	
-
-end
-
-function albumPalette(imagePath)
-
-	
-
 end
 
 function percentColorize(colorR, colorG, colorB, modifyPercent)
@@ -194,6 +168,16 @@ function percentColorize(colorR, colorG, colorB, modifyPercent)
 		local newColorRGB = colorR .. "," .. colorG .. "," .. colorB
 		return (newColorRGB)
 	end
+end
+
+function makePalette()
+	--print("unimplemented")
+	
+	palette = {"200,200,200","255,255,255","230,206,0","100,100,100","000,000,000","000,000,000"}
+	palette[-1] = -1
+	
+	return palette
+	
 end
 
 function hueColorize(colorR, colorG, colorB, colorType)

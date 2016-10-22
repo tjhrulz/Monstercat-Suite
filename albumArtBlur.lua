@@ -16,13 +16,21 @@ function blur(rootPath, inputPath, outputPath)
 		--convert  tree.gif  -define histogram:unique-colors=true -format %c histogram:info:-
 		--convert %1 -channel RGBA -blur 0x32 %2
 		--print("cmd /k" .. rootPath .. "imageMagickBlur.bat " .. inputPath .. " " .. outputPath)
-		os.execute(rootPath .. "hidebat.vbs " .. magickPath .. " " .. inputPath .. " " .. outputPath)
+		--os.execute(rootPath .. "hidebat.vbs " .. magickPath .. " " .. inputPath .. " " .. outputPath)
+		
+		command = rootPath .. "ImageMagickBlur.vbs " .. inputPath .. " " .. outputPath
+		
+		SKIN:Bang(command)
 		
 	else
 		fallbackPath = outputPath .. "artworkB.png"
 		outputPath = outputPath .. "coverB.png"
 		
-		os.execute("copy" .. " " .. fallbackPath .. " " .. outputPath)
+		--os.execute("copy" .. " " .. fallbackPath .. " " .. outputPath)
+		command = rootPath .. "CopyBlur.vbs " .. fallbackPath .. " " .. outputPath
+		
+		SKIN:Bang(command)
+		
 	end
 	
 	--background = SKIN:GetMeter('Background')
