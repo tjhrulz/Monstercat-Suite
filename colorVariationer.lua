@@ -110,21 +110,51 @@ function colorizer(baseColorRGB)
 	if(tonumber(SKIN:GetVariable("EnableAlbumColor", 1)) == 1) and (doAlbumColor == true) then
 		--print("Do album palette here")
 		
-		palette = makePalette()
+		if(tonumber(SKIN:GetVariable("EnableMultiColors", 0)) == 0) then
 		
-		baseColor = palette[tonumber(SKIN:GetVariable("ColorPalette", '1.0'))]
-		secondaryColor = palette[tonumber(SKIN:GetVariable("Color2Palette", '1.0'))]
-		wallpaperColor = palette[tonumber(SKIN:GetVariable("WallpaperColorPalette", '1.0'))]
-		--backgroundColor = palette[tonumber(SKIN:GetVariable("BackgroundColorPalette", '1.0'))]
-		--transBackgroundColor = palette[tonumber(SKIN:GetVariable("BackgroundNonColorPalette", '1.0'))]
-		textColor = palette[tonumber(SKIN:GetVariable("TextColorPalette", '1.0'))]
-		clockColor = palette[tonumber(SKIN:GetVariable("ClockRingColorPalette", '1.0'))]
-		minColor = palette[tonumber(SKIN:GetVariable("MinColorPalette", '1.0'))]
-		hourColor = palette[tonumber(SKIN:GetVariable("HourColorPalette", '1.0'))]
-		secColor = palette[tonumber(SKIN:GetVariable("SecColorPalette", '1.0'))]
-		BackgroundPanelColor = palette[tonumber(SKIN:GetVariable("BackgroundPanelColorPalette", '1.0'))]
-		vizColor = palette[tonumber(SKIN:GetVariable("VizColorPalette", '1.0'))]
-		PCMRColor = palette[tonumber(SKIN:GetVariable("PCMRColorPalette", '1.0'))]
+			--command = rootPath .. "GetColor.vbs " .. inputPath
+			--print(SKIN:Bang(command))
+			
+			GetColor = SKIN:GetMeasure('GetAverageColor'):GetName()
+			print(GetColor)
+			print(SKIN:Bang('!CommandMeasure ' .. GetColor .. ' "Run"'))
+			
+			baseColorR = string.sub(baseColorRGB, 0, string.find(baseColorRGB, ",")-1)
+			baseColorRGB = string.sub(baseColorRGB, string.len(baseColorR)+2)
+			baseColorG = string.sub(baseColorRGB, 0, string.find(baseColorRGB, ",")-1)
+			baseColorRGB = string.sub(baseColorRGB, string.len(baseColorR)+2)
+			baseColorB = string.sub(baseColorRGB, 0, string.find(baseColorRGB, ","))
+			
+			baseColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("ColorModifier", '1.0'))
+			secondaryColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("Color2Modifier", '1.0'))
+			wallpaperColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("WallpaperColorModifier", '1.0'))
+			--backgroundColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("BackgroundColorModifier", '1.0'))
+			--transBackgroundColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("BackgroundNonColorModifier", '1.0'))
+			textColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("TextColorModifier", '1.0'))
+			clockColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("ClockRingColorModifier", '1.0'))
+			minColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("MinColorModifier", '1.0'))
+			hourColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("HourColorModifier", '1.0'))
+			secColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("SecColorModifier", '1.0'))
+			BackgroundPanelColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("BackgroundPanelColorModifier", '1.0'))
+			vizColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("VizColorModifier", '1.0'))
+			PCMRColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("PCMRColorModifier", '1.0'))
+		else
+			palette = makePalette()
+		
+			baseColor = palette[tonumber(SKIN:GetVariable("ColorPalette", '1.0'))]
+			secondaryColor = palette[tonumber(SKIN:GetVariable("Color2Palette", '1.0'))]
+			wallpaperColor = palette[tonumber(SKIN:GetVariable("WallpaperColorPalette", '1.0'))]
+			--backgroundColor = palette[tonumber(SKIN:GetVariable("BackgroundColorPalette", '1.0'))]
+			--transBackgroundColor = palette[tonumber(SKIN:GetVariable("BackgroundNonColorPalette", '1.0'))]
+			textColor = palette[tonumber(SKIN:GetVariable("TextColorPalette", '1.0'))]
+			clockColor = palette[tonumber(SKIN:GetVariable("ClockRingColorPalette", '1.0'))]
+			minColor = palette[tonumber(SKIN:GetVariable("MinColorPalette", '1.0'))]
+			hourColor = palette[tonumber(SKIN:GetVariable("HourColorPalette", '1.0'))]
+			secColor = palette[tonumber(SKIN:GetVariable("SecColorPalette", '1.0'))]
+			BackgroundPanelColor = palette[tonumber(SKIN:GetVariable("BackgroundPanelColorPalette", '1.0'))]
+			vizColor = palette[tonumber(SKIN:GetVariable("VizColorPalette", '1.0'))]
+			PCMRColor = palette[tonumber(SKIN:GetVariable("PCMRColorPalette", '1.0'))]
+		end
 		
 		doAlbumColor = false
 	end	

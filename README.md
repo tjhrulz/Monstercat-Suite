@@ -23,15 +23,15 @@ Button to toggle small meters and side panels
 
 TODO
 - [ ] Move scripts that are in root directory into proper places in resources
-- [ ] Color pallete system, I was originally going to make something similar to colorThief but I dislike the possiblity for very close colors, the pallete system in android prevents that and can pick out highlists  from and image which I want (ie if the album art as grass sky and an apple I want the apple color to be the dominant color)
+- [ ] Color palete system, I was originally going to make something similar to colorThief but I dislike the posiblity for very close colors, the palette system in android prevents that and can pick out highlists  from and image which I want (ie if the album art as grass sky and an apple I want the apple color to be the dominant color)
 - [ ] Add news RSS
 - [ ] Weather stuffs (Use http://wxdata.weather.com/wxdata/weather/local/#LocationCode#?cc=*&unit=#TempUnit#&dayf=6 and parse, thanks to jsmorley for his post on that had no idea weather.com had an rss version (It even is wind direction!))
 - [ ] Calendar for the month meter
 - [ ] Appointments meter
-- [ ] Add blur effect to album art background toggle, since as I learned album art is not high res
-- [ ] Add more info to gpu and cpu meters
+- [X] Add blur effect to album art background toggle, since as I learned album art is not high res
+- [ ] Add more info to gpu and cpu meters (Scrapped)
 - [ ] Pull colors from album art since it will be a background option
-- [ ] Add genre color complimentary color that user can toggle on, (Is there a way to do this programmatically? Not sure how complimentary colors work) Ie the one I see all the time blue background with yellow everything else
+- [X] Add genre color complimentary color that user can toggle on, (Is there a way to do this programmatically? Not sure how complimentary colors work) Ie the one I see all the time blue background with yellow everything else
 - [ ] Make desktop and laptop versions of some meters, ie. desktop doesn't need wifi or battery info, laptop may not need GPU info
 - [ ] Notification system (using IFTTT and pushover?) Edit: Nevermind Pushover only allows apps to send notifications, receiving must be done in a special app and is as the name implies push based not pull based.
 - [ ] Get real fact from fact repository and mix them in with fact sphere facts
