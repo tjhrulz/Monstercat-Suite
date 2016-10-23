@@ -115,9 +115,14 @@ function colorizer(baseColorRGB)
 			--command = rootPath .. "GetColor.vbs " .. inputPath
 			--print(SKIN:Bang(command))
 			
-			GetColor = SKIN:GetMeasure('GetAverageColor'):GetName()
-			print(GetColor)
-			print(SKIN:Bang('!CommandMeasure ' .. GetColor .. ' "Run"'))
+			GetColor = SKIN:GetMeasure('GetAverageColor'):GetOption('Text')
+			vbsPath = SKIN:GetMeasure('CalcRootFilePath'):GetOption('Text')
+			print(vbsPath .. "GetColor.vbs " .. GetColor)
+			--SKIN:Bang('!CommandMeasure ' .. GetColor .. ' "Kill"')
+			
+			command = vbsPath .. "GetColor.vbs " .. GetColor
+		
+			baseColorRGB = SKIN:Bang(command)
 			
 			baseColorR = string.sub(baseColorRGB, 0, string.find(baseColorRGB, ",")-1)
 			baseColorRGB = string.sub(baseColorRGB, string.len(baseColorR)+2)

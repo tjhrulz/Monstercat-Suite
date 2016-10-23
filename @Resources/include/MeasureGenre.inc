@@ -13,32 +13,36 @@ Measure=Plugin
 Plugin=NowPlaying
 PlayerName=#PlayerName#
 PlayerType=Cover
-Substitute="\":"\\"
 
 [MeasureAlbumArtSpotify]
 Measure=String
-String="#@#images\cover.png"
-Substitute="\":"\\"
+Text="#@#images\cover.png"
 
 ;[MeasureAlbumChangedNotifySpotify]
 ;Measure=Plugin
 ;Plugin=SpotifyPlugin
 ;Type=AlbumName
-;OnChangeAction=[!SetOption GetAverageColor Parameter "[*MeasureAlbumArtSpotify*]"]
+;OnChangeAction=[!SetOption GetAverageColor Text "[*MeasureAlbumArtSpotify*]"]
 
 [MeasureAlbumChangedNotify]
 Measure=Plugin
 Plugin=NowPlaying
 PlayerName=#PlayerName#
 PlayerType=Album
-;OnChangeAction=[!SetOption GetAverageColor Parameter "[*MeasureAlbumArt*]"]
+OnChangeAction=[!SetOption GetAverageColor Text "[*MeasureAlbumArt*]"]
 
 [GetAverageColor]
-Measure=Plugin
-Plugin=RunCommand
-Program=#ROOTCONFIGPATH#GetColor.vbs
-Parameter=[MeasureAlbumArtSpotify]
+Measure=String
+Text="#@#images\cover.png"
+;Plugin=RunCommand
+;Program="cmd \u \c #ROOTCONFIGPATH#GetColor.vbs"
+;Parameter=[MeasureAlbumArtSpotify]
 ;FinishAction=[!SetOptionGroup DynamicDynamic DynamicVariables 0]
+
+[CalcRootFilePath]
+Measure=String
+Text="#ROOTCONFIGPATH#"
+Substitute="\":"\\"
 
 [MeasureGenre]
 Measure=Plugin
