@@ -38,9 +38,8 @@ Text="#@#images\cover.png"
 [RunAverageColor]
 Measure=Plugin
 Plugin=RunCommand
-Program="cmd \U"
-State=Show
-OutputFile="asdf.txt"
+OutputFile="output.txt"
+OutputType='ANSI'
 ;FinishAction=[!SetOptionGroup DynamicDynamic DynamicVariables 0]
 
 [CalcRootFilePath]
