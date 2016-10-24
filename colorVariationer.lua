@@ -117,12 +117,27 @@ function colorizer(baseColorRGB)
 			
 			GetColor = SKIN:GetMeasure('GetAverageColor'):GetOption('Text')
 			vbsPath = SKIN:GetMeasure('CalcRootFilePath'):GetOption('Text')
-			print(vbsPath .. "GetColor.vbs " .. GetColor)
+			
+			if (GetColor == nil) or (GetColor == "") then
+				GetColor = vbsPath .. "@Resources\\images\\Fallback.png"
+			end
+			
 			--SKIN:Bang('!CommandMeasure ' .. GetColor .. ' "Kill"')
 			
-			command = vbsPath .. "GetColor.vbs " .. GetColor
+			command = vbsPath .. "GetColor.bat " .. vbsPath .. " " .. GetColor .. " " .. vbsPath
+			cmdCommand = vbsPath .. "@Resources\\ImageMagickScripts\\convert.exe " .. GetColor .. "  -scale 1x1! -format '%%[fx:int(255*r+.5)],%%[fx:int(255*g+.5)],%%[fx:int(255*b+.5)]' info:"
+			cmdCommand = "echo test"
 		
-			baseColorRGB = SKIN:Bang(command)
+		
+			SKIN:Bang('!SetOption', 'RunAverageColor', 'Parameter', cmdCommand)
+			
+		
+			--print(SKIN:Bang('!CommandMeasure', 'RunAverageColor', 'Run'))
+			--print(SKIN:Bang(command))
+		
+			baseColorRGB = "200,200,200"
+			--baseColorRGB = SKIN:Bang('!CommandMeasure', 'RunAverageColor', 'Run')
+			--baseColorRGB = SKIN:Bang(command)
 			
 			baseColorR = string.sub(baseColorRGB, 0, string.find(baseColorRGB, ",")-1)
 			baseColorRGB = string.sub(baseColorRGB, string.len(baseColorR)+2)

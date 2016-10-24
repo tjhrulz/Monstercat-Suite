@@ -18,7 +18,7 @@ function blur(rootPath, inputPath, outputPath)
 		--print("cmd /k" .. rootPath .. "imageMagickBlur.bat " .. inputPath .. " " .. outputPath)
 		--os.execute(rootPath .. "hidebat.vbs " .. magickPath .. " " .. inputPath .. " " .. outputPath)
 		
-		command = rootPath .. "ImageMagickBlur.vbs " .. inputPath .. " " .. outputPath
+		command = rootPath .. "ImageMagickBlur.vbs " .. rootPath .. " " .. inputPath .. " " .. outputPath
 		
 		SKIN:Bang(command)
 		

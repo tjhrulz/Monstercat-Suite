@@ -34,9 +34,13 @@ OnChangeAction=[!SetOption GetAverageColor Text "[*MeasureAlbumArt*]"]
 [GetAverageColor]
 Measure=String
 Text="#@#images\cover.png"
-;Plugin=RunCommand
-;Program="cmd \u \c #ROOTCONFIGPATH#GetColor.vbs"
-;Parameter=[MeasureAlbumArtSpotify]
+
+[RunAverageColor]
+Measure=Plugin
+Plugin=RunCommand
+Program="cmd \U"
+State=Show
+OutputFile="asdf.txt"
 ;FinishAction=[!SetOptionGroup DynamicDynamic DynamicVariables 0]
 
 [CalcRootFilePath]

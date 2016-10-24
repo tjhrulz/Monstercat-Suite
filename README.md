@@ -29,16 +29,19 @@ TODO
 - [ ] Calendar for the month meter
 - [ ] Appointments meter
 - [X] Add blur effect to album art background toggle, since as I learned album art is not high res
+- [ ] Make set blur as actual background optional
+- [ ] Have color change delay be user configureable, and apply to every single color cchange? (May have to have it apply to every dynamic color object for album art colors to work)
 - [ ] Add more info to gpu and cpu meters (Scrapped)
-- [ ] Pull colors from album art since it will be a background option
+- [ ] Pull colors from album art since it will be a background option Update: This is being a pain in my ass
 - [X] Add genre color complimentary color that user can toggle on, (Is there a way to do this programmatically? Not sure how complimentary colors work) Ie the one I see all the time blue background with yellow everything else
 - [ ] Make desktop and laptop versions of some meters, ie. desktop doesn't need wifi or battery info, laptop may not need GPU info
 - [ ] Notification system (using IFTTT and pushover?) Edit: Nevermind Pushover only allows apps to send notifications, receiving must be done in a special app and is as the name implies push based not pull based.
 - [ ] Get real fact from fact repository and mix them in with fact sphere facts
 - [ ] Add support for audio playback of fact sphere on left click
 - [ ] Add option for users to define (or automagically?) max Internet and HDD speeds if they don't want those meters to dynamically scale based on best known since refresh (Honestly not a big deal)
-- [ ] Add combined Top Processes with paging
+- [X] Add combined Top Processes with paging
 - [ ] Several bars variants need to be checked for code consistency, such as percentual being set on some of the ferpnom meters, process being spelled wrong, or other logical bugs, and missoptimizations within them
+- [ ] Make sure background cmds are closing gracefully and correctly
 - [ ] Final optimization pass
 - [ ] Update installer meter to make initial setup nicer (Do before v1.0)
 - [ ] Look into hacking in Google play music (And youtube?) support to the music reader (I believe Google Talk/G+ used to expose this info)
