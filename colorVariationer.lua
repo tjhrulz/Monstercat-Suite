@@ -41,7 +41,7 @@ function colorSelector(genre)
 					--print("it works")
 				else
 					--print("true" .. genre)
-					--doAlbumColor = true
+					doAlbumColor = true
 					colorizer(SKIN:GetVariable("DefaultDynamicColor"))
 				end
 			end
@@ -50,7 +50,7 @@ function colorSelector(genre)
 				colorizer(SKIN:GetVariable("DefaultDynamicColor"))
 			else
 				--print("truet" .. genre)
-				--doAlbumColor = true
+				doAlbumColor = true
 				colorizer(SKIN:GetVariable("DefaultDynamicColor"))
 			end
 		end
@@ -66,10 +66,10 @@ function colorizer(baseColorRGB)
 	local baseColorR = string.sub(baseColorRGB, 0, string.find(baseColorRGB, ",")-1)
 	baseColorRGB = string.sub(baseColorRGB, string.len(baseColorR)+2)
 	local baseColorG = string.sub(baseColorRGB, 0, string.find(baseColorRGB, ",")-1)
-	baseColorRGB = string.sub(baseColorRGB, string.len(baseColorR)+2)
+	baseColorRGB = string.sub(baseColorRGB, string.len(baseColorG)+2)
 	local baseColorB = string.sub(baseColorRGB, 0, string.find(baseColorRGB, ","))
 
-	--print("Color: " .. baseColorR .. baseColorG .. baseColorB)
+	--print("Color:" .. baseColorR .. "," .. baseColorG .. "," .. baseColorB)
 	
 	local vizColor, baseColor, secondaryColor, wallpaperColor, backgroundColor, transBackgroundColor, textColor, BackgroundPanelColor
 	local clockColor, minColor, hourColor, secColor, PCMRColor
@@ -118,7 +118,9 @@ function colorizer(baseColorRGB)
 			
 			GetColor = SKIN:GetMeasure('GetAverageColor'):GetOption('Text')
 			vbsPath = SKIN:GetMeasure('CalcRootFilePath'):GetOption('Text')
-			
+	
+			--print("AlbumArtLoc " .. GetColor)
+	
 			if (GetColor == nil) or (GetColor == "") then
 				--GetColor = vbsPath .. "@Resources\\images\\Fallback.png"
 			else
@@ -126,12 +128,13 @@ function colorizer(baseColorRGB)
 				--SKIN:Bang('!CommandMeasure ' .. GetColor .. ' "Kill"')
 				
 				command = vbsPath .. "GetColor.bat " .. vbsPath .. " " .. GetColor .. " " .. vbsPath
-				cmdCommand = vbsPath .. "@Resources\\ImageMagickScripts\\convert.exe " .. GetColor .. "  -scale 1x1! -format '%[fx:int(255*r+.5)],%[fx:int(255*g+.5)],%[fx:int(255*b+.5)]' info:"
+				cmdCommand = vbsPath .. "@Resources\\ImageMagickScripts\\convert.exe " .. GetColor .. "  -scale 1x1! -format %[fx:int(255*r+.5)],%[fx:int(255*g+.5)],%[fx:int(255*b+.5)] info:"
 				--cmdCommand = "echo test"
 			
 				SKIN:Bang('!SetOption', 'RunAverageColor', 'Parameter', cmdCommand)
 				
-				print(cmdCommand)
+				--print(cmdCommand)
+				--print(SKIN:GetMeasure('RunAverageColor'):GetOption('Parameter'))
 				--SKIN:Bang('!CommandMeasure', 'RunAverageColor', 'Kill')
 				SKIN:Bang('!CommandMeasure', 'RunAverageColor', 'Run')
 				--print(SKIN:Bang(cmdCommand))

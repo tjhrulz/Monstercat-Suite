@@ -47,6 +47,6 @@ Temporary Items
 .apdisk
 
 #Repo specific
-@Resources/images/cover.png
-@Resources/images/coverB.png
-*output.txt
+**cover.png
+**coverB.png
+**output.txt
