@@ -45,9 +45,8 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
-@Resources/images/cover.png
-@Resources/images/cover.png
+
+#Repo specific
 @Resources/images/cover.png
 @Resources/images/coverB.png
-@Resources/images/coverB.png
-@Resources/images/coverB.png
+*output.txt
