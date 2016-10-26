@@ -57,8 +57,9 @@ Substitute="\":"\\"
 [DoUpdate]
 Measure=Plugin
 Plugin=ActionTimer
-ActionList1=Wait #WaitTimeFetch# | ProcessUpdate | Wait #WaitTimeProcess# | DoDynamicUpdate
-ProcessUpdate=[!CommandMeasure CalcAlbumArtColorScript "GetColors(#EnableMultiColors#)"][!CommandMeasure CalcVarationScript "colorSelector('[MeasureGenre]')"]
+ActionList1=Wait #WaitTimeFetch# | ProcessUpdate1 | Wait #WaitTimeFetch# | ProcessUpdate2 | Wait #WaitTimeProcess# | DoDynamicUpdate
+ProcessUpdate1=[!CommandMeasure CalcAlbumArtColorScript "GetColors(#EnableMultiColors#)"]
+ProcessUpdate2=[!CommandMeasure CalcVarationScript "colorSelector('[MeasureGenre]')"]
 DoDynamicUpdate=[!SetOptionGroup DynamicDynamic DynamicVariables 0]
 
 [MeasureGenre]

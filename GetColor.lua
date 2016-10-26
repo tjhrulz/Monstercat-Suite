@@ -19,6 +19,8 @@ function GetColors(doPalette)
 			--SKIN:Bang('!CommandMeasure ' .. ImagePath .. ' "Kill"')
 			
 			command = vbsPath .. "ImagePath.bat " .. vbsPath .. " " .. ImagePath .. " " .. vbsPath
+			-- -colors 16 -depth 8 -format "%c" histogram:info: | sort /r
+			-- -scale 1x1! -format %[fx:int(255*r+.5)],%[fx:int(255*g+.5)],%[fx:int(255*b+.5)] info:
 			cmdCommand = vbsPath .. "@Resources\\ImageMagickScripts\\convert.exe " .. ImagePath .. "  -scale 1x1! -format %[fx:int(255*r+.5)],%[fx:int(255*g+.5)],%[fx:int(255*b+.5)] info:"
 			--cmdCommand = "echo test"
 		

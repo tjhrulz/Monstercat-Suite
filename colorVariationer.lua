@@ -114,7 +114,9 @@ function colorizer(baseColorRGB)
 		if(tonumber(SKIN:GetVariable("EnableMultiColors", 0)) == 0) then
 		
 			--baseColorRGB = SKIN:Bang('!CommandMeasure', 'RunAverageColor', 'Run')
+			
 			baseColorRGB = ReadFile("output.txt")
+			--print(baseColorRGB)
 			
 			baseColorR = string.sub(baseColorRGB, 0, string.find(baseColorRGB, ",")-1)
 			baseColorRGB = string.sub(baseColorRGB, string.len(baseColorR)+2)
@@ -164,6 +166,7 @@ function colorizer(baseColorRGB)
 	
 	--print("TransTest: " .. BackgroundPanelColor .. "," .. SKIN:GetVariable("BackgroundPanelColorTransparency", ',255'))
 	--print("Test: " .. wallpaperColor)
+	--print("Color: " .. baseColor)
 	
 	if vizColor ~= -1 then SKIN:Bang('!SetVariable', "VizColor", vizColor) end
 	if PCMRColor ~= -1 then SKIN:Bang('!SetVariable', "PCMRColor", PCMRColor) end
@@ -345,7 +348,7 @@ function ReadFile(FilePath)
 	local Contents = File:read('*all')
 	File:close()
 
-	print('Contents: ' .. Contents)
+	--print('Contents: ' .. Contents)
 	
 	return Contents
 end
