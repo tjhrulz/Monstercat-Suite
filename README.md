@@ -23,25 +23,24 @@ Button to toggle small meters and side panels
 
 TODO
 - [ ] Move scripts that are in root directory into proper places in resources
-- [ ] Color palete system, I was originally going to make something similar to colorThief but I dislike the posiblity for very close colors, the palette system in android prevents that and can pick out highlists  from and image which I want (ie if the album art as grass sky and an apple I want the apple color to be the dominant color)
+- [ ] Color palette system, I was originally going to make something similar to colorThief but I dislike the possibility for very close colors, the palette system in android prevents that and can pick out highlists  from and image which I want (ie if the album art as grass sky and an apple I want the apple color to be the dominant color)
 - [ ] Add news RSS
-- [ ] Weather stuffs (Use http://wxdata.weather.com/wxdata/weather/local/#LocationCode#?cc=*&unit=#TempUnit#&dayf=6 and parse, thanks to jsmorley for his post on that had no idea weather.com had an rss version (It even is wind direction!))
+- [ ] Weather stuffs (Use http://wxdata.weather.com/wxdata/weather/local/#LocationCode#?cc=*&unit=#TempUnit#&dayf=6 and parse, thanks to jsmorley for his post on that had no idea weather.com had an rss version (It even has wind direction!))
 - [ ] Calendar for the month meter
 - [ ] Appointments meter
 - [X] Add blur effect to album art background toggle, since as I learned album art is not high res
-- [ ] Make set blur as actual background optional
-- [ ] Have color change delay be user configureable, and apply to every single color cchange? (May have to have it apply to every dynamic color object for album art colors to work)
+- [X] Make set blur as actual background optional
+- [X] Have color change delay be user configurable, and apply to every single color cchange? (May have to have it apply to every dynamic color object for album art colors to work)
 - [ ] Add more info to gpu and cpu meters (Scrapped)
 - [ ] Pull colors from album art since it will be a background option Update: This is being a pain in my ass
 - [X] Add genre color complimentary color that user can toggle on, (Is there a way to do this programmatically? Not sure how complimentary colors work) Ie the one I see all the time blue background with yellow everything else
 - [ ] Make desktop and laptop versions of some meters, ie. desktop doesn't need wifi or battery info, laptop may not need GPU info
 - [ ] Notification system (using IFTTT and pushover?) Edit: Nevermind Pushover only allows apps to send notifications, receiving must be done in a special app and is as the name implies push based not pull based.
-- [ ] Get real fact from fact repository and mix them in with fact sphere facts
-- [ ] Add support for audio playback of fact sphere on left click
-- [ ] Add option for users to define (or automagically?) max Internet and HDD speeds if they don't want those meters to dynamically scale based on best known since refresh (Honestly not a big deal)
+- [ ] Get real fact from fact repository and mix them in with fact sphere facts Update: Now has a separated version, needs a joint version
+- [ ] Add support for audio playback of fact sphere on left click?
 - [X] Add combined Top Processes with paging
 - [ ] Several bars variants need to be checked for code consistency, such as percentual being set on some of the ferpnom meters, process being spelled wrong, or other logical bugs, and missoptimizations within them
-- [ ] Make sure background cmds are closing gracefully and correctly
+- [ ] Make sure background cmds are closing gracefully and correctly and not staying open
 - [ ] Final optimization pass
 - [ ] Update installer meter to make initial setup nicer (Do before v1.0)
 - [ ] Look into hacking in Google play music (And youtube?) support to the music reader (I believe Google Talk/G+ used to expose this info)
@@ -49,25 +48,24 @@ TODO
 - [ ] Look into if average size variable increases or decrease performance based on size (kind of irrelevant now with CPU usage being better I just want to document it right)
 Bugs
 - [X] Selector circles for multi info meters do not update on song change only on change of button, I think it may have something to do with the selectors being set the color instead of the variable.
-- [ ] Pinging conditionals do not work after first time they are triggered
-- [ ] Fix right aligned monster clocks requiring a non-dynamic x value to display (Needs a lua rewrite to work)
+- [ ] Pinging conditionals do not work after first time they are triggered Update: I have disabled for now
+- [X] Fix right aligned monster clocks requiring a non-dynamic x value to display (Needs a lua rewrite to work)
 - [ ] Check and possibly fix if DINTFMI only working on first load since afterwards it may always use old data
 - [ ] Look into if cpu being off by about a factor of about 2 (Seems to be half actual on advancedCPU and ferpnom seems to vary) on cpu reader and top processes is a bug in task maanger, rainmeter dlls, or if it is just my machine
 - [ ] Process is spelled Proces in several places throughout the codebase, not causing any bugs as it is spelled that way throughout the file but it bothers me
-- [ ] Top processes bars are not scaled on AdvancedCPU meters (May not happen due to percentual possibly scaling based on max value causing for percentage changes)
-- [ ] Fix random logic bugs that likely exist/missed dynamicdynamic group on items
-- [ ] Top processes that contain IO data do not have a max value and thus smaller values can have larger bars (This is a bigger deal than the normal HDDs not having one which is fine IMO)
+- [ ] Top processes bars do not use scale value on AdvancedCPU meters (May not happen due to percentual possibly scaling based on max value causing for percentage changes)
+- [X] Top processes that contain IO data do not have a max value and thus smaller values can have larger bars (This is a bigger deal than the normal HDDs not having one which is fine IMO)
 - [X] GPU and CPU graphs do not seem to follow max value Update: maybe not as now they are no longer doing it? Update: autoscale was set
 - [X] Blurred album art sometimes does not run or apply (I think I fixed apply) Update: Never runs when song naturally changes?
 Possible Future Changes
-- [ ] Regroup small meters by the size variation? (Scrapped for other regrouping changes (Instead called alts))
+- [X] Regroup small meters by the size variation? (Scrapped for other regrouping changes (Instead called alts))
 - [ ] Dual graph CPU and GPU info (Similar to how combined processing graph works but instead one for just GPU and just CPU, would use things like temp and RAM usage on extra bars)
 - [ ] Replace # with - in top process meter?
 - [ ] Once released see if advancedCPU is really needed and remove it? (Not till after I get enough people using it to make a judgment on this)
 - [ ] Decide if I want to make max for top process meters be less user configurable/Require more knowledge of your machine to change (How many cores)
 - [ ] Add missing part of DINAJ hovertext?
-- [ ] Look into fixed number position (Either start or honestly it looks good enough if just the postfixes started at the same place it would be good enough)
-- [ ] Padding has been removed do I want to add it back as a toggle? Would it apply to everything or just text? (If I do apply AccurateText)
+- [ ] Look into fixed number position on right aligned meter info (Either the start or honestly it looks good enough if just the postfixes started at the same place it would be good enough)
+- [ ] Padding has been removed do I want to add it back as a toggle? Would it apply to everything or just text? (If I do apply AccurateText) Update: Rainmeter has a padding option, will look into it
 - [ ] Make middle click always cause a refresh of data (likely will not do with this giving me issues before and CPU usage being so low now) and double click cycle through variants?
 - [ ] Make meter backgrounds dynamic? (User can use transparency to achieve this effect now pretty well now so I doubt I will do this, especially since background panels are dynamic)
 - [ ] Make it so info fits height perfectly on a 1080p display/user defined value? (Would like to do this but it would be hard unless I do something like make the number of top processes dynamic to fill the gap at the bottom as I do not define height specifically on any meter)
