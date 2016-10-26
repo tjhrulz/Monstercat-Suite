@@ -1,3 +1,7 @@
+function Initialize()
+   SavedMaxW = 0
+end
+
 function RightStringMeters()
    StringMeters = {
       SKIN:GetMeter ('text1'),
@@ -13,17 +17,17 @@ function RightStringMeters()
 	  --print("Y " .. Y[i])
    end
 
-   local MaYWidth = 0
+   local MaxWidth = 0
 
    for i,v in ipairs(W) do
-      if v > MaYWidth then MaYWidth = v end
+      if v > MaxWidth then MaxWidth = v end
    end
    
-   print(MaYWidth)
+   --print("asdf " .. SavedMaxW .. "," .. MaxWidth)
 
-   if MaYWidth ~= SavedMaYW then
-      SKIN:Bang('!MoveMeter', MaYWidth, Y[1], 'text1')
-      SKIN:Bang('!MoveMeter', MaYWidth, Y[2], 'mainString')
-      SavedMaYW = MaYWidth
+   if MaxWidth >= SavedMaxW then
+      SKIN:Bang('!MoveMeter', MaxWidth, Y[1], 'text1')
+      SKIN:Bang('!MoveMeter', MaxWidth, Y[2], 'mainString')
+      SavedMaxW = MaxWidth
    end
 end
