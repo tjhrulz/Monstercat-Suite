@@ -53,7 +53,7 @@ Substitute="\":"\\"
 [DoUpdate]
 Measure=Plugin
 Plugin=ActionTimer
-ActionList1=Wait #WaitTime# | ProcessUpdate | Wait #WaitTime# | DoDynamicUpdate
+ActionList1=Wait #WaitTimeFetch# | ProcessUpdate | Wait #WaitTimeProcess# | DoDynamicUpdate
 ProcessUpdate=[!CommandMeasure CalcVarationScript "colorSelector('[MeasureGenre]')"]
 DoDynamicUpdate=[!SetOptionGroup DynamicDynamic DynamicVariables 0]
 
