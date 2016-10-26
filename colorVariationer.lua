@@ -113,41 +113,18 @@ function colorizer(baseColorRGB)
 		
 		if(tonumber(SKIN:GetVariable("EnableMultiColors", 0)) == 0) then
 		
-			--command = rootPath .. "GetColor.vbs " .. inputPath
-			--print(SKIN:Bang(command))
-			
-			GetColor = SKIN:GetMeasure('GetAverageColor'):GetOption('Text')
-			vbsPath = SKIN:GetMeasure('CalcRootFilePath'):GetOption('Text')
-	
-			--print("AlbumArtLoc " .. GetColor)
-	
-			if (GetColor == nil) or (GetColor == "") then
-				--GetColor = vbsPath .. "@Resources\\images\\Fallback.png"
-			else
-				
-				--SKIN:Bang('!CommandMeasure ' .. GetColor .. ' "Kill"')
-				
-				command = vbsPath .. "GetColor.bat " .. vbsPath .. " " .. GetColor .. " " .. vbsPath
-				cmdCommand = vbsPath .. "@Resources\\ImageMagickScripts\\convert.exe " .. GetColor .. "  -scale 1x1! -format %[fx:int(255*r+.5)],%[fx:int(255*g+.5)],%[fx:int(255*b+.5)] info:"
-				--cmdCommand = "echo test"
-			
-				SKIN:Bang('!SetOption', 'RunAverageColor', 'Parameter', cmdCommand)
-				
-				--print(cmdCommand)
-				--print(SKIN:GetMeasure('RunAverageColor'):GetOption('Parameter'))
-				--SKIN:Bang('!CommandMeasure', 'RunAverageColor', 'Kill')
-				SKIN:Bang('!CommandMeasure', 'RunAverageColor', 'Run')
-				--print(SKIN:Bang(cmdCommand))
-			end
-			baseColorRGB = "200,200,200"
 			--baseColorRGB = SKIN:Bang('!CommandMeasure', 'RunAverageColor', 'Run')
-			--baseColorRGB = SKIN:Bang(command)
+			baseColorRGB = ReadFile("output.txt")
 			
 			baseColorR = string.sub(baseColorRGB, 0, string.find(baseColorRGB, ",")-1)
 			baseColorRGB = string.sub(baseColorRGB, string.len(baseColorR)+2)
 			baseColorG = string.sub(baseColorRGB, 0, string.find(baseColorRGB, ",")-1)
 			baseColorRGB = string.sub(baseColorRGB, string.len(baseColorR)+2)
 			baseColorB = string.sub(baseColorRGB, 0, string.find(baseColorRGB, ","))
+			
+			if(baseColorR == nil) or (baseColorG == nil) or (baseColorB == nil) then
+				baseColorR, baseColorG, baseColorB = 200
+			end
 			
 			baseColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("ColorModifier", '1.0'))
 			secondaryColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("Color2Modifier", '1.0'))
@@ -163,7 +140,8 @@ function colorizer(baseColorRGB)
 			vizColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("VizColorModifier", '1.0'))
 			PCMRColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("PCMRColorModifier", '1.0'))
 		else
-			palette = makePalette()
+		
+			print("Palette file contents:" .. ReadFile("output.txt"))
 		
 			baseColor = palette[tonumber(SKIN:GetVariable("ColorPalette", '1.0'))]
 			secondaryColor = palette[tonumber(SKIN:GetVariable("Color2Palette", '1.0'))]
@@ -222,16 +200,6 @@ function percentColorize(colorR, colorG, colorB, modifyPercent)
 		local newColorRGB = colorR .. "," .. colorG .. "," .. colorB
 		return (newColorRGB)
 	end
-end
-
-function makePalette()
-	--print("unimplemented")
-	
-	palette = {"200,200,200","255,255,255","230,206,0","100,100,100","000,000,000","000,000,000"}
-	palette[-1] = -1
-	
-	return palette
-	
 end
 
 function hueColorize(colorR, colorG, colorB, colorType)
@@ -357,4 +325,27 @@ function HuetoRGB( v1, v2, vH )
    if ((2 * vH) < 1) then return (v2) end
    if ((3 * vH) < 2) then return (v1 + (v2 - v1) * ((2 / 3) - vH) * 6) end
    return v1
+end
+
+function ReadFile(FilePath)
+	-- HANDLE RELATIVE PATH OPTIONS.
+	FilePath = SKIN:MakePathAbsolute(FilePath)
+	--print('ReadFile: ' .. FilePath)
+
+	-- OPEN FILE.
+	local File = io.open(FilePath)
+
+	-- HANDLE ERROR OPENING FILE.
+	if not File then
+		print('ReadFile: unable to open file at ' .. FilePath)
+		return
+	end
+
+	-- READ FILE CONTENTS AND CLOSE.
+	local Contents = File:read('*all')
+	File:close()
+
+	print('Contents: ' .. Contents)
+	
+	return Contents
 end

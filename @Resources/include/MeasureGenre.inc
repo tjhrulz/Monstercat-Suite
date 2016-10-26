@@ -3,11 +3,15 @@
 #[!CommandMeasure CalcBlurAlbumArt blur([MeasureAlbumArt] , [CalcEscapedFilePath])]
 
 [Rainmeter]
-OnRefreshAction=[!CommandMeasure CalcVarationScript "colorSelector('[MeasureGenre]')"][!SetOptionGroup DynamicDynamic DynamicVariables 0]
+OnRefreshAction=[!CommandMeasure DoUpdate "Stop 1"][!CommandMeasure DoUpdate "Execute 1"]
 
 [CalcVarationScript]
 Measure=Script
 ScriptFile=#ROOTCONFIGPATH#\colorVariationer.lua
+
+[CalcAlbumArtColorScript]
+Measure=Script
+ScriptFile=#ROOTCONFIGPATH#\GetColor.lua
 
 [MeasureAlbumArt]
 Measure=Plugin
@@ -23,16 +27,16 @@ Text="#@#images\cover.png"
 ;Measure=Plugin
 ;Plugin=SpotifyPlugin
 ;Type=AlbumName
-;OnChangeAction=[!SetOption GetAverageColor Text "[*MeasureAlbumArtSpotify*]"]
+;OnChangeAction=[!SetOption GetImagePath Text "[*MeasureAlbumArtSpotify*]"]
 
 [MeasureAlbumChangedNotify]
 Measure=Plugin
 Plugin=NowPlaying
 PlayerName=#PlayerName#
 PlayerType=Album
-OnChangeAction=[!SetOption GetAverageColor Text "[*MeasureAlbumArt*]"]
+OnChangeAction=[!SetOption GetImagePath Text "[*MeasureAlbumArt*]"]
 
-[GetAverageColor]
+[GetImagePath]
 Measure=String
 ;Text="#@#images\Fallback.png"
 DynamicVariables=1
@@ -54,7 +58,7 @@ Substitute="\":"\\"
 Measure=Plugin
 Plugin=ActionTimer
 ActionList1=Wait #WaitTimeFetch# | ProcessUpdate | Wait #WaitTimeProcess# | DoDynamicUpdate
-ProcessUpdate=[!CommandMeasure CalcVarationScript "colorSelector('[MeasureGenre]')"]
+ProcessUpdate=[!CommandMeasure CalcAlbumArtColorScript "GetColors(#EnableMultiColors#)"][!CommandMeasure CalcVarationScript "colorSelector('[MeasureGenre]')"]
 DoDynamicUpdate=[!SetOptionGroup DynamicDynamic DynamicVariables 0]
 
 [MeasureGenre]
