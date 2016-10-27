@@ -7,19 +7,21 @@ function GetColors(doPalette)
 			if (ImagePath == nil) or (string.len(ImagePath) <= 1) then
 				--print("IPF" .. ImagePath)
 			
-				--FallbackPath = vbsPath .. "@Resources\\images\\output.txt"
-				--
-				--cmdCommand = "more " .. FallbackPath
-				--
-				--SKIN:Bang('!SetOption', 'CopyAverageColor', 'Parameter', cmdCommand)
-				--KillAllRunning()
-				--
-				--SKIN:Bang('!CommandMeasure', 'CopyAverageColor', 'Run')
+				FallbackPath = vbsPath .. "@Resources\\images\\output.txt"
+				
+				cmdCommand = "more " .. FallbackPath
+				
+				SKIN:Bang('!SetOption', 'CopyAverageColor', 'Parameter', cmdCommand)
+				KillAllRunning()
+				
+				SKIN:Bang('!CommandMeasure', 'CopyAverageColor', 'Run')
 			else
 
+				colorsToGet = tonumber(SKIN:GetVariable("ColorsToGet", 12))
+			
 				-- -colors 16 -depth 8 -format "%c" histogram:info: | sort /r
 				-- -scale 1x1! -format %[fx:int(255*r+.5)],%[fx:int(255*g+.5)],%[fx:int(255*b+.5)] info:
-				cmdCommand = vbsPath .. "@Resources\\ImageMagickScripts\\convert.exe " .. ImagePath .. "  -colors 6 -depth 8 -format %c histogram:info: | sort /r"
+				cmdCommand = vbsPath .. "@Resources\\ImageMagickScripts\\convert.exe " .. ImagePath .. "  -colors ".. colorsToGet .." -depth 8 -format %c histogram:info: | sort /r"
 			
 				SKIN:Bang('!SetOption', 'RunAverageColor', 'Parameter', cmdCommand)
 				KillAllRunning()
@@ -42,10 +44,12 @@ function GetColors(doPalette)
 				--
 				--SKIN:Bang('!CommandMeasure', 'CopyAverageColor', 'Run')
 			else
+			
+				colorsToGet = tonumber(SKIN:GetVariable("ColorsToGet", 12))
 
 				-- -colors 16 -depth 8 -format "%c" histogram:info: | sort /r
 				-- -scale 1x1! -format %[fx:int(255*r+.5)],%[fx:int(255*g+.5)],%[fx:int(255*b+.5)] info:
-				cmdCommand = vbsPath .. "@Resources\\ImageMagickScripts\\convert.exe " .. ImagePath .. "  -colors 6 -depth 8 -format %c histogram:info: | sort /r"
+				cmdCommand = vbsPath .. "@Resources\\ImageMagickScripts\\convert.exe " .. ImagePath .. "  -colors ".. colorsToGet .." -depth 8 -format %c histogram:info: | sort /r"
 			
 				SKIN:Bang('!SetOption', 'RunAverageColor', 'Parameter', cmdCommand)
 				KillAllRunning()

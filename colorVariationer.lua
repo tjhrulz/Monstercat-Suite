@@ -286,13 +286,58 @@ function getPalette()
 	for color in string.gmatch(input, "%s%b()%s") do
 		palette[i] = color	
 		palette[i] = string.sub(palette[i], 3, -3)
+		
+		--print((string.sub(palette[i], 0, 3) ..  ":" .. string.sub(palette[i], 5, 7)  ..  ":" .. string.sub(palette[i], 9, 11)))
+		
+		darkestColor=tonumber(SKIN:GetVariable("DarkestColorAverage", 0))
+		brightestColor=tonumber(SKIN:GetVariable("LightestColorAverage", 255))
+		
+		if((string.sub(palette[i], 0, 3)+ string.sub(palette[i], 5, 7) + string.sub(palette[i], 9, 11)) / 3 < darkestColor) or ((string.sub(palette[i], 0, 3)+ string.sub(palette[i], 5, 7) + string.sub(palette[i], 9, 11)) / 3 > brightestColor) then
+			print("Color rejected: " .. palette[i])
+			i = i - 1
+		else
+			if(string.len(palette[i]) > 11) then
+				palette[i] = string.sub(palette[i],0,11)
+			end
+		end
+		
 		i = i + 1
 	end
 	
+	for i=tonumber(SKIN:GetVariable("ColorsToKeep", 6)), table.getn(palette), 1 do
+		palette[i] = nil
+	end
+	
+	if(tonumber(SKIN:GetVariable("SortColors", 1))) then
+		palette = InsertionSortColors(palette)
+	end
+	
 	palette[-1] = -1
-	--print("test" .. palette[-1] .. "," .. palette[1]  .. "," .. palette[2]  .. "," .. palette[3] .. "," .. palette[4])
 
 	return palette
+end
+
+--for i = 1 to length(A)-1
+--   x = A[i]
+--   j = i - 1
+--   while j >= 0 and A[j] > x
+--       A[j+1] = A[j]
+--       j = j - 1
+--   end while
+--   A[j+1] = x[3]
+--end for
+function InsertionSortColors(t)
+	for i=2, table.getn(t), 1 do
+		temp = t[i]
+		j=i-1
+		while j >= 1 and  ((string.sub(t[j], 0, 3)+ string.sub(t[j], 5, 7) + string.sub(t[j], 9, 11)) / 3) > ((string.sub(temp, 0, 3)+ string.sub(temp, 5, 7) + string.sub(temp, 9, 11)) / 3) do
+			t[j+1] = t[j]
+			j = j -1
+		end  
+		t[j+1] = temp
+	end
+  
+  return t
 end
 
 function RGBtoHSL(colorR, colorG, colorB)

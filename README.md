@@ -23,7 +23,9 @@ Button to toggle small meters and side panels
 
 TODO
 - [ ] Move scripts that are in root directory into proper places in resources
-- [ ] Color palette system, I was originally going to make something similar to colorThief but I dislike the possibility for very close colors, the palette system in android prevents that and can pick out highlists  from and image which I want (ie if the album art as grass sky and an apple I want the apple color to be the dominant color)
+- [X] Color palette system, This uses histograms to get most common colors and then sorts them by rgb value
+- [ ] Make color rejection replace the color with a slightly less extreme color that is the same shade
+- [ ] Make cut off for number of colors to sort based off of a percent of the 1st colors count, I dont think I will do this though as it will favor lighter or darker colors
 - [ ] Add news RSS
 - [ ] Weather stuffs (Use http://wxdata.weather.com/wxdata/weather/local/#LocationCode#?cc=*&unit=#TempUnit#&dayf=6 and parse, thanks to jsmorley for his post on that had no idea weather.com had an rss version (It even has wind direction!))
 - [ ] Calendar for the month meter
