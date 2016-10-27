@@ -115,7 +115,16 @@ function colorizer(baseColorRGB)
 		
 			--baseColorRGB = SKIN:Bang('!CommandMeasure', 'RunAverageColor', 'Run')
 			
-			baseColorRGB = ReadFile("output.txt")
+			input = ReadFile("output.txt")
+			
+			--print(input)
+			--print(string.find(input, "%("))
+			--print(string.find(input, "%)"))
+			if(input ~= nil) then
+				baseColorRGB = string.sub(input, string.find(input, "%(")+1, string.find(input, "%)")-1)
+			else
+				baseColorRGB = "200,200,200"
+			end
 			--print(baseColorRGB)
 			
 			baseColorR = string.sub(baseColorRGB, 0, string.find(baseColorRGB, ",")-1)
