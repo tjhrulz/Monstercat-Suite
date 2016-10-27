@@ -1,5 +1,0 @@
-convert.exe: UnableToOpenConfigureFile `colors.xml' @ warning/configure.c/GetConfigureOptions/712.
-     71458: (207,181,183) #CFB5B7 srgb(207,181,183)
-     60793: ( 36, 24, 48) #241830 srgb(36,24,48)
-     53932: (178,113,134) #B27186 srgb(178,113,134)
-     44217: (239,238,244) #EFEEF4 srgb(239,238,244)
