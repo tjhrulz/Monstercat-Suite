@@ -4,7 +4,7 @@ function GetColors(doPalette)
 			ImagePath = SKIN:GetMeasure('GetImagePath'):GetOption('Text')
 			vbsPath = SKIN:GetMeasure('CalcRootFilePath'):GetOption('Text')
 
-			print(SKIN:MakePathAbsolute(' ') .. " AlbumArtLoc " .. ImagePath)
+			--print(SKIN:MakePathAbsolute(' ') .. " AlbumArtLoc " .. ImagePath)
 
 			if (ImagePath == nil) or (string.len(ImagePath) <= 1) then
 				FallbackPath = vbsPath .. "@Resources\\images\\output.txt"
@@ -13,6 +13,7 @@ function GetColors(doPalette)
 				
 				SKIN:Bang('!SetOption', 'CopyAverageColor', 'Parameter', cmdCommand)
 				--SKIN:Bang('!CommandMeasure', 'CopyAverageColor', 'Kill')
+				--SKIN:Bang('!CommandMeasure', 'RunAverageColor', 'Kill')
 				SKIN:Bang('!CommandMeasure', 'CopyAverageColor', 'Run')
 				
 				--baseColorRGB = "200,200,200"
@@ -34,6 +35,7 @@ function GetColors(doPalette)
 				--print(cmdCommand)
 				--print(SKIN:GetMeasure('RunAverageColor'):GetOption('Parameter'))
 				--SKIN:Bang('!CommandMeasure', 'RunAverageColor', 'Kill')
+				--SKIN:Bang('!CommandMeasure', 'CopyAverageColor', 'Kill')
 				SKIN:Bang('!CommandMeasure', 'RunAverageColor', 'Run')
 				--print(SKIN:Bang(cmdCommand))
 			end
@@ -41,7 +43,7 @@ function GetColors(doPalette)
 			ImagePath = SKIN:GetMeasure('GetImagePath'):GetOption('Text')
 			vbsPath = SKIN:GetMeasure('CalcRootFilePath'):GetOption('Text')
 
-			print(SKIN:MakePathAbsolute(' ') .. " AlbumArtLoc " .. ImagePath)
+			--print(SKIN:MakePathAbsolute(' ') .. " AlbumArtLoc " .. ImagePath)
 
 			if (ImagePath == nil) or (string.len(ImagePath) <= 1) then
 				FallbackPath = vbsPath .. "@Resources\\images\\output.txt"
@@ -50,6 +52,7 @@ function GetColors(doPalette)
 				
 				SKIN:Bang('!SetOption', 'CopyAverageColor', 'Parameter', cmdCommand)
 				--SKIN:Bang('!CommandMeasure', 'CopyAverageColor', 'Kill')
+				--SKIN:Bang('!CommandMeasure', 'RunAverageColor', 'Kill')
 				SKIN:Bang('!CommandMeasure', 'CopyAverageColor', 'Run')
 				
 				--baseColorRGB = "200,200,200"
@@ -71,6 +74,7 @@ function GetColors(doPalette)
 				--print(cmdCommand)
 				--print(SKIN:GetMeasure('RunAverageColor'):GetOption('Parameter'))
 				--SKIN:Bang('!CommandMeasure', 'RunAverageColor', 'Kill')
+				--SKIN:Bang('!CommandMeasure', 'CopyAverageColor', 'Kill')
 				SKIN:Bang('!CommandMeasure', 'RunAverageColor', 'Run')
 				--print(SKIN:Bang(cmdCommand))
 			end

@@ -126,9 +126,10 @@ function colorizer(baseColorRGB)
 					baseColorRGB = string.sub(baseColorRGB,0,11)
 				end
 			else
-				baseColorRGB = "200,200,200"
+				print("Error: Unable to get album art color, swtiching to default")
+				baseColorRGB = SKIN:GetVariable("DefaultDynamicColor", "200,200,200")
 			end
-			print(baseColorRGB)
+			--print(baseColorRGB)
 			
 			baseColorR = string.sub(baseColorRGB, 0, string.find(baseColorRGB, ",")-1)
 			baseColorRGB = string.sub(baseColorRGB, string.len(baseColorR)+2)
@@ -156,6 +157,13 @@ function colorizer(baseColorRGB)
 		else
 		
 			palette = getPalette()
+			
+			if(input == nil) and (string.len(input) <= 1) then
+				print("Error: Unable to get album art color, swtiching to default")
+				palette = {"200,200,200","255,255,255","230,206,0","100,100,100","000,000,000","000,000,000"}
+				palette[-1] = -1
+			end
+				
 		
 			baseColor = palette[tonumber(SKIN:GetVariable("ColorPalette", '1.0'))]
 			secondaryColor = palette[tonumber(SKIN:GetVariable("Color2Palette", '1.0'))]
@@ -281,10 +289,7 @@ function getPalette()
 		i = i + 1
 	end
 	palette[-1] = -1
-	print("test" .. palette[-1] .. "," .. palette[1]  .. "," .. palette[2]  .. "," .. palette[3] .. "," .. palette[4])
-	
-	--palette = {"200,200,200","255,255,255","230,206,0","100,100,100","000,000,000","000,000,000"}
-	--palette[-1] = -1
+	--print("test" .. palette[-1] .. "," .. palette[1]  .. "," .. palette[2]  .. "," .. palette[3] .. "," .. palette[4])
 
 	return palette
 end

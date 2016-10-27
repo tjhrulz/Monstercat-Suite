@@ -47,11 +47,13 @@ TODO
 - [ ] Look into making networking top process plugin
 - [ ] Look into if average size variable increases or decrease performance based on size (kind of irrelevant now with CPU usage being better I just want to document it right)
 Bugs
-- [ ] Album art color fetch runs when a color would have been decided 
+- [ ] Album art color fetch runs when a color will end up being decided 
+- [ ] Each meter instances its own version of any of the color options causing higher CPU than needed, I have known about this for a while but it hasn't been a big deal till some of the color choices required more CPU.
+- [ ] Threads sometimes stay alive after completing their output (I think I have seen it once or twice do it without completing it, tell me your secrets threads why did you hang)
 - [ ] Album art color fetch  fallback overwrites old data on refresh, likely wont fix unless I can find a way to make sure that the itune info gets in in time
-- [ ] After a refresh album art color fetech's next call returns nothing Update: Its the next fetch that does not go through fallback, interesting
-- [ ] Extreme dark or light (Like almost fully black or fully white) album art colors cause either text to be unreadable without being on a panel or more importantly if really dark everything but text is unusable no matter what 
-- [ ] Really uniform album art colors make the visulizer almost unusable, will become better once I give the option to favoring bright colors
+- [ ] After a refresh album art color fetech's next call returns nothing Update: Its the next fetch that does not go through fallback, interesting Update: I think it is fixed now
+- [ ] Extreme dark or light (Like almost fully black or fully white) album art colors when using album art as the background cause either text to be unreadable without being on a panel or more importantly if really dark everything but text is unusable no matter what 
+- [ ] Really uniform album art colors when using album art as a background make the visualizer almost unusable, will become better once I give the option to favoring bright colors
 - [ ] Pinging conditionals do not work after first time they are triggered Update: I have disabled for now
 - [ ] Check and possibly fix if DINTFMI only working on first load since afterwards it may always use old data
 - [ ] Look into if cpu being off by about a factor of about 2 (Seems to be half actual on advancedCPU and ferpnom) on cpu reader and top processes is a bug in task manager, rainmeter dlls, or if it is just my machine
