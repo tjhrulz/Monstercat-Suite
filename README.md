@@ -47,16 +47,16 @@ TODO
 - [ ] Look into making networking top process plugin
 - [ ] Look into if average size variable increases or decrease performance based on size (kind of irrelevant now with CPU usage being better I just want to document it right)
 Bugs
-- [X] Selector circles for multi info meters do not update on song change only on change of button, I think it may have something to do with the selectors being set the color instead of the variable.
+- [ ] Album art color fetch runs when a color would have been decided 
+- [ ] The processing time for album art color fetch is always budgeted in
+- [ ] Album art color fetch does not use fallback data and sometimes overwrites old data with blank data
+- [ ] Extreme dark or light (Like almost fully black or fully white) album art colors cause either text to be unreadable without being on a panel or more importantly if really dark everything but text is unusable no matter what 
+- [ ] Really uniform album art colors make the visulizer almost unusable, will become better once I give the option to favoring bright colors
 - [ ] Pinging conditionals do not work after first time they are triggered Update: I have disabled for now
-- [X] Fix right aligned monster clocks requiring a non-dynamic x value to display (Needs a lua rewrite to work)
 - [ ] Check and possibly fix if DINTFMI only working on first load since afterwards it may always use old data
-- [ ] Look into if cpu being off by about a factor of about 2 (Seems to be half actual on advancedCPU and ferpnom seems to vary) on cpu reader and top processes is a bug in task maanger, rainmeter dlls, or if it is just my machine
-- [ ] Process is spelled Proces in several places throughout the codebase, not causing any bugs as it is spelled that way throughout the file but it bothers me
-- [ ] Top processes bars do not use scale value on AdvancedCPU meters (May not happen due to percentual possibly scaling based on max value causing for percentage changes)
-- [X] Top processes that contain IO data do not have a max value and thus smaller values can have larger bars (This is a bigger deal than the normal HDDs not having one which is fine IMO)
-- [X] GPU and CPU graphs do not seem to follow max value Update: maybe not as now they are no longer doing it? Update: autoscale was set
-- [X] Blurred album art sometimes does not run or apply (I think I fixed apply) Update: Never runs when song naturally changes?
+- [ ] Look into if cpu being off by about a factor of about 2 (Seems to be half actual on advancedCPU and ferpnom) on cpu reader and top processes is a bug in task manager, rainmeter dlls, or if it is just my machine
+- [ ] Process is spelled Proces in several places throughout the codebase, not causing any bugs as it is spelled that way throughout the file but it bothers me, Ill get around to regexing it someday
+- [ ] Top processes bars do not use scale value on AdvancedCPU meters (Low priority due to percentual possibly scaling based on max value causing for percentage changes)
 Possible Future Changes
 - [X] Regroup small meters by the size variation? (Scrapped for other regrouping changes (Instead called alts))
 - [ ] Dual graph CPU and GPU info (Similar to how combined processing graph works but instead one for just GPU and just CPU, would use things like temp and RAM usage on extra bars)

@@ -44,6 +44,8 @@ DynamicVariables=1
 [CopyAverageColor]
 Measure=Plugin
 Plugin=RunCommand
+OutputFile="output.txt"
+OutputType='ANSI'
 DynamicVariables=1
 ;FinishAction=[!SetOptionGroup DynamicDynamic DynamicVariables 0]
 
@@ -63,7 +65,7 @@ Substitute="\":"\\"
 [DoUpdate]
 Measure=Plugin
 Plugin=ActionTimer
-ActionList1=Wait #WaitTimeFetch# | ProcessUpdate1 | Wait #WaitTimeFetch# | ProcessUpdate2 | Wait #WaitTimeProcess# | DoDynamicUpdate
+ActionList1=Wait #WaitTimeFetch# | ProcessUpdate1 | Wait #WaitTimeProcess# | ProcessUpdate2 | Wait #WaitTimeProcess# | DoDynamicUpdate
 ProcessUpdate1=[!CommandMeasure CalcAlbumArtColorScript "GetColors(#EnableMultiColors#)"]
 ProcessUpdate2=[!CommandMeasure CalcVarationScript "colorSelector('[MeasureGenre]')"]
 DoDynamicUpdate=[!SetOptionGroup DynamicDynamic DynamicVariables 0]
