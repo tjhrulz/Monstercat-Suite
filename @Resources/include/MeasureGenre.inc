@@ -49,6 +49,7 @@ Plugin=RunCommand
 OutputFile="output.txt"
 OutputType='ANSI'
 DynamicVariables=1
+Timeout=#WaitTimeProcess#
 ;FinishAction=[!SetOptionGroup DynamicDynamic DynamicVariables 0]
 
 [RunAverageColor]
@@ -57,6 +58,7 @@ Plugin=RunCommand
 OutputFile="output.txt"
 OutputType='ANSI'
 DynamicVariables=1
+Timeout=#WaitTimeProcess#
 ;FinishAction=[!SetOptionGroup DynamicDynamic DynamicVariables 0]
 
 [CalcRootFilePath]

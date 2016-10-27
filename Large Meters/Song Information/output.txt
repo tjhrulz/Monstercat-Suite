@@ -1,5 +1,1 @@
-convert.exe: UnableToOpenConfigureFile `colors.xml' @ warning/configure.c/GetConfigureOptions/712.
-   4856393: (  0,  0,  0) #000000 black
-    143221: ( 45, 59, 54) #2D3B36 srgb(45,59,54)
-    126017: (171,118,139) #AB768B srgb(171,118,139)
-     58369: ( 19,232,215) #13E8D7 srgb(19,232,215)
+Cannot access file C:\Users\tjhrulz\Documents\Rainmeter\Skins\Monstercat-Suite\@Resources\images\output.txt
