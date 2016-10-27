@@ -270,12 +270,21 @@ function getPalette()
 
 	input = ReadFile("output.txt")
 	
-	for color in string.gmatch(input, "%(") do
-		print(color)
-	end
+	palette = {}
 	
-	palette = {"200,200,200","255,255,255","230,206,0","100,100,100","000,000,000","000,000,000"}
+	--print(input)
+	--Trying to match this regex \([\s\S]+?\) which is a pain without a cheat sheet with what all the regex translations are to do them in lua
+	i=1
+	for color in string.gmatch(input, "%s%b()%s") do
+		palette[i] = color	
+		palette[i] = string.sub(palette[i], 3, -3)
+		i = i + 1
+	end
 	palette[-1] = -1
+	print("test" .. palette[-1] .. "," .. palette[1]  .. "," .. palette[2]  .. "," .. palette[3] .. "," .. palette[4])
+	
+	--palette = {"200,200,200","255,255,255","230,206,0","100,100,100","000,000,000","000,000,000"}
+	--palette[-1] = -1
 
 	return palette
 end
