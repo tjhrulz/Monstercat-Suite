@@ -110,7 +110,7 @@ function colorizer(baseColorRGB)
 	
 	if(tonumber(SKIN:GetVariable("EnableAlbumColor", 1)) == 1) and (doAlbumColor == true) then
 		--print("Do album palette here")
-		
+		doAlbumColor = false
 		if(tonumber(SKIN:GetVariable("EnableMultiColors", 0)) == 0) then
 		
 			--baseColorRGB = SKIN:Bang('!CommandMeasure', 'RunAverageColor', 'Run')
@@ -125,7 +125,7 @@ function colorizer(baseColorRGB)
 			else
 				baseColorRGB = "200,200,200"
 			end
-			--print(baseColorRGB)
+			print(baseColorRGB)
 			
 			baseColorR = string.sub(baseColorRGB, 0, string.find(baseColorRGB, ",")-1)
 			baseColorRGB = string.sub(baseColorRGB, string.len(baseColorR)+2)
@@ -168,8 +168,6 @@ function colorizer(baseColorRGB)
 			vizColor = palette[tonumber(SKIN:GetVariable("VizColorPalette", '1.0'))]
 			PCMRColor = palette[tonumber(SKIN:GetVariable("PCMRColorPalette", '1.0'))]
 		end
-		
-		doAlbumColor = false
 	end	
 	
 	

@@ -41,6 +41,12 @@ Measure=String
 ;Text="#@#images\Fallback.png"
 DynamicVariables=1
 
+[CopyAverageColor]
+Measure=Plugin
+Plugin=RunCommand
+DynamicVariables=1
+;FinishAction=[!SetOptionGroup DynamicDynamic DynamicVariables 0]
+
 [RunAverageColor]
 Measure=Plugin
 Plugin=RunCommand

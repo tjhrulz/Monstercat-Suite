@@ -9,12 +9,18 @@ function GetColors(doPalette)
 		ImagePath = SKIN:GetMeasure('GetImagePath'):GetOption('Text')
 		vbsPath = SKIN:GetMeasure('CalcRootFilePath'):GetOption('Text')
 
-		--print("AlbumArtLoc " .. ImagePath)
+		print(SKIN:MakePathAbsolute(' ') .. " AlbumArtLoc " .. ImagePath)
 
 		if (ImagePath == nil) or (ImagePath == "") then
-			ImagePath = vbsPath .. "@Resources\\images\\Fallback.png"
+			FallbackPath = vbsPath .. "@Resources\\images\\output.txt"
+			
+			cmdCommand = "more " .. FallbackPath
+			
+			SKIN:Bang('!SetOption', 'RunAverageColor', 'Parameter', cmdCommand)
+			SKIN:Bang('!CommandMeasure', 'RunAverageColor', 'Run')
+			
 			--baseColorRGB = "200,200,200"
-			--print("Need to implement fallback for no album art")
+			print("Need to implement fallback for no album art " .. cmdCommand)
 		else
 			
 			--SKIN:Bang('!CommandMeasure ' .. ImagePath .. ' "Kill"')
@@ -27,7 +33,7 @@ function GetColors(doPalette)
 		
 			SKIN:Bang('!SetOption', 'RunAverageColor', 'Parameter', cmdCommand)
 			
-			print("IP" .. ImagePath)
+			--print("IP" .. ImagePath)
 			
 			--print(cmdCommand)
 			--print(SKIN:GetMeasure('RunAverageColor'):GetOption('Parameter'))
