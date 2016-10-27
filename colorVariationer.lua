@@ -120,8 +120,11 @@ function colorizer(baseColorRGB)
 			--print(input)
 			--print(string.find(input, "%("))
 			--print(string.find(input, "%)"))
-			if(input ~= nil) then
+			if(input ~= nil) and (string.len(input) > 1) then
 				baseColorRGB = string.sub(input, string.find(input, "%(")+1, string.find(input, "%)")-1)
+				if(string.len(baseColorRGB) > 11) then
+					baseColorRGB = string.sub(baseColorRGB,0,11)
+				end
 			else
 				baseColorRGB = "200,200,200"
 			end
@@ -152,7 +155,7 @@ function colorizer(baseColorRGB)
 			PCMRColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("PCMRColorModifier", '1.0'))
 		else
 		
-			print("Palette file contents:" .. ReadFile("output.txt"))
+			palette = getPalette()
 		
 			baseColor = palette[tonumber(SKIN:GetVariable("ColorPalette", '1.0'))]
 			secondaryColor = palette[tonumber(SKIN:GetVariable("Color2Palette", '1.0'))]
@@ -261,6 +264,20 @@ function hueColorize(colorR, colorG, colorB, colorType)
 
 	--print("newColorRGB:" .. newColorRGB)
 	return newColorRGB
+end
+
+function getPalette()
+
+	input = ReadFile("output.txt")
+	
+	for color in string.gmatch(input, "%(") do
+		print(color)
+	end
+	
+	palette = {"200,200,200","255,255,255","230,206,0","100,100,100","000,000,000","000,000,000"}
+	palette[-1] = -1
+
+	return palette
 end
 
 function RGBtoHSL(colorR, colorG, colorB)

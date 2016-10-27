@@ -28,7 +28,7 @@ Text="#@#images\cover.png"
 ;Plugin=SpotifyPlugin
 ;Type=AlbumName
 ;OnChangeAction=[!SetOption GetImagePath Text "[*MeasureAlbumArtSpotify*]"]
-OnUpdateAction=[!SetOption GetImagePath Text "[*MeasureAlbumArtSpotify*]"][SetOption MeasureAlbumArtSpotify OnUpdateAction ""]
+;OnUpdateAction=[!SetOption GetImagePath Text "[*MeasureAlbumArtSpotify*]"][SetOption MeasureAlbumArtSpotify OnUpdateAction "a"]
 
 [MeasureAlbumChangedNotify]
 Measure=Plugin
@@ -36,11 +36,11 @@ Plugin=NowPlaying
 PlayerName=#PlayerName#
 PlayerType=Album
 OnChangeAction=[!SetOption GetImagePath Text "[*MeasureAlbumArt*]"]
-OnUpdateAction=[!SetOption GetImagePath Text "[*MeasureAlbumArt*]"][SetOption MeasureAlbumChangedNotify OnUpdateAction ""]
+;OnUpdateAction=[!SetOption GetImagePath Text "[*MeasureAlbumArt*]"][!Log asdf][SetOption MeasureAlbumChangedNotify OnUpdateAction "a"]
 
 [GetImagePath]
 Measure=String
-;Text="#@#images\Fallback.png"
+Text="#@#images\Fallback.png"
 DynamicVariables=1
 
 [CopyAverageColor]
