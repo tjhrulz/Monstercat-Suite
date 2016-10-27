@@ -288,6 +288,7 @@ function getPalette()
 		palette[i] = string.sub(palette[i], 3, -3)
 		i = i + 1
 	end
+	
 	palette[-1] = -1
 	--print("test" .. palette[-1] .. "," .. palette[1]  .. "," .. palette[2]  .. "," .. palette[3] .. "," .. palette[4])
 

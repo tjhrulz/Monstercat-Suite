@@ -1,1 +1,7 @@
-Cannot access file C:\Users\tjhrulz\Documents\Rainmeter\Skins\Monstercat-Suite\@Resources\images\output.txt
+convert.exe: UnableToOpenConfigureFile `colors.xml' @ warning/configure.c/GetConfigureOptions/712.
+    562837: ( 15, 14, 25) #0F0E19 srgb(15,14,25)
+    466039: (250,249,246) #FAF9F6 srgb(250,249,246)
+    325601: ( 44, 76,153) #2C4C99 srgb(44,76,153)
+    269279: (192,183,183) #C0B7B7 srgb(192,183,183)
+    214317: ( 46, 50, 97) #2E3261 srgb(46,50,97)
+    121927: (143,113,134) #8F7186 srgb(143,113,134)

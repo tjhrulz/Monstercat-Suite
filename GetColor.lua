@@ -5,23 +5,27 @@ function GetColors(doPalette)
 			vbsPath = SKIN:GetMeasure('CalcRootFilePath'):GetOption('Text')
 
 			if (ImagePath == nil) or (string.len(ImagePath) <= 1) then
-				FallbackPath = vbsPath .. "@Resources\\images\\output.txt"
-				
-				cmdCommand = "more " .. FallbackPath
-				
-				SKIN:Bang('!SetOption', 'CopyAverageColor', 'Parameter', cmdCommand)
-				KillAllRunning()
-				
-				SKIN:Bang('!CommandMeasure', 'CopyAverageColor', 'Run')
+				--print("IPF" .. ImagePath)
+			
+				--FallbackPath = vbsPath .. "@Resources\\images\\output.txt"
+				--
+				--cmdCommand = "more " .. FallbackPath
+				--
+				--SKIN:Bang('!SetOption', 'CopyAverageColor', 'Parameter', cmdCommand)
+				--KillAllRunning()
+				--
+				--SKIN:Bang('!CommandMeasure', 'CopyAverageColor', 'Run')
 			else
 
 				-- -colors 16 -depth 8 -format "%c" histogram:info: | sort /r
 				-- -scale 1x1! -format %[fx:int(255*r+.5)],%[fx:int(255*g+.5)],%[fx:int(255*b+.5)] info:
-				cmdCommand = vbsPath .. "@Resources\\ImageMagickScripts\\convert.exe " .. ImagePath .. "  -colors 4 -depth 8 -format %c histogram:info: | sort /r"
+				cmdCommand = vbsPath .. "@Resources\\ImageMagickScripts\\convert.exe " .. ImagePath .. "  -colors 6 -depth 8 -format %c histogram:info: | sort /r"
 			
 				SKIN:Bang('!SetOption', 'RunAverageColor', 'Parameter', cmdCommand)
 				KillAllRunning()
+				--print("IP" .. ImagePath)
 				
+				--print(cmdCommand)
 				SKIN:Bang('!CommandMeasure', 'RunAverageColor', 'Run')
 			end
 		else
@@ -29,19 +33,19 @@ function GetColors(doPalette)
 			vbsPath = SKIN:GetMeasure('CalcRootFilePath'):GetOption('Text')
 
 			if (ImagePath == nil) or (string.len(ImagePath) <= 1) then
-				FallbackPath = vbsPath .. "@Resources\\images\\output.txt"
-				
-				cmdCommand = "more " .. FallbackPath
-				
-				SKIN:Bang('!SetOption', 'CopyAverageColor', 'Parameter', cmdCommand)
-				KillAllRunning()
-				
-				SKIN:Bang('!CommandMeasure', 'CopyAverageColor', 'Run')
+				--FallbackPath = vbsPath .. "@Resources\\images\\output.txt"
+				--
+				--cmdCommand = "more " .. FallbackPath
+				--
+				--SKIN:Bang('!SetOption', 'CopyAverageColor', 'Parameter', cmdCommand)
+				--KillAllRunning()
+				--
+				--SKIN:Bang('!CommandMeasure', 'CopyAverageColor', 'Run')
 			else
 
 				-- -colors 16 -depth 8 -format "%c" histogram:info: | sort /r
 				-- -scale 1x1! -format %[fx:int(255*r+.5)],%[fx:int(255*g+.5)],%[fx:int(255*b+.5)] info:
-				cmdCommand = vbsPath .. "@Resources\\ImageMagickScripts\\convert.exe " .. ImagePath .. "  -colors 4 -depth 8 -format %c histogram:info: | sort /r"
+				cmdCommand = vbsPath .. "@Resources\\ImageMagickScripts\\convert.exe " .. ImagePath .. "  -colors 6 -depth 8 -format %c histogram:info: | sort /r"
 			
 				SKIN:Bang('!SetOption', 'RunAverageColor', 'Parameter', cmdCommand)
 				KillAllRunning()

@@ -1,1 +1,0 @@
-Cannot access file C:\Users\tjhrulz\Documents\Rainmeter\Skins\Monstercat-Suite\@Resources\images\output.txt
