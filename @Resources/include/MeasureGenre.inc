@@ -28,6 +28,7 @@ Text="#@#images\cover.png"
 ;Plugin=SpotifyPlugin
 ;Type=AlbumName
 ;OnChangeAction=[!SetOption GetImagePath Text "[*MeasureAlbumArtSpotify*]"]
+OnUpdateAction=[!SetOption GetImagePath Text "[*MeasureAlbumArtSpotify*]"][SetOption MeasureAlbumArtSpotify OnUpdateAction ""]
 
 [MeasureAlbumChangedNotify]
 Measure=Plugin
@@ -35,6 +36,7 @@ Plugin=NowPlaying
 PlayerName=#PlayerName#
 PlayerType=Album
 OnChangeAction=[!SetOption GetImagePath Text "[*MeasureAlbumArt*]"]
+OnUpdateAction=[!SetOption GetImagePath Text "[*MeasureAlbumArt*]"][SetOption MeasureAlbumChangedNotify OnUpdateAction ""]
 
 [GetImagePath]
 Measure=String
@@ -65,7 +67,7 @@ Substitute="\":"\\"
 [DoUpdate]
 Measure=Plugin
 Plugin=ActionTimer
-ActionList1=Wait #WaitTimeFetch# | ProcessUpdate1 | Wait #WaitTimeProcess# | ProcessUpdate2 | Wait #WaitTimeProcess# | DoDynamicUpdate
+ActionList1=Wait #WaitTimeFetch# | ProcessUpdate1 | Wait #WaitTimeProcess# | ProcessUpdate2 | Wait 1 | DoDynamicUpdate
 ProcessUpdate1=[!CommandMeasure CalcAlbumArtColorScript "GetColors(#EnableMultiColors#)"]
 ProcessUpdate2=[!CommandMeasure CalcVarationScript "colorSelector('[MeasureGenre]')"]
 DoDynamicUpdate=[!SetOptionGroup DynamicDynamic DynamicVariables 0]

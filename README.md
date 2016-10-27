@@ -48,8 +48,8 @@ TODO
 - [ ] Look into if average size variable increases or decrease performance based on size (kind of irrelevant now with CPU usage being better I just want to document it right)
 Bugs
 - [ ] Album art color fetch runs when a color would have been decided 
-- [ ] The processing time for album art color fetch is always budgeted in
-- [ ] Album art color fetch does not use fallback data and sometimes overwrites old data with blank data
+- [ ] Album art color fetch  fallback overwrites old data on refresh, likely wont fix unless I can find a way to make sure that the itune info gets in in time
+- [ ] After a refresh album art color fetech's next call returns nothing Update: Its the next fetch that does not go through fallback, interesting
 - [ ] Extreme dark or light (Like almost fully black or fully white) album art colors cause either text to be unreadable without being on a panel or more importantly if really dark everything but text is unusable no matter what 
 - [ ] Really uniform album art colors make the visulizer almost unusable, will become better once I give the option to favoring bright colors
 - [ ] Pinging conditionals do not work after first time they are triggered Update: I have disabled for now
