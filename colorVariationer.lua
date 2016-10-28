@@ -175,7 +175,7 @@ function colorizer(baseColorRGB)
 			minColor = palette[tonumber(SKIN:GetVariable("MinColorPalette", '1.0'))]
 			hourColor = palette[tonumber(SKIN:GetVariable("HourColorPalette", '1.0'))]
 			secColor = palette[tonumber(SKIN:GetVariable("SecColorPalette", '1.0'))]
-			BackgroundPanelColor = palette[tonumber(SKIN:GetVariable("BackgroundPanelColorPalette", '1.0'))]
+			backgroundPanelColor = palette[tonumber(SKIN:GetVariable("BackgroundPanelColorPalette", '1.0'))]
 			vizColor = palette[tonumber(SKIN:GetVariable("VizColorPalette", '1.0'))]
 			LogoColor = palette[tonumber(SKIN:GetVariable("LogoColorPalette", '1.0'))]
 			
@@ -189,7 +189,7 @@ function colorizer(baseColorRGB)
 	end	
 	
 	
-	--print("TransTest: " .. BackgroundPanelColor .. "," .. SKIN:GetVariable("BackgroundPanelColorTransparency", ',255'))
+	--print("TransTest: " .. backgroundPanelColor .. "," .. SKIN:GetVariable("BackgroundPanelColorTransparency", ',255'))
 	--print("Test: " .. wallpaperColor)
 	--print("Color: " .. baseColor)
 	
@@ -205,7 +205,7 @@ function colorizer(baseColorRGB)
 	if minColor ~= -1 then SKIN:Bang('!SetVariable', "MinColor", minColor) end
 	if hourColor ~= -1 then SKIN:Bang('!SetVariable', "HourColor", hourColor) end
 	if secColor ~= -1 then SKIN:Bang('!SetVariable', "SecColor", secColor) end
-	if BackgroundPanelColor ~= -1 then SKIN:Bang('!SetVariable', "BackgroundPanelColor", BackgroundPanelColor .. SKIN:GetVariable("BackgroundPanelColorTransparency", ',255')) end
+	if backgroundPanelColor ~= -1 then SKIN:Bang('!SetVariable', "BackgroundPanelColor", backgroundPanelColor .. SKIN:GetVariable("BackgroundPanelColorTransparency", ',255')) end
 	
 	if testColor1 ~= -1 then SKIN:Bang('!SetVariable', "TestColor1", testColor1) end
 	if testColor2 ~= -1 then SKIN:Bang('!SetVariable', "TestColor2", testColor2) end

@@ -13,6 +13,7 @@ v1.0.0r - Installer updated, Notification system, full planned meter feature set
 --Highly-Tentative--------------------------------------------------------------
 v1.1r - Support for dynamic color keyboards
 v1.2r - Google play music plugin and Networking top processes plugin
+v1.3r - Machine learning album art selector, I'm kidding (Maybe)
 
 May happen eventually
 Meters will change to variant on middle click, I only wanna do this if it can include the alt system
