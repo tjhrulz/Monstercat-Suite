@@ -10,8 +10,9 @@ v0.8.0r MVP - Weather & News support, likely first public release
 v0.9.0r - Appointments
 v0.9.5r - Calendar
 v1.0.0r - Installer updated, Notification system, full planned meter feature set
-v1.1r - Google play music plugin
-v1.2r - Networking top processes plugin
+--Highly-Tentative--------------------------------------------------------------
+v1.1r - Support for dynamic color keyboards
+v1.2r - Google play music plugin and Networking top processes plugin
 
 May happen eventually
 Meters will change to variant on middle click, I only wanna do this if it can include the alt system
@@ -21,11 +22,15 @@ A version of the RSS display for displaying mobile versions of websites? I found
 Complimentary colors update, I wrote the whole system for this and my calculations are sometimes off by a little bit which is fine but it really does not look good.
 Button to toggle small meters and side panels
 
+------------------------------------------------------------------------
+Anything past this point is written more for myself and may be confusing
+------------------------------------------------------------------------
 TODO
 - [ ] Move scripts that are in root directory into proper places in resources
 - [X] Color palette system, This uses histograms to get most common colors and then sorts them by rgb value
-- [ ] Make color rejection replace the color with a slightly less extreme color that is the same shade
-- [ ] Make cut off for number of colors to sort based off of a percent of the 1st colors count, I dont think I will do this though as it will favor lighter or darker colors
+- [x] Make color rejection replace the color with a slightly less extreme color that is the same shade
+- [ ] Make cut off for number of colors to sort based off of a percent of the 1st colors count, I dont think I will do this though as it will favor lighter or darker colors Update: I think I am going to do the next thing on the todo list instead
+- [ ] Make interesting colors be higher on the list of colors (I think I could try to measure this quickly by looking at how far away it is from monochrone)
 - [ ] Add news RSS
 - [ ] Weather stuffs (Use http://wxdata.weather.com/wxdata/weather/local/#LocationCode#?cc=*&unit=#TempUnit#&dayf=6 and parse, thanks to jsmorley for his post on that had no idea weather.com had an rss version (It even has wind direction!))
 - [ ] Calendar for the month meter
@@ -34,32 +39,34 @@ TODO
 - [X] Make set blur as actual background optional
 - [X] Have color change delay be user configurable, and apply to every single color cchange? (May have to have it apply to every dynamic color object for album art colors to work)
 - [ ] Add more info to gpu and cpu meters (Scrapped)
-- [ ] Pull colors from album art since it will be a background option Update: This is being a pain in my ass
+- [X] Pull colors from album art since it will be a background option Update: This is being a pain in my ass
 - [X] Add genre color complimentary color that user can toggle on, (Is there a way to do this programmatically? Not sure how complimentary colors work) Ie the one I see all the time blue background with yellow everything else
 - [ ] Make desktop and laptop versions of some meters, ie. desktop doesn't need wifi or battery info, laptop may not need GPU info
 - [ ] Notification system (using IFTTT and pushover?) Edit: Nevermind Pushover only allows apps to send notifications, receiving must be done in a special app and is as the name implies push based not pull based.
 - [ ] Get real fact from fact repository and mix them in with fact sphere facts Update: Now has a separated version, needs a joint version
 - [ ] Add support for audio playback of fact sphere on left click?
 - [X] Add combined Top Processes with paging
-- [ ] Several bars variants need to be checked for code consistency, such as percentual being set on some of the ferpnom meters, process being spelled wrong, or other logical bugs, and missoptimizations within them
 - [ ] Make sure background cmds are closing gracefully and correctly and not staying open
+- [ ] Process is spelled Proces in several places throughout the codebase, not causing any bugs as it is spelled that way throughout the file but it bothers me, Ill get around to regexing it someday
 - [ ] Final optimization pass
 - [ ] Update installer meter to make initial setup nicer (Do before v1.0)
 - [ ] Look into hacking in Google play music (And youtube?) support to the music reader (I believe Google Talk/G+ used to expose this info)
 - [ ] Look into making networking top process plugin
 - [ ] Look into if average size variable increases or decrease performance based on size (kind of irrelevant now with CPU usage being better I just want to document it right)
+- [ ] Look into adding corsair and other keyboards manufactures color API's into the color system, I do not have a full RGB (Mine only does green) so I will need a guinea pig
 Bugs
 - [ ] Album art color fetch runs when a color will end up being decided 
 - [ ] Each meter instances its own version of any of the color options causing higher CPU than needed, I have known about this for a while but it hasn't been a big deal till some of the color choices required more CPU.
-- [ ] Threads sometimes stay alive after completing their output (I think I have seen it once or twice do it without completing it, tell me your secrets threads why did you hang)
-- [ ] Album art color fetch  fallback overwrites old data on refresh, likely wont fix unless I can find a way to make sure that the itune info gets in in time
-- [ ] After a refresh album art color fetech's next call returns nothing Update: Its the next fetch that does not go through fallback, interesting Update: I think it is fixed now
-- [ ] Extreme dark or light (Like almost fully black or fully white) album art colors when using album art as the background cause either text to be unreadable without being on a panel or more importantly if really dark everything but text is unusable no matter what 
-- [ ] Really uniform album art colors when using album art as a background make the visualizer almost unusable, will become better once I give the option to favoring bright colors
+- [X] Threads sometimes stay alive after completing their output (I think I have seen it once or twice do it without completing it, tell me your secrets threads why did you hang)
+- [ ] Occasionally a thread is detected as running but when it goes to be killed it is already dead, likely is finishing gracefully before the kill command happens. Not a major bug just causes occasional log spam
+- [ ] Album art color fetch  fallback overwrites old data on refresh, likely wont fix unless I can find a way to make sure that the itune info gets in in time Update: Now in in time but it still does it
+- [ ] After a refresh album art color fetech's next call returns nothing Update: Its the next fetch that does not go through fallback, interesting Update: It now returns the fallback info
+- [X] Extreme dark or light (Like almost fully black or fully white) album art colors when using album art as the background cause either text to be unreadable without being on a panel or more importantly if really dark everything but text is unusable no matter what 
+- [ ] Really uniform album art colors when using album art as a background make the visualizer almost unusable, will become better once I give the option to favoring bright colors Update: Much better now so long as the uniform color is not the second brightest color
 - [ ] Pinging conditionals do not work after first time they are triggered Update: I have disabled for now
 - [ ] Check and possibly fix if DINTFMI only working on first load since afterwards it may always use old data
 - [ ] Look into if cpu being off by about a factor of about 2 (Seems to be half actual on advancedCPU and ferpnom) on cpu reader and top processes is a bug in task manager, rainmeter dlls, or if it is just my machine
-- [ ] Process is spelled Proces in several places throughout the codebase, not causing any bugs as it is spelled that way throughout the file but it bothers me, Ill get around to regexing it someday
+- [ ] Several bars variants need to be checked for code consistency, such as percentual being set on some of the ferpnom meters, process being spelled wrong, or other logical bugs, and missoptimizations within them
 - [ ] Top processes bars do not use scale value on AdvancedCPU meters (Low priority due to percentual possibly scaling based on max value causing for percentage changes)
 Possible Future Changes
 - [X] Regroup small meters by the size variation? (Scrapped for other regrouping changes (Instead called alts))

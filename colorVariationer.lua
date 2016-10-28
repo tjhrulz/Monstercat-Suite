@@ -178,6 +178,13 @@ function colorizer(baseColorRGB)
 			BackgroundPanelColor = palette[tonumber(SKIN:GetVariable("BackgroundPanelColorPalette", '1.0'))]
 			vizColor = palette[tonumber(SKIN:GetVariable("VizColorPalette", '1.0'))]
 			PCMRColor = palette[tonumber(SKIN:GetVariable("PCMRColorPalette", '1.0'))]
+			
+			testColor1 = palette[tonumber(SKIN:GetVariable("TestColorPalette1", '1.0'))]	
+			testColor2 = palette[tonumber(SKIN:GetVariable("TestColorPalette2", '1.0'))]
+			testColor3 = palette[tonumber(SKIN:GetVariable("TestColorPalette3", '1.0'))]
+			testColor4 = palette[tonumber(SKIN:GetVariable("TestColorPalette4", '1.0'))]
+			testColor5 = palette[tonumber(SKIN:GetVariable("TestColorPalette5", '1.0'))]
+			testColor6 = palette[tonumber(SKIN:GetVariable("TestColorPalette6", '1.0'))]		
 		end
 	end	
 	
@@ -199,6 +206,13 @@ function colorizer(baseColorRGB)
 	if hourColor ~= -1 then SKIN:Bang('!SetVariable', "HourColor", hourColor) end
 	if secColor ~= -1 then SKIN:Bang('!SetVariable', "SecColor", secColor) end
 	if BackgroundPanelColor ~= -1 then SKIN:Bang('!SetVariable', "BackgroundPanelColor", BackgroundPanelColor .. SKIN:GetVariable("BackgroundPanelColorTransparency", ',255')) end
+	
+	if testColor1 ~= -1 then SKIN:Bang('!SetVariable', "TestColor1", testColor1) end
+	if testColor2 ~= -1 then SKIN:Bang('!SetVariable', "TestColor2", testColor2) end
+	if testColor3 ~= -1 then SKIN:Bang('!SetVariable', "TestColor3", testColor3) end
+	if testColor4 ~= -1 then SKIN:Bang('!SetVariable', "TestColor4", testColor4) end
+	if testColor5 ~= -1 then SKIN:Bang('!SetVariable', "TestColor5", testColor5) end
+	if testColor6 ~= -1 then SKIN:Bang('!SetVariable', "TestColor6", testColor6) end
 end
 
 function percentColorize(colorR, colorG, colorB, modifyPercent)
@@ -289,27 +303,38 @@ function getPalette()
 		
 		--print((string.sub(palette[i], 0, 3) ..  ":" .. string.sub(palette[i], 5, 7)  ..  ":" .. string.sub(palette[i], 9, 11)))
 		
-		darkestColor=tonumber(SKIN:GetVariable("DarkestColorAverage", 0))
-		brightestColor=tonumber(SKIN:GetVariable("LightestColorAverage", 255))
-		
-		if((string.sub(palette[i], 0, 3)+ string.sub(palette[i], 5, 7) + string.sub(palette[i], 9, 11)) / 3 < darkestColor) or ((string.sub(palette[i], 0, 3)+ string.sub(palette[i], 5, 7) + string.sub(palette[i], 9, 11)) / 3 > brightestColor) then
-			print("Color rejected: " .. palette[i])
-			i = i - 1
-		else
-			if(string.len(palette[i]) > 11) then
-				palette[i] = string.sub(palette[i],0,11)
-			end
-		end
-		
 		i = i + 1
 	end
 	
-	for i=tonumber(SKIN:GetVariable("ColorsToKeep", 6)), table.getn(palette), 1 do
+	for i=(tonumber(SKIN:GetVariable("ColorsToKeep", 6))+1), table.getn(palette), 1 do
 		palette[i] = nil
 	end
 	
 	if(tonumber(SKIN:GetVariable("SortColors", 1))) then
 		palette = InsertionSortColors(palette)
+	end
+	
+	for i = 1, table.getn(palette), 1 do
+		darkestColor=tonumber(SKIN:GetVariable("DarkestColorAverage", 0))
+		brightestColor=tonumber(SKIN:GetVariable("LightestColorAverage", 255))
+		
+		if(string.len(palette[i]) > 11) then
+			palette[i] = string.sub(palette[i],0,11)
+		end
+		
+		averageColor=(string.sub(palette[i], 0, 3)+ string.sub(palette[i], 5, 7) + string.sub(palette[i], 9, 11)) / 3
+		
+		if (averageColor < darkestColor) then 
+			addedColor = math.ceil(darkestColor - averageColor)
+			--print("Old Color: " .. palette[i])
+			palette[i] = (string.sub(palette[i], 0, 3) + addedColor) .. string.sub(palette[i], 4, 4) .. (string.sub(palette[i], 5, 7) + addedColor) .. string.sub(palette[i], 8, 8) .. (string.sub(palette[i], 9, 11) + addedColor)
+			--print("New Color: " .. palette[i])
+		elseif (averageColor > brightestColor) then
+			addedColor = math.ceil(averageColor - brightestColor)
+			--print("Old Color: " .. palette[i])
+			palette[i] = (string.sub(palette[i], 0, 3) - addedColor) .. string.sub(palette[i], 4, 4) .. (string.sub(palette[i], 5, 7) - addedColor) .. string.sub(palette[i], 8, 8) .. (string.sub(palette[i], 9, 11) - addedColor)
+			--print("New Color: " .. palette[i])
+		end
 	end
 	
 	palette[-1] = -1
