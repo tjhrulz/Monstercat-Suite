@@ -3,7 +3,7 @@
 #[!CommandMeasure CalcBlurAlbumArt blur([MeasureAlbumArt] , [CalcEscapedFilePath])]
 
 [Rainmeter]
-OnRefreshAction=[!CommandMeasure DoUpdate "Stop 1"][!CommandMeasure DoUpdate "Execute 1"]
+OnRefreshAction=[!CommandMeasure DoUpdate "Execute 1"]
 
 [CalcColorsToUse]
 Measure=Script
@@ -61,16 +61,11 @@ DynamicVariables=1
 Timeout=#WaitTimeProcess#
 FinishAction=[!CommandMeasure CalcColorsToUse "colorSelector('[MeasureGenre]')"]
 
-[CalcRootFilePath]
-Measure=String
-Text="#ROOTCONFIGPATH#"
-Substitute="\":"\\"
-
 [DoUpdate]
 Measure=Plugin
 Plugin=ActionTimer
 ActionList1=Wait #WaitTimeFetch# | ProcessUpdate1 
-ProcessUpdate1=[!CommandMeasure CalcAlbumHistogram "GetColors(#EnableMultiColors#)"]
+ProcessUpdate1=[!CommandMeasure CalcAlbumHistogram "GetColors()"]
 
 [MeasureGenre]
 Measure=Plugin

@@ -1,41 +1,41 @@
-function GetColors(doPalette)
+function GetColors()
 	if(tonumber(SKIN:GetVariable("EnableAlbumColor", 1)) == 1) then
-		if(tonumber(doPalette) == 1) then
-			ImagePath = SKIN:GetMeasure('GetImagePath'):GetOption('Text')
-			vbsPath = SKIN:GetMeasure('CalcRootFilePath'):GetOption('Text')
-
-			if (ImagePath == nil) or (string.len(ImagePath) <= 1) then
-				--print("IPF" .. ImagePath)
+		if(tonumber(SKIN:GetVariable("EnableMultiColors", 1)) == 1) then
+			local ImagePath = SKIN:GetMeasure('GetImagePath'):GetOption('Text')
+			local rootPath = SKIN:GetVariable("ROOTCONFIGPATH")
 			
-				FallbackPath = vbsPath .. "@Resources\\colors\\HistogramFallback.txt"
+			if (ImagePath == nil) or (string.len(ImagePath) <= 1) then
+				print("IPF" .. ImagePath)
+			
+				local FallbackPath = rootPath .. "@Resources\\colors\\HistogramFallback.txt"
 				
-				cmdCommand = "more " .. FallbackPath
+				local cmdCommand = "more " .. FallbackPath
 				
 				SKIN:Bang('!SetOption', 'CopyAverageColor', 'Parameter', cmdCommand)
 				KillAllRunning()
 				
 				SKIN:Bang('!CommandMeasure', 'CopyAverageColor', 'Run')
 			else
+				print("IP" .. ImagePath)
 
-				colorsToGet = tonumber(SKIN:GetVariable("ColorsToGet", 12))
+				local colorsToGet = tonumber(SKIN:GetVariable("ColorsToGet", 12))
 			
 				-- -colors 16 -depth 8 -format "%c" histogram:info: | sort /r
 				-- -scale 1x1! -format %[fx:int(255*r+.5)],%[fx:int(255*g+.5)],%[fx:int(255*b+.5)] info:
-				cmdCommand = vbsPath .. "@Resources\\ImageMagickScripts\\convert.exe " .. ImagePath .. "  -colors ".. colorsToGet .." -depth 8 -format %c histogram:info: | sort /r"
+				local cmdCommand = rootPath .. "@Resources\\ImageMagickScripts\\convert.exe " .. ImagePath .. "  -colors ".. colorsToGet .." -depth 8 -format %c histogram:info: | sort /r"
 			
 				SKIN:Bang('!SetOption', 'RunAverageColor', 'Parameter', cmdCommand)
 				KillAllRunning()
-				--print("IP" .. ImagePath)
 				
 				--print(cmdCommand)
 				SKIN:Bang('!CommandMeasure', 'RunAverageColor', 'Run')
 			end
 		else
-			ImagePath = SKIN:GetMeasure('GetImagePath'):GetOption('Text')
-			vbsPath = SKIN:GetMeasure('CalcRootFilePath'):GetOption('Text')
+			local ImagePath = SKIN:GetMeasure('GetImagePath'):GetOption('Text')
+			local rootPath = SKIN:GetVariable("ROOTCONFIGPATH")
 
 			if (ImagePath == nil) or (string.len(ImagePath) <= 1) then
-				--FallbackPath = vbsPath .. "@Resources\\images\\output.txt"
+				--FallbackPath = rootPath .. "@Resources\\images\\output.txt"
 				--
 				--cmdCommand = "more " .. FallbackPath
 				--
@@ -45,11 +45,11 @@ function GetColors(doPalette)
 				--SKIN:Bang('!CommandMeasure', 'CopyAverageColor', 'Run')
 			else
 			
-				colorsToGet = tonumber(SKIN:GetVariable("ColorsToGet", 12))
+				local colorsToGet = tonumber(SKIN:GetVariable("ColorsToGet", 12))
 
 				-- -colors 16 -depth 8 -format "%c" histogram:info: | sort /r
 				-- -scale 1x1! -format %[fx:int(255*r+.5)],%[fx:int(255*g+.5)],%[fx:int(255*b+.5)] info:
-				cmdCommand = vbsPath .. "@Resources\\ImageMagickScripts\\convert.exe " .. ImagePath .. "  -colors ".. colorsToGet .." -depth 8 -format %c histogram:info: | sort /r"
+				local cmdCommand = rootPath .. "@Resources\\ImageMagickScripts\\convert.exe " .. ImagePath .. "  -colors ".. colorsToGet .." -depth 8 -format %c histogram:info: | sort /r"
 			
 				SKIN:Bang('!SetOption', 'RunAverageColor', 'Parameter', cmdCommand)
 				KillAllRunning()
@@ -57,6 +57,11 @@ function GetColors(doPalette)
 				SKIN:Bang('!CommandMeasure', 'RunAverageColor', 'Run')
 			end
 		end
+	else
+		--[!CommandMeasure CalcColorsToUse "colorSelector('[MeasureGenre]')"]
+		print("Hey self don't forget to add the dynamic color push on the fallback for when we dont do histograms") --I probably still will forget and wonder why it isnt working :P
+		
+		SKIN:Bang('!CommandMeasure', 'CalcColorsToUse', "colorSelector('[MeasureGenre]')")
 	end
 end
 

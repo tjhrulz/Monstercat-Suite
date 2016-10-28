@@ -56,7 +56,7 @@ function genreColorizer(baseColorRGB)
 	baseColorRGB = string.sub(baseColorRGB, string.len(baseColorG)+2)
 	local baseColorB = string.sub(baseColorRGB, 0, string.find(baseColorRGB, ","))
 	
-	local vizColor, baseColor, secondaryColor, wallpaperColor, backgroundColor, transBackgroundColor, textColor, BackgroundPanelColor
+	local vizColor, baseColor, secondaryColor, wallpaperColor, backgroundColor, transBackgroundColor, textColor, backgroundPanelColor
 	local clockColor, minColor, hourColor, secColor, LogoColor
 	
 	-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -74,14 +74,12 @@ function genreColorizer(baseColorRGB)
 		minColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("MinColorModifier", '1.0'))
 		hourColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("HourColorModifier", '1.0'))
 		secColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("SecColorModifier", '1.0'))
-		BackgroundPanelColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("BackgroundPanelColorModifier", '1.0'))
+		backgroundPanelColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("BackgroundPanelColorModifier", '1.0'))
 		vizColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("VizColorModifier", '1.0'))
 		LogoColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("LogoColorModifier", '1.0'))
 	
-		local file = io.open(SKIN:GetVariable("@") .. "colors\\GenreOutput.lua", "r")
+		local file = io.open(SKIN:GetVariable("@") .. "colors\\GenreOutput.txt", "w")
 		io.output(file)
-		io.write("(" .. vizColor .. ")")
-		io.write("(" .. LogoColor .. ")")
 		io.write("(" .. baseColor .. ")")
 		io.write("(" .. secondaryColor .. ")")
 		io.write("(" .. wallpaperColor .. ")")
@@ -93,6 +91,8 @@ function genreColorizer(baseColorRGB)
 		io.write("(" .. hourColor .. ")")
 		io.write("(" .. secColor .. ")")
 		io.write("(" .. backgroundPanelColor .. ")")
+		io.write("(" .. vizColor .. ")")
+		io.write("(" .. LogoColor .. ")")
 		io.close(file)
 	else
 	
@@ -106,14 +106,12 @@ function genreColorizer(baseColorRGB)
 		minColor = hueColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("MinColorType", '1.0'))
 		hourColor = hueColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("HourColorType", '1.0'))
 		secColor = hueColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("SecColorType", '1.0'))
-		BackgroundPanelColor = hueColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("BackgroundPanelColorType", '1.0'))
+		backgroundPanelColor = hueColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("BackgroundPanelColorType", '1.0'))
 		vizColor = hueColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("VizColorType", '1.0'))
 		LogoColor = hueColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("LogoColorType", '1.0'))
 		
-		local file = io.open(SKIN:GetVariable("@") .. "colors\\GenrePaletteOutput.lua", "r")
+		local file = io.open(SKIN:GetVariable("@") .. "colors\\GenrePaletteOutput.txt", "w")
 		io.output(file)
-		io.write("(" .. vizColor .. ")")
-		io.write("(" .. LogoColor .. ")")
 		io.write("(" .. baseColor .. ")")
 		io.write("(" .. secondaryColor .. ")")
 		io.write("(" .. wallpaperColor .. ")")
@@ -125,6 +123,8 @@ function genreColorizer(baseColorRGB)
 		io.write("(" .. hourColor .. ")")
 		io.write("(" .. secColor .. ")")
 		io.write("(" .. backgroundPanelColor .. ")")
+		io.write("(" .. vizColor .. ")")
+		io.write("(" .. LogoColor .. ")")
 		io.close(file)
 	end
 end
@@ -182,14 +182,12 @@ function albumColorizer(rootDir)
 			minColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("MinColorModifier", '1.0'))
 			hourColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("HourColorModifier", '1.0'))
 			secColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("SecColorModifier", '1.0'))
-			BackgroundPanelColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("BackgroundPanelColorModifier", '1.0'))
+			backgroundPanelColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("BackgroundPanelColorModifier", '1.0'))
 			vizColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("VizColorModifier", '1.0'))
 			LogoColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("LogoColorModifier", '1.0'))
 			
-			local file = io.open(SKIN:GetVariable("@") .. "colors\\AlbumOutput.lua", "r")
+			local file = io.open(SKIN:GetVariable("@") .. "colors\\AlbumOutput.txt", "w")
 			io.output(file)
-			io.write("(" .. vizColor .. ")")
-			io.write("(" .. LogoColor .. ")")
 			io.write("(" .. baseColor .. ")")
 			io.write("(" .. secondaryColor .. ")")
 			io.write("(" .. wallpaperColor .. ")")
@@ -201,23 +199,30 @@ function albumColorizer(rootDir)
 			io.write("(" .. hourColor .. ")")
 			io.write("(" .. secColor .. ")")
 			io.write("(" .. backgroundPanelColor .. ")")
+			io.write("(" .. vizColor .. ")")
+			io.write("(" .. LogoColor .. ")")
 			io.close(file)
 			
 		else
 
 			local palette = {}
 			
+			local input = SKIN:GetVariable("@") .. "colors\\Histogram.txt"
+			
 			if(input == nil) or (string.len(input) <= 1) then
-				print("Error: Unable to get album art color or it is malformed, switching to a built in fallback")
+				print("Error: Unable to find histogram file, switching to a built in fallback. If you managed to trigger this you got problems with your rainmeter install")
 				palette = {"000,000,000","20,20,20","100,100,100","127,127,127","200,200,200","255,255,255"}
 				palette[-1] = -1
 			else 
-				print("Is this the resource directory: " .. SKIN:GetVariable("@"))
-				palette = getPalette(SKIN:GetVariable("@") .. "colors\\Histogram.txt")
+				palette = getPalette(input)
+				
+				if(palette[1] == nil)  then
+					print("Error: Histogram file malformed, switching to a built in fallback")
+					palette = {"000,000,000","20,20,20","100,100,100","127,127,127","200,200,200","255,255,255"}
+					palette[-1] = -1				
+				end
 			end
 			
-				
-		
 			baseColor = palette[tonumber(SKIN:GetVariable("ColorPalette", '1.0'))]
 			secondaryColor = palette[tonumber(SKIN:GetVariable("Color2Palette", '1.0'))]
 			wallpaperColor = palette[tonumber(SKIN:GetVariable("WallpaperColorPalette", '1.0'))]
@@ -239,10 +244,8 @@ function albumColorizer(rootDir)
 			testColor5 = palette[tonumber(SKIN:GetVariable("TestColorPalette5", '1.0'))]
 			testColor6 = palette[tonumber(SKIN:GetVariable("TestColorPalette6", '1.0'))]	
 		
-			local file = io.open(SKIN:GetVariable("@") .. "colors\\AlbumPaletteOutput.lua", "r")
+			local file = io.open(SKIN:GetVariable("@") .. "colors\\AlbumPaletteOutput.txt", "w")
 			io.output(file)
-			io.write("(" .. vizColor .. ")")
-			io.write("(" .. LogoColor .. ")")
 			io.write("(" .. baseColor .. ")")
 			io.write("(" .. secondaryColor .. ")")
 			io.write("(" .. wallpaperColor .. ")")
@@ -254,6 +257,8 @@ function albumColorizer(rootDir)
 			io.write("(" .. hourColor .. ")")
 			io.write("(" .. secColor .. ")")
 			io.write("(" .. backgroundPanelColor .. ")")
+			io.write("(" .. vizColor .. ")")
+			io.write("(" .. LogoColor .. ")")
 			io.close(file)	
 		end
 	end	
@@ -334,9 +339,9 @@ end
 
 function getPalette(filePath)
 
-	input = ReadFile(filePath)
+	local input = ReadFile(filePath)
 	
-	palette = {}
+	local palette = {}
 	
 	--print(input)
 	--Trying to match this regex \([\s\S]+?\) which is a pain without a cheat sheet with what all the regex translations are to do them in lua
