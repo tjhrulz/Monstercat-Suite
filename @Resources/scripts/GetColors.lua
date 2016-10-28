@@ -448,7 +448,8 @@ function getPalette(filePath)
 	
 	--print(input)
 	--Trying to match this regex \([\s\S]+?\) which is a pain without a cheat sheet with what all the regex translations are to do them in lua
-	i=1
+	local i=1
+
 	for color in string.gmatch(input, "%s%b()%s") do
 		palette[i] = color	
 		palette[i] = string.sub(palette[i], 3, -3)
@@ -458,12 +459,46 @@ function getPalette(filePath)
 		i = i + 1
 	end
 	
-	for i=(tonumber(SKIN:GetVariable("ColorsToKeep", 6))+1), table.getn(palette), 1 do
-		palette[i] = nil
+	if(table.getn(palette) < tonumber(SKIN:GetVariable("ColorsToKeep", 6))) and table.getn(palette) > 0 then
+		
+		local i = table.getn(palette)+1
+		print("Not engouh colors:" .. i)
+		while (i <= tonumber(SKIN:GetVariable("ColorsToKeep", 6))) do
+		--	
+		--	max = table.getn(palette)
+		--	math.randomseed(os.time())
+		--	
+		--	local newR = (string.sub(palette[math.random(max)], 0, 3) + string.sub(palette[math.random(max)], 0, 3)) /2
+		--	local newG = (string.sub(palette[math.random(max)], 5, 7) + string.sub(palette[math.random(max)], 5, 7)) /2
+		--	local newB = (string.sub(palette[math.random(max)], 9, 11) + string.sub(palette[math.random(max)], 9, 11)) /2
+		--	
+		--	if(newR < 10) then
+		--		newR = "  " .. newR
+		--	end
+		--	elseif (newR < 100) then
+		--		newR = " " .. newR
+		--	end
+		--	if(newG < 10) then
+		--		newG = "  " .. newG
+		--	end
+		--	elseif (newG < 100) then
+		--		newG = " " .. newG
+		--	end
+		--	if(newB < 10) then
+		--		newB = "  " .. newB
+		--	end
+		--	elseif (newB < 100) then
+		--		newB = " " .. newB
+		--	end
+		--	
+		--	palette[i] =  newR  .. string.sub(palette[i], 4, 4) .. newG .. string.sub(palette[i], 8, 8) .. newB
+		--	
+		--	i = i + 1
+		end		
 	end
 	
-	if(tonumber(SKIN:GetVariable("SortColors", 1))) then
-		palette = InsertionSortColors(palette)
+	for i=(tonumber(SKIN:GetVariable("ColorsToKeep", 6))+1), table.getn(palette), 1 do
+		palette[i] = nil
 	end
 	
 	for i = 1, table.getn(palette), 1 do
@@ -477,12 +512,62 @@ function getPalette(filePath)
 		averageColor=(string.sub(palette[i], 0, 3)+ string.sub(palette[i], 5, 7) + string.sub(palette[i], 9, 11)) / 3
 		
 		if (averageColor < darkestColor) then 
-			addedColor = math.ceil(darkestColor - averageColor)
-			palette[i] = (string.sub(palette[i], 0, 3) + addedColor) .. string.sub(palette[i], 4, 4) .. (string.sub(palette[i], 5, 7) + addedColor) .. string.sub(palette[i], 8, 8) .. (string.sub(palette[i], 9, 11) + addedColor)
+		--	local addedColor = math.ceil(darkestColor - averageColor)
+		--	local newR = string.sub(palette[i], 0, 3) + addedColor
+		--	local newG = string.sub(palette[i], 5, 7) + addedColor
+		--	local newB = string.sub(palette[i], 9, 11) + addedColor
+		--	
+		--	if(newR < 10) then
+		--		newR = "  " .. newR
+		--	end
+		--	elseif (newR < 100) then
+		--		newR = " " .. newR
+		--	end
+		--	if(newG < 10) then
+		--		newG = "  " .. newG
+		--	end
+		--	elseif (newG < 100) then
+		--		newG = " " .. newG
+		--	end
+		--	if(newB < 10) then
+		--		newB = "  " .. newB
+		--	end
+		--	elseif (newB < 100) then
+		--		newB = " " .. newB
+		--	end
+		--	
+		--	palette[i] = newR  .. string.sub(palette[i], 4, 4) .. newG .. string.sub(palette[i], 8, 8) .. newB
 		elseif (averageColor > brightestColor) then
-			addedColor = math.ceil(averageColor - brightestColor)
-			palette[i] = (string.sub(palette[i], 0, 3) - addedColor) .. string.sub(palette[i], 4, 4) .. (string.sub(palette[i], 5, 7) - addedColor) .. string.sub(palette[i], 8, 8) .. (string.sub(palette[i], 9, 11) - addedColor)
+		--	local subtractedColor = math.ceil(averageColor - brightestColor)
+		--	local newR = string.sub(palette[i], 0, 3) - subtractedColor
+		--	local newG = string.sub(palette[i], 5, 7) - subtractedColor
+		--	local newB = string.sub(palette[i], 9, 11) - subtractedColor
+		--	
+		--	if(newR < 10) then
+		--		newR = "  " .. newR
+		--	end
+		--	elseif (newR < 100) then
+		--		newR = " " .. newR
+		--	end
+		--	if(newG < 10) then
+		--		newG = "  " .. newG
+		--	end
+		--	elseif (newG < 100) then
+		--		newG = " " .. newG
+		--	end
+		--	if(newB < 10) then
+		--		newB = "  " .. newB
+		--	end
+		--	elseif (newB < 100) then
+		--		newB = " " .. newB
+		--	end
+		--	
+		--	palette[i] = newR - addedColor) .. string.sub(palette[i], 4, 4) .. newG - addedColor) .. string.sub(palette[i], 8, 8) .. newB
 		end
+	end
+	
+	if(tonumber(SKIN:GetVariable("SortColors", 1))) then
+		palette = InsertionSortColors(palette)
 	end
 	
 	palette[-1] = -1

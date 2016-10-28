@@ -42,13 +42,12 @@ Measure=String
 Text="#@#images\Fallback.png"
 DynamicVariables=1
 
-[CopyAverageColor]
+[RunFallbackAverageColor]
 Measure=Plugin
 Plugin=RunCommand
 OutputFile="#@#colors\Histogram.txt"
 OutputType='ANSI'
 DynamicVariables=1
-Timeout=#WaitTimeColors#
 FinishAction=[!CommandMeasure CalcColorsToUse "colorSelector('[MeasureGenre]')"][!Updategroup DynamicColors][!SetOptionGroup DynamicDynamic DynamicVariables 0]
 
 [RunAverageColor]
@@ -57,7 +56,6 @@ Plugin=RunCommand
 OutputFile="#@#colors\Histogram.txt"
 OutputType='ANSI'
 DynamicVariables=1
-Timeout=#WaitTimeColors#
 FinishAction=[!CommandMeasure CalcColorsToUse "colorSelector('[MeasureGenre]')"][!SetOptionGroup DynamicDynamic DynamicVariables 0]
 
 [DoUpdate]
