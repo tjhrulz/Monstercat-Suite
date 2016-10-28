@@ -441,6 +441,9 @@ function hueColorize(colorR, colorG, colorB, colorType)
 end
 
 function getPalette(filePath)
+	------------------------------------------------------------------------------------
+	--Note anything in this function that casues runtime or compile time errors doesn't seem to trigger the rainmeter log (or im going insane/had wierd bugs), you have been warned 
+	------------------------------------------------------------------------------------	
 
 	local input = ReadFile(filePath)
 	
@@ -459,41 +462,40 @@ function getPalette(filePath)
 		i = i + 1
 	end
 	
-	if(table.getn(palette) < tonumber(SKIN:GetVariable("ColorsToKeep", 6))) and table.getn(palette) > 0 then
+	--print("Palette size:" .. table.getn(palette))
+	--print("Colors to keep size:" .. tonumber(SKIN:GetVariable("ColorsToKeep", 6)))
+	if(table.getn(palette) < tonumber(SKIN:GetVariable("ColorsToKeep", 6))) and (table.getn(palette) > 0) then
 		
 		local i = table.getn(palette)+1
 		print("Not engouh colors:" .. i)
 		while (i <= tonumber(SKIN:GetVariable("ColorsToKeep", 6))) do
-		--	
-		--	max = table.getn(palette)
-		--	math.randomseed(os.time())
-		--	
-		--	local newR = (string.sub(palette[math.random(max)], 0, 3) + string.sub(palette[math.random(max)], 0, 3)) /2
-		--	local newG = (string.sub(palette[math.random(max)], 5, 7) + string.sub(palette[math.random(max)], 5, 7)) /2
-		--	local newB = (string.sub(palette[math.random(max)], 9, 11) + string.sub(palette[math.random(max)], 9, 11)) /2
-		--	
-		--	if(newR < 10) then
-		--		newR = "  " .. newR
-		--	end
-		--	elseif (newR < 100) then
-		--		newR = " " .. newR
-		--	end
-		--	if(newG < 10) then
-		--		newG = "  " .. newG
-		--	end
-		--	elseif (newG < 100) then
-		--		newG = " " .. newG
-		--	end
-		--	if(newB < 10) then
-		--		newB = "  " .. newB
-		--	end
-		--	elseif (newB < 100) then
-		--		newB = " " .. newB
-		--	end
-		--	
-		--	palette[i] =  newR  .. string.sub(palette[i], 4, 4) .. newG .. string.sub(palette[i], 8, 8) .. newB
-		--	
-		--	i = i + 1
+			
+			maxLoc = table.getn(palette)
+			math.randomseed(os.time())
+			
+			local newR = (string.sub(palette[math.random(maxLoc)], 0, 3) + string.sub(palette[math.random(maxLoc)], 0, 3)) /2
+			local newG = (string.sub(palette[math.random(maxLoc)], 5, 7) + string.sub(palette[math.random(maxLoc)], 5, 7)) /2
+			local newB = (string.sub(palette[math.random(maxLoc)], 9, 11) + string.sub(palette[math.random(maxLoc)], 9, 11)) /2
+			
+			if(newR < 10) then
+				newR = "  " .. newR
+			elseif (newR < 100) then
+				newR = " " .. newR
+			end
+			if(newG < 10) then
+				newG = "  " .. newG
+			elseif (newG < 100) then
+				newG = " " .. newG
+			end
+			if(newB < 10) then
+				newB = "  " .. newB
+			elseif (newB < 100) then
+				newB = " " .. newB
+			end
+			
+			palette[i] =  newR  .. string.sub(palette[i], 4, 4) .. newG .. string.sub(palette[i], 8, 8) .. newB
+			
+			i = i + 1
 		end		
 	end
 	
@@ -512,57 +514,51 @@ function getPalette(filePath)
 		averageColor=(string.sub(palette[i], 0, 3)+ string.sub(palette[i], 5, 7) + string.sub(palette[i], 9, 11)) / 3
 		
 		if (averageColor < darkestColor) then 
-		--	local addedColor = math.ceil(darkestColor - averageColor)
-		--	local newR = string.sub(palette[i], 0, 3) + addedColor
-		--	local newG = string.sub(palette[i], 5, 7) + addedColor
-		--	local newB = string.sub(palette[i], 9, 11) + addedColor
-		--	
-		--	if(newR < 10) then
-		--		newR = "  " .. newR
-		--	end
-		--	elseif (newR < 100) then
-		--		newR = " " .. newR
-		--	end
-		--	if(newG < 10) then
-		--		newG = "  " .. newG
-		--	end
-		--	elseif (newG < 100) then
-		--		newG = " " .. newG
-		--	end
-		--	if(newB < 10) then
-		--		newB = "  " .. newB
-		--	end
-		--	elseif (newB < 100) then
-		--		newB = " " .. newB
-		--	end
-		--	
-		--	palette[i] = newR  .. string.sub(palette[i], 4, 4) .. newG .. string.sub(palette[i], 8, 8) .. newB
+			local addedColor = math.ceil(darkestColor - averageColor)
+			local newR = string.sub(palette[i], 0, 3) + addedColor
+			local newG = string.sub(palette[i], 5, 7) + addedColor
+			local newB = string.sub(palette[i], 9, 11) + addedColor
+			
+			if(newR < 10) then
+				newR = "  " .. newR
+			elseif (newR < 100) then
+				newR = " " .. newR
+			end
+			if(newG < 10) then
+				newG = "  " .. newG
+			elseif (newG < 100) then
+				newG = " " .. newG
+			end
+			if(newB < 10) then
+				newB = "  " .. newB
+			elseif (newB < 100) then
+				newB = " " .. newB
+			end
+			
+			palette[i] = newR  .. string.sub(palette[i], 4, 4) .. newG .. string.sub(palette[i], 8, 8) .. newB
 		elseif (averageColor > brightestColor) then
-		--	local subtractedColor = math.ceil(averageColor - brightestColor)
-		--	local newR = string.sub(palette[i], 0, 3) - subtractedColor
-		--	local newG = string.sub(palette[i], 5, 7) - subtractedColor
-		--	local newB = string.sub(palette[i], 9, 11) - subtractedColor
-		--	
-		--	if(newR < 10) then
-		--		newR = "  " .. newR
-		--	end
-		--	elseif (newR < 100) then
-		--		newR = " " .. newR
-		--	end
-		--	if(newG < 10) then
-		--		newG = "  " .. newG
-		--	end
-		--	elseif (newG < 100) then
-		--		newG = " " .. newG
-		--	end
-		--	if(newB < 10) then
-		--		newB = "  " .. newB
-		--	end
-		--	elseif (newB < 100) then
-		--		newB = " " .. newB
-		--	end
-		--	
-		--	palette[i] = newR - addedColor) .. string.sub(palette[i], 4, 4) .. newG - addedColor) .. string.sub(palette[i], 8, 8) .. newB
+			local addedColor = math.ceil(brightestColor - averageColor)
+			local newR = string.sub(palette[i], 0, 3) + addedColor
+			local newG = string.sub(palette[i], 5, 7) + addedColor
+			local newB = string.sub(palette[i], 9, 11) + addedColor
+			
+			if(newR < 10) then
+				newR = "  " .. newR
+			elseif (newR < 100) then
+				newR = " " .. newR
+			end
+			if(newG < 10) then
+				newG = "  " .. newG
+			elseif (newG < 100) then
+				newG = " " .. newG
+			end
+			if(newB < 10) then
+				newB = "  " .. newB
+			elseif (newB < 100) then
+				newB = " " .. newB
+			end
+			
+			palette[i] = newR  .. string.sub(palette[i], 4, 4) .. newG .. string.sub(palette[i], 8, 8) .. newB
 		end
 	end
 	
