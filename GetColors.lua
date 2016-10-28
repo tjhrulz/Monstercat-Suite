@@ -77,7 +77,23 @@ function genreColorizer(baseColorRGB)
 		BackgroundPanelColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("BackgroundPanelColorModifier", '1.0'))
 		vizColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("VizColorModifier", '1.0'))
 		LogoColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("LogoColorModifier", '1.0'))
-		
+	
+		local file = io.open(SKIN:GetVariable("@") .. "colors\\GenreOutput.lua", "r")
+		io.output(file)
+		io.write("(" .. vizColor .. ")")
+		io.write("(" .. LogoColor .. ")")
+		io.write("(" .. baseColor .. ")")
+		io.write("(" .. secondaryColor .. ")")
+		io.write("(" .. wallpaperColor .. ")")
+		--io.write("(" .. backgroundColor .. ")")
+		--io.write("(" .. transBackgroundColor .. ")")
+		io.write("(" .. textColor .. ")")
+		io.write("(" .. clockColor .. ")")
+		io.write("(" .. minColor .. ")")
+		io.write("(" .. hourColor .. ")")
+		io.write("(" .. secColor .. ")")
+		io.write("(" .. backgroundPanelColor .. ")")
+		io.close(file)
 	else
 	
 		baseColor = hueColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("ColorType", '1.0'))
@@ -93,6 +109,23 @@ function genreColorizer(baseColorRGB)
 		BackgroundPanelColor = hueColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("BackgroundPanelColorType", '1.0'))
 		vizColor = hueColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("VizColorType", '1.0'))
 		LogoColor = hueColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("LogoColorType", '1.0'))
+		
+		local file = io.open(SKIN:GetVariable("@") .. "colors\\GenrePaletteOutput.lua", "r")
+		io.output(file)
+		io.write("(" .. vizColor .. ")")
+		io.write("(" .. LogoColor .. ")")
+		io.write("(" .. baseColor .. ")")
+		io.write("(" .. secondaryColor .. ")")
+		io.write("(" .. wallpaperColor .. ")")
+		--io.write("(" .. backgroundColor .. ")")
+		--io.write("(" .. transBackgroundColor .. ")")
+		io.write("(" .. textColor .. ")")
+		io.write("(" .. clockColor .. ")")
+		io.write("(" .. minColor .. ")")
+		io.write("(" .. hourColor .. ")")
+		io.write("(" .. secColor .. ")")
+		io.write("(" .. backgroundPanelColor .. ")")
+		io.close(file)
 	end
 end
 
@@ -153,6 +186,23 @@ function albumColorizer(rootDir)
 			BackgroundPanelColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("BackgroundPanelColorModifier", '1.0'))
 			vizColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("VizColorModifier", '1.0'))
 			LogoColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("LogoColorModifier", '1.0'))
+		
+			local file = io.open(SKIN:GetVariable("@") .. "colors\\AlbumOutput.lua", "r")
+			io.output(file)
+			io.write("(" .. vizColor .. ")")
+			io.write("(" .. LogoColor .. ")")
+			io.write("(" .. baseColor .. ")")
+			io.write("(" .. secondaryColor .. ")")
+			io.write("(" .. wallpaperColor .. ")")
+			--io.write("(" .. backgroundColor .. ")")
+			--io.write("(" .. transBackgroundColor .. ")")
+			io.write("(" .. textColor .. ")")
+			io.write("(" .. clockColor .. ")")
+			io.write("(" .. minColor .. ")")
+			io.write("(" .. hourColor .. ")")
+			io.write("(" .. secColor .. ")")
+			io.write("(" .. backgroundPanelColor .. ")")
+			io.close(file)
 			
 		else
 
@@ -188,7 +238,24 @@ function albumColorizer(rootDir)
 			testColor3 = palette[tonumber(SKIN:GetVariable("TestColorPalette3", '1.0'))]
 			testColor4 = palette[tonumber(SKIN:GetVariable("TestColorPalette4", '1.0'))]
 			testColor5 = palette[tonumber(SKIN:GetVariable("TestColorPalette5", '1.0'))]
-			testColor6 = palette[tonumber(SKIN:GetVariable("TestColorPalette6", '1.0'))]		
+			testColor6 = palette[tonumber(SKIN:GetVariable("TestColorPalette6", '1.0'))]	
+		
+			local file = io.open(SKIN:GetVariable("@") .. "colors\\AlbumOutput.lua", "r")
+			io.output(file)
+			io.write("(" .. vizColor .. ")")
+			io.write("(" .. LogoColor .. ")")
+			io.write("(" .. baseColor .. ")")
+			io.write("(" .. secondaryColor .. ")")
+			io.write("(" .. wallpaperColor .. ")")
+			--io.write("(" .. backgroundColor .. ")")
+			--io.write("(" .. transBackgroundColor .. ")")
+			io.write("(" .. textColor .. ")")
+			io.write("(" .. clockColor .. ")")
+			io.write("(" .. minColor .. ")")
+			io.write("(" .. hourColor .. ")")
+			io.write("(" .. secColor .. ")")
+			io.write("(" .. backgroundPanelColor .. ")")
+			io.close(file)	
 		end
 	end	
 end
