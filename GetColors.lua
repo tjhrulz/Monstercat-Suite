@@ -1,56 +1,53 @@
-function colorSelector(genre, rootDir)
-	print(genre)
-	print(rootDir)
-	print(SKIN:GetVariable("@"))
+function colorSelector(genre)
 	if (tonumber(SKIN:GetVariable("EnableGenreColors")) == 1) then
 		if (genre == nil) or ((string.len(genre)) <= 1) then genre="" end
 
 		--print("test:" .. SKIN:GetVariable("EnableGenreColors"))
 		if string.find(genre, "Electro") then
 			--print("test:" .. SKIN:GetVariable("Electro"))
-			genreColorizer(SKIN:GetVariable("Electro"), rootDir)
+			genreColorizer(SKIN:GetVariable("Electro"))
 		elseif string.find(genre, "EDM") or string.find(genre, "Electronic") or string.find(genre, "Breaks") or string.find(genre, "Chillout") or string.find(genre, "Bounce") or string.find(genre, "Chill") then
-			genreColorizer(SKIN:GetVariable("EDM"), rootDir)
+			genreColorizer(SKIN:GetVariable("EDM"))
 		elseif string.find(genre, "House") or string.find(genre, "Electro House") or string.find(genre, "Progressive House") then
-			genreColorizer(SKIN:GetVariable("House"), rootDir)
+			genreColorizer(SKIN:GetVariable("House"))
 		elseif string.find(genre, "Drum & Bass") or string.find(genre, "DnB") then
-			genreColorizer(SKIN:GetVariable("DnB"), rootDir)
+			genreColorizer(SKIN:GetVariable("DnB"))
 		elseif string.find(genre, "Dubstep") then
-			genreColorizer(SKIN:GetVariable("Dubstep"), rootDir)
+			genreColorizer(SKIN:GetVariable("Dubstep"))
 		elseif string.find(genre, "Drumstep") then
-			genreColorizer(SKIN:GetVariable("Drumstep"), rootDir)
+			genreColorizer(SKIN:GetVariable("Drumstep"))
 		elseif string.find(genre, "Glitch Hop") or string.find(genre, "GlitchHop") then
-			genreColorizer(SKIN:GetVariable("GlitchHop"), rootDir)
+			genreColorizer(SKIN:GetVariable("GlitchHop"))
 		elseif string.find(genre, "Trap") then
-			genreColorizer(SKIN:GetVariable("Trap"), rootDir)
+			genreColorizer(SKIN:GetVariable("Trap"))
 		elseif string.find(genre, "Trance") or string.find(genre, "Deep House") then
-			genreColorizer(SKIN:GetVariable("Trance"), rootDir)
+			genreColorizer(SKIN:GetVariable("Trance"))
 		elseif string.find(genre, "Hard Dance") then
-			genreColorizer(SKIN:GetVariable("HardDance"), rootDir)
+			genreColorizer(SKIN:GetVariable("HardDance"))
 		elseif string.find(genre, "Nu Disco") or string.find(genre, "NuDisco") or string.find(genre, "Disco") or string.find(genre, "Indie Dance") or string.find(genre, "Electro Swing") then
-			genreColorizer(SKIN:GetVariable("NuDisco"), rootDir)
+			genreColorizer(SKIN:GetVariable("NuDisco"))
 		elseif string.find(genre, "Future") or string.find(genre, "Future Bass") then
 		--print("test:" .. SKIN:GetVariable("Electro"))
-			genreColorizer(SKIN:GetVariable("FutureBass"), rootDir)
+			genreColorizer(SKIN:GetVariable("FutureBass"))
 		elseif string.find(genre, "Mashup") or string.find(genre, "Mash Up") then
-			genreColorizer(SKIN:GetVariable("Mashup"), rootDir)
+			genreColorizer(SKIN:GetVariable("Mashup"))
 		else
 			if (tonumber(SKIN:GetVariable("EnableAlbumColor")) == 0) then
-				genreColorizer(SKIN:GetVariable("DefaultDynamicColor"), rootDir)
+				genreColorizer(SKIN:GetVariable("DefaultDynamicColor"))
 			else
 				albumColorizer(rootDir)
 			end
 		end
 	else
 		if (tonumber(SKIN:GetVariable("EnableAlbumColor")) == 0) then
-			genreColorizer(SKIN:GetVariable("DefaultDynamicColor"), rootDir)
+			genreColorizer(SKIN:GetVariable("DefaultDynamicColor"))
 		else
 			albumColorizer(rootDir)
 		end
 	end
 end
 
-function genreColorizer(baseColorRGB, rootDir)
+function genreColorizer(baseColorRGB)
 
 	--I dislike lua strings, -1 is to not put the comma in the color, +2 is to skip over it, this is why you follow standard program conventions when making a language liek arrays start at 0 and substrings is based on number of chars to keep
 	local baseColorR = string.sub(baseColorRGB, 0, string.find(baseColorRGB, ",")-1)
@@ -81,7 +78,7 @@ function genreColorizer(baseColorRGB, rootDir)
 		vizColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("VizColorModifier", '1.0'))
 		LogoColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("LogoColorModifier", '1.0'))
 	
-		local file = io.open(rootDir .. "@Resources\\colors\\GenreOutput.lua", "r")
+		local file = io.open(SKIN:GetVariable("@") .. "colors\\GenreOutput.lua", "r")
 		io.output(file)
 		io.write("(" .. vizColor .. ")")
 		io.write("(" .. LogoColor .. ")")
@@ -113,7 +110,7 @@ function genreColorizer(baseColorRGB, rootDir)
 		vizColor = hueColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("VizColorType", '1.0'))
 		LogoColor = hueColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("LogoColorType", '1.0'))
 		
-		local file = io.open(rootDir .. "@Resources\\colors\\GenrePaletteOutput.lua", "r")
+		local file = io.open(SKIN:GetVariable("@") .. "colors\\GenrePaletteOutput.lua", "r")
 		io.output(file)
 		io.write("(" .. vizColor .. ")")
 		io.write("(" .. LogoColor .. ")")
@@ -141,7 +138,7 @@ function albumColorizer(rootDir)
 	if(tonumber(SKIN:GetVariable("EnableAlbumColor", 1)) == 1) then
 		if(tonumber(SKIN:GetVariable("EnableMultiColors", 0)) ~= 1) then
 		
-			local input = ReadFile(rootDir .. "@Resources\\colors\\Histogram.txt")
+			local input = ReadFile(SKIN:GetVariable("@") .. "colors\\Histogram.txt")
 			local baseColorRGB = 0,0,0
 			
 			if(input ~= nil) and (string.len(input) > 1) then
@@ -189,6 +186,7 @@ function albumColorizer(rootDir)
 			vizColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("VizColorModifier", '1.0'))
 			LogoColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("LogoColorModifier", '1.0'))
 			
+			local file = io.open(SKIN:GetVariable("@") .. "colors\\AlbumOutput.lua", "r")
 			io.output(file)
 			io.write("(" .. vizColor .. ")")
 			io.write("(" .. LogoColor .. ")")
@@ -209,13 +207,13 @@ function albumColorizer(rootDir)
 
 			local palette = {}
 			
-			if(input == nil) and (string.len(input) <= 1) then
+			if(input == nil) or (string.len(input) <= 1) then
 				print("Error: Unable to get album art color or it is malformed, switching to a built in fallback")
 				palette = {"000,000,000","20,20,20","100,100,100","127,127,127","200,200,200","255,255,255"}
 				palette[-1] = -1
 			else 
 				print("Is this the resource directory: " .. SKIN:GetVariable("@"))
-				palette = getPalette(rootDir .. "@Resources\\colors\\Histogram.txt")
+				palette = getPalette(SKIN:GetVariable("@") .. "colors\\Histogram.txt")
 			end
 			
 				
@@ -241,7 +239,7 @@ function albumColorizer(rootDir)
 			testColor5 = palette[tonumber(SKIN:GetVariable("TestColorPalette5", '1.0'))]
 			testColor6 = palette[tonumber(SKIN:GetVariable("TestColorPalette6", '1.0'))]	
 		
-			local file = io.open(SKIN:GetVariable("@") .. "colors\\AlbumOutput.lua", "r")
+			local file = io.open(SKIN:GetVariable("@") .. "colors\\AlbumPaletteOutput.lua", "r")
 			io.output(file)
 			io.write("(" .. vizColor .. ")")
 			io.write("(" .. LogoColor .. ")")
