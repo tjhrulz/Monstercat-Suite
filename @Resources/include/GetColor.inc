@@ -1,9 +1,8 @@
 [Variables]
-@include=#@#variables.ini
 #[!CommandMeasure CalcBlurAlbumArt blur([MeasureAlbumArt] , [CalcEscapedFilePath])]
 
 [Rainmeter]
-OnRefreshAction=[!CommandMeasure DoUpdate "Execute 1"]
+#OnRefreshAction=[!CommandMeasure DoUpdate "Execute 1"]
 
 [CalcColorsToUse]
 Measure=Script
@@ -50,7 +49,7 @@ OutputFile="#@#colors\Histogram.txt"
 OutputType='ANSI'
 DynamicVariables=1
 Timeout=#WaitTimeProcess#
-FinishAction=[!CommandMeasure CalcColorsToUse "colorSelector('[MeasureGenre]')"]
+FinishAction=[!CommandMeasure CalcColorsToUse "colorSelector('[MeasureGenre]')"][!SetOptionGroup DynamicDynamic DynamicVariables 0]
 
 [RunAverageColor]
 Measure=Plugin
@@ -59,7 +58,7 @@ OutputFile="#@#colors\Histogram.txt"
 OutputType='ANSI'
 DynamicVariables=1
 Timeout=#WaitTimeProcess#
-FinishAction=[!CommandMeasure CalcColorsToUse "colorSelector('[MeasureGenre]')"]
+FinishAction=[!CommandMeasure CalcColorsToUse "colorSelector('[MeasureGenre]')"][!SetOptionGroup DynamicDynamic DynamicVariables 0]
 
 [DoUpdate]
 Measure=Plugin

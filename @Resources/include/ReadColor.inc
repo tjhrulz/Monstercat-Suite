@@ -1,5 +1,4 @@
 [Variables]
-@include=#@#variables.ini
 
 [Rainmeter]
 Group=DynamicColors
