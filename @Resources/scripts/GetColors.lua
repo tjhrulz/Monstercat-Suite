@@ -162,26 +162,28 @@ function genreColorizer(baseColorRGB)
 		io.close(file)
 	end
 	
-	if vizColor ~= -1 then SKIN:Bang('!SetVariable', "VizColor", vizColor) end
-	if LogoColor ~= -1 then SKIN:Bang('!SetVariable', "LogoColor", LogoColor) end
-	if baseColor ~= -1 then SKIN:Bang('!SetVariable', "Color", baseColor) end
-	if secondaryColor ~= -1 then SKIN:Bang('!SetVariable', "Color2", secondaryColor) end
-	if wallpaperColor ~= -1 then SKIN:Bang('!SetVariable', "WallpaperColor", wallpaperColor) end
-	--if backgroundColor ~= -1 then SKIN:Bang('!SetVariable', "BackgroundColor", backgroundColor) end
-	--if transBackgroundColor ~= -1 then SKIN:Bang('!SetVariable', "BackgroundNonColor", transBackgroundColor .. SKIN:GetVariable(BackgroundNonColorTransparency, '255')) end
-	if textColor ~= -1 then SKIN:Bang('!SetVariable', "TextColor", textColor) end
-	if clockColor ~= -1 then SKIN:Bang('!SetVariable', "ClockRingColor", clockColor .. SKIN:GetVariable("ClockRingColorTransparency", ',255')) end
-	if minColor ~= -1 then SKIN:Bang('!SetVariable', "MinColor", minColor) end
-	if hourColor ~= -1 then SKIN:Bang('!SetVariable', "HourColor", hourColor) end
-	if secColor ~= -1 then SKIN:Bang('!SetVariable', "SecColor", secColor) end
-	if backgroundPanelColor ~= -1 then SKIN:Bang('!SetVariable', "BackgroundPanelColor", backgroundPanelColor .. SKIN:GetVariable("BackgroundPanelColorTransparency", ',255')) end
+	--It can be helpful to uncomment this for dev pruposes to see text color sooner, make sure to remvoe ReadColors from song info though
 	
-	if testColor1 ~= -1 then SKIN:Bang('!SetVariable', "TestColor1", testColor1) end
-	if testColor2 ~= -1 then SKIN:Bang('!SetVariable', "TestColor2", testColor2) end
-	if testColor3 ~= -1 then SKIN:Bang('!SetVariable', "TestColor3", testColor3) end
-	if testColor4 ~= -1 then SKIN:Bang('!SetVariable', "TestColor4", testColor4) end
-	if testColor5 ~= -1 then SKIN:Bang('!SetVariable', "TestColor5", testColor5) end
-	if testColor6 ~= -1 then SKIN:Bang('!SetVariable', "TestColor6", testColor6) end
+	--if vizColor ~= -1 then SKIN:Bang('!SetVariable', "VizColor", vizColor) end
+	--if LogoColor ~= -1 then SKIN:Bang('!SetVariable', "LogoColor", LogoColor) end
+	--if baseColor ~= -1 then SKIN:Bang('!SetVariable', "Color", baseColor) end
+	--if secondaryColor ~= -1 then SKIN:Bang('!SetVariable', "Color2", secondaryColor) end
+	--if wallpaperColor ~= -1 then SKIN:Bang('!SetVariable', "WallpaperColor", wallpaperColor) end
+	----if backgroundColor ~= -1 then SKIN:Bang('!SetVariable', "BackgroundColor", backgroundColor) end
+	----if transBackgroundColor ~= -1 then SKIN:Bang('!SetVariable', "BackgroundNonColor", transBackgroundColor .. SKIN:GetVariable(BackgroundNonColorTransparency, '255')) end
+	--if textColor ~= -1 then SKIN:Bang('!SetVariable', "TextColor", textColor) end
+	--if clockColor ~= -1 then SKIN:Bang('!SetVariable', "ClockRingColor", clockColor .. SKIN:GetVariable("ClockRingColorTransparency", ',255')) end
+	--if minColor ~= -1 then SKIN:Bang('!SetVariable', "MinColor", minColor) end
+	--if hourColor ~= -1 then SKIN:Bang('!SetVariable', "HourColor", hourColor) end
+	--if secColor ~= -1 then SKIN:Bang('!SetVariable', "SecColor", secColor) end
+	--if backgroundPanelColor ~= -1 then SKIN:Bang('!SetVariable', "BackgroundPanelColor", backgroundPanelColor .. SKIN:GetVariable("BackgroundPanelColorTransparency", ',255')) end
+	--
+	--if testColor1 ~= -1 then SKIN:Bang('!SetVariable', "TestColor1", testColor1) end
+	--if testColor2 ~= -1 then SKIN:Bang('!SetVariable', "TestColor2", testColor2) end
+	--if testColor3 ~= -1 then SKIN:Bang('!SetVariable', "TestColor3", testColor3) end
+	--if testColor4 ~= -1 then SKIN:Bang('!SetVariable', "TestColor4", testColor4) end
+	--if testColor5 ~= -1 then SKIN:Bang('!SetVariable', "TestColor5", testColor5) end
+	--if testColor6 ~= -1 then SKIN:Bang('!SetVariable', "TestColor6", testColor6) end
 end
 
 function albumColorizer(rootDir)
@@ -345,26 +347,26 @@ function albumColorizer(rootDir)
 		end
 	end	
 	
-	if vizColor ~= -1 then SKIN:Bang('!SetVariable', "VizColor", vizColor) end
-	if LogoColor ~= -1 then SKIN:Bang('!SetVariable', "LogoColor", LogoColor) end
-	if baseColor ~= -1 then SKIN:Bang('!SetVariable', "Color", baseColor) end
-	if secondaryColor ~= -1 then SKIN:Bang('!SetVariable', "Color2", secondaryColor) end
-	if wallpaperColor ~= -1 then SKIN:Bang('!SetVariable', "WallpaperColor", wallpaperColor) end
-	--if backgroundColor ~= -1 then SKIN:Bang('!SetVariable', "BackgroundColor", backgroundColor) end
-	--if transBackgroundColor ~= -1 then SKIN:Bang('!SetVariable', "BackgroundNonColor", transBackgroundColor .. SKIN:GetVariable(BackgroundNonColorTransparency, '255')) end
-	if textColor ~= -1 then SKIN:Bang('!SetVariable', "TextColor", textColor) end
-	if clockColor ~= -1 then SKIN:Bang('!SetVariable', "ClockRingColor", clockColor .. SKIN:GetVariable("ClockRingColorTransparency", ',255')) end
-	if minColor ~= -1 then SKIN:Bang('!SetVariable', "MinColor", minColor) end
-	if hourColor ~= -1 then SKIN:Bang('!SetVariable', "HourColor", hourColor) end
-	if secColor ~= -1 then SKIN:Bang('!SetVariable', "SecColor", secColor) end
-	if backgroundPanelColor ~= -1 then SKIN:Bang('!SetVariable', "BackgroundPanelColor", backgroundPanelColor .. SKIN:GetVariable("BackgroundPanelColorTransparency", ',255')) end
-	
-	if testColor1 ~= -1 then SKIN:Bang('!SetVariable', "TestColor1", testColor1) end
-	if testColor2 ~= -1 then SKIN:Bang('!SetVariable', "TestColor2", testColor2) end
-	if testColor3 ~= -1 then SKIN:Bang('!SetVariable', "TestColor3", testColor3) end
-	if testColor4 ~= -1 then SKIN:Bang('!SetVariable', "TestColor4", testColor4) end
-	if testColor5 ~= -1 then SKIN:Bang('!SetVariable', "TestColor5", testColor5) end
-	if testColor6 ~= -1 then SKIN:Bang('!SetVariable', "TestColor6", testColor6) end
+	--if vizColor ~= -1 then SKIN:Bang('!SetVariable', "VizColor", vizColor) end
+	--if LogoColor ~= -1 then SKIN:Bang('!SetVariable', "LogoColor", LogoColor) end
+	--if baseColor ~= -1 then SKIN:Bang('!SetVariable', "Color", baseColor) end
+	--if secondaryColor ~= -1 then SKIN:Bang('!SetVariable', "Color2", secondaryColor) end
+	--if wallpaperColor ~= -1 then SKIN:Bang('!SetVariable', "WallpaperColor", wallpaperColor) end
+	----if backgroundColor ~= -1 then SKIN:Bang('!SetVariable', "BackgroundColor", backgroundColor) end
+	----if transBackgroundColor ~= -1 then SKIN:Bang('!SetVariable', "BackgroundNonColor", transBackgroundColor .. SKIN:GetVariable(BackgroundNonColorTransparency, '255')) end
+	--if textColor ~= -1 then SKIN:Bang('!SetVariable', "TextColor", textColor) end
+	--if clockColor ~= -1 then SKIN:Bang('!SetVariable', "ClockRingColor", clockColor .. SKIN:GetVariable("ClockRingColorTransparency", ',255')) end
+	--if minColor ~= -1 then SKIN:Bang('!SetVariable', "MinColor", minColor) end
+	--if hourColor ~= -1 then SKIN:Bang('!SetVariable', "HourColor", hourColor) end
+	--if secColor ~= -1 then SKIN:Bang('!SetVariable', "SecColor", secColor) end
+	--if backgroundPanelColor ~= -1 then SKIN:Bang('!SetVariable', "BackgroundPanelColor", backgroundPanelColor .. SKIN:GetVariable("BackgroundPanelColorTransparency", ',255')) end
+	--
+	--if testColor1 ~= -1 then SKIN:Bang('!SetVariable', "TestColor1", testColor1) end
+	--if testColor2 ~= -1 then SKIN:Bang('!SetVariable', "TestColor2", testColor2) end
+	--if testColor3 ~= -1 then SKIN:Bang('!SetVariable', "TestColor3", testColor3) end
+	--if testColor4 ~= -1 then SKIN:Bang('!SetVariable', "TestColor4", testColor4) end
+	--if testColor5 ~= -1 then SKIN:Bang('!SetVariable', "TestColor5", testColor5) end
+	--if testColor6 ~= -1 then SKIN:Bang('!SetVariable', "TestColor6", testColor6) end
 end
 
 function percentColorize(colorR, colorG, colorB, modifyPercent)
