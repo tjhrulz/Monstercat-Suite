@@ -35,7 +35,7 @@ function GetColors()
 
 			if (ImagePath == nil) or (string.len(ImagePath) <= 1) then
 				print("No Image defined, switching to histogram fallback")
-				FallbackPath = rootPath .. "@Resources\\images\\output.txt"
+				FallbackPath = rootPath .. "@Resources\\colors\\HistogramFallback.txt"
 				
 				cmdCommand = "more " .. FallbackPath
 				

@@ -7,7 +7,7 @@ OnRefreshAction=[!CommandMeasure ReadColorsToUse "readColor('[MeasureGenre]')"][
 
 [ReadColorsToUse]
 Measure=Script
-ScriptFile=#ROOTCONFIGPATH#\ReadColors.lua
+ScriptFile=#@#\scripts\ReadColors.lua
 
 ;[MeasureAlbumChangedSpotifyNotifySelf]
 ;Measure=Plugin
@@ -24,8 +24,16 @@ PlayerType=Album
 OnChangeAction=[!CommandMeasure DoUpdate "Stop 1"][!CommandMeasure DoUpdate "Execute 1"]
 ;OnUpdateAction=[!Log asdf][SetOption MeasureAlbumChangedNotify OnUpdateAction "a"]
 
+[MeasureGenre]
+Measure=Plugin
+Plugin=NowPlaying
+PlayerName=#PlayerName#
+PlayerType=Genre
+RegExpSubstitute=1
+Substitute="[^a-zA-Z0-9]":""
+
 [DoUpdate]
 Measure=Plugin
 Plugin=ActionTimer
-ActionList1=Wait #WaitTimeProcess# | ProcessUpdate1 
+ActionList1=Wait #WaitTimeColors# | ProcessUpdate1 
 ProcessUpdate1=[!CommandMeasure ReadColorsToUse "readColor('[MeasureGenre]')"][!SetOptionGroup DynamicDynamic DynamicVariables 0]

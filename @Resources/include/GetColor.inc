@@ -6,11 +6,11 @@
 
 [CalcColorsToUse]
 Measure=Script
-ScriptFile=#ROOTCONFIGPATH#\GetColors.lua
+ScriptFile=#@#\scripts\GetColors.lua
 
 [CalcAlbumHistogram]
 Measure=Script
-ScriptFile=#ROOTCONFIGPATH#\GetAlbumColors.lua
+ScriptFile=#@#\scripts\GetAlbumColors.lua
 
 [MeasureAlbumArt]
 Measure=Plugin
@@ -48,7 +48,7 @@ Plugin=RunCommand
 OutputFile="#@#colors\Histogram.txt"
 OutputType='ANSI'
 DynamicVariables=1
-Timeout=#WaitTimeProcess#
+Timeout=#WaitTimeColors#
 FinishAction=[!CommandMeasure CalcColorsToUse "colorSelector('[MeasureGenre]')"][!Updategroup DynamicColors][!SetOptionGroup DynamicDynamic DynamicVariables 0]
 
 [RunAverageColor]
@@ -57,7 +57,7 @@ Plugin=RunCommand
 OutputFile="#@#colors\Histogram.txt"
 OutputType='ANSI'
 DynamicVariables=1
-Timeout=#WaitTimeProcess#
+Timeout=#WaitTimeColors#
 FinishAction=[!CommandMeasure CalcColorsToUse "colorSelector('[MeasureGenre]')"][!SetOptionGroup DynamicDynamic DynamicVariables 0]
 
 [DoUpdate]

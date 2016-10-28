@@ -29,6 +29,7 @@ Anything past this point is written more for myself and may be confusing
 TODO
 - [ ] Make it so fallback histogram is dynamic so people can change the fallback image to one of their own
 - [ ] ReadColors I think will no longer switches to default dynamic color when a song is not playing anymore, do I want to change this back? Also I need to test edge cases with it
+- [ ] Rewrite album art blur to make it more efficient
 - [ ] Move scripts that are in root directory into proper places in resources
 - [X] Color palette system, This uses histograms to get most common colors and then sorts them by rgb value
 - [x] Make color rejection replace the color with a slightly less extreme color that is the same shade

@@ -18,7 +18,7 @@ function blur(rootPath, inputPath, outputPath)
 		--print("cmd /k" .. rootPath .. "imageMagickBlur.bat " .. inputPath .. " " .. outputPath)
 		--os.execute(rootPath .. "hidebat.vbs " .. magickPath .. " " .. inputPath .. " " .. outputPath)
 		
-		command = rootPath .. "ImageMagickBlur.vbs " .. rootPath .. " " .. inputPath .. " " .. outputPath
+		command = rootPath .. "@Resources\\scripts\\ImageMagickBlur.vbs " .. rootPath .. " " .. inputPath .. " " .. outputPath
 		
 		SKIN:Bang(command)
 		
@@ -27,7 +27,7 @@ function blur(rootPath, inputPath, outputPath)
 		outputPath = outputPath .. "coverB.png"
 		
 		--os.execute("copy" .. " " .. fallbackPath .. " " .. outputPath)
-		command = rootPath .. "CopyBlur.vbs " .. fallbackPath .. " " .. outputPath
+		command = rootPath .. "@Resources\\scripts\\CopyBlur.vbs " .. fallbackPath .. " " .. outputPath
 		
 		SKIN:Bang(command)
 		
