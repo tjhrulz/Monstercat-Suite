@@ -5,8 +5,7 @@ function GetColors()
 			local rootPath = SKIN:GetVariable("ROOTCONFIGPATH")
 			
 			if (ImagePath == nil) or (string.len(ImagePath) <= 1) then
-				print("IPF" .. ImagePath)
-			
+				print("No Image defined, switching to histogram fallback")
 				local FallbackPath = rootPath .. "@Resources\\colors\\HistogramFallback.txt"
 				
 				local cmdCommand = "more " .. FallbackPath
@@ -16,7 +15,7 @@ function GetColors()
 				
 				SKIN:Bang('!CommandMeasure', 'CopyAverageColor', 'Run')
 			else
-				print("IP" .. ImagePath)
+				--print("IP" .. ImagePath)
 
 				local colorsToGet = tonumber(SKIN:GetVariable("ColorsToGet", 12))
 			
@@ -35,14 +34,15 @@ function GetColors()
 			local rootPath = SKIN:GetVariable("ROOTCONFIGPATH")
 
 			if (ImagePath == nil) or (string.len(ImagePath) <= 1) then
-				--FallbackPath = rootPath .. "@Resources\\images\\output.txt"
-				--
-				--cmdCommand = "more " .. FallbackPath
-				--
-				--SKIN:Bang('!SetOption', 'CopyAverageColor', 'Parameter', cmdCommand)
-				--KillAllRunning()
-				--
-				--SKIN:Bang('!CommandMeasure', 'CopyAverageColor', 'Run')
+				print("No Image defined, switching to histogram fallback")
+				FallbackPath = rootPath .. "@Resources\\images\\output.txt"
+				
+				cmdCommand = "more " .. FallbackPath
+				
+				SKIN:Bang('!SetOption', 'CopyAverageColor', 'Parameter', cmdCommand)
+				KillAllRunning()
+				
+				SKIN:Bang('!CommandMeasure', 'CopyAverageColor', 'Run')
 			else
 			
 				local colorsToGet = tonumber(SKIN:GetVariable("ColorsToGet", 12))

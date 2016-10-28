@@ -49,7 +49,7 @@ OutputFile="#@#colors\Histogram.txt"
 OutputType='ANSI'
 DynamicVariables=1
 Timeout=#WaitTimeProcess#
-FinishAction=[!CommandMeasure CalcColorsToUse "colorSelector('[MeasureGenre]')"][!SetOptionGroup DynamicDynamic DynamicVariables 0]
+FinishAction=[!CommandMeasure CalcColorsToUse "colorSelector('[MeasureGenre]')"][!Updategroup DynamicColors][!SetOptionGroup DynamicDynamic DynamicVariables 0]
 
 [RunAverageColor]
 Measure=Plugin
