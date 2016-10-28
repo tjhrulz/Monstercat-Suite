@@ -1,10 +1,13 @@
 [Variables]
 @include=#@#variables.ini
-#[!CommandMeasure CalcBlurAlbumArt blur([MeasureAlbumArt] , [CalcEscapedFilePath])]
 
 [Rainmeter]
-#OnRefreshAction=[!CommandMeasure DoUpdate "Stop 1"][!CommandMeasure DoUpdate "Execute 1"]
 Group=DynamicColors
+OnRefreshAction=[!CommandMeasure ReadColorsToUse "readColor('[MeasureGenre]')"]
+
+[ReadColorsToUse]
+Measure=Script
+ScriptFile=#ROOTCONFIGPATH#\ReadColors.lua
 
 ;[MeasureAlbumChangedNotifySpotify]
 ;Measure=Plugin

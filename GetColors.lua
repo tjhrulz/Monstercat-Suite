@@ -77,6 +77,15 @@ function genreColorizer(baseColorRGB)
 		backgroundPanelColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("BackgroundPanelColorModifier", '1.0'))
 		vizColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("VizColorModifier", '1.0'))
 		LogoColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("LogoColorModifier", '1.0'))
+		
+		if(tonumber(SKIN:GetVariable("EnableDevMode", 0)) == 1) then
+			testColor1 = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("TestColorModifier1", '1.0'))	
+			testColor2 = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("TestColorModifier2", '1.0'))
+			testColor3 = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("TestColorModifier3", '1.0'))
+			testColor4 = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("TestColorModifier4", '1.0'))
+			testColor5 = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("TestColorModifier5", '1.0'))
+			testColor6 = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("TestColorModifier6", '1.0'))
+		end
 	
 		local file = io.open(SKIN:GetVariable("@") .. "colors\\GenreOutput.txt", "w")
 		io.output(file)
@@ -93,6 +102,14 @@ function genreColorizer(baseColorRGB)
 		io.write("(" .. backgroundPanelColor .. ")")
 		io.write("(" .. vizColor .. ")")
 		io.write("(" .. LogoColor .. ")")
+		if(tonumber(SKIN:GetVariable("EnableDevMode", 0)) == 1) then
+			io.write("(" .. testColor1 .. ")")
+			io.write("(" .. testColor2 .. ")")
+			io.write("(" .. testColor3 .. ")")
+			io.write("(" .. testColor4 .. ")")
+			io.write("(" .. testColor5 .. ")")
+			io.write("(" .. testColor6 .. ")")
+		end
 		io.close(file)
 	else
 	
@@ -109,6 +126,15 @@ function genreColorizer(baseColorRGB)
 		backgroundPanelColor = hueColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("BackgroundPanelColorType", '1.0'))
 		vizColor = hueColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("VizColorType", '1.0'))
 		LogoColor = hueColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("LogoColorType", '1.0'))
+			
+		if(tonumber(SKIN:GetVariable("EnableDevMode", 0)) == 1) then
+			testColor1 = hueColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("TestColorType1", '1.0'))	
+			testColor2 = hueColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("TestColorType2", '1.0'))
+			testColor3 = hueColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("TestColorType3", '1.0'))
+			testColor4 = hueColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("TestColorType4", '1.0'))
+			testColor5 = hueColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("TestColorType5", '1.0'))
+			testColor6 = hueColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("TestColorType6", '1.0'))
+		end
 		
 		local file = io.open(SKIN:GetVariable("@") .. "colors\\GenrePaletteOutput.txt", "w")
 		io.output(file)
@@ -125,6 +151,14 @@ function genreColorizer(baseColorRGB)
 		io.write("(" .. backgroundPanelColor .. ")")
 		io.write("(" .. vizColor .. ")")
 		io.write("(" .. LogoColor .. ")")
+		if(tonumber(SKIN:GetVariable("EnableDevMode", 0)) == 1) then
+			io.write("(" .. testColor1 .. ")")
+			io.write("(" .. testColor2 .. ")")
+			io.write("(" .. testColor3 .. ")")
+			io.write("(" .. testColor4 .. ")")
+			io.write("(" .. testColor5 .. ")")
+			io.write("(" .. testColor6 .. ")")
+		end
 		io.close(file)
 	end
 end
@@ -186,6 +220,15 @@ function albumColorizer(rootDir)
 			vizColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("VizColorModifier", '1.0'))
 			LogoColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("LogoColorModifier", '1.0'))
 			
+			if(tonumber(SKIN:GetVariable("EnableDevMode", 0)) == 1) then
+				testColor1 = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("TestColorModifier1", '1.0'))
+				testColor2 = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("TestColorModifier2", '1.0'))
+				testColor3 = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("TestColorModifier3", '1.0'))
+				testColor4 = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("TestColorModifier4", '1.0'))
+				testColor5 = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("TestColorModifier5", '1.0'))
+				testColor6 = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("TestColorModifier6", '1.0'))
+			end
+			
 			local file = io.open(SKIN:GetVariable("@") .. "colors\\AlbumOutput.txt", "w")
 			io.output(file)
 			io.write("(" .. baseColor .. ")")
@@ -201,6 +244,14 @@ function albumColorizer(rootDir)
 			io.write("(" .. backgroundPanelColor .. ")")
 			io.write("(" .. vizColor .. ")")
 			io.write("(" .. LogoColor .. ")")
+			if(tonumber(SKIN:GetVariable("EnableDevMode", 0)) == 1) then
+				io.write("(" .. testColor1 .. ")")
+				io.write("(" .. testColor2 .. ")")
+				io.write("(" .. testColor3 .. ")")
+				io.write("(" .. testColor4 .. ")")
+				io.write("(" .. testColor5 .. ")")
+				io.write("(" .. testColor6 .. ")")
+			end
 			io.close(file)
 			
 		else
@@ -237,12 +288,14 @@ function albumColorizer(rootDir)
 			vizColor = palette[tonumber(SKIN:GetVariable("VizColorPalette", '1.0'))]
 			LogoColor = palette[tonumber(SKIN:GetVariable("LogoColorPalette", '1.0'))]
 			
-			testColor1 = palette[tonumber(SKIN:GetVariable("TestColorPalette1", '1.0'))]	
-			testColor2 = palette[tonumber(SKIN:GetVariable("TestColorPalette2", '1.0'))]
-			testColor3 = palette[tonumber(SKIN:GetVariable("TestColorPalette3", '1.0'))]
-			testColor4 = palette[tonumber(SKIN:GetVariable("TestColorPalette4", '1.0'))]
-			testColor5 = palette[tonumber(SKIN:GetVariable("TestColorPalette5", '1.0'))]
-			testColor6 = palette[tonumber(SKIN:GetVariable("TestColorPalette6", '1.0'))]	
+			if(tonumber(SKIN:GetVariable("EnableDevMode", 0)) == 1) then
+				testColor1 = palette[tonumber(SKIN:GetVariable("TestColorPalette1", '1.0'))]	
+				testColor2 = palette[tonumber(SKIN:GetVariable("TestColorPalette2", '1.0'))]
+				testColor3 = palette[tonumber(SKIN:GetVariable("TestColorPalette3", '1.0'))]
+				testColor4 = palette[tonumber(SKIN:GetVariable("TestColorPalette4", '1.0'))]
+				testColor5 = palette[tonumber(SKIN:GetVariable("TestColorPalette5", '1.0'))]
+				testColor6 = palette[tonumber(SKIN:GetVariable("TestColorPalette6", '1.0'))]
+			end	
 		
 			local file = io.open(SKIN:GetVariable("@") .. "colors\\AlbumPaletteOutput.txt", "w")
 			io.output(file)
@@ -259,6 +312,14 @@ function albumColorizer(rootDir)
 			io.write("(" .. backgroundPanelColor .. ")")
 			io.write("(" .. vizColor .. ")")
 			io.write("(" .. LogoColor .. ")")
+			if(tonumber(SKIN:GetVariable("EnableDevMode", 0)) == 1) then
+				io.write("(" .. testColor1 .. ")")
+				io.write("(" .. testColor2 .. ")")
+				io.write("(" .. testColor3 .. ")")
+				io.write("(" .. testColor4 .. ")")
+				io.write("(" .. testColor5 .. ")")
+				io.write("(" .. testColor6 .. ")")
+			end
 			io.close(file)	
 		end
 	end	
