@@ -1,5 +1,3 @@
-[Variables]
-
 [Rainmeter]
 Group=DynamicColors
 OnRefreshAction=[!CommandMeasure ReadColorsToUse "readColor('[MeasureGenre]')"][!SetOptionGroup DynamicDynamic DynamicVariables 0]
@@ -13,7 +11,7 @@ ScriptFile=#@#\scripts\ReadColors.lua
 ;Measure=Plugin
 ;Plugin=SpotifyPlugin
 ;Type=AlbumName
-;OnChangeAction=[!SetOption GetImagePath Text "[*MeasureAlbumArtSpotify*]"][!CommandMeasure DoUpdate "Stop 1"][!CommandMeasure DoUpdate "Execute 1"]
+;OnChangeAction=[!SetOption GetImagePath Text "[*MeasureAlbumArtSpotify*]"][!CommandMeasure DoReadUpdate "Stop 1"][!CommandMeasure DoReadUpdate "Execute 1"]
 ;OnUpdateAction=[SetOption MeasureAlbumArtSpotify OnUpdateAction "a"]
 
 [MeasureAlbumChangedNotifySelf]
@@ -21,7 +19,7 @@ Measure=Plugin
 Plugin=NowPlaying
 PlayerName=#PlayerName#
 PlayerType=Album
-OnChangeAction=[!CommandMeasure DoUpdate "Stop 1"][!CommandMeasure DoUpdate "Execute 1"]
+OnChangeAction=[!CommandMeasure DoReadUpdate "Stop 1"][!CommandMeasure DoReadUpdate "Execute 1"]
 ;OnUpdateAction=[!Log asdf][SetOption MeasureAlbumChangedNotify OnUpdateAction "a"]
 
 [MeasureGenre]
@@ -32,7 +30,7 @@ PlayerType=Genre
 RegExpSubstitute=1
 Substitute="[^a-zA-Z0-9]":""
 
-[DoUpdate]
+[DoReadUpdate]
 Measure=Plugin
 Plugin=ActionTimer
 ActionList1=Wait #WaitTimeColors# | ProcessUpdate1 
