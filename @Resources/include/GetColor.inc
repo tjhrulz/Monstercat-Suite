@@ -50,7 +50,7 @@ OutputFile="#@#colors\Histogram.txt"
 OutputType='ANSI'
 DynamicVariables=1
 Timeout=#WaitTimeProcess#
-FinishAction=[!Log "asdf"][!CommandMeasure CalcColorsToUse "colorSelector('[MeasureGenre]','#ROOTCONFIGPATH#')"]
+FinishAction=[!CommandMeasure CalcColorsToUse "colorSelector('[MeasureGenre]','#ROOTCONFIGPATH#')"]
 
 [RunAverageColor]
 Measure=Plugin
@@ -59,7 +59,7 @@ OutputFile="#@#colors\Histogram.txt"
 OutputType='ANSI'
 DynamicVariables=1
 Timeout=#WaitTimeProcess#
-FinishAction=[!Log "asdf"][!CommandMeasure CalcColorsToUse "colorSelector('[MeasureGenre]','#ROOTCONFIGPATH#')"]
+FinishAction=[!CommandMeasure CalcColorsToUse "colorSelector('[MeasureGenre]','#ROOTCONFIGPATH#')"]
 
 [CalcRootFilePath]
 Measure=String
