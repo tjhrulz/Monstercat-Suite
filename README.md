@@ -27,6 +27,7 @@ Button to toggle small meters and side panels
 Anything past this point is written more for myself and may be confusing
 ------------------------------------------------------------------------
 TODO
+- [ ] Make it so fallback histogram is dynamic so people can change the fallback image to one of their own
 - [ ] Move scripts that are in root directory into proper places in resources
 - [X] Color palette system, This uses histograms to get most common colors and then sorts them by rgb value
 - [x] Make color rejection replace the color with a slightly less extreme color that is the same shade
@@ -57,6 +58,7 @@ TODO
 - [ ] Look into adding corsair and other keyboards manufactures color API's into the color system, I do not have a full RGB (Mine only does green) so I will need a guinea pig
 Bugs
 - [ ] Album art color fetch runs when a color will end up being decided 
+- [ ] Genre color decided is called even if genre color is off, move check out of genre color decider
 - [ ] Each meter instances its own version of any of the color options causing higher CPU than needed, I have known about this for a while but it hasn't been a big deal till some of the color choices required more CPU.
 - [X] Threads sometimes stay alive after completing their output (I think I have seen it once or twice do it without completing it, tell me your secrets threads why did you hang)
 - [ ] Occasionally a thread is detected as running but when it goes to be killed it is already dead, likely is finishing gracefully before the kill command happens. Not a major bug just causes occasional log spam

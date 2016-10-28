@@ -9,20 +9,6 @@ OnRefreshAction=[!CommandMeasure DoUpdate "Stop 1"][!CommandMeasure DoUpdate "Ex
 Measure=Script
 ScriptFile=#ROOTCONFIGPATH#\colorVariationer.lua
 
-[CalcAlbumArtColorScript]
-Measure=Script
-ScriptFile=#ROOTCONFIGPATH#\GetAlbumColors.lua
-
-[MeasureAlbumArt]
-Measure=Plugin
-Plugin=NowPlaying
-PlayerName=#PlayerName#
-PlayerType=Cover
-
-[MeasureAlbumArtSpotify]
-Measure=String
-Text="#@#images\cover.png"
-
 ;[MeasureAlbumChangedNotifySpotify]
 ;Measure=Plugin
 ;Plugin=SpotifyPlugin
@@ -38,38 +24,10 @@ PlayerType=Album
 OnChangeAction=[!SetOption GetImagePath Text "[*MeasureAlbumArt*]"][!CommandMeasure DoUpdate "Stop 1"][!CommandMeasure DoUpdate "Execute 1"]
 ;OnUpdateAction=[!SetOption GetImagePath Text "[*MeasureAlbumArt*]"][!Log asdf][SetOption MeasureAlbumChangedNotify OnUpdateAction "a"]
 
-[GetImagePath]
-Measure=String
-Text="#@#images\Fallback.png"
-DynamicVariables=1
-
-[CopyAverageColor]
-Measure=Plugin
-Plugin=RunCommand
-OutputFile="#@#colors\Histogram.txt"
-OutputType='ANSI'
-DynamicVariables=1
-Timeout=#WaitTimeProcess#
-FinishAction=[!CommandMeasure CalcVarationScript "colorSelector('[MeasureGenre]')"]
-
-[RunAverageColor]
-Measure=Plugin
-Plugin=RunCommand
-OutputFile="#@#colors\Histogram.txt"
-OutputType='ANSI'
-DynamicVariables=1
-Timeout=#WaitTimeProcess#
-FinishAction=[!CommandMeasure CalcVarationScript "colorSelector('[MeasureGenre]')"]
-
-[CalcRootFilePath]
-Measure=String
-Text="#ROOTCONFIGPATH#"
-Substitute="\":"\\"
-
 [DoUpdate]
 Measure=Plugin
 Plugin=ActionTimer
-ActionList1=Wait #WaitTimeFetch# | ProcessUpdate1 
+ActionList1=Wait #WaitTimeFetch# | ProcessUpdate1 | Wait #WaitTimeProcess# | ProcessUpdate2 | Wait 1 | DoDynamicUpdate
 ProcessUpdate1=[!CommandMeasure CalcAlbumArtColorScript "GetColors(#EnableMultiColors#)"]
 ProcessUpdate2=[!CommandMeasure CalcVarationScript "colorSelector('[MeasureGenre]')"]
 DoDynamicUpdate=[!SetOptionGroup DynamicDynamic DynamicVariables 0]

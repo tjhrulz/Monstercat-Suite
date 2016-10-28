@@ -7,7 +7,7 @@ function GetColors(doPalette)
 			if (ImagePath == nil) or (string.len(ImagePath) <= 1) then
 				--print("IPF" .. ImagePath)
 			
-				FallbackPath = vbsPath .. "@Resources\\images\\output.txt"
+				FallbackPath = vbsPath .. "@Resources\\colors\\HistogramFallback.txt"
 				
 				cmdCommand = "more " .. FallbackPath
 				
