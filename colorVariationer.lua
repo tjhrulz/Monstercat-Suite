@@ -72,7 +72,7 @@ function colorizer(baseColorRGB)
 	--print("Color:" .. baseColorR .. "," .. baseColorG .. "," .. baseColorB)
 	
 	local vizColor, baseColor, secondaryColor, wallpaperColor, backgroundColor, transBackgroundColor, textColor, BackgroundPanelColor
-	local clockColor, minColor, hourColor, secColor, PCMRColor
+	local clockColor, minColor, hourColor, secColor, LogoColor
 	
 	if(tonumber(SKIN:GetVariable("EnableMultiColors", 0)) == 0) then
 
@@ -88,7 +88,7 @@ function colorizer(baseColorRGB)
 		secColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("SecColorModifier", '1.0'))
 		BackgroundPanelColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("BackgroundPanelColorModifier", '1.0'))
 		vizColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("VizColorModifier", '1.0'))
-		PCMRColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("PCMRColorModifier", '1.0'))
+		LogoColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("LogoColorModifier", '1.0'))
 		
 	else
 	
@@ -104,7 +104,7 @@ function colorizer(baseColorRGB)
 		secColor = hueColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("SecColorType", '1.0'))
 		BackgroundPanelColor = hueColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("BackgroundPanelColorType", '1.0'))
 		vizColor = hueColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("VizColorType", '1.0'))
-		PCMRColor = hueColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("PCMRColorType", '1.0'))
+		LogoColor = hueColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("LogoColorType", '1.0'))
 		
 	end
 	
@@ -153,7 +153,7 @@ function colorizer(baseColorRGB)
 			secColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("SecColorModifier", '1.0'))
 			BackgroundPanelColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("BackgroundPanelColorModifier", '1.0'))
 			vizColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("VizColorModifier", '1.0'))
-			PCMRColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("PCMRColorModifier", '1.0'))
+			LogoColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("LogoColorModifier", '1.0'))
 		else
 		
 			palette = getPalette()
@@ -177,7 +177,7 @@ function colorizer(baseColorRGB)
 			secColor = palette[tonumber(SKIN:GetVariable("SecColorPalette", '1.0'))]
 			BackgroundPanelColor = palette[tonumber(SKIN:GetVariable("BackgroundPanelColorPalette", '1.0'))]
 			vizColor = palette[tonumber(SKIN:GetVariable("VizColorPalette", '1.0'))]
-			PCMRColor = palette[tonumber(SKIN:GetVariable("PCMRColorPalette", '1.0'))]
+			LogoColor = palette[tonumber(SKIN:GetVariable("LogoColorPalette", '1.0'))]
 			
 			testColor1 = palette[tonumber(SKIN:GetVariable("TestColorPalette1", '1.0'))]	
 			testColor2 = palette[tonumber(SKIN:GetVariable("TestColorPalette2", '1.0'))]
@@ -194,7 +194,7 @@ function colorizer(baseColorRGB)
 	--print("Color: " .. baseColor)
 	
 	if vizColor ~= -1 then SKIN:Bang('!SetVariable', "VizColor", vizColor) end
-	if PCMRColor ~= -1 then SKIN:Bang('!SetVariable', "PCMRColor", PCMRColor) end
+	if LogoColor ~= -1 then SKIN:Bang('!SetVariable', "LogoColor", LogoColor) end
 	if baseColor ~= -1 then SKIN:Bang('!SetVariable', "Color", baseColor) end
 	if secondaryColor ~= -1 then SKIN:Bang('!SetVariable', "Color2", secondaryColor) end
 	if wallpaperColor ~= -1 then SKIN:Bang('!SetVariable', "WallpaperColor", wallpaperColor) end
