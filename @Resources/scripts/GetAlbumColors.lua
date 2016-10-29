@@ -9,7 +9,7 @@ function GetColors(imagePath)
 		SKIN:Bang('!CommandMeasure', 'RunFallbackAverageColor', 'Kill')
 		--print("RunFallbackAverageColor Value:" .. SKIN:GetMeasure('RunFallbackAverageColor'):GetValue())
 	end
-	--print("Sorry the album art color selector for monstercat is somehow quick enough that the thread doesnt always have time to finish being killed, this wastes just enough time to solve that bug")
+	print("Sorry the album art color selector for monstercat is somehow quick enough that the thread doesnt always have time to finish being killed, this wastes just enough time to solve that bug")
 	
 	if(tonumber(SKIN:GetVariable("EnableAlbumColor", 1)) == 1) then
 		if(tonumber(SKIN:GetVariable("EnableMultiColors", 1)) == 1) then
