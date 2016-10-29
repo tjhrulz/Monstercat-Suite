@@ -10,7 +10,7 @@ ScriptFile=#@#\scripts\ReadColors.lua
 Measure=Plugin
 Plugin=SpotifyPlugin
 Type=AlbumName
-OnChangeAction=[!SetOption GetImagePath Text "[*MeasureAlbumArtSpotify*]"][!CommandMeasure DoReadUpdate "Stop 1"][!CommandMeasure DoReadUpdate "Execute 1"]
+OnChangeAction=[!CommandMeasure DoReadUpdate "Stop 1"][!CommandMeasure DoReadUpdate "Execute 1"]
 
 [MeasureAlbumChangedNotifySelf]
 Measure=Plugin
