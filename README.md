@@ -18,17 +18,19 @@ v1.3r - Machine learning album art selector, I'm kidding (Maybe)
 May happen eventually
 Meters will change to variant on middle click, I only wanna do this if it can include the alt system
 Add more versions of CPU and GPU info (I dont think I will do this as the info is not too needed (And I dont need to see my FPS hit 59 and want to replace my computer) and all new and old info would need to be labeled to differentiate it 
-Lua based 12 hour clock (With variant where 12hr is replaced by Monstercat logo)
+Large 12 hour clock (With variant where 12hr is replaced by Monstercat logo)
 A version of the RSS display for displaying mobile versions of websites? I found a way to display in an iframe in rainmeter, doubt I will do this though as it feels too much.
 Complimentary colors update, I wrote the whole system for this and my calculations are sometimes off by a little bit which is fine but it really does not look good.
-Button to toggle small meters and side panels
+Button to toggle visiblity of small meters and side panels (Similar to enigma)
+Little icon idividual program launchers to match the button mentioned above
+Modified versions of the logos that integrate simple system status (CPU, GPU, Ping are the 3 I am thinking about doing)
 
 ------------------------------------------------------------------------
 Anything past this point is written more for myself and may be confusing
 ------------------------------------------------------------------------
 TODO
 - [X] Make it so fallback histogram is dynamic so people can change the fallback image to one of their own
-- [ ] ReadColors I think will no longer switch to default dynamic color when a song is not playing anymore, do I want to change this back? Also I need to test edge cases with it
+- [X] ReadColors I think will no longer switch to default dynamic color when a song is not playing anymore, do I want to change this back? Also I need to test edge cases with it
 - [X] Rewrite album art blur to make it more efficient
 - [X] Move scripts that are in root directory into proper places in resources
 - [X] Color palette system, This uses histograms to get most common colors and then sorts them by rgb value
@@ -58,6 +60,7 @@ TODO
 - [ ] Look into if average size variable increases or decrease performance based on size (kind of irrelevant now with CPU usage being better I just want to document it right)
 - [ ] Look into adding corsair and other keyboards manufactures color API's into the color system, I do not have a full RGB (Mine only does green) so I will need a guinea pig
 Bugs
+- [ ] When spotify isnt running there is a lot of log spam, I think this is from the plugin and not my missuse of it hoepfully I can turn it off
 - [ ] Album art color fetch runs when a color will end up being decided (Not as big a deal as I figured it would be, blur takes up way more cpu time)
 - [X] Genre color decided is called even if genre color is off, move check out of genre color decider
 - [X] Each meter instances its own version of any of the color options causing higher CPU than needed, I have known about this for a while but it hasn't been a big deal till some of the color choices required more CPU.
