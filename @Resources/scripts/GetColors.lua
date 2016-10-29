@@ -208,7 +208,7 @@ function albumColorizer(rootDir)
 			end
 			
 			if(baseColorRGB == nil) then
-				print("Error: Input wasn't empty but didn't contain a color in it, switching to  default")
+				--print("Error: Input wasn't empty but didn't contain a color in it, switching to  default")
 				baseColorRGB = SKIN:GetVariable("DefaultDynamicColor", "200,200,200")
 			end
 			
@@ -290,7 +290,7 @@ function albumColorizer(rootDir)
 				palette = getPalette(input)
 				
 				if(palette[1] == nil)  then
-					print("Error: Histogram file malformed, switching to a built in fallback")
+					--print("Error: Histogram file malformed, switching to a built in fallback")
 					palette = {"000,000,000","20,20,20","100,100,100","127,127,127","200,200,200","255,255,255"}
 					palette[-1] = -1				
 				end
