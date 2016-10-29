@@ -69,7 +69,7 @@ Bugs
 - [X] Album art color fetch  fallback overwrites old data on refresh, likely wont fix unless I can find a way to make sure that the itune info gets in in time Update: Now in in time but it still does it
 - [X] After a refresh album art color fetech's next call returns nothing Update: Its the next fetch that does not go through fallback, interesting Update: It now returns the fallback info
 - [X] Extreme dark or light (Like almost fully black or fully white) album art colors when using album art as the background cause either text to be unreadable without being on a panel or more importantly if really dark everything but text is unusable no matter what 
-- [ ] Pinging conditionals do not work after first time they are triggered Update: I have disabled for now
+- [ ] Pinging conditionals do not work after first time they are triggered Update: I have disabled for now so MaxPingDisplayed is ignored
 - [ ] Check and possibly fix if DINTFMI only working on first load since afterwards it may always use old data
 - [ ] Look into if cpu being off by about a factor of about 2 (Seems to be half actual on advancedCPU and ferpnom) on cpu reader and top processes is a bug in task manager, rainmeter dlls, or if it is just my machine
 - [ ] Several bars variants need to be checked for code consistency, such as percentual being set on some of the ferpnom meters, process being spelled wrong, or other logical bugs, and missoptimizations within them

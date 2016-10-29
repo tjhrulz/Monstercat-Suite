@@ -61,7 +61,7 @@ FinishAction=[!CommandMeasure CalcColorsToUse "colorSelector('')"][!SetOptionGro
 [DoWriteUpdate]
 Measure=Plugin
 Plugin=ActionTimer
-ActionList1=Wait #WaitTimeFetch# | ProcessUpdate1 
+ActionList1=Wait 1 | ProcessUpdate1 
 ProcessUpdate1=[!CommandMeasure CalcAlbumHistogram "GetColors('[MeasureAlbumArtSpotify]')"]
 
 [DoReadUpdate]
