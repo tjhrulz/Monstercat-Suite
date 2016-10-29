@@ -42,7 +42,7 @@ Plugin=RunCommand
 OutputFile="#@#colors\Histogram.txt"
 OutputType='ANSI'
 DynamicVariables=1
-FinishAction=[!CommandMeasure CalcColorsToUse "colorSelector('[MeasureGenre]')"][!Updategroup DynamicColors][!SetOptionGroup DynamicDynamic DynamicVariables 0]
+FinishAction=[!CommandMeasure CalcColorsToUse "colorSelector('')"][!Updategroup DynamicColors][!SetOptionGroup DynamicDynamic DynamicVariables 0]
 
 [RunAverageColor]
 Measure=Plugin
@@ -50,7 +50,7 @@ Plugin=RunCommand
 OutputFile="#@#colors\Histogram.txt"
 OutputType='ANSI'
 DynamicVariables=1
-FinishAction=[!CommandMeasure CalcColorsToUse "colorSelector('[MeasureGenre]')"][!SetOptionGroup DynamicDynamic DynamicVariables 0]
+FinishAction=[!CommandMeasure CalcColorsToUse "colorSelector('')"][!SetOptionGroup DynamicDynamic DynamicVariables 0]
 
 [MeasureGenre]
 Measure=Plugin

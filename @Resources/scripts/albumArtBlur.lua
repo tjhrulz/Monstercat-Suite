@@ -28,7 +28,7 @@ function blur(inputPath, outputPath)
 		SKIN:Bang('!CommandMeasure', 'RunBlurColorFallback', 'Run')
 	elseif(inputPath ~= nil) and (string.len(inputPath) >= 1) then		
 		local cmdCommand = rootPath .. "ImageMagickScripts\\convert.exe " .. inputPath .. " -channel RGBA -blur 0x" .. blurAmount .. " " .. outputPath
-		
+
 		SKIN:Bang('!SetOption', 'RunBlurColor', 'Parameter', cmdCommand)
 		SKIN:Bang('!CommandMeasure', 'RunBlurColor', 'Run')
 	else
