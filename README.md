@@ -1,15 +1,14 @@
-A WIP rainmeter suite based on the Monstercat Visulizer skin by marcopixel.
+A WIP rainmeter suite based on the Monstercat Visualizer skin by marcopixel.
 
 Includes Do I need a jacket support from FlyingHyrax, multiple system info and networking meters. More to come
 
 Tentative Roadmap (things may take longer or be scrapped based on difficulty)
-v0.6.10r - Blur wallpaper support (Maybe 0.7), album art color support (Will offer both a single color and a multi color support (See palette system for android for what I want to do)
+v0.7.0r  Skins that support laptop/desktop specific features, Multigraph CPU, GPU, and IO graphs, Logos that support system info, background sideshow?.
 
-v0.7.0r aka Laptop/Desktop support - GPU, Wireless, multiHDD toggles, add plguins to this release and may start showing off suite, Multigraph CPU and GPU graphs (Would match the networking and processing combined graphs) 
-v0.8.0r MVP - Weather & News support, likely first public release
+v0.8.0r - Weather & News support
 v0.9.0r - Appointments
 v0.9.5r - Calendar
-v1.0.0r - Installer updated, Notification system, App launcher full planned meter feature set
+v1.0.0r - Installer updated, Notification system, App launcher, full planned meter feature set
 --Highly-Tentative--------------------------------------------------------------
 v1.1r - Support for dynamic color keyboards
 v1.2r - Google play music plugin and Networking top processes plugin
@@ -17,12 +16,12 @@ v1.3r - Machine learning album art selector, I'm kidding (Maybe)
 
 May happen eventually
 Meters will change to variant on middle click, I only wanna do this if it can include the alt system
-Add more versions of CPU and GPU info (I dont think I will do this as the info is not too needed (And I dont need to see my FPS hit 59 and want to replace my computer) and all new and old info would need to be labeled to differentiate it 
+Add more versions of CPU and GPU info (I don't think I will do this as the info is not too needed (And I don't need to see my FPS hit 59 and want to replace my computer) and all new and old info would need to be labeled to differentiate it 
 Large 12 hour clock (With variant where 12hr is replaced by Monstercat logo)
 A version of the RSS display for displaying mobile versions of websites? I found a way to display in an iframe in rainmeter, doubt I will do this though as it feels too much.
 Complimentary colors update, I wrote the whole system for this and my calculations are sometimes off by a little bit which is fine but it really does not look good.
-Button to toggle visiblity of small meters and side panels (Similar to enigma)
-Little icon idividual program launchers to match the button mentioned above
+Button to toggle visibility of small meters and side panels (Similar to enigma)
+Little icon individual program launchers to match the button mentioned above
 Modified versions of the logos that integrate simple system status (CPU, GPU, Ping are the 3 I am thinking about doing)
 
 ------------------------------------------------------------------------
@@ -49,12 +48,12 @@ TODO
 - [ ] Look into if average size variable increases or decrease performance based on size (kind of irrelevant now with CPU usage being better I just want to document it right)
 - [ ] Look into adding corsair and other keyboards manufactures color API's into the color system, I do not have a full RGB (Mine only does green) so I will need a guinea pig
 Bugs
-- [ ] When spotify isnt running there is a lot of log spam, I think this is from the plugin and not my missuse of it hoepfully I can turn it off
-- [ ] Album art color fetch runs when a gerne color will end up being decided (Not as big a deal as I figured it would be, blur takes up way more cpu time)
+- [ ] When spotify isn't running there is a lot of log spam, I think this is from the plugin and not my misuse of it hopefully I can turn it off
+- [ ] Album art color fetch runs when a genre color will end up being decided (Not as big a deal as I figured it would be, blur takes up way more cpu time)
 - [ ] Rarely a thread is detected as running but when it goes to be killed it is already dead, likely is finishing gracefully before the kill command happens. Not a major bug just causes occasional log spam
 - [ ] Pinging conditionals do not work after first time they are triggered Update: I have disabled for now so MaxPingDisplayed is ignored
 - [ ] Check and possibly fix if DINTFMI only working on first load since afterwards it may always use old data
-- [ ] Look into if cpu being off by about a factor of about 2 (Seems to be half actual on advancedCPU and ferpnom) on cpu reader and top processes is a bug in task manager, rainmeter dlls, or if it is just my machine
+- [ ] Look into if CPU being off by about a factor of about 2 (Seems to be half actual on advancedCPU and ferpnom) on CPU reader and top processes is a bug in task manager, rainmeter dlls, or if it is just my machine
 - [ ] Several bars variants need to be checked for code consistency, such as percentual being set on some of the ferpnom meters, process being spelled wrong, or other logical bugs, and missoptimizations within them
 - [ ] Top processes bars do not use scale value on AdvancedCPU meters (Low priority due to percentual possibly scaling based on max value causing for percentage changes)
 Possible Future Changes
