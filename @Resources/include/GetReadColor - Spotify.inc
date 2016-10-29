@@ -22,13 +22,19 @@ Substitute="\":"\\"
 [MeasureAlbumChangedNotifySpotify]
 Measure=Plugin
 Plugin=SpotifyPlugin
-Type=AlbumName
+Type=AlbumArt
+Res=640
+DefaultPath=#@#images\nocover.png
+CoverPath=#@#images\cover.png
 OnChangeAction=[!CommandMeasure DoWriteUpdate "Stop 1"][!CommandMeasure DoWriteUpdate "Execute 1"]
 
 [MeasureAlbumChangedSpotifyNotifySelf]
 Measure=Plugin
 Plugin=SpotifyPlugin
-Type=AlbumName
+Type=AlbumArt
+Res=640
+DefaultPath=#@#images\nocover.png
+CoverPath=#@#images\cover.png
 OnChangeAction=[!CommandMeasure DoReadUpdate "Stop 1"][!CommandMeasure DoReadUpdate "Execute 1"]
 
 [GetImagePath]
@@ -52,14 +58,6 @@ OutputType='ANSI'
 DynamicVariables=1
 FinishAction=[!CommandMeasure CalcColorsToUse "colorSelector('')"][!SetOptionGroup DynamicDynamic DynamicVariables 0]
 
-[MeasureGenre]
-Measure=Plugin
-Plugin=NowPlaying
-PlayerName=#PlayerName#
-PlayerType=Genre
-RegExpSubstitute=1
-Substitute="[^a-zA-Z0-9]":""
-
 [DoWriteUpdate]
 Measure=Plugin
 Plugin=ActionTimer
@@ -70,4 +68,4 @@ ProcessUpdate1=[!CommandMeasure CalcAlbumHistogram "GetColors('[MeasureAlbumArtS
 Measure=Plugin
 Plugin=ActionTimer
 ActionList1=Wait #WaitTimeColors# | ProcessUpdate1 
-ProcessUpdate1=[!CommandMeasure ReadColorsToUse "readColor('[MeasureGenre]')"][!SetOptionGroup DynamicDynamic DynamicVariables 0]
+ProcessUpdate1=[!CommandMeasure ReadColorsToUse "readColor('')"][!SetOptionGroup DynamicDynamic DynamicVariables 0]
