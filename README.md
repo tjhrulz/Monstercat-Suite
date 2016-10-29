@@ -31,6 +31,7 @@ Anything past this point is written more for myself and may be confusing
 TODO
 - [ ] Make cut off for number of colors to sort based off of a percent of the 1st colors count, I dont think I will do this though as it will favor lighter or darker colors Update: I think I am going to do the next thing on the todo list instead
 - [ ] Make interesting colors be higher on the list of colors (I think I could try to measure this quickly by looking at how far away it is from monochrone)
+- [ ] Use WiFiListLimit and WifiList to make users picking the right wireless card easier
 - [ ] Add news RSS
 - [ ] Weather stuffs (Use http://wxdata.weather.com/wxdata/weather/local/#LocationCode#?cc=*&unit=#TempUnit#&dayf=6 and parse, thanks to jsmorley for his post on that had no idea weather.com had an rss version (It even has wind direction!))
 - [ ] Calendar for the month meter
