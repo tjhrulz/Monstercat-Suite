@@ -1,4 +1,5 @@
 function GetColors()
+	KillAllRunning()
 	if(tonumber(SKIN:GetVariable("EnableAlbumColor", 1)) == 1) then
 		if(tonumber(SKIN:GetVariable("EnableMultiColors", 1)) == 1) then
 			local ImagePath = SKIN:GetMeasure('GetImagePath'):GetOption('Text')
@@ -15,7 +16,6 @@ function GetColors()
 				local cmdCommand = rootPath .. "@Resources\\ImageMagickScripts\\convert.exe " .. FallbackPath .. "  -colors ".. colorsToGet .." -depth 8 -format %c histogram:info: | sort /r"
 			
 				SKIN:Bang('!SetOption', 'RunFallbackAverageColor', 'Parameter', cmdCommand)
-				KillAllRunning()
 				
 				--print(cmdCommand)
 				SKIN:Bang('!CommandMeasure', 'RunFallbackAverageColor', 'Run')
@@ -29,7 +29,6 @@ function GetColors()
 				local cmdCommand = rootPath .. "@Resources\\ImageMagickScripts\\convert.exe " .. ImagePath .. "  -colors ".. colorsToGet .." -depth 8 -format %c histogram:info: | sort /r"
 			
 				SKIN:Bang('!SetOption', 'RunAverageColor', 'Parameter', cmdCommand)
-				KillAllRunning()
 				
 				--print(cmdCommand)
 				SKIN:Bang('!CommandMeasure', 'RunAverageColor', 'Run')
@@ -49,7 +48,6 @@ function GetColors()
 				local cmdCommand = rootPath .. "@Resources\\ImageMagickScripts\\convert.exe " .. FallbackPath .. "  -colors ".. colorsToGet .." -depth 8 -format %c histogram:info: | sort /r"
 			
 				SKIN:Bang('!SetOption', 'RunFallbackAverageColor', 'Parameter', cmdCommand)
-				KillAllRunning()
 				
 				SKIN:Bang('!CommandMeasure', 'RunFallbackAverageColor', 'Run')
 			else
@@ -61,7 +59,6 @@ function GetColors()
 				local cmdCommand = rootPath .. "@Resources\\ImageMagickScripts\\convert.exe " .. ImagePath .. "  -colors ".. colorsToGet .." -depth 8 -format %c histogram:info: | sort /r"
 			
 				SKIN:Bang('!SetOption', 'RunAverageColor', 'Parameter', cmdCommand)
-				KillAllRunning()
 				
 				SKIN:Bang('!CommandMeasure', 'RunAverageColor', 'Run')
 			end
@@ -86,4 +83,5 @@ function KillAllRunning()
 		SKIN:Bang('!CommandMeasure', 'RunFallbackAverageColor', 'Kill')
 		--print("RunFallbackAverageColor Value:" .. SKIN:GetMeasure('RunFallbackAverageColor'):GetValue())
 	end
+	print("Sorry the album art color selector for monstercat is seomhow ready quick enough that the thread doesnt always have time to finish being killed, this wastes just enough time to solve that bug")
 end
