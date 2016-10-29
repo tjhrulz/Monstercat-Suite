@@ -16,7 +16,7 @@ OnChangeAction=[!SetOption GetImagePath Text "[*MeasureAlbumArtSpotify*]"][!Comm
 Measure=Plugin
 Plugin=NowPlaying
 PlayerName=#PlayerName#
-PlayerType=Album
+PlayerType=Title
 OnChangeAction=[!CommandMeasure DoReadUpdate "Stop 1"][!CommandMeasure DoReadUpdate "Execute 1"]
 
 [MeasureGenre]

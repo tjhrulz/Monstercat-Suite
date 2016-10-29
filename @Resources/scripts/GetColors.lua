@@ -196,10 +196,24 @@ function albumColorizer(rootDir)
 	local testColor1, testColor2, testColor3, testColor4, testColor5, testColor6
 	
 	if(tonumber(SKIN:GetVariable("EnableAlbumColor", 1)) == 1) then
-		if(tonumber(SKIN:GetVariable("EnableMultiColors", 0)) ~= 1) then
+		if(tonumber(SKIN:GetVariable("EnableMultiColors", 1)) ~= 1) then
 		
 			local input = ReadFile(SKIN:GetVariable("@") .. "colors\\Histogram.txt")
-			local baseColorRGB = 0,0,0
+			palette = {}
+			
+			i = 1
+			for color in string.gmatch(input, "%s%b()%s") do
+				palette[i] = color	
+				palette[i] = string.sub(palette[i], 3, -3)
+				if(string.len(palette[i]) > 11) then
+					palette[i] = string.sub(palette[i],0,11)
+				end
+				
+				i = i + 1
+			end
+			
+			local baseColorRGB = palette[1]
+			
 			
 			if(input ~= nil) and (string.len(input) > 1) then
 				baseColorRGB = string.sub(input, string.find(input, "%(")+1, string.find(input, "%)")-1)

@@ -20,20 +20,12 @@ Substitute="\":"\\"
 Measure=String
 Text="#@#images\cover.png"
 
-;[MeasureAlbumChangedNotifySpotify]
-;Measure=Plugin
-;Plugin=SpotifyPlugin
-;Type=AlbumName
-;OnChangeAction=[!CommandMeasure DoWriteUpdate "Stop 1"][!CommandMeasure DoWriteUpdate "Execute 1"]
-;OnUpdateAction=[SetOption MeasureAlbumArtSpotify OnUpdateAction "a"]
-
 [MeasureAlbumChangedNotify]
 Measure=Plugin
 Plugin=NowPlaying
 PlayerName=#PlayerName#
-PlayerType=Album
+PlayerType=Title
 OnChangeAction=[!CommandMeasure DoWriteUpdate "Stop 1"][!CommandMeasure DoWriteUpdate "Execute 1"]
-;OnUpdateAction=[!Log asdf][SetOption MeasureAlbumChangedNotify OnUpdateAction "a"]
 
 [RunFallbackAverageColor]
 Measure=Plugin

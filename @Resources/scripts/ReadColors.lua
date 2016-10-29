@@ -44,7 +44,7 @@ function readColor(genre)
 				
 				i = 1
 				for color in string.gmatch(input, "%b()") do
-					colors = string.sub(color, 2, -2)
+					colors[i] = string.sub(color, 2, -2)
 					i = i + 1
 				end
 			else
@@ -57,30 +57,39 @@ function readColor(genre)
 				end
 	
 			end
-		elseif(tonumber(SKIN:GetVariable("EnableAlbumColor", 1)) ~= 1) then
+		elseif(tonumber(SKIN:GetVariable("EnableAlbumColor", 1)) == 1) then
+			if(tonumber(SKIN:GetVariable("EnableMultiColors", 1)) ~= 1) then
+				input = ReadFile(rootPath .. "colors\\AlbumOutput.txt")
+				
+				local i = 1
+				for color in string.gmatch(input, "%b()") do
+					colors[i] = string.sub(color, 2, -2)
+						i = i + 1
+				end
+			else
+				input = ReadFile(rootPath .. "colors\\AlbumPaletteOutput.txt")
+					
+				local i = 1
+				for color in string.gmatch(input, "%b()") do
+					colors[i] = string.sub(color, 2, -2)
+					i = i + 1
+				end
+			end
+		else
 			if(tonumber(SKIN:GetVariable("EnableMultiColors", 0)) ~= 1) then
 				input = ReadFile(rootPath .. "colors\\GenreOutput.txt")
 				
 				i = 1
 				for color in string.gmatch(input, "%b()") do
-					colors = string.sub(color, 2, -2)
-					i = i + 1
-				end
-			else
-				input = ReadFile(rootPath .. "colors\\GenrePaletteOutput.txt")
-				
-				local i = 1
-				for color in string.gmatch(input, "%b()") do
 					colors[i] = string.sub(color, 2, -2)
 					i = i + 1
 				end
-	
 			end
 		end
 	elseif (tonumber(SKIN:GetVariable("EnableAlbumColor", 1)) == 1) then
 		if(tonumber(SKIN:GetVariable("EnableMultiColors", 1)) ~= 1) then
 			input = ReadFile(rootPath .. "colors\\AlbumOutput.txt")
-				
+			
 			local i = 1
 			for color in string.gmatch(input, "%b()") do
 				colors[i] = string.sub(color, 2, -2)
@@ -95,29 +104,39 @@ function readColor(genre)
 				i = i + 1
 			end
 		end
+	else
+		if(tonumber(SKIN:GetVariable("EnableMultiColors", 0)) ~= 1) then
+			input = ReadFile(rootPath .. "colors\\GenreOutput.txt")
+			
+			i = 1
+			for color in string.gmatch(input, "%b()") do
+				colors[i] = string.sub(color, 2, -2)
+				i = i + 1
+			end
+		end
 	end
 	
-	if colors[1] ~= -1 then SKIN:Bang('!SetVariable', "Color", colors[1]) end
-	if colors[2] ~= -1 then SKIN:Bang('!SetVariable', "Color2", colors[2]) end
-	if colors[3] ~= -1 then SKIN:Bang('!SetVariable', "WallpaperColor", colors[3]) end
-	--if backgroundColor ~= -1 then SKIN:Bang('!SetVariable', "BackgroundColor", backgroundColor) end
-	--if transBackgroundColor ~= -1 then SKIN:Bang('!SetVariable', "BackgroundNonColor", transBackgroundColor .. SKIN:GetVariable(BackgroundNonColorTransparency, '255')) end
-	if colors[4] ~= -1 then SKIN:Bang('!SetVariable', "TextColor", colors[4]) end
-	if colors[5] ~= -1 then SKIN:Bang('!SetVariable', "TextColor2", colors[5]) end
-	if colors[6] ~= -1 then SKIN:Bang('!SetVariable', "ClockRingColor", colors[6] .. SKIN:GetVariable("ClockRingColorTransparency", ',255')) end
-	if colors[7] ~= -1 then SKIN:Bang('!SetVariable', "MinColor", colors[7]) end
-	if colors[8] ~= -1 then SKIN:Bang('!SetVariable', "HourColor", colors[8]) end
-	if colors[9] ~= -1 then SKIN:Bang('!SetVariable', "SecColor", colors[9]) end
-	if colors[10] ~= -1 then SKIN:Bang('!SetVariable', "BackgroundPanelColor", colors[10] .. SKIN:GetVariable("BackgroundPanelColorTransparency", ',255')) end
-	if colors[11] ~= -1 then SKIN:Bang('!SetVariable', "VizColor", colors[11]) end
-	if colors[12] ~= -1 then SKIN:Bang('!SetVariable', "LogoColor", colors[12]) end
+	if colors[1] ~= -1 and colors[1] ~= nil then SKIN:Bang('!SetVariable', "Color", colors[1]) end
+	if colors[2] ~= -1 and colors[1] ~= nil  then SKIN:Bang('!SetVariable', "Color2", colors[2]) end
+	if colors[3] ~= -1 and colors[1] ~= nil  then SKIN:Bang('!SetVariable', "WallpaperColor", colors[3]) end
+	--if backgroundColor ~= -1 and colors[1] ~= nil  then SKIN:Bang('!SetVariable', "BackgroundColor", backgroundColor) end
+	--if transBackgroundColor ~= -1 and colors[1] ~= nil  then SKIN:Bang('!SetVariable', "BackgroundNonColor", transBackgroundColor .. SKIN:GetVariable(BackgroundNonColorTransparency, '255')) end
+	if colors[4] ~= -1 and colors[1] ~= nil  then SKIN:Bang('!SetVariable', "TextColor", colors[4]) end
+	if colors[5] ~= -1 and colors[1] ~= nil  then SKIN:Bang('!SetVariable', "TextColor2", colors[5]) end
+	if colors[6] ~= -1 and colors[1] ~= nil  then SKIN:Bang('!SetVariable', "ClockRingColor", colors[6] .. SKIN:GetVariable("ClockRingColorTransparency", ',255')) end
+	if colors[7] ~= -1 and colors[1] ~= nil  then SKIN:Bang('!SetVariable', "MinColor", colors[7]) end
+	if colors[8] ~= -1 and colors[1] ~= nil  then SKIN:Bang('!SetVariable', "HourColor", colors[8]) end
+	if colors[9] ~= -1 and colors[1] ~= nil  then SKIN:Bang('!SetVariable', "SecColor", colors[9]) end
+	if colors[10] ~= -1 and colors[1] ~= nil  then SKIN:Bang('!SetVariable', "BackgroundPanelColor", colors[10] .. SKIN:GetVariable("BackgroundPanelColorTransparency", ',255')) end
+	if colors[11] ~= -1 and colors[1] ~= nil  then SKIN:Bang('!SetVariable', "VizColor", colors[11]) end
+	if colors[12] ~= -1 and colors[1] ~= nil  then SKIN:Bang('!SetVariable', "LogoColor", colors[12]) end
 	if(tonumber(SKIN:GetVariable("EnableDevMode", 0)) == 1) then
-		if colors[13] ~= -1 then SKIN:Bang('!SetVariable', "TestColor1", colors[13]) end
-		if colors[14] ~= -1 then SKIN:Bang('!SetVariable', "TestColor2", colors[14]) end
-		if colors[15] ~= -1 then SKIN:Bang('!SetVariable', "TestColor3", colors[15]) end
-		if colors[16] ~= -1 then SKIN:Bang('!SetVariable', "TestColor4", colors[16]) end
-		if colors[17] ~= -1 then SKIN:Bang('!SetVariable', "TestColor5", colors[17]) end
-		if colors[18] ~= -1 then SKIN:Bang('!SetVariable', "TestColor6", colors[18]) end
+		if colors[13] ~= -1 and colors[1] ~= nil  then SKIN:Bang('!SetVariable', "TestColor1", colors[13]) end
+		if colors[14] ~= -1 and colors[1] ~= nil  then SKIN:Bang('!SetVariable', "TestColor2", colors[14]) end
+		if colors[15] ~= -1 and colors[1] ~= nil  then SKIN:Bang('!SetVariable', "TestColor3", colors[15]) end
+		if colors[16] ~= -1 and colors[1] ~= nil  then SKIN:Bang('!SetVariable', "TestColor4", colors[16]) end
+		if colors[17] ~= -1 and colors[1] ~= nil  then SKIN:Bang('!SetVariable', "TestColor5", colors[17]) end
+		if colors[18] ~= -1 and colors[1] ~= nil  then SKIN:Bang('!SetVariable', "TestColor6", colors[18]) end
 	end
 end
 
