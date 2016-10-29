@@ -20,7 +20,7 @@ function GetColors()
 				--print(cmdCommand)
 				SKIN:Bang('!CommandMeasure', 'RunFallbackAverageColor', 'Run')
 			else
-				print(ImagePath)
+				--print(ImagePath)
 
 				local colorsToGet = tonumber(SKIN:GetVariable("ColorsToGet", 12))
 			
@@ -39,7 +39,7 @@ function GetColors()
 			local rootPath = SKIN:GetVariable("ROOTCONFIGPATH")
 
 			if (ImagePath == nil) or (string.len(ImagePath) <= 1) then
-				print("No Image defined, switching to histogram fallback")
+				print("No Image defined, switching to histogram of fallback image")
 				FallbackPath = rootPath .. "@Resources\\images\\Fallback.png"
 				
 				local colorsToGet = tonumber(SKIN:GetVariable("ColorsToGet", 12))
@@ -68,7 +68,8 @@ function GetColors()
 		end
 	else
 		--[!CommandMeasure CalcColorsToUse "colorSelector('[MeasureGenre]')"]
-		print("Hey self don't forget to add the dynamic color push on the fallback for when we dont do histograms") --I probably still will forget and wonder why it isnt working :P
+		--print("Hey self don't forget to add the dynamic color push on the fallback for when we dont do histograms") --I probably still will forget and wonder why it isnt working :P
+		--For the record I did forget but the since I can't push it down and we use timers it didn't matter :P
 		
 		SKIN:Bang('!CommandMeasure', 'CalcColorsToUse', "colorSelector('[MeasureGenre]')")
 	end
@@ -76,9 +77,13 @@ end
 
 function KillAllRunning()
 	if(SKIN:GetMeasure('RunAverageColor'):GetValue() == 0) then
+		--print("Killing RunAverageColor")
 		SKIN:Bang('!CommandMeasure', 'RunAverageColor', 'Kill')
+		--print("RunAverageColor Value:" .. SKIN:GetMeasure('RunAverageColor'):GetValue())
 	end
 	if(SKIN:GetMeasure('RunFallbackAverageColor'):GetValue() == 0) then
+		--print("Killing RunFallbackAverageColor")
 		SKIN:Bang('!CommandMeasure', 'RunFallbackAverageColor', 'Kill')
+		--print("RunFallbackAverageColor Value:" .. SKIN:GetMeasure('RunFallbackAverageColor'):GetValue())
 	end
 end

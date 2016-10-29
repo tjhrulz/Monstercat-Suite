@@ -1,39 +1,32 @@
-function blur(rootPath, inputPath, outputPath)
-	--Converts Cover.png to CoverB.png
-	--local inputPath = path .. "cover.png"
+function blur(inputPath, outputPath)
+	local rootPath = SKIN:GetVariable("@")
+	local magickPath = rootPath .. "ImageMagickScripts\\convert.exe"
+	--local outputPath = SKIN:GetVariable("@") .. "images\\coverB.png"
+	local blurAmount = tonumber(SKIN:GetVariable("BlurAmount", 32))
 	
-	--print("dir1 " .. rootPath)
-	--print("dir2 " .. inputPath)
-	--print("dir3 " .. outputPath)
-	magickPath = rootPath .. "@Resources\\ImageMagickScripts\\convert.exe"
 	
-	if(inputPath ~= nil) and  (inputPath ~= "")
-	then
-		outputPath = outputPath .. "coverB.png"
-		
-		--convert rose: -scale 1x1\! -format '%[pixel:s]' info:- -- get average color imagemagick
-		--Does not appear to be a way to get several colors found in the source image in imagemagick except for
-		--convert  tree.gif  -define histogram:unique-colors=true -format %c histogram:info:-
-		--convert %1 -channel RGBA -blur 0x32 %2
-		--print("cmd /k" .. rootPath .. "imageMagickBlur.bat " .. inputPath .. " " .. outputPath)
-		--os.execute(rootPath .. "hidebat.vbs " .. magickPath .. " " .. inputPath .. " " .. outputPath)
-		
-		command = rootPath .. "@Resources\\scripts\\ImageMagickBlur.vbs " .. rootPath .. " " .. inputPath .. " " .. outputPath
-		
-		SKIN:Bang(command)
-		
+	if(inputPath ~= nil) and (string.len(inputPath) >= 1) then		
+		local cmdCommand = rootPath .. "ImageMagickScripts\\convert.exe " .. inputPath .. " -channel RGBA -blur 0x" .. blurAmount .. " " .. outputPath
+
+		SKIN:Bang('!SetOption', 'RunBlurColor', 'Parameter', cmdCommand)
+		if(SKIN:GetMeasure('RunBlurColor'):GetValue() == 0) then
+			--print("Killing RunBlurColor")
+			SKIN:Bang('!CommandMeasure', 'RunBlurColor', 'Kill')
+			--print("RunBlurColor Value:" .. SKIN:GetMeasure('RunBlurColor'):GetValue())
+		end
+		--print("Running normal blur" .. SKIN:GetMeasure('RunBlurColor'):GetOption('Parameter'))
+		SKIN:Bang('!CommandMeasure', 'RunBlurColor', 'Run')
 	else
-		fallbackPath = outputPath .. "Fallback.png"
-		outputPath = outputPath .. "coverB.png"
-		
-		--os.execute("copy" .. " " .. fallbackPath .. " " .. outputPath)
-		command = rootPath .. "@Resources\\scripts\\CopyBlur.vbs " .. fallbackPath .. " " .. outputPath
-		
-		SKIN:Bang(command)
-		
+		local fallbackPath = SKIN:GetVariable("@") .. "images\\Fallback.png"		
+		local cmdCommand = rootPath .. "ImageMagickScripts\\convert.exe " .. fallbackPath .. " -channel RGBA -blur 0x" .. blurAmount .. " " .. outputPath
+
+		SKIN:Bang('!SetOption', 'RunBlurColor', 'Parameter', cmdCommand)
+		if(SKIN:GetMeasure('RunBlurColor'):GetValue() == 0) then
+			--print("Killing RunBlurColor")
+			SKIN:Bang('!CommandMeasure', 'RunBlurColor', 'Kill')
+			--print("RunBlurColor Value:" .. SKIN:GetMeasure('RunBlurColor'):GetValue())
+		end
+		--print("Running fallback blur" .. SKIN:GetMeasure('RunBlurColor'):GetOption('Parameter'))
+		SKIN:Bang('!CommandMeasure', 'RunBlurColor', 'Run')
 	end
-	
-	--background = SKIN:GetMeter('Background')
-	--May be unneeded but sometimes fails to update background after finishing, need to be careful that this doesnt cause an infinite loop on load if I re enable onrefresh
-	--SKIN:Bang('!Refresh')
 end
