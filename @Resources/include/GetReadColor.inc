@@ -19,6 +19,7 @@ Measure=Plugin
 Plugin=NowPlaying
 PlayerName=#PlayerName#
 PlayerType=Cover
+Substitute="\":"\\"
 
 [MeasureAlbumArtSpotify]
 Measure=String
@@ -28,22 +29,22 @@ Text="#@#images\cover.png"
 ;Measure=Plugin
 ;Plugin=SpotifyPlugin
 ;Type=AlbumName
-;OnChangeAction=[!SetOption GetImagePath Text "[*MeasureAlbumArtSpotify*]"][!CommandMeasure DoWriteUpdate "Stop 1"][!CommandMeasure DoWriteUpdate "Execute 1"]
-;OnUpdateAction=[!SetOption GetImagePath Text "[*MeasureAlbumArtSpotify*]"][SetOption MeasureAlbumArtSpotify OnUpdateAction "a"]
+;OnChangeAction=[!CommandMeasure DoWriteUpdate "Stop 1"][!CommandMeasure DoWriteUpdate "Execute 1"]
+;OnUpdateAction=[SetOption MeasureAlbumArtSpotify OnUpdateAction "a"]
 
 [MeasureAlbumChangedNotify]
 Measure=Plugin
 Plugin=NowPlaying
 PlayerName=#PlayerName#
 PlayerType=Album
-OnChangeAction=[!SetOption GetImagePath Text "[*MeasureAlbumArt*]"][!CommandMeasure DoWriteUpdate "Stop 1"][!CommandMeasure DoWriteUpdate "Execute 1"]
-;OnUpdateAction=[!SetOption GetImagePath Text "[*MeasureAlbumArt*]"][!Log asdf][SetOption MeasureAlbumChangedNotify OnUpdateAction "a"]
+OnChangeAction=[!CommandMeasure DoWriteUpdate "Stop 1"][!CommandMeasure DoWriteUpdate "Execute 1"]
+;OnUpdateAction=[!Log asdf][SetOption MeasureAlbumChangedNotify OnUpdateAction "a"]
 
 ;[MeasureAlbumChangedSpotifyNotifySelf]
 ;Measure=Plugin
 ;Plugin=SpotifyPlugin
 ;Type=AlbumName
-;OnChangeAction=[!SetOption GetImagePath Text "[*MeasureAlbumArtSpotify*]"][!CommandMeasure DoReadUpdate "Stop 1"][!CommandMeasure DoReadUpdate "Execute 1"]
+;OnChangeAction=[!CommandMeasure DoReadUpdate "Stop 1"][!CommandMeasure DoReadUpdate "Execute 1"]
 ;OnUpdateAction=[SetOption MeasureAlbumArtSpotify OnUpdateAction "a"]
 
 [MeasureAlbumChangedNotifySelf]
@@ -56,7 +57,7 @@ OnChangeAction=[!CommandMeasure DoReadUpdate "Stop 1"][!CommandMeasure DoReadUpd
 
 [GetImagePath]
 Measure=String
-Text="#@#images\Fallback.png"
+Text=""
 DynamicVariables=1
 
 [RunFallbackAverageColor]
@@ -87,7 +88,7 @@ Substitute="[^a-zA-Z0-9]":""
 Measure=Plugin
 Plugin=ActionTimer
 ActionList1=Wait #WaitTimeFetch# | ProcessUpdate1 
-ProcessUpdate1=[!CommandMeasure CalcAlbumHistogram "GetColors()"]
+ProcessUpdate1=[!CommandMeasure CalcAlbumHistogram "GetColors('[MeasureAlbumArt]')"]
 
 [DoReadUpdate]
 Measure=Plugin
