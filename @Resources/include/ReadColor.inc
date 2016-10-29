@@ -11,7 +11,6 @@ Measure=Plugin
 Plugin=SpotifyPlugin
 Type=AlbumName
 OnChangeAction=[!SetOption GetImagePath Text "[*MeasureAlbumArtSpotify*]"][!CommandMeasure DoReadUpdate "Stop 1"][!CommandMeasure DoReadUpdate "Execute 1"]
-OnUpdateAction=[SetOption MeasureAlbumArtSpotify OnUpdateAction "a"]
 
 [MeasureAlbumChangedNotifySelf]
 Measure=Plugin
