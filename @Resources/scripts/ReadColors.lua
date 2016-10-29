@@ -103,20 +103,21 @@ function readColor(genre)
 	--if backgroundColor ~= -1 then SKIN:Bang('!SetVariable', "BackgroundColor", backgroundColor) end
 	--if transBackgroundColor ~= -1 then SKIN:Bang('!SetVariable', "BackgroundNonColor", transBackgroundColor .. SKIN:GetVariable(BackgroundNonColorTransparency, '255')) end
 	if colors[4] ~= -1 then SKIN:Bang('!SetVariable', "TextColor", colors[4]) end
-	if colors[5] ~= -1 then SKIN:Bang('!SetVariable', "ClockRingColor", colors[5] .. SKIN:GetVariable("ClockRingColorTransparency", ',255')) end
-	if colors[6] ~= -1 then SKIN:Bang('!SetVariable', "MinColor", colors[6]) end
-	if colors[7] ~= -1 then SKIN:Bang('!SetVariable', "HourColor", colors[7]) end
-	if colors[8] ~= -1 then SKIN:Bang('!SetVariable', "SecColor", colors[8]) end
-	if colors[9] ~= -1 then SKIN:Bang('!SetVariable', "BackgroundPanelColor", colors[9] .. SKIN:GetVariable("BackgroundPanelColorTransparency", ',255')) end
-	if colors[10] ~= -1 then SKIN:Bang('!SetVariable', "VizColor", colors[10]) end
-	if colors[11] ~= -1 then SKIN:Bang('!SetVariable', "LogoColor", colors[11]) end
+	if colors[5] ~= -1 then SKIN:Bang('!SetVariable', "TextColor2", colors[5]) end
+	if colors[6] ~= -1 then SKIN:Bang('!SetVariable', "ClockRingColor", colors[6] .. SKIN:GetVariable("ClockRingColorTransparency", ',255')) end
+	if colors[7] ~= -1 then SKIN:Bang('!SetVariable', "MinColor", colors[7]) end
+	if colors[8] ~= -1 then SKIN:Bang('!SetVariable', "HourColor", colors[8]) end
+	if colors[9] ~= -1 then SKIN:Bang('!SetVariable', "SecColor", colors[9]) end
+	if colors[10] ~= -1 then SKIN:Bang('!SetVariable', "BackgroundPanelColor", colors[10] .. SKIN:GetVariable("BackgroundPanelColorTransparency", ',255')) end
+	if colors[11] ~= -1 then SKIN:Bang('!SetVariable', "VizColor", colors[11]) end
+	if colors[12] ~= -1 then SKIN:Bang('!SetVariable', "LogoColor", colors[12]) end
 	if(tonumber(SKIN:GetVariable("EnableDevMode", 0)) == 1) then
-		if colors[12] ~= -1 then SKIN:Bang('!SetVariable', "TestColor1", colors[12]) end
-		if colors[13] ~= -1 then SKIN:Bang('!SetVariable', "TestColor2", colors[13]) end
-		if colors[14] ~= -1 then SKIN:Bang('!SetVariable', "TestColor3", colors[14]) end
-		if colors[15] ~= -1 then SKIN:Bang('!SetVariable', "TestColor4", colors[15]) end
-		if colors[16] ~= -1 then SKIN:Bang('!SetVariable', "TestColor5", colors[16]) end
-		if colors[17] ~= -1 then SKIN:Bang('!SetVariable', "TestColor6", colors[17]) end
+		if colors[13] ~= -1 then SKIN:Bang('!SetVariable', "TestColor1", colors[13]) end
+		if colors[14] ~= -1 then SKIN:Bang('!SetVariable', "TestColor2", colors[14]) end
+		if colors[15] ~= -1 then SKIN:Bang('!SetVariable', "TestColor3", colors[15]) end
+		if colors[16] ~= -1 then SKIN:Bang('!SetVariable', "TestColor4", colors[16]) end
+		if colors[17] ~= -1 then SKIN:Bang('!SetVariable', "TestColor5", colors[17]) end
+		if colors[18] ~= -1 then SKIN:Bang('!SetVariable', "TestColor6", colors[18]) end
 	end
 end
 

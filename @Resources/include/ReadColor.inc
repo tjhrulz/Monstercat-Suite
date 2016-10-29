@@ -6,12 +6,12 @@ OnRefreshAction=[!CommandMeasure ReadColorsToUse "readColor('[MeasureGenre]')"][
 Measure=Script
 ScriptFile=#@#\scripts\ReadColors.lua
 
-;[MeasureAlbumChangedSpotifyNotifySelf]
-;Measure=Plugin
-;Plugin=SpotifyPlugin
-;Type=AlbumName
-;OnChangeAction=[!SetOption GetImagePath Text "[*MeasureAlbumArtSpotify*]"][!CommandMeasure DoReadUpdate "Stop 1"][!CommandMeasure DoReadUpdate "Execute 1"]
-;OnUpdateAction=[SetOption MeasureAlbumArtSpotify OnUpdateAction "a"]
+[MeasureAlbumChangedSpotifyNotifySelf]
+Measure=Plugin
+Plugin=SpotifyPlugin
+Type=AlbumName
+OnChangeAction=[!SetOption GetImagePath Text "[*MeasureAlbumArtSpotify*]"][!CommandMeasure DoReadUpdate "Stop 1"][!CommandMeasure DoReadUpdate "Execute 1"]
+OnUpdateAction=[SetOption MeasureAlbumArtSpotify OnUpdateAction "a"]
 
 [MeasureAlbumChangedNotifySelf]
 Measure=Plugin
@@ -19,7 +19,6 @@ Plugin=NowPlaying
 PlayerName=#PlayerName#
 PlayerType=Album
 OnChangeAction=[!CommandMeasure DoReadUpdate "Stop 1"][!CommandMeasure DoReadUpdate "Execute 1"]
-;OnUpdateAction=[!Log asdf][SetOption MeasureAlbumChangedNotify OnUpdateAction "a"]
 
 [MeasureGenre]
 Measure=Plugin
