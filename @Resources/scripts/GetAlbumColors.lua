@@ -1,12 +1,35 @@
 function GetColors()
-	KillAllRunning()
+	if(SKIN:GetMeasure('RunAverageColor'):GetValue() == 0) then
+		--print("Killing RunAverageColor")
+		SKIN:Bang('!CommandMeasure', 'RunAverageColor', 'Kill')
+		--print("RunAverageColor Value:" .. SKIN:GetMeasure('RunAverageColor'):GetValue())
+	end
+	if(SKIN:GetMeasure('RunFallbackAverageColor'):GetValue() == 0) then
+		--print("Killing RunFallbackAverageColor")
+		SKIN:Bang('!CommandMeasure', 'RunFallbackAverageColor', 'Kill')
+		--print("RunFallbackAverageColor Value:" .. SKIN:GetMeasure('RunFallbackAverageColor'):GetValue())
+	end
+	print("Sorry the album art color selector for monstercat is somehow quick enough that the thread doesnt always have time to finish being killed, this wastes just enough time to solve that bug")
+	
 	if(tonumber(SKIN:GetVariable("EnableAlbumColor", 1)) == 1) then
 		if(tonumber(SKIN:GetVariable("EnableMultiColors", 1)) == 1) then
 			local ImagePath = SKIN:GetMeasure('GetImagePath'):GetOption('Text')
 			local rootPath = SKIN:GetVariable("ROOTCONFIGPATH")
 			
-			if (ImagePath == nil) or (string.len(ImagePath) <= 1) then
-				print("No Image defined, switching to histogram fallback:" .. ImagePath)
+			if(SKIN:GetMeasure('RunAverageColor'):GetValue() == -1) and (SKIN:GetMeasure('RunFallbackAverageColor'):GetValue() == -1) then
+				FallbackPath = rootPath .. "@Resources\\images\\Fallback.png"
+				local colorsToGet = tonumber(SKIN:GetVariable("ColorsToGet", 12))
+				local cmdCommand = rootPath .. "@Resources\\ImageMagickScripts\\convert.exe " .. FallbackPath .. "  -colors ".. colorsToGet .." -depth 8 -format %c histogram:info: | sort /r"
+				SKIN:Bang('!SetOption', 'RunFallbackAverageColor', 'Parameter', cmdCommand)
+				SKIN:Bang('!CommandMeasure', 'RunFallbackAverageColor', 'Run')
+				
+				colorsToGet = tonumber(SKIN:GetVariable("ColorsToGet", 12))
+				cmdCommand = rootPath .. "@Resources\\ImageMagickScripts\\convert.exe " .. ImagePath .. "  -colors ".. colorsToGet .." -depth 8 -format %c histogram:info: | sort /r"
+				SKIN:Bang('!SetOption', 'RunAverageColor', 'Parameter', cmdCommand)
+				SKIN:Bang('!CommandMeasure', 'RunAverageColor', 'Run')
+				print("Doing init")
+			elseif (ImagePath == nil) or (string.len(ImagePath) <= 1) then
+				--print("No Image defined, switching to histogram fallback:" .. ImagePath)
 				FallbackPath = rootPath .. "@Resources\\images\\Fallback.png"
 				
 				local colorsToGet = tonumber(SKIN:GetVariable("ColorsToGet", 12))
@@ -37,8 +60,20 @@ function GetColors()
 			local ImagePath = SKIN:GetMeasure('GetImagePath'):GetOption('Text')
 			local rootPath = SKIN:GetVariable("ROOTCONFIGPATH")
 
-			if (ImagePath == nil) or (string.len(ImagePath) <= 1) then
-				print("No Image defined, switching to histogram of fallback image")
+			if(SKIN:GetMeasure('RunAverageColor'):GetValue() == -1) and (SKIN:GetMeasure('RunFallbackAverageColor'):GetValue() == -1) then
+				FallbackPath = rootPath .. "@Resources\\images\\Fallback.png"
+				local colorsToGet = tonumber(SKIN:GetVariable("ColorsToGet", 12))
+				local cmdCommand = rootPath .. "@Resources\\ImageMagickScripts\\convert.exe " .. FallbackPath .. "  -colors ".. colorsToGet .." -depth 8 -format %c histogram:info: | sort /r"
+				SKIN:Bang('!SetOption', 'RunFallbackAverageColor', 'Parameter', cmdCommand)
+				SKIN:Bang('!CommandMeasure', 'RunFallbackAverageColor', 'Run')
+			
+				colorsToGet = tonumber(SKIN:GetVariable("ColorsToGet", 12))
+				cmdCommand = rootPath .. "@Resources\\ImageMagickScripts\\convert.exe " .. ImagePath .. "  -colors ".. colorsToGet .." -depth 8 -format %c histogram:info: | sort /r"
+				SKIN:Bang('!SetOption', 'RunAverageColor', 'Parameter', cmdCommand)
+				SKIN:Bang('!CommandMeasure', 'RunAverageColor', 'Run')
+				print("Doing init")
+			elseif (ImagePath == nil) or (string.len(ImagePath) <= 1) then
+				--print("No Image defined, switching to histogram of fallback image")
 				FallbackPath = rootPath .. "@Resources\\images\\Fallback.png"
 				
 				local colorsToGet = tonumber(SKIN:GetVariable("ColorsToGet", 12))
@@ -70,18 +105,4 @@ function GetColors()
 		
 		SKIN:Bang('!CommandMeasure', 'CalcColorsToUse', "colorSelector('[MeasureGenre]')")
 	end
-end
-
-function KillAllRunning()
-	if(SKIN:GetMeasure('RunAverageColor'):GetValue() == 0) then
-		--print("Killing RunAverageColor")
-		SKIN:Bang('!CommandMeasure', 'RunAverageColor', 'Kill')
-		--print("RunAverageColor Value:" .. SKIN:GetMeasure('RunAverageColor'):GetValue())
-	end
-	if(SKIN:GetMeasure('RunFallbackAverageColor'):GetValue() == 0) then
-		--print("Killing RunFallbackAverageColor")
-		SKIN:Bang('!CommandMeasure', 'RunFallbackAverageColor', 'Kill')
-		--print("RunFallbackAverageColor Value:" .. SKIN:GetMeasure('RunFallbackAverageColor'):GetValue())
-	end
-	print("Sorry the album art color selector for monstercat is seomhow ready quick enough that the thread doesnt always have time to finish being killed, this wastes just enough time to solve that bug")
 end

@@ -10,7 +10,8 @@ function blur(inputPath, outputPath)
 		SKIN:Bang('!CommandMeasure', 'RunBlurColorFallback', 'Kill')
 		--print("RunBlurColorFallback Value:" .. SKIN:GetMeasure('RunBlurColorFallback'):GetValue())
 	end
-	
+	print("Sorry the album art color blur for monstercat is realy quick to init so the thread doesnt always have time to finish being killed, this wastes just enough time to solve that bug")
+
 	local rootPath = SKIN:GetVariable("@")
 	local magickPath = rootPath .. "ImageMagickScripts\\convert.exe"
 	--local outputPath = SKIN:GetVariable("@") .. "images\\coverB.png"
@@ -25,18 +26,16 @@ function blur(inputPath, outputPath)
 		cmdCommand = rootPath .. "ImageMagickScripts\\convert.exe " .. fallbackPath .. " -channel RGBA -blur 0x" .. blurAmount .. " " .. outputPath
 		SKIN:Bang('!SetOption', 'RunBlurColorFallback', 'Parameter', cmdCommand)
 		SKIN:Bang('!CommandMeasure', 'RunBlurColorFallback', 'Run')
+	elseif(inputPath ~= nil) and (string.len(inputPath) >= 1) then		
+		local cmdCommand = rootPath .. "ImageMagickScripts\\convert.exe " .. inputPath .. " -channel RGBA -blur 0x" .. blurAmount .. " " .. outputPath
+		
+		SKIN:Bang('!SetOption', 'RunBlurColor', 'Parameter', cmdCommand)
+		SKIN:Bang('!CommandMeasure', 'RunBlurColor', 'Run')
 	else
-		if(inputPath ~= nil) and (string.len(inputPath) >= 1) then		
-			local cmdCommand = rootPath .. "ImageMagickScripts\\convert.exe " .. inputPath .. " -channel RGBA -blur 0x" .. blurAmount .. " " .. outputPath
-			
-			SKIN:Bang('!SetOption', 'RunBlurColor', 'Parameter', cmdCommand)
-			SKIN:Bang('!CommandMeasure', 'RunBlurColor', 'Run')
-		else
-			local fallbackPath = SKIN:GetVariable("@") .. "images\\Fallback.png"		
-			local cmdCommand = rootPath .. "ImageMagickScripts\\convert.exe " .. fallbackPath .. " -channel RGBA -blur 0x" .. blurAmount .. " " .. outputPath
-			
-			SKIN:Bang('!SetOption', 'RunBlurColorFallback', 'Parameter', cmdCommand)
-			SKIN:Bang('!CommandMeasure', 'RunBlurColorFallback', 'Run')
-		end
+		local fallbackPath = SKIN:GetVariable("@") .. "images\\Fallback.png"		
+		local cmdCommand = rootPath .. "ImageMagickScripts\\convert.exe " .. fallbackPath .. " -channel RGBA -blur 0x" .. blurAmount .. " " .. outputPath
+		
+		SKIN:Bang('!SetOption', 'RunBlurColorFallback', 'Parameter', cmdCommand)
+		SKIN:Bang('!CommandMeasure', 'RunBlurColorFallback', 'Run')
 	end
 end
