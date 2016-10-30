@@ -3,7 +3,9 @@ A WIP rainmeter suite based on the Monstercat Visualizer skin by marcopixel.
 Includes Do I need a jacket support from FlyingHyrax, multiple system info and networking meters. More to come
 
 Tentative Roadmap (things may take longer or be scrapped based on difficulty)
-v0.7.0r  Skins that support laptop/desktop specific features, Multigraph CPU, GPU, and IO graphs, Logos that support system info, background sideshow?.
+v0.7.0r  Skins that support laptop/desktop specific features, Multigraph CPU, GPU, and IO graphs, Logos that support system info.
+v0.7.1 Background sideshow, auto seasonal fallback images
+v0.7.5 GPMDP Support (Likely will a very be limited version similar to how spotify was at first I will look into their API and see if I can add the missing stuff that isn't in the example_
 
 v0.8.0r - Weather & News support
 v0.9.0r - Appointments
@@ -49,6 +51,7 @@ TODO
 - [ ] Look into adding corsair and other keyboards manufactures color API's into the color system, I do not have a full RGB (Mine only does green) so I will need a guinea pig
 Bugs
 - [ ] When spotify isn't running there is a lot of log spam, I think this is from the plugin and not my misuse of it hopefully I can turn it off
+- [ ] When using songs that are in the cloud on iTunes images do not work, I think this is an issue with iTunes and not me
 - [ ] Album art color fetch runs when a genre color will end up being decided (Not as big a deal as I figured it would be, blur takes up way more cpu time)
 - [ ] Rarely a thread is detected as running but when it goes to be killed it is already dead, likely is finishing gracefully before the kill command happens. Not a major bug just causes occasional log spam
 - [ ] Pinging conditionals do not work after first time they are triggered Update: I have disabled for now so MaxPingDisplayed is ignored
