@@ -3,11 +3,12 @@ A WIP rainmeter suite based on the Monstercat Visualizer skin by marcopixel.
 Includes Do I need a jacket support from FlyingHyrax, multiple system info and networking meters. More to come
 
 Tentative Roadmap (things may take longer or be scrapped based on difficulty)
-v0.7.0r  Skins that support laptop/desktop specific features, Multigraph CPU, GPU, and IO graphs
+v0.7.0  Skins that support laptop/desktop specific features, Multigraph CPU, GPU, and IO graphs
 v0.7.1 Logos that support system info, flag and pull based album art color system?
-v0.7.2 Background sideshow, auto seasonal fallback images
+v0.7.2r Background sideshow, auto seasonal and holiday fallback images (Having issues finding images)
 v0.7.3 Toggle visibility buttons
 v0.7.5r GPMDP Support (Likely will a very be limited version similar to how spotify was at first I will look into their API and see if I can add the missing stuff that isn't in the example in future releases)
+v0.7.6 Small versions of music player and clock?, volume changer
 
 v0.8.0r - Weather & News support
 v0.9.0r - Appointments
@@ -52,6 +53,7 @@ TODO
 - [ ] Look into if average size variable increases or decrease performance based on size (kind of irrelevant now with CPU usage being better I just want to document it right)
 - [ ] Look into adding corsair and other keyboards manufactures color API's into the color system, I do not have a full RGB (Mine only does green) so I will need a guinea pig
 Bugs
+- [ ] Multiple values below of above the cutoff for can lead to multiple of the same color, however just shifting everything by the cutoff amount could also result in a color being the same as well, I think I will rewrite the cutoff to look for dupes and if there are the add more colors
 - [ ] When spotify isn't running there is a lot of log spam, I think this is from the plugin and not my misuse of it hopefully I can turn it off
 - [ ] When using songs that are in the cloud on iTunes images do not work, I think this is an issue with iTunes and not me
 - [ ] Album art color fetch runs when a genre color will end up being decided (Not as big a deal as I figured it would be, blur takes up way more cpu time)
