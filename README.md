@@ -3,9 +3,11 @@ A WIP rainmeter suite based on the Monstercat Visualizer skin by marcopixel.
 Includes Do I need a jacket support from FlyingHyrax, multiple system info and networking meters. More to come
 
 Tentative Roadmap (things may take longer or be scrapped based on difficulty)
-v0.7.0r  Skins that support laptop/desktop specific features, Multigraph CPU, GPU, and IO graphs, Logos that support system info.
-v0.7.1 Background sideshow, auto seasonal fallback images
-v0.7.5 GPMDP Support (Likely will a very be limited version similar to how spotify was at first I will look into their API and see if I can add the missing stuff that isn't in the example_
+v0.7.0r  Skins that support laptop/desktop specific features, Multigraph CPU, GPU, and IO graphs
+v0.7.1 Logos that support system info, flag and pull based album art color system?
+v0.7.2 Background sideshow, auto seasonal fallback images
+v0.7.3 Toggle visibility buttons
+v0.7.5r GPMDP Support (Likely will a very be limited version similar to how spotify was at first I will look into their API and see if I can add the missing stuff that isn't in the example in future releases)
 
 v0.8.0r - Weather & News support
 v0.9.0r - Appointments
@@ -13,7 +15,7 @@ v0.9.5r - Calendar
 v1.0.0r - Installer updated, Notification system, App launcher, full planned meter feature set
 --Highly-Tentative--------------------------------------------------------------
 v1.1r - Support for dynamic color keyboards
-v1.2r - Google play music plugin and Networking top processes plugin
+v1.2r - Google play music (web) plugin? and Networking top processes plugin
 v1.3r - Machine learning album art selector, I'm kidding (Maybe)
 
 May happen eventually
@@ -54,6 +56,7 @@ Bugs
 - [ ] When using songs that are in the cloud on iTunes images do not work, I think this is an issue with iTunes and not me
 - [ ] Album art color fetch runs when a genre color will end up being decided (Not as big a deal as I figured it would be, blur takes up way more cpu time)
 - [ ] Rarely a thread is detected as running but when it goes to be killed it is already dead, likely is finishing gracefully before the kill command happens. Not a major bug just causes occasional log spam
+- [ ] IO Multigraph swap space may be computed wrong, if it ever is negative then Formula=[MeasureSwap]-[MeasureRAMTotal] need to be changed to Formula=[MeasureSwap]-[MeasureRAM] I think it is right though.
 - [ ] Pinging conditionals do not work after first time they are triggered Update: I have disabled for now so MaxPingDisplayed is ignored
 - [ ] Check and possibly fix if DINTFMI only working on first load since afterwards it may always use old data
 - [ ] Look into if CPU being off by about a factor of about 2 (Seems to be half actual on advancedCPU and ferpnom) on CPU reader and top processes is a bug in task manager, rainmeter dlls, or if it is just my machine
