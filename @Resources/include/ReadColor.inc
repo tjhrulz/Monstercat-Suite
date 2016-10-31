@@ -6,6 +6,11 @@ OnRefreshAction=[!CommandMeasure ReadColorsToUse "readColor('[MeasureGenre]')"][
 Measure=Script
 ScriptFile=#@#\scripts\ReadColors.lua
 
+[CalcRateInSeconds]
+Measure=Calc
+Formula=#FactandImageUpdateRate#*1000
+DynamicVariables=1
+
 [MeasureAlbumChangedSpotifyNotifySelf]
 Measure=Plugin
 Plugin=SpotifyPlugin
@@ -39,13 +44,19 @@ FinishAction=[!EnableMeasure MeasureWallpaperChangedNotifySelf][!UpdateMeasure M
 Measure=Calc
 Formula=[MeasureWallpaperConfigState]
 DynamicVariables=1
-UpdateDivider=#FactandImageUpdateRate#
+UpdateDivider=-1
 Disabled=1
 IfCondition=MeasureWallpaperChangedNotifySelf > 0
-IfTrueAction=[!Log "Doing update"][!CommandMeasure DoReadUpdate "Stop 1"][!CommandMeasure DoReadUpdate "Execute 1"]
+IfTrueAction=[!CommandMeasure DoReadUpdateRepeat "Execute 1"]
 
 [DoReadUpdate]
 Measure=Plugin
 Plugin=ActionTimer
 ActionList1=Wait #WaitTimeColors# | ProcessUpdate1 
 ProcessUpdate1=[!CommandMeasure ReadColorsToUse "readColor('[MeasureGenre]')"][!SetOptionGroup DynamicDynamic DynamicVariables 0]
+
+[DoReadUpdateRepeat]
+Measure=Plugin
+Plugin=ActionTimer
+ActionList1=Wait #WaitTimeColors# | Repeat ProcessUpdate1R, 15000, 50
+ProcessUpdate1R=[!CommandMeasure ReadColorsToUse "readColor('[MeasureGenre]')"][!SetOptionGroup DynamicDynamic DynamicVariables 0]
