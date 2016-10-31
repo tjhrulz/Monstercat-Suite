@@ -24,6 +24,7 @@ Measure=String
 String=[MeasureWallpaper]
 Substitute="\":"\\"
 DynamicVariables=1
+OnChangeAction=[!CommandMeasure DoBlurUpdate "Stop 1"][!CommandMeasure DoBlurUpdate "Execute 1"][!CommandMeasure DoWriteUpdate "Stop 1"][!CommandMeasure DoWriteUpdate "Execute 1"]
 
 [ReadColorsToUse]
 Measure=Script
@@ -34,7 +35,6 @@ Measure=Plugin
 Plugin=QuotePlugin
 PathName=#BackgroundPathName#
 UpdateDivider=#FactandImageUpdateRate#
-OnChangeAction=[!CommandMeasure DoBlurUpdate "Stop 1"][!CommandMeasure DoBlurUpdate "Execute 1"][!CommandMeasure DoWriteUpdate "Stop 1"][!CommandMeasure DoWriteUpdate "Execute 1"]
 
 [RunFallbackAverageColor]
 Measure=Plugin

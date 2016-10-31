@@ -6,11 +6,6 @@ OnRefreshAction=[!CommandMeasure ReadColorsToUse "readColor('[MeasureGenre]')"][
 Measure=Script
 ScriptFile=#@#\scripts\ReadColors.lua
 
-[CalcRateInSeconds]
-Measure=Calc
-Formula=#FactandImageUpdateRate#*1000
-DynamicVariables=1
-
 [MeasureAlbumChangedSpotifyNotifySelf]
 Measure=Plugin
 Plugin=SpotifyPlugin
@@ -58,5 +53,5 @@ ProcessUpdate1=[!CommandMeasure ReadColorsToUse "readColor('[MeasureGenre]')"][!
 [DoReadUpdateRepeat]
 Measure=Plugin
 Plugin=ActionTimer
-ActionList1=Wait #WaitTimeColors# | Repeat ProcessUpdate1R, 15000, 50
+ActionList1=Wait #WaitTimeColors# | Repeat ProcessUpdate1R, #FactandImageUpdateRatems#, 10000
 ProcessUpdate1R=[!CommandMeasure ReadColorsToUse "readColor('[MeasureGenre]')"][!SetOptionGroup DynamicDynamic DynamicVariables 0]
