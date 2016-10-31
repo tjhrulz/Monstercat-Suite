@@ -1,6 +1,6 @@
 [Rainmeter]
 Group=DynamicColors
-OnRefreshAction=[!CommandMeasure ReadColorsToUse "readColor('[MeasureGenre]')"][!SetOptionGroup DynamicDynamic DynamicVariables 0]
+OnRefreshAction=[!CommandMeasure DoReadUpdate "Stop 1"][!CommandMeasure DoReadUpdate "Execute 1"]
 
 [ReadColorsToUse]
 Measure=Script
