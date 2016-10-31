@@ -27,30 +27,22 @@ PlayerType=Genre
 RegExpSubstitute=1
 Substitute="[^a-zA-Z0-9]":""
 
-[MeasureConfig1State]
+[MeasureWallpaperConfigState]
 Measure=Plugin
 Plugin=WebParser
 URL=file://#SETTINGSPATH#Rainmeter.ini
-RegExp=(?siU).*Monstercat\-Suite\\Background\\Slideshow.*Active=(.*)
+RegExp=(?siU)\[Monstercat-Suite\\Background\\Slideshow\].*?Active=(\d+)
 StringIndex=1
-FinishAction=[!EnableMeasure MeasureConfig1Active][!UpdateMeasure MeasureConfig1Active]
+FinishAction=[!EnableMeasure MeasureWallpaperChangedNotifySelf][!UpdateMeasure MeasureWallpaperChangedNotifySelf]
 
-[MeasureConfig1Active]
+[MeasureWallpaperChangedNotifySelf]
 Measure=Calc
-Formula=[MeasureConfig1State]
+Formula=[MeasureWallpaperConfigState]
 DynamicVariables=1
-UpdateDivider=-1
+UpdateDivider=#FactandImageUpdateRate#
 Disabled=1
-IfCondition=MeasureConfig1Active > 0
-IfTrueAction=[!SetOption MeasureWallpaper UpdateDivider #FactandImageUpdateRate#]
-IfFalseAction=[!SetOption MeasureWallpaper UpdateDivider -1]
-
-[MeasureWallpaper]
-Measure=Calc
-UpdateRandom=1
-UpdateDivider=-1
-OnChangeAction=[!Log "Doing update"][!CommandMeasure DoBlurUpdate "Stop 1"][!CommandMeasure DoBlurUpdate "Execute 1"]OnChangeAction=[!CommandMeasure DoWriteUpdate "Stop 1"][!CommandMeasure DoWriteUpdate "Execute 1"]
-
+IfCondition=MeasureWallpaperChangedNotifySelf > 0
+IfTrueAction=[!Log "Doing update"][!CommandMeasure DoReadUpdate "Stop 1"][!CommandMeasure DoReadUpdate "Execute 1"]
 
 [DoReadUpdate]
 Measure=Plugin

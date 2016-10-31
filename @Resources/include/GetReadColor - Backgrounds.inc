@@ -81,7 +81,7 @@ ProcessUpdate1=[!CommandMeasure CalcBlurAlbumArt "blur('[CalcEscapedBackgroundPa
 [DoWriteUpdate]
 Measure=Plugin
 Plugin=ActionTimer
-ActionList1=Wait 100 | ProcessUpdate1 
+ActionList1=Wait 1000 | ProcessUpdate1 
 ProcessUpdate1=[!CommandMeasure CalcAlbumHistogram "GetColors('[GetImagePath]')"]
 
 [DoReadUpdate]
