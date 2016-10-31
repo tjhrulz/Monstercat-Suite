@@ -57,7 +57,7 @@ function genreColorizer(baseColorRGB)
 	local baseColorB = string.sub(baseColorRGB, 0, string.find(baseColorRGB, ","))
 	
 	local vizColor, baseColor, secondaryColor, wallpaperColor, backgroundColor, transBackgroundColor, textColor, backgroundPanelColor
-	local clockColor, minColor, hourColor, secColor, LogoColor
+	local clockColor, minColor, hourColor, secColor, LogoColor, LogoColor2, LogoColorDyn
 	
 	-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 	--It should be noted that the output files are in the order of the colors listed here, do not read them out of order and ensure that you add new colors to ReadColors.lua
@@ -78,6 +78,8 @@ function genreColorizer(baseColorRGB)
 		backgroundPanelColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("BackgroundPanelColorModifier", '1.0'))
 		vizColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("VizColorModifier", '1.0'))
 		LogoColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("LogoColorModifier", '1.0'))
+		LogoColor2 = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("LogoColor2Modifier", '1.0'))
+		LogoColorDyn = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("LogoColorDynModifier", '1.0'))
 		
 		if(tonumber(SKIN:GetVariable("EnableDevMode", 0)) == 1) then
 			testColor1 = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("TestColorModifier1", '1.0'))	
@@ -104,6 +106,8 @@ function genreColorizer(baseColorRGB)
 		io.write("(" .. backgroundPanelColor .. ")")
 		io.write("(" .. vizColor .. ")")
 		io.write("(" .. LogoColor .. ")")
+		io.write("(" .. LogoColor2 .. ")")
+		io.write("(" .. LogoColorDyn .. ")")
 		if(tonumber(SKIN:GetVariable("EnableDevMode", 0)) == 1) then
 			io.write("(" .. testColor1 .. ")")
 			io.write("(" .. testColor2 .. ")")
@@ -129,6 +133,8 @@ function genreColorizer(baseColorRGB)
 		backgroundPanelColor = hueColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("BackgroundPanelColorType", '1.0'))
 		vizColor = hueColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("VizColorType", '1.0'))
 		LogoColor = hueColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("LogoColorType", '1.0'))
+		LogoColor2 = hueColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("LogoColor2Type", '1.0'))
+		LogoColorDyn = hueColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("LogoColorDynType", '1.0'))
 			
 		if(tonumber(SKIN:GetVariable("EnableDevMode", 0)) == 1) then
 			testColor1 = hueColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("TestColorType1", '1.0'))	
@@ -155,6 +161,9 @@ function genreColorizer(baseColorRGB)
 		io.write("(" .. backgroundPanelColor .. ")")
 		io.write("(" .. vizColor .. ")")
 		io.write("(" .. LogoColor .. ")")
+		io.write("(" .. LogoColor2 .. ")")
+		io.write("(" .. LogoColorDyn .. ")")
+		
 		if(tonumber(SKIN:GetVariable("EnableDevMode", 0)) == 1) then
 			io.write("(" .. testColor1 .. ")")
 			io.write("(" .. testColor2 .. ")")
@@ -192,7 +201,7 @@ end
 function albumColorizer(rootDir)
 
 	local vizColor, baseColor, secondaryColor, wallpaperColor, backgroundColor, transBackgroundColor, textColor, BackgroundPanelColor
-	local clockColor, minColor, hourColor, secColor, LogoColor
+	local clockColor, minColor, hourColor, secColor, LogoColor, LogoColor2, LogoColorDyn
 	local testColor1, testColor2, testColor3, testColor4, testColor5, testColor6
 	
 	if(tonumber(SKIN:GetVariable("EnableAlbumColor", 1)) == 1) then
@@ -260,6 +269,8 @@ function albumColorizer(rootDir)
 			backgroundPanelColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("BackgroundPanelColorModifier", '1.0'))
 			vizColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("VizColorModifier", '1.0'))
 			LogoColor = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("LogoColorModifier", '1.0'))
+			LogoColor2 = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("LogoColor2Modifier", '1.0'))
+			LogoColorDyn = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("LogoColorDynModifier", '1.0'))
 			
 			if(tonumber(SKIN:GetVariable("EnableDevMode", 0)) == 1) then
 				testColor1 = percentColorize(baseColorR, baseColorG, baseColorB, SKIN:GetVariable("TestColorModifier1", '1.0'))
@@ -286,6 +297,8 @@ function albumColorizer(rootDir)
 			io.write("(" .. backgroundPanelColor .. ")")
 			io.write("(" .. vizColor .. ")")
 			io.write("(" .. LogoColor .. ")")
+			io.write("(" .. LogoColor2 .. ")")
+			io.write("(" .. LogoColorDyn .. ")")
 			if(tonumber(SKIN:GetVariable("EnableDevMode", 0)) == 1) then
 				io.write("(" .. testColor1 .. ")")
 				io.write("(" .. testColor2 .. ")")
@@ -330,6 +343,8 @@ function albumColorizer(rootDir)
 			backgroundPanelColor = palette[tonumber(SKIN:GetVariable("BackgroundPanelColorPalette", '1.0'))]
 			vizColor = palette[tonumber(SKIN:GetVariable("VizColorPalette", '1.0'))]
 			LogoColor = palette[tonumber(SKIN:GetVariable("LogoColorPalette", '1.0'))]
+			LogoColor2 = palette[tonumber(SKIN:GetVariable("LogoColor2Palette", '1.0'))]
+			LogoColorDyn = palette[tonumber(SKIN:GetVariable("LogoColorDynPalette", '1.0'))]
 			
 			if(tonumber(SKIN:GetVariable("EnableDevMode", 0)) == 1) then
 				testColor1 = palette[tonumber(SKIN:GetVariable("TestColorPalette1", '1.0'))]	
@@ -356,6 +371,8 @@ function albumColorizer(rootDir)
 			io.write("(" .. backgroundPanelColor .. ")")
 			io.write("(" .. vizColor .. ")")
 			io.write("(" .. LogoColor .. ")")
+			io.write("(" .. LogoColor2 .. ")")
+			io.write("(" .. LogoColorDyn .. ")")
 			if(tonumber(SKIN:GetVariable("EnableDevMode", 0)) == 1) then
 				io.write("(" .. testColor1 .. ")")
 				io.write("(" .. testColor2 .. ")")

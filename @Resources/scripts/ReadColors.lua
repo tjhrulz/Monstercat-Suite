@@ -130,13 +130,15 @@ function readColor(genre)
 	if colors[10] ~= -1 and colors[1] ~= nil  then SKIN:Bang('!SetVariable', "BackgroundPanelColor", colors[10] .. SKIN:GetVariable("BackgroundPanelColorTransparency", ',255')) end
 	if colors[11] ~= -1 and colors[1] ~= nil  then SKIN:Bang('!SetVariable', "VizColor", colors[11]) end
 	if colors[12] ~= -1 and colors[1] ~= nil  then SKIN:Bang('!SetVariable', "LogoColor", colors[12]) end
+	if colors[13] ~= -1 and colors[1] ~= nil  then SKIN:Bang('!SetVariable', "LogoColor2", colors[13]) end
+	if colors[14] ~= -1 and colors[1] ~= nil  then SKIN:Bang('!SetVariable', "LogoColorDyn", colors[14]) end
 	if(tonumber(SKIN:GetVariable("EnableDevMode", 0)) == 1) then
-		if colors[13] ~= -1 and colors[1] ~= nil  then SKIN:Bang('!SetVariable', "TestColor1", colors[13]) end
-		if colors[14] ~= -1 and colors[1] ~= nil  then SKIN:Bang('!SetVariable', "TestColor2", colors[14]) end
-		if colors[15] ~= -1 and colors[1] ~= nil  then SKIN:Bang('!SetVariable', "TestColor3", colors[15]) end
-		if colors[16] ~= -1 and colors[1] ~= nil  then SKIN:Bang('!SetVariable', "TestColor4", colors[16]) end
-		if colors[17] ~= -1 and colors[1] ~= nil  then SKIN:Bang('!SetVariable', "TestColor5", colors[17]) end
-		if colors[18] ~= -1 and colors[1] ~= nil  then SKIN:Bang('!SetVariable', "TestColor6", colors[18]) end
+		if colors[15] ~= -1 and colors[1] ~= nil  then SKIN:Bang('!SetVariable', "TestColor1", colors[15]) end
+		if colors[16] ~= -1 and colors[1] ~= nil  then SKIN:Bang('!SetVariable', "TestColor2", colors[16]) end
+		if colors[17] ~= -1 and colors[1] ~= nil  then SKIN:Bang('!SetVariable', "TestColor3", colors[17]) end
+		if colors[18] ~= -1 and colors[1] ~= nil  then SKIN:Bang('!SetVariable', "TestColor4", colors[18]) end
+		if colors[19] ~= -1 and colors[1] ~= nil  then SKIN:Bang('!SetVariable', "TestColor5", colors[19]) end
+		if colors[20] ~= -1 and colors[1] ~= nil  then SKIN:Bang('!SetVariable', "TestColor6", colors[20]) end
 	end
 end
 

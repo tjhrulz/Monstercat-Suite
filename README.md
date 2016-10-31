@@ -4,11 +4,12 @@ Includes Do I need a jacket support from FlyingHyrax, multiple system info and n
 
 Tentative Roadmap (things may take longer or be scrapped based on difficulty)
 v0.7.0  Skins that support laptop/desktop specific features, Multigraph CPU, GPU, and IO graphs
-v0.7.1 Logos that support system info, flag and pull based album art color system?
+v0.7.1 Logos that support system info
 v0.7.2r Background sideshow, auto seasonal and holiday fallback images (Having issues finding images)
 v0.7.3 Toggle visibility buttons
-v0.7.5r GPMDP Support (Likely will a very be limited version similar to how spotify was at first I will look into their API and see if I can add the missing stuff that isn't in the example in future releases)
+v0.7.5r Flag and pull based album art color system? GPMDP Support (Likely will a very be limited version similar to how spotify was at first I will look into their API and see if I can add the missing stuff that isn't in the example in future releases)
 v0.7.6 Small versions of music player and clock?, volume changer
+v0.7.10 Registry editing of system colors since the auto color picker in windows is sometimes meh? HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\DWM
 
 v0.8.0r - Weather & News support
 v0.9.0r - Appointments
