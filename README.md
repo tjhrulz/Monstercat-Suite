@@ -5,7 +5,7 @@ Includes Do I need a jacket support from FlyingHyrax, multiple system info and n
 Tentative Roadmap (things may take longer or be scrapped based on difficulty)
 v0.7.0  Skins that support laptop/desktop specific features, Multigraph CPU, GPU, and IO graphs
 v0.7.1 Logos that support system info
-v0.7.2r Background sideshow, auto seasonal and holiday fallback images (Having issues finding images)
+v0.7.2r Auto seasonal and holiday fallback images (Having issues finding images)
 v0.7.3 Toggle visibility buttons
 v0.7.5r Flag and pull based album art color system? GPMDP Support (Likely will a very be limited version similar to how spotify was at first I will look into their API and see if I can add the missing stuff that isn't in the example in future releases)
 v0.7.6 Small versions of music player and clock?, volume changer
@@ -21,6 +21,7 @@ v1.2r - Google play music (web) plugin? and Networking top processes plugin
 v1.3r - Machine learning album art selector, I'm kidding (Maybe)
 
 May happen eventually
+Background sideshow - There was issues with CPU and RAM usage of queueing up that many requests and it would do them all at once and pull them off of a stack once requested eating up RAM even when not using it. Ill rebuild using Lua eventually and see if that fixes it. Also was always getting passed the old image
 Meters will change to variant on middle click, I only wanna do this if it can include the alt system
 Add more versions of CPU and GPU info (I don't think I will do this as the info is not too needed (And I don't need to see my FPS hit 59 and want to replace my computer) and all new and old info would need to be labeled to differentiate it 
 Large 12 hour clock (With variant where 12hr is replaced by Monstercat logo)

@@ -50,8 +50,8 @@ Plugin=ActionTimer
 ActionList1=Wait #WaitTimeColors# | ProcessUpdate1 
 ProcessUpdate1=[!CommandMeasure ReadColorsToUse "readColor('[MeasureGenre]')"][!SetOptionGroup DynamicDynamic DynamicVariables 0]
 
-[DoReadUpdateRepeat]
-Measure=Plugin
-Plugin=ActionTimer
-ActionList1=Wait #WaitTimeColors# | Repeat ProcessUpdate1R, #FactandImageUpdateRatems#, 10000
-ProcessUpdate1R=[!CommandMeasure ReadColorsToUse "readColor('[MeasureGenre]')"][!SetOptionGroup DynamicDynamic DynamicVariables 0]
+;[DoReadUpdateRepeat]
+;Measure=Plugin
+;Plugin=ActionTimer
+;ActionList1=Wait #WaitTimeColors# | Repeat ProcessUpdate1R, #FactandImageUpdateRatems#, 10000
+;ProcessUpdate1R=[!CommandMeasure ReadColorsToUse "readColor('[MeasureGenre]')"][!SetOptionGroup DynamicDynamic DynamicVariables 0]
