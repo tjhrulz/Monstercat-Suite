@@ -12,7 +12,10 @@ function GetColors(imagePath)
 	--print("Sorry the album art color selector for monstercat is somehow quick enough that the thread doesnt always have time to finish being killed, this wastes just enough time to solve that bug")
 	sleepFor(10)
 	
-	print(imagePath)
+	local FallbackPath = getFallbackPath()
+	
+	--print(imagePath)
+	--print(SKIN:GetMeasure('RunAverageColor'):GetOption('Parameter'))
 	
 	if(tonumber(SKIN:GetVariable("EnableAlbumColor", 1)) == 1) then
 		if(tonumber(SKIN:GetVariable("EnableMultiColors", 1)) == 1) then
@@ -20,7 +23,7 @@ function GetColors(imagePath)
 			local colorsToGet = tonumber(SKIN:GetVariable("ColorsToGet", 12))
 			
 			if(SKIN:GetMeasure('RunAverageColor'):GetValue() == -1) and (SKIN:GetMeasure('RunFallbackAverageColor'):GetValue() == -1) then
-				FallbackPath = rootPath .. "@Resources\\images\\Fallback.png"
+				--FallbackPath = rootPath .. "@Resources\\images\\Fallback.png"
 				local cmdCommand = rootPath .. "@Resources\\ImageMagickScripts\\convert.exe \"" .. FallbackPath .. "\"  -colors ".. colorsToGet .." -depth 8 -format %c histogram:info: | sort /r"
 				SKIN:Bang('!SetOption', 'RunFallbackAverageColor', 'Parameter', cmdCommand)
 				SKIN:Bang('!CommandMeasure', 'RunFallbackAverageColor', 'Run')
@@ -31,7 +34,7 @@ function GetColors(imagePath)
 				--print("Doing init:" .. imagePath)
 			elseif (imagePath == nil) or (string.len(imagePath) <= 1) then
 				--print("No Image defined, switching to histogram fallback:" .. imagePath)
-				FallbackPath = rootPath .. "@Resources\\images\\Fallback.png"
+				--FallbackPath = rootPath .. "@Resources\\images\\Fallback.png"
 			
 				-- -colors 16 -depth 8 -format "%c" histogram:info: | sort /r
 				-- -scale 1x1! -format %[fx:int(255*r+.5)],%[fx:int(255*g+.5)],%[fx:int(255*b+.5)] info:
@@ -46,7 +49,6 @@ function GetColors(imagePath)
 				-- -scale 1x1! -format %[fx:int(255*r+.5)],%[fx:int(255*g+.5)],%[fx:int(255*b+.5)] info:
 				local cmdCommand = rootPath .. "@Resources\\ImageMagickScripts\\convert.exe \"" .. imagePath .. "\"  -colors ".. colorsToGet .." -depth 8 -format %c histogram:info: | sort /r"
 				SKIN:Bang('!SetOption', 'RunAverageColor', 'Parameter', cmdCommand)
-				print(SKIN:GetMeasure('RunAverageColor'):GetOption('Parameter'))
 				
 				SKIN:Bang('!CommandMeasure', 'RunAverageColor', 'Run')
 			end
@@ -55,7 +57,7 @@ function GetColors(imagePath)
 			local colorsToGet = tonumber(SKIN:GetVariable("ColorsToGet", 12))
 
 			if(SKIN:GetMeasure('RunAverageColor'):GetValue() == -1) and (SKIN:GetMeasure('RunFallbackAverageColor'):GetValue() == -1) then
-				FallbackPath = rootPath .. "@Resources\\images\\Fallback.png"
+				--FallbackPath = rootPath .. "@Resources\\images\\Fallback.png"
 				local cmdCommand = rootPath .. "@Resources\\ImageMagickScripts\\convert.exe \"" .. FallbackPath .. "\"  -colors ".. colorsToGet .." -depth 8 -format %c histogram:info: | sort /r"
 				SKIN:Bang('!SetOption', 'RunFallbackAverageColor', 'Parameter', cmdCommand)
 				SKIN:Bang('!CommandMeasure', 'RunFallbackAverageColor', 'Run')
@@ -66,7 +68,7 @@ function GetColors(imagePath)
 				--print("Doing init:" .. imagePath)
 			elseif (imagePath == nil) or (string.len(imagePath) <= 1) then
 				--print("No Image defined, switching to histogram of fallback image")
-				FallbackPath = rootPath .. "@Resources\\images\\Fallback.png"				
+				--FallbackPath = rootPath .. "@Resources\\images\\Fallback.png"				
 
 				-- -colors 16 -depth 8 -format "%c" histogram:info: | sort /r
 				-- -scale 1x1! -format %[fx:int(255*r+.5)],%[fx:int(255*g+.5)],%[fx:int(255*b+.5)] info:
@@ -90,6 +92,36 @@ function GetColors(imagePath)
 		
 		SKIN:Bang('!CommandMeasure', 'CalcColorsToUse', "colorSelector('[MeasureGenre]')")
 	end
+end
+
+function getFallbackPath()
+	local fallbackPath = SKIN:GetVariable("ROOTCONFIGPATH")
+	
+	currDay = tonumber(os.date("%d"))
+	currMonth = tonumber(os.date("%m"))
+	currYear = tonumber(os.date("%y"))
+	
+	print(currDay .. ":" .. currMonth .. ":" .. currYear)
+	
+	if(tonumber(SKIN:GetVariable("EnableSeasonalFallback", 1)) == 1) then
+		fallbackPath = fallbackPath .. "@Resources\\images\\Fallbacks\\"
+		
+		if (currMonth == 12) or (currMonth == 1) or (currMonth == 2) then
+			fallbackPath = fallbackPath .. "Winter.png"
+		elseif (currMonth == 3) or (currMonth == 4) or (currMonth == 5) then
+			fallbackPath = fallbackPath .. "Spring.png"
+		elseif (currMonth == 6) or (currMonth == 7) or (currMonth == 8) then
+			fallbackPath = fallbackPath .. "Summer.png"
+		elseif (currMonth == 9) or (currMonth == 10) or (currMonth == 11) then
+			fallbackPath = fallbackPath .. "Fall.png"
+		end
+	else
+		fallbackPath = fallbackPath .. "@Resources\\images\\Fallback.png"	
+	end
+	
+	print(fallbackPath)
+	
+	return fallbackPath
 end
 
 function sleepFor(n)
