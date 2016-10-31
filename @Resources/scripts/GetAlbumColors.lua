@@ -12,6 +12,8 @@ function GetColors(imagePath)
 	--print("Sorry the album art color selector for monstercat is somehow quick enough that the thread doesnt always have time to finish being killed, this wastes just enough time to solve that bug")
 	sleepFor(10)
 	
+	print(imagePath)
+	
 	if(tonumber(SKIN:GetVariable("EnableAlbumColor", 1)) == 1) then
 		if(tonumber(SKIN:GetVariable("EnableMultiColors", 1)) == 1) then
 			local rootPath = SKIN:GetVariable("ROOTCONFIGPATH")				
@@ -42,8 +44,9 @@ function GetColors(imagePath)
 			
 				-- -colors 16 -depth 8 -format "%c" histogram:info: | sort /r
 				-- -scale 1x1! -format %[fx:int(255*r+.5)],%[fx:int(255*g+.5)],%[fx:int(255*b+.5)] info:
-				local cmdCommand = rootPath .. "@Resources\\ImageMagickScripts\\convert.exe " .. imagePath .. "  -colors ".. colorsToGet .." -depth 8 -format %c histogram:info: | sort /r"
+				local cmdCommand = rootPath .. "@Resources\\ImageMagickScripts\\convert.exe \"" .. imagePath .. "\"  -colors ".. colorsToGet .." -depth 8 -format %c histogram:info: | sort /r"
 				SKIN:Bang('!SetOption', 'RunAverageColor', 'Parameter', cmdCommand)
+				print(SKIN:GetMeasure('RunAverageColor'):GetOption('Parameter'))
 				
 				SKIN:Bang('!CommandMeasure', 'RunAverageColor', 'Run')
 			end

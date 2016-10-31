@@ -35,14 +35,14 @@ function colorSelector(genre)
 			if (tonumber(SKIN:GetVariable("EnableAlbumColor")) == 0) then
 				genreColorizer(SKIN:GetVariable("DefaultDynamicColor"))
 			else
-				albumColorizer(rootDir)
+				albumColorizer()
 			end
 		end
 	else
 		if (tonumber(SKIN:GetVariable("EnableAlbumColor")) == 0) then
 			genreColorizer(SKIN:GetVariable("DefaultDynamicColor"))
 		else
-			albumColorizer(rootDir)
+			albumColorizer()
 		end
 	end
 end
@@ -198,7 +198,7 @@ function genreColorizer(baseColorRGB)
 	--if testColor6 ~= -1 then SKIN:Bang('!SetVariable', "TestColor6", testColor6) end
 end
 
-function albumColorizer(rootDir)
+function albumColorizer()
 
 	local vizColor, baseColor, secondaryColor, wallpaperColor, backgroundColor, transBackgroundColor, textColor, BackgroundPanelColor
 	local clockColor, minColor, hourColor, secColor, LogoColor, LogoColor2, LogoColorDyn

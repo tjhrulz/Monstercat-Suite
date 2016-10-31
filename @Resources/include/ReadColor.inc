@@ -27,6 +27,31 @@ PlayerType=Genre
 RegExpSubstitute=1
 Substitute="[^a-zA-Z0-9]":""
 
+[MeasureConfig1State]
+Measure=Plugin
+Plugin=WebParser
+URL=file://#SETTINGSPATH#Rainmeter.ini
+RegExp=(?siU).*Monstercat\-Suite\\Background\\Slideshow.*Active=(.*)
+StringIndex=1
+FinishAction=[!EnableMeasure MeasureConfig1Active][!UpdateMeasure MeasureConfig1Active]
+
+[MeasureConfig1Active]
+Measure=Calc
+Formula=[MeasureConfig1State]
+DynamicVariables=1
+UpdateDivider=-1
+Disabled=1
+IfCondition=MeasureConfig1Active > 0
+IfTrueAction=[!SetOption MeasureWallpaper UpdateDivider #FactandImageUpdateRate#]
+IfFalseAction=[!SetOption MeasureWallpaper UpdateDivider -1]
+
+[MeasureWallpaper]
+Measure=Calc
+UpdateRandom=1
+UpdateDivider=-1
+OnChangeAction=[!Log "Doing update"][!CommandMeasure DoBlurUpdate "Stop 1"][!CommandMeasure DoBlurUpdate "Execute 1"]OnChangeAction=[!CommandMeasure DoWriteUpdate "Stop 1"][!CommandMeasure DoWriteUpdate "Execute 1"]
+
+
 [DoReadUpdate]
 Measure=Plugin
 Plugin=ActionTimer
