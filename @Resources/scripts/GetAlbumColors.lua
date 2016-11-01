@@ -12,7 +12,8 @@ function GetColors(imagePath)
 	--print("Sorry the album art color selector for monstercat is somehow quick enough that the thread doesnt always have time to finish being killed, this wastes just enough time to solve that bug")
 	sleepFor(10)
 	
-	local FallbackPath = getFallbackPath()
+	print("input:" .. imagePath)
+	
 	local rootPath = SKIN:GetVariable("ROOTCONFIGPATH")
 	local colorsToGet = tonumber(SKIN:GetVariable("ColorsToGet", 12))
 	
@@ -25,6 +26,7 @@ function GetColors(imagePath)
 			if (imagePath == nil) or (string.len(imagePath) <= 1) then
 				--print("No Image defined, switching to histogram fallback:" .. imagePath)
 				--FallbackPath = rootPath .. "@Resources\\images\\Fallback.png"
+				local FallbackPath = getFallbackPath()
 			
 				-- -colors 16 -depth 8 -format "%c" histogram:info: | sort /r
 				-- -scale 1x1! -format %[fx:int(255*r+.5)],%[fx:int(255*g+.5)],%[fx:int(255*b+.5)] info:
@@ -56,7 +58,8 @@ function GetColors(imagePath)
 				--print("Doing init:" .. imagePath)
 			elseif (imagePath == nil) or (string.len(imagePath) <= 1) then
 				--print("No Image defined, switching to histogram of fallback image")
-				--FallbackPath = rootPath .. "@Resources\\images\\Fallback.png"				
+				--FallbackPath = rootPath .. "@Resources\\images\\Fallback.png"		
+				local FallbackPath = getFallbackPath()		
 
 				-- -colors 16 -depth 8 -format "%c" histogram:info: | sort /r
 				-- -scale 1x1! -format %[fx:int(255*r+.5)],%[fx:int(255*g+.5)],%[fx:int(255*b+.5)] info:
@@ -90,7 +93,8 @@ function GetColors(imagePath)
 			
 			if (imagePath == nil) or (string.len(imagePath) <= 1) then
 				--print("No Image defined, switching to histogram of fallback image")
-				--FallbackPath = rootPath .. "@Resources\\images\\Fallback.png"				
+				--FallbackPath = rootPath .. "@Resources\\images\\Fallback.png"	
+				local FallbackPath = getFallbackPath()			
 
 				-- -colors 16 -depth 8 -format "%c" histogram:info: | sort /r
 				-- -scale 1x1! -format %[fx:int(255*r+.5)],%[fx:int(255*g+.5)],%[fx:int(255*b+.5)] info:

@@ -13,9 +13,10 @@ function blur(inputPath, outputPath)
 	--print("Sorry the album art color blur for monstercat is realy quick to init so the thread doesnt always have time to finish being killed, this wastes just enough time to solve that bug")
 	sleepFor(10)
 	
+	print("input:" .. inputPath)
+	
 	local rootPath = SKIN:GetVariable("@")
 	local magickPath = rootPath .. "ImageMagickScripts\\convert.exe"
-	local FallbackPath = getFallbackPath()
 	
 	--local outputPath = SKIN:GetVariable("@") .. "images\\coverB.png"
 	local blurAmount = tonumber(SKIN:GetVariable("BlurAmount", 32))
@@ -26,7 +27,8 @@ function blur(inputPath, outputPath)
 		SKIN:Bang('!SetOption', 'RunBlurColor', 'Parameter', cmdCommand)
 		SKIN:Bang('!CommandMeasure', 'RunBlurColor', 'Run')
 	else
-		--local fallbackPath = SKIN:GetVariable("@") .. "images\\Fallback.png"		
+		--local fallbackPath = SKIN:GetVariable("@") .. "images\\Fallback.png"	
+		local FallbackPath = getFallbackPath()	
 		local cmdCommand = rootPath .. "ImageMagickScripts\\convert.exe " .. FallbackPath .. " -channel RGBA -blur 0x" .. blurAmount .. " " .. outputPath
 		
 		SKIN:Bang('!SetOption', 'RunBlurColorFallback', 'Parameter', cmdCommand)
