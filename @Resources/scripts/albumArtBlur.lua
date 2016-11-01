@@ -40,13 +40,43 @@ function getFallbackPath()
 	currDay = tonumber(os.date("%d"))
 	currMonth = tonumber(os.date("%m"))
 	currYear = tonumber(os.date("%y"))
+	currYearF = tonumber(os.date("%Y"))
 	
 	--print(currDay .. ":" .. currMonth .. ":" .. currYear)
+	
+	local dates = ReadFile(fallbackPath .. "@Resources\\Holidays.txt")
+	local dateFileToLoad = nil
+	
+	for i=1, table.getn(dates), 1 do
+		--print(dates[i])	
+
+		dateCutoff = string.find(dates[i], "%d?%d.%d?%d.?%d?%d?%d?%d?")
+		easterCutoff = string.find(dates[i], "Easter")
+		thanksgivingCutoff = string.find(dates[i], "Thanksgiving")
+		
+		if (dateCutoff ~= nil) then
+			dateToCheck = string.sub(dates[i], dateCutoff)
+			
+			if (dateToCheck == currMonth .. "/" .. currDay) or (dateToCheck == currMonth .. "/" .. currDay .. "/" .. currYear) or (dateToCheck == currMonth .. "/" .. currDay .. "/" .. currYearF) then
+				dateFileToLoad = string.sub(dates[i], 0, dateCutoff-2)
+				print("date:" .. dateFileToLoad)
+			end
+		elseif (easterCutoff ~= nil) then
+			dateToCheck = string.sub(dates[i], easterCutoff)
+		elseif (thanksgivingCutoff ~= nil) then
+			dateToCheck = string.sub(dates[i], thanksgivingCutoff)
+		end
+		
+		--print(dateToCheck)
+		
+	end
 	
 	if(tonumber(SKIN:GetVariable("EnableSeasonalFallback", 1)) == 1) then
 		fallbackPath = fallbackPath .. "@Resources\\images\\Fallbacks\\"
 		
-		if (currMonth == 12) or (currMonth == 1) or (currMonth == 2) then
+		if (dateFileToLoad ~= nil) then
+			fallbackPath = fallbackPath .. dateFileToLoad .. ".png"
+		elseif (currMonth == 12) or (currMonth == 1) or (currMonth == 2) then
 			fallbackPath = fallbackPath .. "Winter.png"
 		elseif (currMonth == 3) or (currMonth == 4) or (currMonth == 5) then
 			fallbackPath = fallbackPath .. "Spring.png"
@@ -54,14 +84,45 @@ function getFallbackPath()
 			fallbackPath = fallbackPath .. "Summer.png"
 		elseif (currMonth == 9) or (currMonth == 10) or (currMonth == 11) then
 			fallbackPath = fallbackPath .. "Fall.png"
+		else
+			fallbackPath = SKIN:GetVariable("ROOTCONFIGPATH") .. "@Resources\\images\\Fallback.png"	
 		end
 	else
 		fallbackPath = fallbackPath .. "@Resources\\images\\Fallback.png"	
 	end
 	
-	--print(fallbackPath)
+	print(fallbackPath)
 	
 	return fallbackPath
+end
+
+function ReadFile(FilePath)
+	-- HANDLE RELATIVE PATH OPTIONS.
+	FilePath = SKIN:MakePathAbsolute(FilePath)
+
+	-- OPEN FILE.
+	local File = io.open(FilePath)
+
+	-- HANDLE ERROR OPENING FILE.
+	if not File then
+		print('ReadFile: unable to open file at ' .. FilePath)
+		return
+	end
+
+	-- READ FILE CONTENTS AND CLOSE.
+	local Contents = {}
+	
+	local temp = File:read('*l')
+	local i = 1
+	while temp ~= nil do
+      Contents[i] = temp
+	  temp = File:read('*l')
+	  i=i+1
+    end
+	
+	File:close()
+	
+	return Contents
 end
 
 function sleepFor(n)

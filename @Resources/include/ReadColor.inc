@@ -41,8 +41,8 @@ Formula=[MeasureWallpaperConfigState]
 DynamicVariables=1
 UpdateDivider=-1
 Disabled=1
-IfCondition=MeasureWallpaperChangedNotifySelf > 0
-IfTrueAction=[!CommandMeasure DoReadUpdateRepeat "Execute 1"]
+;IfCondition=MeasureWallpaperChangedNotifySelf > 0
+;IfTrueAction=[!CommandMeasure DoReadUpdateRepeat "Execute 1"]
 
 [DoReadUpdate]
 Measure=Plugin
