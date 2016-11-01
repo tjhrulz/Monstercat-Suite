@@ -55,7 +55,8 @@ TODO
 - [ ] Look into if average size variable increases or decrease performance based on size (kind of irrelevant now with CPU usage being better I just want to document it right)
 - [ ] Look into adding corsair and other keyboards manufactures color API's into the color system, I do not have a full RGB (Mine only does green) so I will need a guinea pig
 Bugs
-- [ ] Multiple values below of above the cutoff for can lead to multiple of the same color, however just shifting everything by the cutoff amount could also result in a color being the same as well, I think I will rewrite the cutoff to look for dupes and if there are the add more colors
+- [ ] If the fallback image finishes computing the image inbetween songs and before its thread gets killed and the song album art blur computes quickly it is possible for the album art blur to be the fallback image instead of the album art image (This was really hard to reproduce)
+- [ ] Multiple color values below of above the color cutoff for can lead to multiple of the same color, however just shifting everything by the cutoff amount could also result in a color being the same as well, I think I will rewrite the cutoff to look for dupes and if there are the add more colors from the list
 - [ ] When spotify isn't running there is a lot of log spam, I think this is from the plugin and not my misuse of it hopefully I can turn it off
 - [ ] When using songs that are in the cloud on iTunes images do not work, I think this is an issue with iTunes and not me
 - [ ] Album art color fetch runs when a genre color will end up being decided (Not as big a deal as I figured it would be, blur takes up way more cpu time)
