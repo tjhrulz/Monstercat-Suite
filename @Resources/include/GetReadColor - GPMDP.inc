@@ -41,14 +41,13 @@ DynamicVariables=1
 DownloadFile=image1.jpg
 FinishAction=[!CommandMeasure DoWriteUpdate "Stop 1"][!CommandMeasure DoWriteUpdate "Execute 1"]
 
-;[MeasureAlbumChangedNotifyGPMDPSelf]
-;Measure=Plugin
-;Plugin=WebParser
-;URL=#CoverUrl#
-;Download=1
-;DynamicVariables=1
-;DownloadFile=image1.jpg
-;OnChangeAction=[!CommandMeasure DoReadUpdate "Stop 1"][!CommandMeasure DoReadUpdate "Execute 1"]
+[MeasureAlbumChangedNotifyGPMDPSelf]
+Measure=Plugin
+Plugin=WebParser
+URL=#CoverUrl#
+Download=1
+DynamicVariables=1
+OnChangeAction=[!CommandMeasure DoReadUpdate "Stop 1"][!CommandMeasure DoReadUpdate "Execute 1"]
 
 [GetImagePath]
 Measure=String

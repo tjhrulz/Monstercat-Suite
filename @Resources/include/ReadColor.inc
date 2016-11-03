@@ -27,20 +27,45 @@ PlayerType=Genre
 RegExpSubstitute=1
 Substitute="[^a-zA-Z0-9]":""
 
-[MeasureWallpaperConfigState]
+[MeasureLuaScript]
+Measure=Script
+ScriptFile="#@#\scripts\GPMDPJson.lua"
+FileToRead=#ReadPath#
+JSONParser="#@#\scripts\JSON.lua"
+
+[MeasureJSON]
+Measure=Plugin
+Plugin=WebParser.dll
+URL=file://#ReadPath#
+RegExp=(?siU)"song.*songLyrics": (.*)"shuffle": "(.*)".*repeat": "(.*)"
+UpdateRate=1000
+
+[MeasureAlbumArtDPMDP]
+Measure=String
+String=#CURRENTPATH#DownloadFile\image1.jpg
+Substitute="\":"\\"
+
+[MeasureAlbumChangedNotifyGPMDPSelf]
 Measure=Plugin
 Plugin=WebParser
-URL=file://#SETTINGSPATH#Rainmeter.ini
-RegExp=(?siU)\[Monstercat-Suite\\Background\\Slideshow\].*?Active=(\d+)
-StringIndex=1
-FinishAction=[!EnableMeasure MeasureWallpaperChangedNotifySelf][!UpdateMeasure MeasureWallpaperChangedNotifySelf]
-
-[MeasureWallpaperChangedNotifySelf]
-Measure=Calc
-Formula=[MeasureWallpaperConfigState]
+URL=#CoverUrl#
 DynamicVariables=1
-UpdateDivider=-1
-Disabled=1
+OnChangeAction=[!CommandMeasure DoReadUpdate "Stop 1"][!CommandMeasure DoReadUpdate "Execute 1"]
+
+;[MeasureWallpaperConfigState]
+;Measure=Plugin
+;Plugin=WebParser
+;URL=file://#SETTINGSPATH#Rainmeter.ini
+;RegExp=(?siU)\[Monstercat-Suite\\Background\\Slideshow\].*?Active=(\d+)
+;StringIndex=1
+;FinishAction=[!EnableMeasure MeasureWallpaperChangedNotifySelf][!UpdateMeasure MeasureWallpaperChangedNotifySelf]
+;
+;[MeasureWallpaperChangedNotifySelf]
+;Measure=Calc
+;Formula=[MeasureWallpaperConfigState]
+;DynamicVariables=1
+;UpdateDivider=-1
+;Disabled=1
 ;IfCondition=MeasureWallpaperChangedNotifySelf > 0
 ;IfTrueAction=[!CommandMeasure DoReadUpdateRepeat "Execute 1"]
 
