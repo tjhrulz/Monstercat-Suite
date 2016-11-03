@@ -38,6 +38,7 @@ TODO
 - [ ] Make cut off for number of colors to sort based off of a percent of the 1st colors count, I dont think I will do this though as it will favor lighter or darker colors Update: I think I am going to do the next thing on the todo list instead
 - [ ] Make interesting colors be higher on the list of colors (I think I could try to measure this quickly by looking at how far away it is from monochrone)
 - [ ] Use WiFiListLimit and WifiList to make users picking the right wireless card easier
+- [ ] Figure out what I am doing with the 4th thing on the IO meter and if I am keeping it swap it needs fixed.
 - [ ] Add news RSS
 - [ ] Weather stuffs (Use http://wxdata.weather.com/wxdata/weather/local/#LocationCode#?cc=*&unit=#TempUnit#&dayf=6 and parse, thanks to jsmorley for his post on that had no idea weather.com had an rss version (It even has wind direction!))
 - [ ] Calendar for the month meter
@@ -48,6 +49,7 @@ TODO
 - [ ] Add support for audio playback of fact sphere on left click?
 - [ ] Make sure background cmds are closing gracefully and correctly and not staying open
 - [ ] Process is spelled Proces in several places throughout the codebase, not causing any bugs as it is spelled that way throughout the file but it bothers me, Ill get around to regexing it someday
+- [ ] Make labels consistent and add a 3 step toggle (None, some, all)
 - [ ] Final optimization pass
 - [ ] Update installer meter to make initial setup nicer (Do before v1.0)
 - [ ] Look into hacking in Google play music (And youtube?) support to the music reader (I believe Google Talk/G+ used to expose this info)
@@ -56,6 +58,9 @@ TODO
 - [ ] Look into adding corsair and other keyboards manufactures color API's into the color system, I do not have a full RGB (Mine only does green) so I will need a guinea pig
 Bugs
 - [ ] If the fallback image finishes computing the image inbetween songs and before its thread gets killed and the song album art blur computes quickly it is possible for the album art blur to be the fallback image instead of the album art image (This was really hard to reproduce)
+- [ ] If you are using a spotify meter and spotify is running and playing and you reload a meter it will not update the color but instead use the old color
+- [ ] Spotify info stays on spotify close instead of switch to fallback and saying N/A
+- [ ] Sometimes the image is unable to load for the background image
 - [ ] Multiple color values below of above the color cutoff for can lead to multiple of the same color, however just shifting everything by the cutoff amount could also result in a color being the same as well, I think I will rewrite the cutoff to look for dupes and if there are the add more colors from the list
 - [ ] When spotify isn't running there is a lot of log spam, I think this is from the plugin and not my misuse of it hopefully I can turn it off
 - [ ] When using songs that are in the cloud on iTunes images do not work, I think this is an issue with iTunes and not me
