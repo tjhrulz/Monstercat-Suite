@@ -27,30 +27,22 @@ PlayerType=Genre
 RegExpSubstitute=1
 Substitute="[^a-zA-Z0-9]":""
 
-[MeasureLuaScript]
-Measure=Script
-ScriptFile="#@#\scripts\GPMDPJson.lua"
-FileToRead=#ReadPath#
-JSONParser="#@#\scripts\JSON.lua"
+;[MeasureLuaScript]
+;Measure=Script
+;ScriptFile="#@#\scripts\GPMDPJson.lua"
+;FileToRead=#ReadPath#
 
-[MeasureJSON]
-Measure=Plugin
-Plugin=WebParser.dll
-URL=file://#ReadPath#
-RegExp=(?siU)"song.*songLyrics": (.*)"shuffle": "(.*)".*repeat": "(.*)"
-UpdateRate=1000
-
-[MeasureAlbumArtDPMDP]
-Measure=String
-String=#CURRENTPATH#DownloadFile\image1.jpg
-Substitute="\":"\\"
-
-[MeasureAlbumChangedNotifyGPMDPSelf]
-Measure=Plugin
-Plugin=WebParser
-URL=#CoverUrl#
-DynamicVariables=1
-OnChangeAction=[!CommandMeasure DoReadUpdate "Stop 1"][!CommandMeasure DoReadUpdate "Execute 1"]
+;[MeasureAlbumArtDPMDP]
+;Measure=String
+;String=#CURRENTPATH#DownloadFile\image1.jpg
+;Substitute="\":"\\"
+;
+;[MeasureAlbumChangedNotifyGPMDPSelf]
+;Measure=Plugin
+;Plugin=WebParser
+;URL=#CoverUrl#
+;DynamicVariables=1
+;OnChangeAction=[!CommandMeasure DoReadUpdate "Stop 1"][!CommandMeasure DoReadUpdate "Execute 1"]
 
 ;[MeasureWallpaperConfigState]
 ;Measure=Plugin

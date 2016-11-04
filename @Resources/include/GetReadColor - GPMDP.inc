@@ -24,23 +24,18 @@ UpdateDivider=10
 Measure=String
 String=#CURRENTPATH#DownloadFile\image1.jpg
 Substitute="\":"\\"
+UpdateDivider = -1
+Group = AlbumArtDonwload
+OnUpdateAction=[!Log "do read update GPMDP"][!CommandMeasure DoReadUpdate "Stop 1"][!CommandMeasure DoReadUpdate "Execute 1"]
 
 [MeasureAlbumChangedNotifyGPMDP]
 Measure=Plugin
 Plugin=WebParser
-URL=#CoverUrl#
+URL=#GPMSongAlbumArt#
 Download=1
-DynamicVariables=1
 DownloadFile=image1.jpg
-FinishAction=[!CommandMeasure DoWriteUpdate "Stop 1"][!CommandMeasure DoWriteUpdate "Execute 1"]
-
-[MeasureAlbumChangedNotifyGPMDPSelf]
-Measure=Plugin
-Plugin=WebParser
-URL=#CoverUrl#
-Download=1
-DynamicVariables=1
-OnChangeAction=[!CommandMeasure DoReadUpdate "Stop 1"][!CommandMeasure DoReadUpdate "Execute 1"]
+Group = AlbumArtDonwload
+FinishAction=[!Log "do write update GPMDP"][!CommandMeasure DoWriteUpdate "Stop 1"][!CommandMeasure DoWriteUpdate "Execute 1"]
 
 [GetImagePath]
 Measure=String
