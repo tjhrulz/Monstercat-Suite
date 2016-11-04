@@ -27,22 +27,19 @@ PlayerType=Genre
 RegExpSubstitute=1
 Substitute="[^a-zA-Z0-9]":""
 
-;[MeasureLuaScript]
-;Measure=Script
-;ScriptFile="#@#\scripts\GPMDPJson.lua"
-;FileToRead=#ReadPath#
+[GetSongInfo]
+Measure=Script
+ScriptFile="#@#\scripts\GetInfoGPMDP.lua"
+FileToRead=#ReadPath#
+UpdateDivider=10
 
-;[MeasureAlbumArtDPMDP]
-;Measure=String
-;String=#CURRENTPATH#DownloadFile\image1.jpg
-;Substitute="\":"\\"
-;
-;[MeasureAlbumChangedNotifyGPMDPSelf]
-;Measure=Plugin
-;Plugin=WebParser
-;URL=#CoverUrl#
-;DynamicVariables=1
-;OnChangeAction=[!CommandMeasure DoReadUpdate "Stop 1"][!CommandMeasure DoReadUpdate "Execute 1"]
+[MeasureAlbumArtGPMDP]
+Measure=String
+String=#CURRENTPATH#DownloadFile\image1.jpg
+Substitute="\":"\\"
+UpdateDivider = -1
+Group = AlbumArtDonwload
+OnUpdateAction=[!CommandMeasure DoReadUpdate "Stop 1"][!CommandMeasure DoReadUpdate "Execute 1"]
 
 ;[MeasureWallpaperConfigState]
 ;Measure=Plugin

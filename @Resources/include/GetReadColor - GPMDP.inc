@@ -32,6 +32,7 @@ OnUpdateAction=[!Log "do read update GPMDP"][!CommandMeasure DoReadUpdate "Stop 
 Measure=Plugin
 Plugin=WebParser
 URL=#GPMSongAlbumArt#
+DynamicVariables=1
 Download=1
 DownloadFile=image1.jpg
 Group = AlbumArtDonwload
