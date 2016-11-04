@@ -1,5 +1,4 @@
 function blur(inputPath, outputPath)
-
 	if(SKIN:GetMeasure('RunBlurColor'):GetValue() == 0) then
 		--print("Killing RunBlurColor")
 		SKIN:Bang('!CommandMeasure', 'RunBlurColor', 'Kill')

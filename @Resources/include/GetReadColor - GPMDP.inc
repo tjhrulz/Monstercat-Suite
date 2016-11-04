@@ -18,15 +18,15 @@ ScriptFile=#@#\scripts\ReadColors.lua
 Measure=Script
 ScriptFile="#@#\scripts\GetInfoGPMDP.lua"
 FileToRead=#ReadPath#
-UpdateDivider=10
+UpdateDivider=1
 
 [MeasureAlbumArtGPMDP]
 Measure=String
 String=#CURRENTPATH#DownloadFile\image1.jpg
 Substitute="\":"\\"
 UpdateDivider = -1
-Group = AlbumArtDonwload
-OnUpdateAction=[!Log "do read update GPMDP"][!CommandMeasure DoReadUpdate "Stop 1"][!CommandMeasure DoReadUpdate "Execute 1"]
+Group = AlbumArtUpdate
+OnUpdateAction=[!CommandMeasure DoReadUpdate "Stop 1"][!CommandMeasure DoReadUpdate "Execute 1"]
 
 [MeasureAlbumChangedNotifyGPMDP]
 Measure=Plugin
@@ -35,6 +35,7 @@ URL=#GPMSongAlbumArt#
 DynamicVariables=1
 Download=1
 DownloadFile=image1.jpg
+UpdateRate = -1
 Group = AlbumArtDonwload
 FinishAction=[!Log "do write update GPMDP"][!CommandMeasure DoWriteUpdate "Stop 1"][!CommandMeasure DoWriteUpdate "Execute 1"]
 

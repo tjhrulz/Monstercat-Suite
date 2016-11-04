@@ -12,7 +12,7 @@ function GetColors(imagePath)
 	--print("Sorry the album art color selector for monstercat is somehow quick enough that the thread doesnt always have time to finish being killed, this wastes just enough time to solve that bug")
 	sleepFor(10)
 	
-	print("input:" .. imagePath)
+	--print("input:" .. imagePath)
 	
 	local rootPath = SKIN:GetVariable("ROOTCONFIGPATH")
 	local colorsToGet = tonumber(SKIN:GetVariable("ColorsToGet", 12))
