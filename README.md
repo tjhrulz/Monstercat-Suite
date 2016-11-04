@@ -39,6 +39,7 @@ TODO
 - [ ] Make interesting colors be higher on the list of colors (I think I could try to measure this quickly by looking at how far away it is from monochrone)
 - [ ] Use WiFiListLimit and WifiList to make users picking the right wireless card easier
 - [ ] Figure out what I am doing with the 4th thing on the IO meter and if I am keeping it swap it needs fixed.
+- [ ] Look into using an update rate of -1 for color stuff and have the dynamic system manually tell the measures to update to conserve more CPU and have everything change at same time
 - [ ] Add news RSS
 - [ ] Weather stuffs (Use http://wxdata.weather.com/wxdata/weather/local/#LocationCode#?cc=*&unit=#TempUnit#&dayf=6 and parse, thanks to jsmorley for his post on that had no idea weather.com had an rss version (It even has wind direction!))
 - [ ] Calendar for the month meter
@@ -73,7 +74,7 @@ Bugs
 - [ ] Several bars variants need to be checked for code consistency, such as percentual being set on some of the ferpnom meters, process being spelled wrong, or other logical bugs, and missoptimizations within them
 - [ ] Top processes bars do not use scale value on AdvancedCPU meters (Low priority due to percentual possibly scaling based on max value causing for percentage changes)
 Possible Future Changes
-- [ ] Dual graph CPU and GPU info (Similar to how combined processing graph works but instead one for just GPU and just CPU, would use things like temp and RAM usage on extra bars)
+- [ ] Use the color from GPMDP as a color option?
 - [ ] Once released see if advancedCPU is really needed and remove it? (Not till after I get enough people using it to make a judgment on this)
 - [ ] Decide if I want to make max for top process meters be less user configurable/Require more knowledge of your machine to change (How many cores)
 - [ ] Add missing part of DINAJ hovertext?

@@ -14,20 +14,13 @@ ScriptFile=#@#\scripts\GetAlbumColors.lua
 Measure=Script
 ScriptFile=#@#\scripts\ReadColors.lua
 
-[MeasureLuaScript]
+[GetSongInfo]
 Measure=Script
-ScriptFile="#@#\scripts\GPMDPJson.lua"
+ScriptFile="#@#\scripts\GetInfoGPMDP.lua"
 FileToRead=#ReadPath#
-JSONParser="#@#\scripts\JSON.lua"
+UpdateDivider=10
 
-[MeasureJSON]
-Measure=Plugin
-Plugin=WebParser.dll
-URL=file://#ReadPath#
-RegExp=(?siU)"song.*songLyrics": (.*)"shuffle": "(.*)".*repeat": "(.*)"
-UpdateRate=100
-
-[MeasureAlbumArtDPMDP]
+[MeasureAlbumArtGPMDP]
 Measure=String
 String=#CURRENTPATH#DownloadFile\image1.jpg
 Substitute="\":"\\"
@@ -74,7 +67,7 @@ FinishAction=[!CommandMeasure CalcColorsToUse "colorSelector('')"][!SetOptionGro
 Measure=Plugin
 Plugin=ActionTimer
 ActionList1=Wait 1 | ProcessUpdate1 
-ProcessUpdate1=[!CommandMeasure CalcAlbumHistogram "GetColors('[MeasureAlbumArtDPMDP]')"]
+ProcessUpdate1=[!CommandMeasure CalcAlbumHistogram "GetColors('[MeasureAlbumArtGPMDP]')"]
 
 [DoReadUpdate]
 Measure=Plugin
