@@ -46,7 +46,7 @@ DynamicVariables=1
 Download=1
 DownloadFile=image1.jpg
 UpdateRate = -1
-FinishAction=[!CommandMeasure DoWriteUpdate "Stop 1"][!CommandMeasure DoWriteUpdate "Execute 1"]
+FinishAction=[!UpdateMeterGroup CoverGroup][!CommandMeasure DoWriteUpdate "Stop 1"][!CommandMeasure DoWriteUpdate "Execute 1"]
 
 [GetImagePath]
 Measure=String
