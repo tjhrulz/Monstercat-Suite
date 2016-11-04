@@ -24,7 +24,7 @@ function GetColors(imagePath)
 		if(tonumber(SKIN:GetVariable("EnableMultiColors", 1)) == 1) then
 			
 			if (imagePath == nil) or (string.len(imagePath) <= 1) then
-				--print("No Image defined, switching to histogram fallback:" .. imagePath)
+				print("No Image defined, switching to histogram fallback:" .. imagePath)
 				--FallbackPath = rootPath .. "@Resources\\images\\Fallback.png"
 				local FallbackPath = getFallbackPath()
 			

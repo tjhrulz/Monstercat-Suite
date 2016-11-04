@@ -25,6 +25,16 @@ Measure=String
 String=#CURRENTPATH#DownloadFile\image1.jpg
 Substitute="\":"\\"
 UpdateDivider = -1
+DynamicVariables = 1
+Group = AlbumArtUpdate
+OnChangeAction=[!Log "do write update fallback GPMDP"][!CommandMeasure DoWriteUpdate "Stop 1"][!CommandMeasure DoWriteUpdate "Execute 1"]
+
+[MeasureAlbumArtGPMDPNotify]
+Measure=String
+String=#CURRENTPATH#DownloadFile\image1.jpg
+Substitute="\":"\\"
+UpdateDivider = -1
+DynamicVariables = 1
 Group = AlbumArtUpdate
 OnUpdateAction=[!CommandMeasure DoReadUpdate "Stop 1"][!CommandMeasure DoReadUpdate "Execute 1"]
 
@@ -36,7 +46,6 @@ DynamicVariables=1
 Download=1
 DownloadFile=image1.jpg
 UpdateRate = -1
-Group = AlbumArtDonwload
 FinishAction=[!Log "do write update GPMDP"][!CommandMeasure DoWriteUpdate "Stop 1"][!CommandMeasure DoWriteUpdate "Execute 1"]
 
 [GetImagePath]
