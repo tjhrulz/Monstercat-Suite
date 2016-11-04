@@ -12,7 +12,7 @@ function blur(inputPath, outputPath)
 	--print("Sorry the album art color blur for monstercat is realy quick to init so the thread doesnt always have time to finish being killed, this wastes just enough time to solve that bug")
 	sleepFor(10)
 	
-	print("input:" .. inputPath)
+	--print("input:" .. inputPath)
 	
 	local rootPath = SKIN:GetVariable("@")
 	local magickPath = rootPath .. "ImageMagickScripts\\convert.exe"
