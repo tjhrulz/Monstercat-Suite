@@ -21,6 +21,7 @@ v1.2r - Google play music (web) plugin? and Networking top processes plugin
 v1.3r - Machine learning album art selector, I'm kidding (Maybe)
 
 May happen eventually
+Visualizer version of PCMR circle logo
 Background sideshow - There was issues with CPU and RAM usage of queueing up that many requests and it would do them all at once and pull them off of a stack once requested eating up RAM even when not using it. Ill rebuild using Lua eventually and see if that fixes it. Also was always getting passed the old image
 Meters will change to variant on middle click, I only wanna do this if it can include the alt system
 Add more versions of CPU and GPU info (I don't think I will do this as the info is not too needed (And I don't need to see my FPS hit 59 and want to replace my computer) and all new and old info would need to be labeled to differentiate it 
@@ -58,6 +59,7 @@ TODO
 - [ ] Look into if average size variable increases or decrease performance based on size (kind of irrelevant now with CPU usage being better I just want to document it right)
 - [ ] Look into adding corsair and other keyboards manufactures color API's into the color system, I do not have a full RGB (Mine only does green) so I will need a guinea pig
 Bugs
+- [ ] GPMDP when skipping very fast (Like before album art downloads) repeatedly can end up locking the album art requiring you to restart rainmeter
 - [ ] If the fallback image finishes computing the image inbetween songs and before its thread gets killed and the song album art blur computes quickly it is possible for the album art blur to be the fallback image instead of the album art image (This was really hard to reproduce)
 - [ ] If you are using a spotify meter and spotify is running and playing and you reload a meter it will not update the color but instead use the old color
 - [ ] Spotify info stays on spotify close instead of switch to fallback and saying N/A
@@ -67,7 +69,7 @@ Bugs
 - [ ] When using songs that are in the cloud on iTunes images do not work, I think this is an issue with iTunes and not me
 - [ ] Album art color fetch runs when a genre color will end up being decided (Not as big a deal as I figured it would be, blur takes up way more cpu time)
 - [ ] Rarely a thread is detected as running but when it goes to be killed it is already dead, likely is finishing gracefully before the kill command happens. Not a major bug just causes occasional log spam
-- [ ] IO Multigraph swap space may be computed wrong, if it ever is negative then Formula=[MeasureSwap]-[MeasureRAMTotal] need to be changed to Formula=[MeasureSwap]-[MeasureRAM] I think it is right though.
+- [X] IO Multigraph swap space may be computed wrong, if it ever is negative then Formula=[MeasureSwap]-[MeasureRAMTotal] need to be changed to Formula=[MeasureSwap]-[MeasureRAM] I think it is right though.
 - [ ] Pinging conditionals do not work after first time they are triggered Update: I have disabled for now so MaxPingDisplayed is ignored
 - [ ] Check and possibly fix if DINTFMI only working on first load since afterwards it may always use old data
 - [ ] Look into if CPU being off by about a factor of about 2 (Seems to be half actual on advancedCPU and ferpnom) on CPU reader and top processes is a bug in task manager, rainmeter dlls, or if it is just my machine
