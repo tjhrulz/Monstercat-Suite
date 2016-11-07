@@ -27,7 +27,7 @@ Substitute="\":"\\"
 UpdateDivider = -1
 DynamicVariables = 1
 Group = AlbumArtUpdate
-OnChangeAction=[!CommandMeasure DoWriteUpdate "Stop 1"][!CommandMeasure DoWriteUpdate "Execute 1"]
+;OnChangeAction=[!CommandMeasure DoWriteUpdate "Stop 1"][!CommandMeasure DoWriteUpdate "Execute 1"]
 
 [MeasureAlbumArtGPMDPNotify]
 Measure=String

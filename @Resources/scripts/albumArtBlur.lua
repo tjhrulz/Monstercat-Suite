@@ -10,7 +10,7 @@ function blur(inputPath, outputPath)
 		--print("RunBlurColorFallback Value:" .. SKIN:GetMeasure('RunBlurColorFallback'):GetValue())
 	end
 	--print("Sorry the album art color blur for monstercat is realy quick to init so the thread doesnt always have time to finish being killed, this wastes just enough time to solve that bug")
-	sleepFor(10)
+	sleepFor(15)
 	
 	--print("input:" .. inputPath)
 	
