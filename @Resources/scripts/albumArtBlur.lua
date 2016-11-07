@@ -1,4 +1,5 @@
 function blur(inputPath, outputPath)
+	sleepFor(1)
 	if(SKIN:GetMeasure('RunBlurColor'):GetValue() == 0) then
 		--print("Killing RunBlurColor")
 		SKIN:Bang('!CommandMeasure', 'RunBlurColor', 'Kill')
@@ -10,7 +11,7 @@ function blur(inputPath, outputPath)
 		--print("RunBlurColorFallback Value:" .. SKIN:GetMeasure('RunBlurColorFallback'):GetValue())
 	end
 	--print("Sorry the album art color blur for monstercat is realy quick to init so the thread doesnt always have time to finish being killed, this wastes just enough time to solve that bug")
-	sleepFor(15)
+	sleepFor(1)
 	
 	--print("input:" .. inputPath)
 	
@@ -22,12 +23,13 @@ function blur(inputPath, outputPath)
 	
 	if(inputPath ~= nil) and (string.len(inputPath) >= 1) then		
 		local cmdCommand = rootPath .. "ImageMagickScripts\\convert.exe " .. inputPath .. " -channel RGBA -blur 0x" .. blurAmount .. " " .. outputPath
-
+		print("Doing normal:" .. cmdCommand)
 		SKIN:Bang('!SetOption', 'RunBlurColor', 'Parameter', cmdCommand)
 		SKIN:Bang('!CommandMeasure', 'RunBlurColor', 'Run')
 	else
 		--local fallbackPath = SKIN:GetVariable("@") .. "images\\Fallback.png"	
 		local FallbackPath = getFallbackPath()	
+		print("Doing fallback:" .. FallbackPath)
 		local cmdCommand = rootPath .. "ImageMagickScripts\\convert.exe " .. FallbackPath .. " -channel RGBA -blur 0x" .. blurAmount .. " " .. outputPath
 		
 		SKIN:Bang('!SetOption', 'RunBlurColorFallback', 'Parameter', cmdCommand)
@@ -127,5 +129,7 @@ function ReadFile(FilePath)
 end
 
 function sleepFor(n)
-	SKIN:Bang(SKIN:GetVariable("@") .. "scripts\\sleep.vbs " .. n)	
+	for i=0, n, 1 do
+		SKIN:Bang(SKIN:GetVariable("@") .. "scripts\\sleep.vbs " .. "10")	
+	end
 end

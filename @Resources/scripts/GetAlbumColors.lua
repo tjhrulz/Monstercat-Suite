@@ -1,5 +1,5 @@
 function GetColors(imagePath)
-	sleepFor(30)
+	sleepFor(1)
 	if(SKIN:GetMeasure('RunAverageColor'):GetValue() == 0) then
 		--print("Killing RunAverageColor")
 		SKIN:Bang('!CommandMeasure', 'RunAverageColor', 'Kill')
@@ -11,7 +11,7 @@ function GetColors(imagePath)
 		--print("RunFallbackAverageColor Value:" .. SKIN:GetMeasure('RunFallbackAverageColor'):GetValue())
 	end
 	--print("Sorry the album art color selector for monstercat is somehow quick enough that the thread doesnt always have time to finish being killed, this wastes just enough time to solve that bug")
-	sleepFor(15)
+	sleepFor(1)
 	
 	--print("input:" .. imagePath)
 	
@@ -25,10 +25,10 @@ function GetColors(imagePath)
 		if(tonumber(SKIN:GetVariable("EnableMultiColors", 1)) == 1) then
 			
 			if (imagePath == nil) or (string.len(imagePath) <= 1) then
-				print("No Image defined, switching to histogram fallback:" .. imagePath)
+				--print("No Image defined, switching to histogram fallback:" .. imagePath)
 				--FallbackPath = rootPath .. "@Resources\\images\\Fallback.png"
 				local FallbackPath = getFallbackPath()
-				print("No Image defined, current fallback:" .. FallbackPath)
+				--print("No Image defined, current fallback:" .. FallbackPath)
 			
 				-- -colors 16 -depth 8 -format "%c" histogram:info: | sort /r
 				-- -scale 1x1! -format %[fx:int(255*r+.5)],%[fx:int(255*g+.5)],%[fx:int(255*b+.5)] info:
@@ -82,18 +82,18 @@ function GetColors(imagePath)
 			--print("First load:")
 			
 			if (SKIN:GetMeasure('RunFallbackAverageColor'):GetValue() == -1) and ((imagePath == nil) or (string.len(imagePath) <= 1)) then
-				sleepFor(66)
+				sleepFor(2)
 				if(SKIN:GetMeasure('RunFallbackAverageColor'):GetValue() == 0) then
-					print("Killing RunFallbackAverageColor")
+					--print("Killing RunFallbackAverageColor")
 					SKIN:Bang('!CommandMeasure', 'RunFallbackAverageColor', 'Kill')
 					--print("RunFallbackAverageColor Value:" .. SKIN:GetMeasure('RunFallbackAverageColor'):GetValue())
 				end
-				sleepFor(15)			
+				sleepFor(1)			
 				--print("No Image defined, switching to histogram of fallback image")
 				--FallbackPath = rootPath .. "@Resources\\images\\Fallback.png"	
-				print("No Image defined, First run, switching to histogram fallback:" .. imagePath)
+				--print("No Image defined, First run, switching to histogram fallback:" .. imagePath)
 				local FallbackPath = getFallbackPath()
-				print("No Image defined, First run, current fallback:" .. FallbackPath)		
+				--print("No Image defined, First run, current fallback:" .. FallbackPath)		
 
 				-- -colors 16 -depth 8 -format "%c" histogram:info: | sort /r
 				-- -scale 1x1! -format %[fx:int(255*r+.5)],%[fx:int(255*g+.5)],%[fx:int(255*b+.5)] info:
@@ -102,13 +102,13 @@ function GetColors(imagePath)
 				
 				SKIN:Bang('!CommandMeasure', 'RunFallbackAverageColor', 'Run')
 			elseif (SKIN:GetMeasure('RunAverageColor'):GetValue() == -1) then
-				sleepFor(66)
+				sleepFor(2)
 				if(SKIN:GetMeasure('RunAverageColor'):GetValue() == 0) then
 					--print("Killing RunAverageColor")
 					SKIN:Bang('!CommandMeasure', 'RunAverageColor', 'Kill')
 					--print("RunAverageColor Value:" .. SKIN:GetMeasure('RunAverageColor'):GetValue())
 				end
-				sleepFor(15)
+				sleepFor(1)
 				-- -colors 16 -depth 8 -format "%c" histogram:info: | sort /r
 				-- -scale 1x1! -format %[fx:int(255*r+.5)],%[fx:int(255*g+.5)],%[fx:int(255*b+.5)] info:
 				local cmdCommand = rootPath .. "@Resources\\ImageMagickScripts\\convert.exe \"" .. imagePath .. "\"  -colors ".. colorsToGet .." -depth 8 -format %c histogram:info: | sort /r"
@@ -151,7 +151,7 @@ function getFallbackPath()
 			
 			if (dateToCheck == currMonth .. "/" .. currDay) or (dateToCheck == currMonth .. "/" .. currDay .. "/" .. currYear) or (dateToCheck == currMonth .. "/" .. currDay .. "/" .. currYearF) then
 				dateFileToLoad = string.sub(dates[i], 0, dateCutoff-2)
-				print("date:" .. dateFileToLoad)
+				--print("date:" .. dateFileToLoad)
 			end
 		elseif (easterCutoff ~= nil) then
 			dateToCheck = string.sub(dates[i], easterCutoff)
@@ -218,5 +218,7 @@ function ReadFile(FilePath)
 end
 
 function sleepFor(n)
-	SKIN:Bang(SKIN:GetVariable("@") .. "scripts\\sleep.vbs " .. n)	
+	for i=0, n, 1 do
+		SKIN:Bang(SKIN:GetVariable("@") .. "scripts\\sleep.vbs " .. "10")	
+	end
 end
