@@ -1,7 +1,7 @@
 #A WIP rainmeter suite based on the Monstercat Visualizer skin by marcopixel.
 Includes Do I need a jacket support from FlyingHyrax, multiple system info and networking meters. More to come
 
-#Example from latest released
+#Example from latest release
 ![alt text](http://i.imgur.com/QGcgfsr.png "Example of full dev setup using Google Play Music")
 
 #Examples
@@ -19,13 +19,16 @@ Includes Do I need a jacket support from FlyingHyrax, multiple system info and n
 * v0.7.0  Skins that support laptop/desktop specific features, Multigraph CPU, GPU, and IO graphs  
 * v0.7.1 Logos that support system info  
 * v0.7.2 Auto seasonal and holiday fallback images (Having issues finding images)  
-* v0.7.5r Toggle visibility buttons, GPMDP Support (Likely will a very be limited version similar to how spotify was at first, I will look into a websocket plugin later if I don't go my own route)  
-* v0.7.6 Small versions of music player and clock?, volume changer  
+* v0.7.5r GPMDP Support (Likely will a very be limited version similar to how spotify was at first, I will look into a websocket plugin later if I don't go my own route)  
+* v0.7.6  Toggle visibility buttons, Label verbosity configuration  
+* v0.7.7 Small versions of music player and clock?, volume changer  
+
 ##Future Major Versions
 * v0.8.0r - Weather & News support  
 * v0.9.0r - Appointments  
 * v0.9.5r - Calendar  
 * v1.0.0r - Installer updated, Notification system, App launcher, full planned meter feature set  
+
 ##Post 1.0
 * v1.1r - Support for dynamic color keyboards  
 * v1.2r - Google play music (web) plugin? and Networking top processes plugin  
@@ -55,18 +58,23 @@ Includes Do I need a jacket support from FlyingHyrax, multiple system info and n
 - [ ] Pinging conditionals do not work after first time they are triggered Update: I have disabled for now so MaxPingDisplayed is ignored
 - [ ] Check and possibly fix if DINTFMI only working on first load since afterwards it may always use old data
 - [ ] Look into if CPU being off by about a factor of about 2 (Seems to be half actual on advancedCPU and ferpnom) on CPU reader and top processes is a bug in task manager, rainmeter dlls, or if it is just my machine
+- [ ] Installer is unupdated and should not be used  
+
 ##Unlikely
 - [ ] Multiple color values below of above the color cutoff for can lead to multiple of the same color, however just shifting everything by the cutoff amount could also result in a color being the same as well, I think I will rewrite the cutoff to look for dupes and if there are the add more colors from the list
 - [ ] Sometimes the image is unable to load for the background image
+- [ ] There is no char limit in the top process meters, thus it is possible for a executable with a long name to display under the usage percent and draw beyond the width of the meter  
+
 ##Very Unlikely
 - [ ] GPMDP when skipping very fast (Like before album art downloads) repeatedly can end up locking the album art requiring you to restart rainmeter
 - [ ] If the fallback image finishes computing the image inbetween songs and before its thread gets killed and the song album art blur computes quickly it is possible for the album art blur to be the fallback image instead of the album art image (This was really hard to reproduce)
-- [ ] Album art color fetch runs when a genre color will end up being decided (Not as big a deal as I figured it would be, blur takes up way more cpu time)
 - [ ] Rarely a thread is detected as running but when it goes to be killed it is already dead, likely is finishing gracefully before the kill command happens. Not a major bug just causes occasional log spam
+
 ##Minor
 - [ ] Several bars variants need to be checked for code consistency, such as percentual being set on some of the ferpnom meters, process being spelled wrong, or other logical bugs, and missoptimizations within them
 - [ ] Top processes bars do not use scale value on AdvancedCPU meters (Low priority due to percentual possibly scaling based on max value causing for percentage changes)
-
+- [ ] Album art color fetch runs when a genre color will end up being decided (Not as big a deal as I figured it would be since histogram takes up little cpu time)
+- [ ] Dynamic variables are turned on unnecessarily, many meters can be made to have better performance
 
 #Info for development
 

@@ -1,5 +1,5 @@
 [Rainmeter]
-Group=DynamicColors
+;Group=DynamicColors
 OnRefreshAction=[!CommandMeasure DoReadUpdate "Stop 1"][!CommandMeasure DoReadUpdate "Execute 1"]
 
 [ReadColorsToUse]
