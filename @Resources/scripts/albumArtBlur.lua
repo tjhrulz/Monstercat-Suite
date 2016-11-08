@@ -23,17 +23,48 @@ function blur(inputPath, outputPath)
 	
 	if(inputPath ~= nil) and (string.len(inputPath) >= 1) then		
 		local cmdCommand = rootPath .. "ImageMagickScripts\\convert.exe " .. inputPath .. " -channel RGBA -blur 0x" .. blurAmount .. " " .. outputPath
-		print("Doing normal:" .. cmdCommand)
+		--print("Doing normal:" .. cmdCommand)
 		SKIN:Bang('!SetOption', 'RunBlurColor', 'Parameter', cmdCommand)
 		SKIN:Bang('!CommandMeasure', 'RunBlurColor', 'Run')
 	else
 		--local fallbackPath = SKIN:GetVariable("@") .. "images\\Fallback.png"	
 		local FallbackPath = getFallbackPath()	
-		print("Doing fallback:" .. FallbackPath)
+		--print("Doing fallback:" .. FallbackPath)
 		local cmdCommand = rootPath .. "ImageMagickScripts\\convert.exe " .. FallbackPath .. " -channel RGBA -blur 0x" .. blurAmount .. " " .. outputPath
 		
 		SKIN:Bang('!SetOption', 'RunBlurColorFallback', 'Parameter', cmdCommand)
 		SKIN:Bang('!CommandMeasure', 'RunBlurColorFallback', 'Run')
+	end
+	if(SKIN:GetMeasure('RunBlurColor'):GetValue() == -1) or (SKIN:GetMeasure('RunBlurColorFallback'):GetValue() == -1) then
+		--print("First load:")
+				
+		if (SKIN:GetMeasure('RunBlurColorFallback'):GetValue() == -1) and ((imagePath == nil) or (string.len(imagePath) <= 1)) then
+			sleepFor(5)
+			if(SKIN:GetMeasure('RunBlurColorFallback'):GetValue() == 0) then
+				print("Killing RunBlurColorFallback")
+				SKIN:Bang('!CommandMeasure', 'RunBlurColorFallback', 'Kill')
+				--print("RunBlurColorFallback Value:" .. SKIN:GetMeasure('RunBlurColorFallback'):GetValue())
+			end
+			sleepFor(1)			
+			--local fallbackPath = SKIN:GetVariable("@") .. "images\\Fallback.png"	
+			local FallbackPath = getFallbackPath()	
+			--print("Doing fallback blur:" .. FallbackPath)
+			local cmdCommand = rootPath .. "ImageMagickScripts\\convert.exe " .. FallbackPath .. " -channel RGBA -blur 0x" .. blurAmount .. " " .. outputPath
+			
+			SKIN:Bang('!SetOption', 'RunBlurColorFallback', 'Parameter', cmdCommand)
+			SKIN:Bang('!CommandMeasure', 'RunBlurColorFallback', 'Run')
+		elseif (SKIN:GetMeasure('RunBlurColor'):GetValue() == -1) then
+			sleepFor(5)
+			if(SKIN:GetMeasure('RunBlurColor'):GetValue() == 0) then
+				print("Killing RunBlurColor")
+				SKIN:Bang('!CommandMeasure', 'RunBlurColor', 'Kill')
+				--print("RunBlurColor Value:" .. SKIN:GetMeasure('RunBlurColor'):GetValue())
+			end
+			local cmdCommand = rootPath .. "ImageMagickScripts\\convert.exe " .. inputPath .. " -channel RGBA -blur 0x" .. blurAmount .. " " .. outputPath
+			--print("Doing normal blur:" .. cmdCommand)
+			SKIN:Bang('!SetOption', 'RunBlurColor', 'Parameter', cmdCommand)
+			SKIN:Bang('!CommandMeasure', 'RunBlurColor', 'Run')
+		end
 	end
 end
 
@@ -94,7 +125,7 @@ function getFallbackPath()
 		fallbackPath = fallbackPath .. "@Resources\\images\\Fallback.png"	
 	end
 	
-	print(fallbackPath)
+	--print(fallbackPath)
 	
 	return fallbackPath
 end

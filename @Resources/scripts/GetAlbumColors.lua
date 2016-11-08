@@ -82,7 +82,7 @@ function GetColors(imagePath)
 			--print("First load:")
 			
 			if (SKIN:GetMeasure('RunFallbackAverageColor'):GetValue() == -1) and ((imagePath == nil) or (string.len(imagePath) <= 1)) then
-				sleepFor(2)
+				sleepFor(3)
 				if(SKIN:GetMeasure('RunFallbackAverageColor'):GetValue() == 0) then
 					--print("Killing RunFallbackAverageColor")
 					SKIN:Bang('!CommandMeasure', 'RunFallbackAverageColor', 'Kill')
@@ -102,7 +102,7 @@ function GetColors(imagePath)
 				
 				SKIN:Bang('!CommandMeasure', 'RunFallbackAverageColor', 'Run')
 			elseif (SKIN:GetMeasure('RunAverageColor'):GetValue() == -1) then
-				sleepFor(2)
+				sleepFor(3)
 				if(SKIN:GetMeasure('RunAverageColor'):GetValue() == 0) then
 					--print("Killing RunAverageColor")
 					SKIN:Bang('!CommandMeasure', 'RunAverageColor', 'Kill')
