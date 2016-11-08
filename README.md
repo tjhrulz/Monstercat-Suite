@@ -58,12 +58,12 @@ Includes Do I need a jacket support from FlyingHyrax, multiple system info and n
 - [ ] Pinging conditionals do not work after first time they are triggered Update: I have disabled for now so MaxPingDisplayed is ignored
 - [ ] Check and possibly fix if DINTFMI only working on first load since afterwards it may always use old data
 - [ ] Look into if CPU being off by about a factor of about 2 (Seems to be half actual on advancedCPU and ferpnom) on CPU reader and top processes is a bug in task manager, rainmeter dlls, or if it is just my machine
-- [ ] Installer is unupdated and should not be used  
+- [ ] Installer is not updated and should not be used
 
 ##Unlikely
 - [ ] Multiple color values below of above the color cutoff for can lead to multiple of the same color, however just shifting everything by the cutoff amount could also result in a color being the same as well, I think I will rewrite the cutoff to look for dupes and if there are the add more colors from the list
 - [ ] Sometimes the image is unable to load for the background image
-- [ ] There is no char limit in the top process meters, thus it is possible for a executable with a long name to display under the usage percent and draw beyond the width of the meter  
+- [X] There is no char limit in the top process meters, thus it is possible for a executable with a long name to display under the usage percent and draw beyond the width of the meter
 
 ##Very Unlikely
 - [ ] GPMDP when skipping very fast (Like before album art downloads) repeatedly can end up locking the album art requiring you to restart rainmeter
