@@ -16,11 +16,11 @@ function GetColors(imagePath)
 	--print("input:" .. imagePath)
 	
 	--local rootPath = "\"" .. SKIN:GetVariable("ROOTCONFIGPATH")
-	local magickPath = "C:\\img\\convert.exe"
+	local magickPath = SKIN:GetVariable("MagickPath", SKIN:GetVariable("@") .. "ImageMagickScripts\\convert.exe")
 	local colorsToGet = tonumber(SKIN:GetVariable("ColorsToGet", 12))
 	imagePath = "\"" .. imagePath .. "\""
 	
-	--print(imagePath)
+	--print(magickPath)
 	--print(SKIN:GetMeasure('RunAverageColor'):GetOption('Parameter'))
 	
 	if(tonumber(SKIN:GetVariable("EnableAlbumColor", 1)) == 1) then
