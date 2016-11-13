@@ -15,22 +15,21 @@ function blur(inputPath, outputPath)
 	
 	--print("input:" .. inputPath)
 	
-	local rootPath = SKIN:GetVariable("@")
-	local magickPath = rootPath .. "ImageMagickScripts\\convert.exe"
+	local magickPath = "C:\\img\\convert.exe"
 	
 	--local outputPath = SKIN:GetVariable("@") .. "images\\coverB.png"
 	local blurAmount = tonumber(SKIN:GetVariable("BlurAmount", 32))
 	
 	if(inputPath ~= nil) and (string.len(inputPath) >= 1) then		
-		local cmdCommand = rootPath .. "ImageMagickScripts\\convert.exe " .. inputPath .. " -channel RGBA -blur 0x" .. blurAmount .. " " .. outputPath
+		local cmdCommand = magickPath .. " \"" .. inputPath .. "\"" ..  " -channel RGBA -blur 0x" .. blurAmount .. " " .. outputPath
 		--print("Doing normal:" .. cmdCommand)
-		SKIN:Bang('!SetOption', 'RunBlurColor', 'Parameter', cmdCommand)
+		SKIN:Bang('!SetOption', 'RunBlurColor', 'Parameter', cmdCommand) 
 		SKIN:Bang('!CommandMeasure', 'RunBlurColor', 'Run')
 	else
 		--local fallbackPath = SKIN:GetVariable("@") .. "images\\Fallback.png"	
 		local FallbackPath = getFallbackPath()	
 		--print("Doing fallback:" .. FallbackPath)
-		local cmdCommand = rootPath .. "ImageMagickScripts\\convert.exe " .. FallbackPath .. " -channel RGBA -blur 0x" .. blurAmount .. " " .. outputPath
+		local cmdCommand = magickPath .. " \"" .. FallbackPath .. "\"" ..  " -channel RGBA -blur 0x" .. blurAmount .. " " .. outputPath
 		
 		SKIN:Bang('!SetOption', 'RunBlurColorFallback', 'Parameter', cmdCommand)
 		SKIN:Bang('!CommandMeasure', 'RunBlurColorFallback', 'Run')
@@ -49,7 +48,7 @@ function blur(inputPath, outputPath)
 			--local fallbackPath = SKIN:GetVariable("@") .. "images\\Fallback.png"	
 			local FallbackPath = getFallbackPath()	
 			--print("Doing fallback blur:" .. FallbackPath)
-			local cmdCommand = rootPath .. "ImageMagickScripts\\convert.exe " .. FallbackPath .. " -channel RGBA -blur 0x" .. blurAmount .. " " .. outputPath
+			local cmdCommand = magickPath .. " \"" .. FallbackPath .. "\"" ..  " -channel RGBA -blur 0x" .. blurAmount .. " " .. outputPath
 			
 			SKIN:Bang('!SetOption', 'RunBlurColorFallback', 'Parameter', cmdCommand)
 			SKIN:Bang('!CommandMeasure', 'RunBlurColorFallback', 'Run')
@@ -60,7 +59,7 @@ function blur(inputPath, outputPath)
 				SKIN:Bang('!CommandMeasure', 'RunBlurColor', 'Kill')
 				--print("RunBlurColor Value:" .. SKIN:GetMeasure('RunBlurColor'):GetValue())
 			end
-			local cmdCommand = rootPath .. "ImageMagickScripts\\convert.exe " .. inputPath .. " -channel RGBA -blur 0x" .. blurAmount .. " " .. outputPath
+			local cmdCommand = magickPath .. " \"" .. inputPath .. "\"" ..  " -channel RGBA -blur 0x" .. blurAmount .. " " .. outputPath
 			--print("Doing normal blur:" .. cmdCommand)
 			SKIN:Bang('!SetOption', 'RunBlurColor', 'Parameter', cmdCommand)
 			SKIN:Bang('!CommandMeasure', 'RunBlurColor', 'Run')
@@ -93,7 +92,7 @@ function getFallbackPath()
 			
 			if (dateToCheck == currMonth .. "/" .. currDay) or (dateToCheck == currMonth .. "/" .. currDay .. "/" .. currYear) or (dateToCheck == currMonth .. "/" .. currDay .. "/" .. currYearF) then
 				dateFileToLoad = string.sub(dates[i], 0, dateCutoff-2)
-				print("date:" .. dateFileToLoad)
+				--print("date:" .. dateFileToLoad)
 			end
 		elseif (easterCutoff ~= nil) then
 			dateToCheck = string.sub(dates[i], easterCutoff)
@@ -127,7 +126,7 @@ function getFallbackPath()
 	
 	--print(fallbackPath)
 	
-	return fallbackPath
+	return "\"" .. fallbackPath .. "\""
 end
 
 function ReadFile(FilePath)

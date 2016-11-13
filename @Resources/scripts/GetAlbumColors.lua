@@ -15,8 +15,10 @@ function GetColors(imagePath)
 	
 	--print("input:" .. imagePath)
 	
-	local rootPath = SKIN:GetVariable("ROOTCONFIGPATH")
+	--local rootPath = "\"" .. SKIN:GetVariable("ROOTCONFIGPATH")
+	local magickPath = "C:\\img\\convert.exe"
 	local colorsToGet = tonumber(SKIN:GetVariable("ColorsToGet", 12))
+	imagePath = "\"" .. imagePath .. "\""
 	
 	--print(imagePath)
 	--print(SKIN:GetMeasure('RunAverageColor'):GetOption('Parameter'))
@@ -26,13 +28,12 @@ function GetColors(imagePath)
 			
 			if (imagePath == nil) or (string.len(imagePath) <= 1) then
 				--print("No Image defined, switching to histogram fallback:" .. imagePath)
-				--FallbackPath = rootPath .. "@Resources\\images\\Fallback.png"
 				local FallbackPath = getFallbackPath()
 				--print("No Image defined, current fallback:" .. FallbackPath)
 			
 				-- -colors 16 -depth 8 -format "%c" histogram:info: | sort /r
 				-- -scale 1x1! -format %[fx:int(255*r+.5)],%[fx:int(255*g+.5)],%[fx:int(255*b+.5)] info:
-				local cmdCommand = rootPath .. "@Resources\\ImageMagickScripts\\convert.exe \"" .. FallbackPath .. "\"  -colors ".. colorsToGet .." -depth 8 -format %c histogram:info: | sort /r"
+				local cmdCommand = magickPath .. " " .. FallbackPath .. "  -colors ".. colorsToGet .. " -depth 8 -format %c histogram:info: | sort /r"
 				SKIN:Bang('!SetOption', 'RunFallbackAverageColor', 'Parameter', cmdCommand)
 
 				SKIN:Bang('!CommandMeasure', 'RunFallbackAverageColor', 'Run')
@@ -41,7 +42,7 @@ function GetColors(imagePath)
 			
 				-- -colors 16 -depth 8 -format "%c" histogram:info: | sort /r
 				-- -scale 1x1! -format %[fx:int(255*r+.5)],%[fx:int(255*g+.5)],%[fx:int(255*b+.5)] info:
-				local cmdCommand = rootPath .. "@Resources\\ImageMagickScripts\\convert.exe \"" .. imagePath .. "\"  -colors ".. colorsToGet .." -depth 8 -format %c histogram:info: | sort /r"
+				local cmdCommand = magickPath .. " " .. imagePath .. "  -colors ".. colorsToGet .." -depth 8 -format %c histogram:info: | sort /r"
 				SKIN:Bang('!SetOption', 'RunAverageColor', 'Parameter', cmdCommand)
 				
 				SKIN:Bang('!CommandMeasure', 'RunAverageColor', 'Run')
@@ -49,30 +50,28 @@ function GetColors(imagePath)
 		else
 
 			if(SKIN:GetMeasure('RunAverageColor'):GetValue() == -1) and (SKIN:GetMeasure('RunFallbackAverageColor'):GetValue() == -1) then
-				--FallbackPath = rootPath .. "@Resources\\images\\Fallback.png"
-				local cmdCommand = rootPath .. "@Resources\\ImageMagickScripts\\convert.exe \"" .. FallbackPath .. "\"  -colors ".. colorsToGet .." -depth 8 -format %c histogram:info: | sort /r"
+				local cmdCommand = magickPath .. " " .. FallbackPath .. "  -colors ".. colorsToGet .." -depth 8 -format %c histogram:info: | sort /r"
 				SKIN:Bang('!SetOption', 'RunFallbackAverageColor', 'Parameter', cmdCommand)
 				SKIN:Bang('!CommandMeasure', 'RunFallbackAverageColor', 'Run')
 			
-				cmdCommand = rootPath .. "@Resources\\ImageMagickScripts\\convert.exe \"" .. imagePath .. "\"  -colors ".. colorsToGet .." -depth 8 -format %c histogram:info: | sort /r"
+				cmdCommand = magickPath .. " " .. imagePath .. "  -colors ".. colorsToGet .." -depth 8 -format %c histogram:info: | sort /r"
 				SKIN:Bang('!SetOption', 'RunAverageColor', 'Parameter', cmdCommand)
 				SKIN:Bang('!CommandMeasure', 'RunAverageColor', 'Run')
 				--print("Doing init:" .. imagePath)
 			elseif (imagePath == nil) or (string.len(imagePath) <= 1) then
 				--print("No Image defined, switching to histogram of fallback image")
-				--FallbackPath = rootPath .. "@Resources\\images\\Fallback.png"		
 				local FallbackPath = getFallbackPath()		
 
 				-- -colors 16 -depth 8 -format "%c" histogram:info: | sort /r
 				-- -scale 1x1! -format %[fx:int(255*r+.5)],%[fx:int(255*g+.5)],%[fx:int(255*b+.5)] info:
-				local cmdCommand = rootPath .. "@Resources\\ImageMagickScripts\\convert.exe \"" .. FallbackPath .. "\"  -colors ".. colorsToGet .." -depth 8 -format %c histogram:info: | sort /r"
+				local cmdCommand = magickPath .. " " .. FallbackPath .. "  -colors ".. colorsToGet .." -depth 8 -format %c histogram:info: | sort /r"
 				SKIN:Bang('!SetOption', 'RunFallbackAverageColor', 'Parameter', cmdCommand)
 				
 				SKIN:Bang('!CommandMeasure', 'RunFallbackAverageColor', 'Run')
 			else
 				-- -colors 16 -depth 8 -format "%c" histogram:info: | sort /r
 				-- -scale 1x1! -format %[fx:int(255*r+.5)],%[fx:int(255*g+.5)],%[fx:int(255*b+.5)] info:
-				local cmdCommand = rootPath .. "@Resources\\ImageMagickScripts\\convert.exe \"" .. imagePath .. "\"  -colors ".. colorsToGet .." -depth 8 -format %c histogram:info: | sort /r"
+				local cmdCommand = magickPath .. " " .. imagePath .. "  -colors ".. colorsToGet .." -depth 8 -format %c histogram:info: | sort /r"
 				SKIN:Bang('!SetOption', 'RunAverageColor', 'Parameter', cmdCommand)
 				
 				SKIN:Bang('!CommandMeasure', 'RunAverageColor', 'Run')
@@ -90,14 +89,13 @@ function GetColors(imagePath)
 				end
 				sleepFor(1)			
 				--print("No Image defined, switching to histogram of fallback image")
-				--FallbackPath = rootPath .. "@Resources\\images\\Fallback.png"	
 				--print("No Image defined, First run, switching to histogram fallback:" .. imagePath)
 				local FallbackPath = getFallbackPath()
 				--print("No Image defined, First run, current fallback:" .. FallbackPath)		
 
 				-- -colors 16 -depth 8 -format "%c" histogram:info: | sort /r
 				-- -scale 1x1! -format %[fx:int(255*r+.5)],%[fx:int(255*g+.5)],%[fx:int(255*b+.5)] info:
-				local cmdCommand = rootPath .. "@Resources\\ImageMagickScripts\\convert.exe \"" .. FallbackPath .. "\"  -colors ".. colorsToGet .." -depth 8 -format %c histogram:info: | sort /r"
+				local cmdCommand = magickPath .. " " .. FallbackPath .. "  -colors ".. colorsToGet .." -depth 8 -format %c histogram:info: | sort /r"
 				SKIN:Bang('!SetOption', 'RunFallbackAverageColor', 'Parameter', cmdCommand)
 				
 				SKIN:Bang('!CommandMeasure', 'RunFallbackAverageColor', 'Run')
@@ -111,7 +109,7 @@ function GetColors(imagePath)
 				sleepFor(1)
 				-- -colors 16 -depth 8 -format "%c" histogram:info: | sort /r
 				-- -scale 1x1! -format %[fx:int(255*r+.5)],%[fx:int(255*g+.5)],%[fx:int(255*b+.5)] info:
-				local cmdCommand = rootPath .. "@Resources\\ImageMagickScripts\\convert.exe \"" .. imagePath .. "\"  -colors ".. colorsToGet .." -depth 8 -format %c histogram:info: | sort /r"
+				local cmdCommand = magickPath .. " " .. imagePath .. "  -colors ".. colorsToGet .." -depth 8 -format %c histogram:info: | sort /r"
 				SKIN:Bang('!SetOption', 'RunAverageColor', 'Parameter', cmdCommand)
 				
 				SKIN:Bang('!CommandMeasure', 'RunAverageColor', 'Run')
@@ -185,7 +183,7 @@ function getFallbackPath()
 	
 	--print(fallbackPath)
 	
-	return fallbackPath
+	return "\"" .. fallbackPath .. "\""
 end
 
 function ReadFile(FilePath)
@@ -209,6 +207,7 @@ function ReadFile(FilePath)
 	while temp ~= nil do
       Contents[i] = temp
 	  temp = File:read('*l')
+	  print(temp)
 	  i=i+1
     end
 	
