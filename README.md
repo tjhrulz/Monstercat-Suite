@@ -56,7 +56,7 @@ Includes Do I need a jacket support from FlyingHyrax, multiple system info and n
 - [ ] Spotify info stays on spotify close instead of switch to fallback and saying N/A
 - [ ] When spotify isn't running there is a lot of log spam, I think this is from the plugin and not my misuse of it hopefully I can turn it off
 - [ ] When using songs that are in the cloud on iTunes images do not work, I think this is an issue with iTunes and not me
-- [ ] Pinging conditionals do not work after first time they are triggered Update: I have disabled for now so MaxPingDisplayed is ignored
+- [X] Pinging conditionals do not work after first time they are triggered
 - [ ] Check and possibly fix if DINTFMI only working on first load since afterwards it may always use old data
 - [ ] Look into if CPU being off by about a factor of about 2 (Seems to be half actual on advancedCPU and ferpnom) on CPU reader and top processes is a bug in task manager, rainmeter dlls, or if it is just my machine
 - [ ] Installer is not updated and should not be used
