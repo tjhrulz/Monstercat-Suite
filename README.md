@@ -21,8 +21,9 @@ Includes Do I need a jacket support from FlyingHyrax, multiple system info and n
 * v0.7.2 Auto seasonal and holiday fallback images (Having issues finding images)  
 * v0.7.5r GPMDP Support (Likely will a very be limited version similar to how spotify was at first, I will look into a websocket plugin later if I don't go my own route)  
 * v0.7.6  Toggle visibility buttons, Label verbosity configuration  
-* v0.7.7 Small versions of music player and clock?, volume changer  
-* v0.7.10 Reworked ReadColor to update itself on finish of GetColor (I think I have figured out a way to do this)
+* v0.7.10 GPMDP Plugin, also looking into exposing info from chrome into rainmeter plugin to make web based music info for youtube, GPM, Spotify, etc.  
+* v0.7.11 Small versions of music player and clock?, volume changer  
+* v0.7.12 Reworked ReadColor to update itself on finish of GetColor (I think I have figured out a way to do this)
 
 ##Future Major Versions
 * v0.8.0r - Weather & News support  
@@ -33,7 +34,7 @@ Includes Do I need a jacket support from FlyingHyrax, multiple system info and n
 ##Post 1.0
 * v1.1r - Support for dynamic color keyboards  
 * v1.2r - Google play music (web) plugin? and Networking top processes plugin  
-* v1.3r - Machine learning album art selector, I'm kidding (Maybe)  
+* v2.0r - Machine learning album art color selector, I'm kidding (Maybe)  
 
 ###Small versionless future changes
 * Flag and pull based album art color system? (Will require me to find a way to do this)  
@@ -102,6 +103,7 @@ Includes Do I need a jacket support from FlyingHyrax, multiple system info and n
 - [ ] Look into making networking top process plugin
 - [ ] Look into if average size variable increases or decrease performance based on size (kind of irrelevant now with CPU usage being better I just want to document it right)
 - [ ] Look into adding corsair and other keyboards manufactures color API's into the color system, I do not have a full RGB (Mine only does green) so I will need a guinea pig
+- [ ] Add a widget to switch between different music sources
 
 ##Possible Future Changes
 - [ ] Use the color from GPMDP as a color option?

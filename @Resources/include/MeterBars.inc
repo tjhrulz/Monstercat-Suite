@@ -9,7 +9,7 @@ H=(1080*0.6)/3
 BarOrientation=Vertical
 Flip=0
 BarColor=#VizColor#
-LeftMouseUpAction=#ToggleAction#
+LeftMouseUpAction=[!ToggleFadeGroup "SmallMeter"][!ToggleFadeGroup "MiniMeter"]
 [MeterBar1]
 Meter=BAR
 Group=DynamicDynamic
@@ -21,7 +21,7 @@ H=(1080*0.6)/3
 BarOrientation=Vertical
 Flip=0
 BarColor=#VizColor#
-LeftMouseUpAction=#ToggleAction#
+LeftMouseUpAction=[!ToggleFadeGroup "SmallMeter"][!ToggleFadeGroup "MiniMeter"]
 [MeterBar2]
 Meter=BAR
 Group=DynamicDynamic
@@ -33,7 +33,7 @@ H=(1080*0.6)/3
 BarOrientation=Vertical
 Flip=0
 BarColor=#VizColor#
-LeftMouseUpAction=#ToggleAction#
+LeftMouseUpAction=[!ToggleFadeGroup "SmallMeter"][!ToggleFadeGroup "MiniMeter"]
 [MeterBar3]
 Meter=BAR
 Group=DynamicDynamic
@@ -45,7 +45,7 @@ H=(1080*0.6)/3
 BarOrientation=Vertical
 Flip=0
 BarColor=#VizColor#
-LeftMouseUpAction=#ToggleAction#
+LeftMouseUpAction=[!ToggleFadeGroup "SmallMeter"][!ToggleFadeGroup "MiniMeter"]
 [MeterBar4]
 Meter=BAR
 Group=DynamicDynamic
@@ -57,7 +57,7 @@ H=(1080*0.6)/3
 BarOrientation=Vertical
 Flip=0
 BarColor=#VizColor#
-LeftMouseUpAction=#ToggleAction#
+LeftMouseUpAction=[!ToggleFadeGroup "SmallMeter"][!ToggleFadeGroup "MiniMeter"]
 [MeterBar5]
 Meter=BAR
 Group=DynamicDynamic
@@ -69,7 +69,7 @@ H=(1080*0.6)/3
 BarOrientation=Vertical
 Flip=0
 BarColor=#VizColor#
-LeftMouseUpAction=#ToggleAction#
+LeftMouseUpAction=[!ToggleFadeGroup "SmallMeter"][!ToggleFadeGroup "MiniMeter"]
 [MeterBar6]
 Meter=BAR
 Group=DynamicDynamic
@@ -81,7 +81,7 @@ H=(1080*0.6)/3
 BarOrientation=Vertical
 Flip=0
 BarColor=#VizColor#
-LeftMouseUpAction=#ToggleAction#
+LeftMouseUpAction=[!ToggleFadeGroup "SmallMeter"][!ToggleFadeGroup "MiniMeter"]
 [MeterBar7]
 Meter=BAR
 Group=DynamicDynamic
@@ -93,7 +93,7 @@ H=(1080*0.6)/3
 BarOrientation=Vertical
 Flip=0
 BarColor=#VizColor#
-LeftMouseUpAction=#ToggleAction#
+LeftMouseUpAction=[!ToggleFadeGroup "SmallMeter"][!ToggleFadeGroup "MiniMeter"]
 [MeterBar8]
 Meter=BAR
 Group=DynamicDynamic
@@ -105,7 +105,7 @@ H=(1080*0.6)/3
 BarOrientation=Vertical
 Flip=0
 BarColor=#VizColor#
-LeftMouseUpAction=#ToggleAction#
+LeftMouseUpAction=[!ToggleFadeGroup "SmallMeter"][!ToggleFadeGroup "MiniMeter"]
 [MeterBar9]
 Meter=BAR
 Group=DynamicDynamic
@@ -117,7 +117,7 @@ H=(1080*0.6)/3
 BarOrientation=Vertical
 Flip=0
 BarColor=#VizColor#
-LeftMouseUpAction=#ToggleAction#
+LeftMouseUpAction=[!ToggleFadeGroup "SmallMeter"][!ToggleFadeGroup "MiniMeter"]
 [MeterBar10]
 Meter=BAR
 Group=DynamicDynamic
@@ -129,7 +129,7 @@ H=(1080*0.6)/3
 BarOrientation=Vertical
 Flip=0
 BarColor=#VizColor#
-LeftMouseUpAction=#ToggleAction#
+LeftMouseUpAction=[!ToggleFadeGroup "SmallMeter"][!ToggleFadeGroup "MiniMeter"]
 [MeterBar11]
 Meter=BAR
 Group=DynamicDynamic
@@ -141,7 +141,7 @@ H=(1080*0.6)/3
 BarOrientation=Vertical
 Flip=0
 BarColor=#VizColor#
-LeftMouseUpAction=#ToggleAction#
+LeftMouseUpAction=[!ToggleFadeGroup "SmallMeter"][!ToggleFadeGroup "MiniMeter"]
 [MeterBar12]
 Meter=BAR
 Group=DynamicDynamic
@@ -153,7 +153,7 @@ H=(1080*0.6)/3
 BarOrientation=Vertical
 Flip=0
 BarColor=#VizColor#
-LeftMouseUpAction=#ToggleAction#
+LeftMouseUpAction=[!ToggleFadeGroup "SmallMeter"][!ToggleFadeGroup "MiniMeter"]
 [MeterBar13]
 Meter=BAR
 Group=DynamicDynamic
@@ -165,7 +165,7 @@ H=(1080*0.6)/3
 BarOrientation=Vertical
 Flip=0
 BarColor=#VizColor#
-LeftMouseUpAction=#ToggleAction#
+LeftMouseUpAction=[!ToggleFadeGroup "SmallMeter"][!ToggleFadeGroup "MiniMeter"]
 [MeterBar14]
 Meter=BAR
 Group=DynamicDynamic
@@ -177,7 +177,7 @@ H=(1080*0.6)/3
 BarOrientation=Vertical
 Flip=0
 BarColor=#VizColor#
-LeftMouseUpAction=#ToggleAction#
+LeftMouseUpAction=[!ToggleFadeGroup "SmallMeter"][!ToggleFadeGroup "MiniMeter"]
 [MeterBar15]
 Meter=BAR
 Group=DynamicDynamic
@@ -189,7 +189,7 @@ H=(1080*0.6)/3
 BarOrientation=Vertical
 Flip=0
 BarColor=#VizColor#
-LeftMouseUpAction=#ToggleAction#
+LeftMouseUpAction=[!ToggleFadeGroup "SmallMeter"][!ToggleFadeGroup "MiniMeter"]
 [MeterBar16]
 Meter=BAR
 Group=DynamicDynamic
@@ -201,7 +201,7 @@ H=(1080*0.6)/3
 BarOrientation=Vertical
 Flip=0
 BarColor=#VizColor#
-LeftMouseUpAction=#ToggleAction#
+LeftMouseUpAction=[!ToggleFadeGroup "SmallMeter"][!ToggleFadeGroup "MiniMeter"]
 [MeterBar17]
 Meter=BAR
 Group=DynamicDynamic
@@ -213,7 +213,7 @@ H=(1080*0.6)/3
 BarOrientation=Vertical
 Flip=0
 BarColor=#VizColor#
-LeftMouseUpAction=#ToggleAction#
+LeftMouseUpAction=[!ToggleFadeGroup "SmallMeter"][!ToggleFadeGroup "MiniMeter"]
 [MeterBar18]
 Meter=BAR
 Group=DynamicDynamic
@@ -225,7 +225,7 @@ H=(1080*0.6)/3
 BarOrientation=Vertical
 Flip=0
 BarColor=#VizColor#
-LeftMouseUpAction=#ToggleAction#
+LeftMouseUpAction=[!ToggleFadeGroup "SmallMeter"][!ToggleFadeGroup "MiniMeter"]
 [MeterBar19]
 Meter=BAR
 Group=DynamicDynamic
@@ -237,7 +237,7 @@ H=(1080*0.6)/3
 BarOrientation=Vertical
 Flip=0
 BarColor=#VizColor#
-LeftMouseUpAction=#ToggleAction#
+LeftMouseUpAction=[!ToggleFadeGroup "SmallMeter"][!ToggleFadeGroup "MiniMeter"]
 [MeterBar20]
 Meter=BAR
 Group=DynamicDynamic
@@ -249,7 +249,7 @@ H=(1080*0.6)/3
 BarOrientation=Vertical
 Flip=0
 BarColor=#VizColor#
-LeftMouseUpAction=#ToggleAction#
+LeftMouseUpAction=[!ToggleFadeGroup "SmallMeter"][!ToggleFadeGroup "MiniMeter"]
 [MeterBar21]
 Meter=BAR
 Group=DynamicDynamic
@@ -261,7 +261,7 @@ H=(1080*0.6)/3
 BarOrientation=Vertical
 Flip=0
 BarColor=#VizColor#
-LeftMouseUpAction=#ToggleAction#
+LeftMouseUpAction=[!ToggleFadeGroup "SmallMeter"][!ToggleFadeGroup "MiniMeter"]
 [MeterBar22]
 Meter=BAR
 Group=DynamicDynamic
@@ -273,7 +273,7 @@ H=(1080*0.6)/3
 BarOrientation=Vertical
 Flip=0
 BarColor=#VizColor#
-LeftMouseUpAction=#ToggleAction#
+LeftMouseUpAction=[!ToggleFadeGroup "SmallMeter"][!ToggleFadeGroup "MiniMeter"]
 [MeterBar23]
 Meter=BAR
 Group=DynamicDynamic
@@ -285,7 +285,7 @@ H=(1080*0.6)/3
 BarOrientation=Vertical
 Flip=0
 BarColor=#VizColor#
-LeftMouseUpAction=#ToggleAction#
+LeftMouseUpAction=[!ToggleFadeGroup "SmallMeter"][!ToggleFadeGroup "MiniMeter"]
 [MeterBar24]
 Meter=BAR
 Group=DynamicDynamic
@@ -297,7 +297,7 @@ H=(1080*0.6)/3
 BarOrientation=Vertical
 Flip=0
 BarColor=#VizColor#
-LeftMouseUpAction=#ToggleAction#
+LeftMouseUpAction=[!ToggleFadeGroup "SmallMeter"][!ToggleFadeGroup "MiniMeter"]
 [MeterBar25]
 Meter=BAR
 Group=DynamicDynamic
@@ -309,7 +309,7 @@ H=(1080*0.6)/3
 BarOrientation=Vertical
 Flip=0
 BarColor=#VizColor#
-LeftMouseUpAction=#ToggleAction#
+LeftMouseUpAction=[!ToggleFadeGroup "SmallMeter"][!ToggleFadeGroup "MiniMeter"]
 [MeterBar26]
 Meter=BAR
 Group=DynamicDynamic
@@ -321,7 +321,7 @@ H=(1080*0.6)/3
 BarOrientation=Vertical
 Flip=0
 BarColor=#VizColor#
-LeftMouseUpAction=#ToggleAction#
+LeftMouseUpAction=[!ToggleFadeGroup "SmallMeter"][!ToggleFadeGroup "MiniMeter"]
 [MeterBar27]
 Meter=BAR
 Group=DynamicDynamic
@@ -333,7 +333,7 @@ H=(1080*0.6)/3
 BarOrientation=Vertical
 Flip=0
 BarColor=#VizColor#
-LeftMouseUpAction=#ToggleAction#
+LeftMouseUpAction=[!ToggleFadeGroup "SmallMeter"][!ToggleFadeGroup "MiniMeter"]
 [MeterBar28]
 Meter=BAR
 Group=DynamicDynamic
@@ -345,7 +345,7 @@ H=(1080*0.6)/3
 BarOrientation=Vertical
 Flip=0
 BarColor=#VizColor#
-LeftMouseUpAction=#ToggleAction#
+LeftMouseUpAction=[!ToggleFadeGroup "SmallMeter"][!ToggleFadeGroup "MiniMeter"]
 [MeterBar29]
 Meter=BAR
 Group=DynamicDynamic
@@ -357,7 +357,7 @@ H=(1080*0.6)/3
 BarOrientation=Vertical
 Flip=0
 BarColor=#VizColor#
-LeftMouseUpAction=#ToggleAction#
+LeftMouseUpAction=[!ToggleFadeGroup "SmallMeter"][!ToggleFadeGroup "MiniMeter"]
 [MeterBar30]
 Meter=BAR
 Group=DynamicDynamic
@@ -369,7 +369,7 @@ H=(1080*0.6)/3
 BarOrientation=Vertical
 Flip=0
 BarColor=#VizColor#
-LeftMouseUpAction=#ToggleAction#
+LeftMouseUpAction=[!ToggleFadeGroup "SmallMeter"][!ToggleFadeGroup "MiniMeter"]
 [MeterBar31]
 Meter=BAR
 Group=DynamicDynamic
@@ -381,7 +381,7 @@ H=(1080*0.6)/3
 BarOrientation=Vertical
 Flip=0
 BarColor=#VizColor#
-LeftMouseUpAction=#ToggleAction#
+LeftMouseUpAction=[!ToggleFadeGroup "SmallMeter"][!ToggleFadeGroup "MiniMeter"]
 [MeterBar32]
 Meter=BAR
 Group=DynamicDynamic
@@ -393,7 +393,7 @@ H=(1080*0.6)/3
 BarOrientation=Vertical
 Flip=0
 BarColor=#VizColor#
-LeftMouseUpAction=#ToggleAction#
+LeftMouseUpAction=[!ToggleFadeGroup "SmallMeter"][!ToggleFadeGroup "MiniMeter"]
 [MeterBar33]
 Meter=BAR
 Group=DynamicDynamic
@@ -405,7 +405,7 @@ H=(1080*0.6)/3
 BarOrientation=Vertical
 Flip=0
 BarColor=#VizColor#
-LeftMouseUpAction=#ToggleAction#
+LeftMouseUpAction=[!ToggleFadeGroup "SmallMeter"][!ToggleFadeGroup "MiniMeter"]
 [MeterBar34]
 Meter=BAR
 Group=DynamicDynamic
@@ -417,7 +417,7 @@ H=(1080*0.6)/3
 BarOrientation=Vertical
 Flip=0
 BarColor=#VizColor#
-LeftMouseUpAction=#ToggleAction#
+LeftMouseUpAction=[!ToggleFadeGroup "SmallMeter"][!ToggleFadeGroup "MiniMeter"]
 [MeterBar35]
 Meter=BAR
 Group=DynamicDynamic
@@ -429,7 +429,7 @@ H=(1080*0.6)/3
 BarOrientation=Vertical
 Flip=0
 BarColor=#VizColor#
-LeftMouseUpAction=#ToggleAction#
+LeftMouseUpAction=[!ToggleFadeGroup "SmallMeter"][!ToggleFadeGroup "MiniMeter"]
 [MeterBar36]
 Meter=BAR
 Group=DynamicDynamic
@@ -441,7 +441,7 @@ H=(1080*0.6)/3
 BarOrientation=Vertical
 Flip=0
 BarColor=#VizColor#
-LeftMouseUpAction=#ToggleAction#
+LeftMouseUpAction=[!ToggleFadeGroup "SmallMeter"][!ToggleFadeGroup "MiniMeter"]
 [MeterBar37]
 Meter=BAR
 Group=DynamicDynamic
@@ -453,7 +453,7 @@ H=(1080*0.6)/3
 BarOrientation=Vertical
 Flip=0
 BarColor=#VizColor#
-LeftMouseUpAction=#ToggleAction#
+LeftMouseUpAction=[!ToggleFadeGroup "SmallMeter"][!ToggleFadeGroup "MiniMeter"]
 [MeterBar38]
 Meter=BAR
 Group=DynamicDynamic
@@ -465,7 +465,7 @@ H=(1080*0.6)/3
 BarOrientation=Vertical
 Flip=0
 BarColor=#VizColor#
-LeftMouseUpAction=#ToggleAction#
+LeftMouseUpAction=[!ToggleFadeGroup "SmallMeter"][!ToggleFadeGroup "MiniMeter"]
 [MeterBar39]
 Meter=BAR
 Group=DynamicDynamic
@@ -477,7 +477,7 @@ H=(1080*0.6)/3
 BarOrientation=Vertical
 Flip=0
 BarColor=#VizColor#
-LeftMouseUpAction=#ToggleAction#
+LeftMouseUpAction=[!ToggleFadeGroup "SmallMeter"][!ToggleFadeGroup "MiniMeter"]
 [MeterBar40]
 Meter=BAR
 Group=DynamicDynamic
@@ -489,7 +489,7 @@ H=(1080*0.6)/3
 BarOrientation=Vertical
 Flip=0
 BarColor=#VizColor#
-LeftMouseUpAction=#ToggleAction#
+LeftMouseUpAction=[!ToggleFadeGroup "SmallMeter"][!ToggleFadeGroup "MiniMeter"]
 [MeterBar41]
 Meter=BAR
 Group=DynamicDynamic
@@ -501,7 +501,7 @@ H=(1080*0.6)/3
 BarOrientation=Vertical
 Flip=0
 BarColor=#VizColor#
-LeftMouseUpAction=#ToggleAction#
+LeftMouseUpAction=[!ToggleFadeGroup "SmallMeter"][!ToggleFadeGroup "MiniMeter"]
 [MeterBar42]
 Meter=BAR
 Group=DynamicDynamic
@@ -513,7 +513,7 @@ H=(1080*0.6)/3
 BarOrientation=Vertical
 Flip=0
 BarColor=#VizColor#
-LeftMouseUpAction=#ToggleAction#
+LeftMouseUpAction=[!ToggleFadeGroup "SmallMeter"][!ToggleFadeGroup "MiniMeter"]
 [MeterBar43]
 Meter=BAR
 Group=DynamicDynamic
@@ -525,7 +525,7 @@ H=(1080*0.6)/3
 BarOrientation=Vertical
 Flip=0
 BarColor=#VizColor#
-LeftMouseUpAction=#ToggleAction#
+LeftMouseUpAction=[!ToggleFadeGroup "SmallMeter"][!ToggleFadeGroup "MiniMeter"]
 [MeterBar44]
 Meter=BAR
 Group=DynamicDynamic
@@ -537,7 +537,7 @@ H=(1080*0.6)/3
 BarOrientation=Vertical
 Flip=0
 BarColor=#VizColor#
-LeftMouseUpAction=#ToggleAction#
+LeftMouseUpAction=[!ToggleFadeGroup "SmallMeter"][!ToggleFadeGroup "MiniMeter"]
 [MeterBar45]
 Meter=BAR
 Group=DynamicDynamic
@@ -549,7 +549,7 @@ H=(1080*0.6)/3
 BarOrientation=Vertical
 Flip=0
 BarColor=#VizColor#
-LeftMouseUpAction=#ToggleAction#
+LeftMouseUpAction=[!ToggleFadeGroup "SmallMeter"][!ToggleFadeGroup "MiniMeter"]
 [MeterBar46]
 Meter=BAR
 Group=DynamicDynamic
@@ -561,7 +561,7 @@ H=(1080*0.6)/3
 BarOrientation=Vertical
 Flip=0
 BarColor=#VizColor#
-LeftMouseUpAction=#ToggleAction#
+LeftMouseUpAction=[!ToggleFadeGroup "SmallMeter"][!ToggleFadeGroup "MiniMeter"]
 [MeterBar47]
 Meter=BAR
 Group=DynamicDynamic
@@ -573,7 +573,7 @@ H=(1080*0.6)/3
 BarOrientation=Vertical
 Flip=0
 BarColor=#VizColor#
-LeftMouseUpAction=#ToggleAction#
+LeftMouseUpAction=[!ToggleFadeGroup "SmallMeter"][!ToggleFadeGroup "MiniMeter"]
 [MeterBar48]
 Meter=BAR
 Group=DynamicDynamic
@@ -585,7 +585,7 @@ H=(1080*0.6)/3
 BarOrientation=Vertical
 Flip=0
 BarColor=#VizColor#
-LeftMouseUpAction=#ToggleAction#
+LeftMouseUpAction=[!ToggleFadeGroup "SmallMeter"][!ToggleFadeGroup "MiniMeter"]
 [MeterBar49]
 Meter=BAR
 Group=DynamicDynamic
@@ -597,7 +597,7 @@ H=(1080*0.6)/3
 BarOrientation=Vertical
 Flip=0
 BarColor=#VizColor#
-LeftMouseUpAction=#ToggleAction#
+LeftMouseUpAction=[!ToggleFadeGroup "SmallMeter"][!ToggleFadeGroup "MiniMeter"]
 [MeterBar50]
 Meter=BAR
 Group=DynamicDynamic
@@ -609,7 +609,7 @@ H=(1080*0.6)/3
 BarOrientation=Vertical
 Flip=0
 BarColor=#VizColor#
-LeftMouseUpAction=#ToggleAction#
+LeftMouseUpAction=[!ToggleFadeGroup "SmallMeter"][!ToggleFadeGroup "MiniMeter"]
 [MeterBar51]
 Meter=BAR
 Group=DynamicDynamic
@@ -621,7 +621,7 @@ H=(1080*0.6)/3
 BarOrientation=Vertical
 Flip=0
 BarColor=#VizColor#
-LeftMouseUpAction=#ToggleAction#
+LeftMouseUpAction=[!ToggleFadeGroup "SmallMeter"][!ToggleFadeGroup "MiniMeter"]
 [MeterBar52]
 Meter=BAR
 Group=DynamicDynamic
@@ -633,7 +633,7 @@ H=(1080*0.6)/3
 BarOrientation=Vertical
 Flip=0
 BarColor=#VizColor#
-LeftMouseUpAction=#ToggleAction#
+LeftMouseUpAction=[!ToggleFadeGroup "SmallMeter"][!ToggleFadeGroup "MiniMeter"]
 [MeterBar53]
 Meter=BAR
 Group=DynamicDynamic
@@ -645,7 +645,7 @@ H=(1080*0.6)/3
 BarOrientation=Vertical
 Flip=0
 BarColor=#VizColor#
-LeftMouseUpAction=#ToggleAction#
+LeftMouseUpAction=[!ToggleFadeGroup "SmallMeter"][!ToggleFadeGroup "MiniMeter"]
 [MeterBar54]
 Meter=BAR
 Group=DynamicDynamic
@@ -657,7 +657,7 @@ H=(1080*0.6)/3
 BarOrientation=Vertical
 Flip=0
 BarColor=#VizColor#
-LeftMouseUpAction=#ToggleAction#
+LeftMouseUpAction=[!ToggleFadeGroup "SmallMeter"][!ToggleFadeGroup "MiniMeter"]
 [MeterBar55]
 Meter=BAR
 Group=DynamicDynamic
@@ -669,7 +669,7 @@ H=(1080*0.6)/3
 BarOrientation=Vertical
 Flip=0
 BarColor=#VizColor#
-LeftMouseUpAction=#ToggleAction#
+LeftMouseUpAction=[!ToggleFadeGroup "SmallMeter"][!ToggleFadeGroup "MiniMeter"]
 [MeterBar56]
 Meter=BAR
 Group=DynamicDynamic
@@ -681,7 +681,7 @@ H=(1080*0.6)/3
 BarOrientation=Vertical
 Flip=0
 BarColor=#VizColor#
-LeftMouseUpAction=#ToggleAction#
+LeftMouseUpAction=[!ToggleFadeGroup "SmallMeter"][!ToggleFadeGroup "MiniMeter"]
 [MeterBar57]
 Meter=BAR
 Group=DynamicDynamic
@@ -693,7 +693,7 @@ H=(1080*0.6)/3
 BarOrientation=Vertical
 Flip=0
 BarColor=#VizColor#
-LeftMouseUpAction=#ToggleAction#
+LeftMouseUpAction=[!ToggleFadeGroup "SmallMeter"][!ToggleFadeGroup "MiniMeter"]
 [MeterBar58]
 Meter=BAR
 Group=DynamicDynamic
@@ -705,7 +705,7 @@ H=(1080*0.6)/3
 BarOrientation=Vertical
 Flip=0
 BarColor=#VizColor#
-LeftMouseUpAction=#ToggleAction#
+LeftMouseUpAction=[!ToggleFadeGroup "SmallMeter"][!ToggleFadeGroup "MiniMeter"]
 [MeterBar59]
 Meter=BAR
 Group=DynamicDynamic
@@ -717,7 +717,7 @@ H=(1080*0.6)/3
 BarOrientation=Vertical
 Flip=0
 BarColor=#VizColor#
-LeftMouseUpAction=#ToggleAction#
+LeftMouseUpAction=[!ToggleFadeGroup "SmallMeter"][!ToggleFadeGroup "MiniMeter"]
 [MeterBar60]
 Meter=BAR
 Group=DynamicDynamic
@@ -729,7 +729,7 @@ H=(1080*0.6)/3
 BarOrientation=Vertical
 Flip=0
 BarColor=#VizColor#
-LeftMouseUpAction=#ToggleAction#
+LeftMouseUpAction=[!ToggleFadeGroup "SmallMeter"][!ToggleFadeGroup "MiniMeter"]
 [MeterBar61]
 Meter=BAR
 Group=DynamicDynamic
@@ -741,7 +741,7 @@ H=(1080*0.6)/3
 BarOrientation=Vertical
 Flip=0
 BarColor=#VizColor#
-LeftMouseUpAction=#ToggleAction#
+LeftMouseUpAction=[!ToggleFadeGroup "SmallMeter"][!ToggleFadeGroup "MiniMeter"]
 [MeterBar62]
 Meter=BAR
 Group=DynamicDynamic
@@ -753,7 +753,7 @@ H=(1080*0.6)/3
 BarOrientation=Vertical
 Flip=0
 BarColor=#VizColor#
-LeftMouseUpAction=#ToggleAction#
+LeftMouseUpAction=[!ToggleFadeGroup "SmallMeter"][!ToggleFadeGroup "MiniMeter"]
 [MeterBar63]
 Meter=BAR
 Group=DynamicDynamic
@@ -765,7 +765,7 @@ H=(1080*0.6)/3
 BarOrientation=Vertical
 Flip=0
 BarColor=#VizColor#
-LeftMouseUpAction=#ToggleAction#
+LeftMouseUpAction=[!ToggleFadeGroup "SmallMeter"][!ToggleFadeGroup "MiniMeter"]
 [MeterBar64]
 Meter=BAR
 Group=DynamicDynamic
@@ -777,7 +777,7 @@ H=(1080*0.6)/3
 BarOrientation=Vertical
 Flip=0
 BarColor=#VizColor#
-LeftMouseUpAction=#ToggleAction#
+LeftMouseUpAction=[!ToggleFadeGroup "SmallMeter"][!ToggleFadeGroup "MiniMeter"]
 [MeterBar65]
 Meter=BAR
 Group=DynamicDynamic
@@ -789,7 +789,7 @@ H=(1080*0.6)/3
 BarOrientation=Vertical
 Flip=0
 BarColor=#VizColor#
-LeftMouseUpAction=#ToggleAction#
+LeftMouseUpAction=[!ToggleFadeGroup "SmallMeter"][!ToggleFadeGroup "MiniMeter"]
 [MeterBar66]
 Meter=BAR
 Group=DynamicDynamic
@@ -801,7 +801,7 @@ H=(1080*0.6)/3
 BarOrientation=Vertical
 Flip=0
 BarColor=#VizColor#
-LeftMouseUpAction=#ToggleAction#
+LeftMouseUpAction=[!ToggleFadeGroup "SmallMeter"][!ToggleFadeGroup "MiniMeter"]
 [MeterBar67]
 Meter=BAR
 Group=DynamicDynamic
@@ -813,7 +813,7 @@ H=(1080*0.6)/3
 BarOrientation=Vertical
 Flip=0
 BarColor=#VizColor#
-LeftMouseUpAction=#ToggleAction#
+LeftMouseUpAction=[!ToggleFadeGroup "SmallMeter"][!ToggleFadeGroup "MiniMeter"]
 [MeterBar68]
 Meter=BAR
 Group=DynamicDynamic
@@ -825,7 +825,7 @@ H=(1080*0.6)/3
 BarOrientation=Vertical
 Flip=0
 BarColor=#VizColor#
-LeftMouseUpAction=#ToggleAction#
+LeftMouseUpAction=[!ToggleFadeGroup "SmallMeter"][!ToggleFadeGroup "MiniMeter"]
 [MeterBar69]
 Meter=BAR
 Group=DynamicDynamic
@@ -837,7 +837,7 @@ H=(1080*0.6)/3
 BarOrientation=Vertical
 Flip=0
 BarColor=#VizColor#
-LeftMouseUpAction=#ToggleAction#
+LeftMouseUpAction=[!ToggleFadeGroup "SmallMeter"][!ToggleFadeGroup "MiniMeter"]
 [MeterBar70]
 Meter=BAR
 Group=DynamicDynamic
@@ -849,7 +849,7 @@ H=(1080*0.6)/3
 BarOrientation=Vertical
 Flip=0
 BarColor=#VizColor#
-LeftMouseUpAction=#ToggleAction#
+LeftMouseUpAction=[!ToggleFadeGroup "SmallMeter"][!ToggleFadeGroup "MiniMeter"]
 [MeterBar71]
 Meter=BAR
 Group=DynamicDynamic
@@ -861,7 +861,7 @@ H=(1080*0.6)/3
 BarOrientation=Vertical
 Flip=0
 BarColor=#VizColor#
-LeftMouseUpAction=#ToggleAction#
+LeftMouseUpAction=[!ToggleFadeGroup "SmallMeter"][!ToggleFadeGroup "MiniMeter"]
 [MeterBar72]
 Meter=BAR
 Group=DynamicDynamic
@@ -873,7 +873,7 @@ H=(1080*0.6)/3
 BarOrientation=Vertical
 Flip=0
 BarColor=#VizColor#
-LeftMouseUpAction=#ToggleAction#
+LeftMouseUpAction=[!ToggleFadeGroup "SmallMeter"][!ToggleFadeGroup "MiniMeter"]
 [MeterBar73]
 Meter=BAR
 Group=DynamicDynamic
@@ -885,7 +885,7 @@ H=(1080*0.6)/3
 BarOrientation=Vertical
 Flip=0
 BarColor=#VizColor#
-LeftMouseUpAction=#ToggleAction#
+LeftMouseUpAction=[!ToggleFadeGroup "SmallMeter"][!ToggleFadeGroup "MiniMeter"]
 [MeterBar74]
 Meter=BAR
 Group=DynamicDynamic
@@ -897,7 +897,7 @@ H=(1080*0.6)/3
 BarOrientation=Vertical
 Flip=0
 BarColor=#VizColor#
-LeftMouseUpAction=#ToggleAction#
+LeftMouseUpAction=[!ToggleFadeGroup "SmallMeter"][!ToggleFadeGroup "MiniMeter"]
 [MeterBar75]
 Meter=BAR
 Group=DynamicDynamic
@@ -909,7 +909,7 @@ H=(1080*0.6)/3
 BarOrientation=Vertical
 Flip=0
 BarColor=#VizColor#
-LeftMouseUpAction=#ToggleAction#
+LeftMouseUpAction=[!ToggleFadeGroup "SmallMeter"][!ToggleFadeGroup "MiniMeter"]
 [MeterBar76]
 Meter=BAR
 Group=DynamicDynamic
@@ -921,7 +921,7 @@ H=(1080*0.6)/3
 BarOrientation=Vertical
 Flip=0
 BarColor=#VizColor#
-LeftMouseUpAction=#ToggleAction#
+LeftMouseUpAction=[!ToggleFadeGroup "SmallMeter"][!ToggleFadeGroup "MiniMeter"]
 [MeterBar77]
 Meter=BAR
 Group=DynamicDynamic
@@ -933,7 +933,7 @@ H=(1080*0.6)/3
 BarOrientation=Vertical
 Flip=0
 BarColor=#VizColor#
-LeftMouseUpAction=#ToggleAction#
+LeftMouseUpAction=[!ToggleFadeGroup "SmallMeter"][!ToggleFadeGroup "MiniMeter"]
 [MeterBar78]
 Meter=BAR
 Group=DynamicDynamic
@@ -945,7 +945,7 @@ H=(1080*0.6)/3
 BarOrientation=Vertical
 Flip=0
 BarColor=#VizColor#
-LeftMouseUpAction=#ToggleAction#
+LeftMouseUpAction=[!ToggleFadeGroup "SmallMeter"][!ToggleFadeGroup "MiniMeter"]
 [MeterBar79]
 Meter=BAR
 Group=DynamicDynamic
@@ -957,7 +957,7 @@ H=(1080*0.6)/3
 BarOrientation=Vertical
 Flip=0
 BarColor=#VizColor#
-LeftMouseUpAction=#ToggleAction#
+LeftMouseUpAction=[!ToggleFadeGroup "SmallMeter"][!ToggleFadeGroup "MiniMeter"]
 [MeterBar80]
 Meter=BAR
 Group=DynamicDynamic
@@ -969,7 +969,7 @@ H=(1080*0.6)/3
 BarOrientation=Vertical
 Flip=0
 BarColor=#VizColor#
-LeftMouseUpAction=#ToggleAction#
+LeftMouseUpAction=[!ToggleFadeGroup "SmallMeter"][!ToggleFadeGroup "MiniMeter"]
 [MeterBar81]
 Meter=BAR
 Group=DynamicDynamic
@@ -981,7 +981,7 @@ H=(1080*0.6)/3
 BarOrientation=Vertical
 Flip=0
 BarColor=#VizColor#
-LeftMouseUpAction=#ToggleAction#
+LeftMouseUpAction=[!ToggleFadeGroup "SmallMeter"][!ToggleFadeGroup "MiniMeter"]
 [MeterBar82]
 Meter=BAR
 Group=DynamicDynamic
@@ -993,7 +993,7 @@ H=(1080*0.6)/3
 BarOrientation=Vertical
 Flip=0
 BarColor=#VizColor#
-LeftMouseUpAction=#ToggleAction#
+LeftMouseUpAction=[!ToggleFadeGroup "SmallMeter"][!ToggleFadeGroup "MiniMeter"]
 [MeterBar83]
 Meter=BAR
 Group=DynamicDynamic
@@ -1005,7 +1005,7 @@ H=(1080*0.6)/3
 BarOrientation=Vertical
 Flip=0
 BarColor=#VizColor#
-LeftMouseUpAction=#ToggleAction#
+LeftMouseUpAction=[!ToggleFadeGroup "SmallMeter"][!ToggleFadeGroup "MiniMeter"]
 [MeterBar84]
 Meter=BAR
 Group=DynamicDynamic
@@ -1017,4 +1017,4 @@ H=(1080*0.6)/3
 BarOrientation=Vertical
 Flip=0
 BarColor=#VizColor#
-LeftMouseUpAction=#ToggleAction#
+LeftMouseUpAction=[!ToggleFadeGroup "SmallMeter"][!ToggleFadeGroup "MiniMeter"]
