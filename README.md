@@ -105,8 +105,7 @@ Includes Do I need a jacket support from FlyingHyrax, multiple system info and n
 - [ ] Look into if average size variable increases or decrease performance based on size (kind of irrelevant now with CPU usage being better I just want to document it right)
 - [ ] Look into adding corsair and other keyboards manufactures color API's into the color system, I do not have a full RGB (Mine only does green) so I will need a guinea pig
 - [ ] Add a widget to switch between different music sources Update: Very basic one added
-- [ ] Separate color options based on music source? (May not be needed once the transition is made to the new plugin) 
-- [ ] Add UpdateDivider to meters and bring down refresh from 1000 to 100
+- [ ] Separate color options based on music source? (May not be needed once the transition is made to the new plugin)
 - [ ] Investigate extra cover file
 
 ##Possible Future Changes

@@ -38,7 +38,7 @@ function blur(inputPath, outputPath)
 		if (SKIN:GetMeasure('RunBlurColorFallback'):GetValue() == -1) and ((imagePath == nil) or (string.len(imagePath) <= 1)) then
 			sleepFor(5)
 			if(SKIN:GetMeasure('RunBlurColorFallback'):GetValue() == 0) then
-				print("Killing RunBlurColorFallback")
+				--print("Killing RunBlurColorFallback")
 				SKIN:Bang('!CommandMeasure', 'RunBlurColorFallback', 'Kill')
 				--print("RunBlurColorFallback Value:" .. SKIN:GetMeasure('RunBlurColorFallback'):GetValue())
 			end
@@ -53,7 +53,7 @@ function blur(inputPath, outputPath)
 		elseif (SKIN:GetMeasure('RunBlurColor'):GetValue() == -1) then
 			sleepFor(5)
 			if(SKIN:GetMeasure('RunBlurColor'):GetValue() == 0) then
-				print("Killing RunBlurColor")
+				--print("Killing RunBlurColor")
 				SKIN:Bang('!CommandMeasure', 'RunBlurColor', 'Kill')
 				--print("RunBlurColor Value:" .. SKIN:GetMeasure('RunBlurColor'):GetValue())
 			end
