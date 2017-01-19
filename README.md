@@ -77,6 +77,7 @@ Includes Do I need a jacket support from FlyingHyrax, multiple system info and n
 - [ ] Top processes bars do not use scale value on AdvancedCPU meters (Low priority due to percentual possibly scaling based on max value causing for percentage changes)
 - [ ] Album art color fetch runs when a genre color will end up being decided (Not as big a deal as I figured it would be since histogram takes up little cpu time)
 - [ ] Dynamic variables are turned on unnecessarily, many meters can be made to have better performance
+- [ ] There is an extra file in the image directory called cover (No extension) that downloads on every song change on spotify, not sure why seems to have been introduced in commit 5cf865deacb6fcb190180a7595d5516532e1dfb5 or the commit before it
 
 #Info for development
 
@@ -106,6 +107,7 @@ Includes Do I need a jacket support from FlyingHyrax, multiple system info and n
 - [ ] Add a widget to switch between different music sources Update: Very basic one added
 - [ ] Separate color options based on music source? (May not be needed once the transition is made to the new plugin) 
 - [ ] Add UpdateDivider to meters and bring down refresh from 1000 to 100
+- [ ] Investigate extra cover file
 
 ##Possible Future Changes
 - [ ] Use the color from GPMDP as a color option?
