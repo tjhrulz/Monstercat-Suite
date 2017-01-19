@@ -105,6 +105,7 @@ Includes Do I need a jacket support from FlyingHyrax, multiple system info and n
 - [ ] Look into adding corsair and other keyboards manufactures color API's into the color system, I do not have a full RGB (Mine only does green) so I will need a guinea pig
 - [ ] Add a widget to switch between different music sources Update: Very basic one added
 - [ ] Separate color options based on music source? (May not be needed once the transition is made to the new plugin) 
+- [ ] Add UpdateDivider to meters and bring down refresh from 1000 to 100
 
 ##Possible Future Changes
 - [ ] Use the color from GPMDP as a color option?
