@@ -61,6 +61,7 @@ Includes Do I need a jacket support from FlyingHyrax, multiple system info and n
 - [ ] Check and possibly fix if DINTFMI only working on first load since afterwards it may always use old data
 - [ ] Look into if CPU being off by about a factor of about 2 (Seems to be half actual on advancedCPU and ferpnom) on CPU reader and top processes is a bug in task manager, rainmeter dlls, or if it is just my machine
 - [ ] Installer is not updated and should not be used
+- [ ] Using the music switcher multiple times in quick succesion can cause rainmeter to crash
 
 ##Unlikely
 - [ ] Multiple color values below of above the color cutoff for can lead to multiple of the same color, however just shifting everything by the cutoff amount could also result in a color being the same as well, I think I will rewrite the cutoff to look for dupes and if there are the add more colors from the list
