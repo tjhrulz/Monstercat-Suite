@@ -61,7 +61,7 @@ Includes Do I need a jacket support from FlyingHyrax, multiple system info and n
 - [ ] Check and possibly fix if DINTFMI only working on first load since afterwards it may always use old data
 - [ ] Look into if CPU being off by about a factor of about 2 (Seems to be half actual on advancedCPU and ferpnom) on CPU reader and top processes is a bug in task manager, rainmeter dlls, or if it is just my machine
 - [ ] Installer is not updated and should not be used
-- [ ] Using the music switcher multiple times in quick succesion can cause rainmeter to crash
+- [ ] Using the music switcher multiple times in rapid succesion can cause rainmeter to crash Update: looking at log file I am guessing that the regex is the culprit, my guess is that if the regex is rerun before finsihing it crashes
 
 ##Unlikely
 - [ ] Multiple color values below of above the color cutoff for can lead to multiple of the same color, however just shifting everything by the cutoff amount could also result in a color being the same as well, I think I will rewrite the cutoff to look for dupes and if there are the add more colors from the list
@@ -85,18 +85,17 @@ Includes Do I need a jacket support from FlyingHyrax, multiple system info and n
 ##TODO
 - [ ] Make cut off for number of colors to sort based off of a percent of the 1st colors count, I dont think I will do this though as it will favor lighter or darker colors Update: I think I am going to do the next thing on the todo list instead
 - [ ] Make interesting colors be higher on the list of colors (I think I could try to measure this quickly by looking at how far away it is from monochrone)
-- [ ] Use WiFiListLimit and WifiList to make users picking the right wireless card easier
-- [ ] Figure out what I am doing with the 4th thing on the IO meter and if I am keeping it swap it needs fixed.
-- [ ] Look into using an update rate of -1 for color stuff and have the dynamic system manually tell the measures to update to conserve more CPU and have everything change at same time
+- [X] Figure out what I am doing with the 4th thing on the IO meter and if I am keeping it swap it needs fixed.
+- [ ] Change meters update rates to match the measure to save CPU? Liekly wont save much but could be a nice last pass for optimization (But I think I will keep histograms at half their measure rate as IMO they look better at 2 pixels wide)
 - [ ] Add news RSS
 - [ ] Weather stuffs (Use http://wxdata.weather.com/wxdata/weather/local/#LocationCode#?cc=*&unit=#TempUnit#&dayf=6 and parse, thanks to jsmorley for his post on that had no idea weather.com had an rss version (It even has wind direction!))
 - [ ] Calendar for the month meter
 - [ ] Appointments meter
-- [ ] Make desktop and laptop versions of some meters, ie. desktop doesn't need wifi or battery info, laptop may not need GPU info
+- [X] Make desktop and laptop versions of some meters, ie. desktop doesn't need wifi or battery info, laptop may not need GPU info Update: I think this is at the point I am happy with it but will keep it on the list as I may add more
 - [ ] Notification system (using IFTTT and pushover?) Edit: Nevermind Pushover only allows apps to send notifications, receiving must be done in a special app and is as the name implies push based not pull based.
 - [ ] Get real fact from fact repository and mix them in with fact sphere facts Update: Now has a separated version, needs a joint version
 - [ ] Add support for audio playback of fact sphere on left click?
-- [ ] Make sure background cmds are closing gracefully and correctly and not staying open
+- [X] Make sure background cmds are closing gracefully and correctly and not staying open
 - [ ] Process is spelled Proces in several places throughout the codebase, not causing any bugs as it is spelled that way throughout the file but it bothers me, Ill get around to regexing it someday
 - [ ] Make labels consistent and add a 3 step toggle (None, some, all)
 - [ ] Final optimization pass

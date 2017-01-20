@@ -25,7 +25,6 @@ Measure=String
 String=#CURRENTPATH#DownloadFile\image1.jpg
 Substitute="\":"\\"
 UpdateDivider = -1
-DynamicVariables = 1
 Group = AlbumArtUpdate
 ;OnChangeAction=[!CommandMeasure DoWriteUpdate "Stop 1"][!CommandMeasure DoWriteUpdate "Execute 1"]
 
