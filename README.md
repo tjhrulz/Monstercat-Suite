@@ -20,10 +20,9 @@ Includes Do I need a jacket support from FlyingHyrax, multiple system info and n
 * v0.7.1 Logos that support system info  
 * v0.7.2 Auto seasonal and holiday fallback images (Having issues finding images)  
 * v0.7.5r GPMDP Support (Likely will a very be limited version similar to how spotify was at first, I will look into a websocket plugin later if I don't go my own route)  
-* v0.7.6  Toggle visibility buttons, Label verbosity configuration  
-* v0.7.10 GPMDP Plugin, also looking into exposing info from chrome into rainmeter plugin to make web based music info for youtube, GPM, Spotify, etc.  
-* v0.7.11 Small versions of music player and clock?, volume changer  
-* v0.7.12 Reworked ReadColor to update itself on finish of GetColor (I think I have figured out a way to do this)
+* v0.7.6c  Toggle visibility buttons, Label verbosity configuration    
+* v0.7.7 Small versions of music player and clock?, volume changer  
+* v0.7.10 Reworked ReadColor to update itself on finish of GetColor (I think I have figured out a way to do this)
 
 ##Future Major Versions
 * v0.8.0r - Weather & News support  
@@ -33,8 +32,11 @@ Includes Do I need a jacket support from FlyingHyrax, multiple system info and n
 
 ##Post 1.0
 * v1.1r - Support for dynamic color keyboards  
-* v1.2r - Google play music (web) plugin? and Networking top processes plugin  
+* v1.2r - Networking top processes plugin  
 * v2.0r - Machine learning album art color selector, I'm kidding (Maybe)  
+
+##When they are done
+* Plugin that will get music info form GPMDP, Soundnode, and potentially from supported websites when using chrome  
 
 ###Small versionless future changes
 * Flag and pull based album art color system? (Will require me to find a way to do this)  
@@ -96,24 +98,23 @@ Includes Do I need a jacket support from FlyingHyrax, multiple system info and n
 - [ ] Get real fact from fact repository and mix them in with fact sphere facts Update: Now has a separated version, needs a joint version
 - [ ] Add support for audio playback of fact sphere on left click?
 - [X] Make sure background cmds are closing gracefully and correctly and not staying open
-- [ ] Process is spelled Proces in several places throughout the codebase, not causing any bugs as it is spelled that way throughout the file but it bothers me, Ill get around to regexing it someday
-- [ ] Make labels consistent and add a 3 step toggle (None, some, all)
-- [ ] Final optimization pass
+- [X] Process is spelled Process(hehe regex fixed it here) in several places throughout the codebase, not causing any bugs as it is spelled that way throughout the file but it bothers me, Ill get around to regexing it someday
+- [X] Make labels consistent and add a 3 step toggle (None, some, all)
 - [ ] Update installer meter to make initial setup nicer (Do before v1.0)
-- [ ] Look into hacking in Google play music (And youtube?) support to the music reader (I believe Google Talk/G+ used to expose this info)
+- [ ] Look into hacking in Google play music (And youtube?) support to the music reader (I believe Google Talk/G+ used to expose this info) Update: GPMDP has basic support and I am working on a full fledged plugin right now
 - [ ] Look into making networking top process plugin
-- [ ] Look into if average size variable increases or decrease performance based on size (kind of irrelevant now with CPU usage being better I just want to document it right)
+- [ ] Look into if average size variable in visualizer increases or decrease performance based on size (kind of irrelevant now with CPU usage being better I just want to document it right)
 - [ ] Look into adding corsair and other keyboards manufactures color API's into the color system, I do not have a full RGB (Mine only does green) so I will need a guinea pig
-- [ ] Add a widget to switch between different music sources Update: Very basic one added
-- [ ] Separate color options based on music source? (May not be needed once the transition is made to the new plugin)
+- [X] Add a widget to switch between different music sources Update: Very basic one added Update: Full implementation now switches everything
+- [ ] Separate color options based on music source? (May not be needed once the transition is made to the new plugin) Update: Will be needed unless I wanna rewrite a lot of code in the plugins, gonna just build the dynamic stuff in here
 - [ ] Investigate extra cover file
 
 ##Possible Future Changes
-- [ ] Use the color from GPMDP as a color option?
+- [ ] Use the color from GPMDP as a color option? Update: Will be possible with the GPMDP websocket API in a future update not available to do yet
 - [ ] Once released see if advancedCPU is really needed and remove it? (Not till after I get enough people using it to make a judgment on this)
 - [ ] Decide if I want to make max for top process meters be less user configurable/Require more knowledge of your machine to change (How many cores)
 - [ ] Add missing part of DINAJ hovertext?
-- [ ] Look into fixed number position on right aligned meter info (Either the start or honestly it looks good enough if just the postfixes started at the same place it would be good enough)
+- [ ] Look into fixed number position on right aligned meter info (Either the start or honestly it looks good enough if just the postfixes started at the same place it would be good enough) Update: Looks fine without it dont think I will do
 - [ ] Padding has been removed do I want to add it back as a toggle? Would it apply to everything or just text? (If I do apply AccurateText) Update: Rainmeter has a padding option, will look into it
 - [ ] Make middle click always cause a refresh of data (likely will not do with this giving me issues before and CPU usage being so low now) and double click cycle through variants?
 - [ ] Make it so meters can be auto scaled to fit height/width given by user. ie. 1920,10 would make 10 meters perfectly spaced across a 1080p display (Really dont think I will do this unless I make meters intended to do on the top and bottom of screen that are not the notification system))
