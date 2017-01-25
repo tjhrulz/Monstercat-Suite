@@ -24,10 +24,8 @@ UpdateDivider = -1
 Measure=Plugin
 Plugin=BetterMusic
 PlayerType=GPMDP
-PlayerInfo=Cover
-DefaultPath=#@#images\nocover.png
-CoverPath=#@#images\coverGPMDP.png
-UpdateDivider = 5
+PlayerInfo=CoverWebAddress
+UpdateDivider = 10
 OnChangeAction=[!CommandMeasure DoWriteUpdate "Stop 1"][!CommandMeasure DoWriteUpdate "Execute 1"]
 
 [MeasureAlbumChangedGPMDPNotifySelf]
@@ -35,9 +33,8 @@ Measure=Plugin
 Plugin=BetterMusic
 PlayerType=GPMDP
 PlayerInfo=Cover
-DefaultPath=#@#images\nocover.png
-CoverPath=#@#images\coverGPMDP.png
-UpdateDivider = 5
+PlayerInfo=CoverWebAddress
+UpdateDivider = 10
 OnChangeAction=[!CommandMeasure DoReadUpdate "Stop 1"][!CommandMeasure DoReadUpdate "Execute 1"]
 
 [GetImagePath]

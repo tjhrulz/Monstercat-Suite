@@ -27,7 +27,7 @@ Type=AlbumArt
 Res=640
 DefaultPath=#@#images\nocover.png
 CoverPath=#@#images\coverSpotify.png
-UpdateDivider = 5
+UpdateDivider = 2
 OnChangeAction=[!CommandMeasure DoWriteUpdate "Stop 1"][!CommandMeasure DoWriteUpdate "Execute 1"]
 
 [MeasureAlbumChangedSpotifyNotifySelf]
@@ -37,7 +37,7 @@ Type=AlbumArt
 Res=640
 DefaultPath=#@#images\nocover.png
 CoverPath=#@#images\coverSpotify.png
-UpdateDivider = 5
+UpdateDivider = 2
 OnChangeAction=[!CommandMeasure DoReadUpdate "Stop 1"][!CommandMeasure DoReadUpdate "Execute 1"]
 
 [GetImagePath]

@@ -20,9 +20,10 @@ Includes Do I need a jacket support from FlyingHyrax, multiple system info and n
 * v0.7.1 Logos that support system info  
 * v0.7.2 Auto seasonal and holiday fallback images (Having issues finding images)  
 * v0.7.5r GPMDP Support (Likely will a very be limited version similar to how spotify was at first, I will look into a websocket plugin later if I don't go my own route)  
-* v0.7.6c  Toggle visibility buttons, Label verbosity configuration    
-* v0.7.7 Small versions of music player and clock?, volume changer  
-* v0.7.10 Reworked ReadColor to update itself on finish of GetColor (I think I have figured out a way to do this)
+* v0.7.6c Toggle visibility buttons, Label verbosity configuration  
+* v0.7.10 Use new BetterMusicPlugin for Google Play music support, general CPU enhancements  
+* v0.7.11 Small versions of music player and clock?, volume changer  
+* v0.7.15 Reworked ReadColor to update itself on finish of GetColor (I think I have figured out a way to do this)
 
 ##Future Major Versions
 * v0.8.0r - Weather & News support  
