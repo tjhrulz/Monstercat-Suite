@@ -21,7 +21,7 @@ PlayerType=Cover
 
 [MeasureAlbumArtSpotify]
 Measure=String
-Text="#@#images\cover.png"
+Text="#@#images\coverSpotify.png"
 
 ;[MeasureAlbumChangedNotifySpotify]
 ;Measure=Plugin

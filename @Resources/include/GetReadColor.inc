@@ -20,16 +20,14 @@ Plugin=NowPlaying
 PlayerName=#PlayerName#
 PlayerType=Cover
 Substitute="\":"\\"
-
-[MeasureAlbumArtSpotify]
-Measure=String
-Text="#@#images\cover.png"
+UpdateDivider = 5
 
 [MeasureAlbumChangedNotify]
 Measure=Plugin
 Plugin=NowPlaying
 PlayerName=#PlayerName#
 PlayerType=Title
+UpdateDivider = 5
 OnChangeAction=[!CommandMeasure DoWriteUpdate "Stop 1"][!CommandMeasure DoWriteUpdate "Execute 1"]
 
 [MeasureAlbumChangedNotifySelf]
@@ -37,6 +35,7 @@ Measure=Plugin
 Plugin=NowPlaying
 PlayerName=#PlayerName#
 PlayerType=Title
+UpdateDivider = 5
 OnChangeAction=[!CommandMeasure DoReadUpdate "Stop 1"][!CommandMeasure DoReadUpdate "Execute 1"]
 
 [GetImagePath]

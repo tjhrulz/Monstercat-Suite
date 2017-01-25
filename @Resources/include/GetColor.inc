@@ -18,7 +18,7 @@ Substitute="\":"\\"
 
 [MeasureAlbumArtSpotify]
 Measure=String
-Text="#@#images\cover.png"
+Text="#@#images\coverSpotify.png"
 
 [MeasureAlbumChangedNotify]
 Measure=Plugin

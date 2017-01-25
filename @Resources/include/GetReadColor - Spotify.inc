@@ -16,8 +16,9 @@ ScriptFile=#@#\scripts\ReadColors.lua
 
 [MeasureAlbumArtSpotify]
 Measure=String
-String=#@#images\cover.png
+String=#@#images\coverSpotify.png
 Substitute="\":"\\"
+UpdateDivider = -1
 
 [MeasureAlbumChangedNotifySpotify]
 Measure=Plugin
@@ -25,7 +26,8 @@ Plugin=SpotifyPlugin
 Type=AlbumArt
 Res=640
 DefaultPath=#@#images\nocover.png
-CoverPath=#@#images\cover.png
+CoverPath=#@#images\coverSpotify.png
+UpdateDivider = 5
 OnChangeAction=[!CommandMeasure DoWriteUpdate "Stop 1"][!CommandMeasure DoWriteUpdate "Execute 1"]
 
 [MeasureAlbumChangedSpotifyNotifySelf]
@@ -34,7 +36,8 @@ Plugin=SpotifyPlugin
 Type=AlbumArt
 Res=640
 DefaultPath=#@#images\nocover.png
-CoverPath=#@#images\cover.png
+CoverPath=#@#images\coverSpotify.png
+UpdateDivider = 5
 OnChangeAction=[!CommandMeasure DoReadUpdate "Stop 1"][!CommandMeasure DoReadUpdate "Execute 1"]
 
 [GetImagePath]

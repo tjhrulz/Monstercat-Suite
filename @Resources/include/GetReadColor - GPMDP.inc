@@ -14,38 +14,31 @@ ScriptFile=#@#\scripts\GetAlbumColors.lua
 Measure=Script
 ScriptFile=#@#\scripts\ReadColors.lua
 
-[GetSongInfo]
-Measure=Script
-ScriptFile="#@#\scripts\GetInfoGPMDP.lua"
-FileToRead=#ReadPath#
-UpdateDivider=1
-
 [MeasureAlbumArtGPMDP]
 Measure=String
-String=#CURRENTPATH#DownloadFile\image1.jpg
+String=#@#images\coverGPMDP.png
 Substitute="\":"\\"
 UpdateDivider = -1
-Group = AlbumArtUpdate
-;OnChangeAction=[!CommandMeasure DoWriteUpdate "Stop 1"][!CommandMeasure DoWriteUpdate "Execute 1"]
-
-[MeasureAlbumArtGPMDPNotify]
-Measure=String
-String=#CURRENTPATH#DownloadFile\image1.jpg
-Substitute="\":"\\"
-UpdateDivider = -1
-DynamicVariables = 1
-Group = AlbumArtUpdate
-OnUpdateAction=[!CommandMeasure DoReadUpdate "Stop 1"][!CommandMeasure DoReadUpdate "Execute 1"]
 
 [MeasureAlbumChangedNotifyGPMDP]
 Measure=Plugin
-Plugin=WebParser
-URL=#GPMSongAlbumArt#
-DynamicVariables=1
-Download=1
-DownloadFile=image1.jpg
-UpdateRate = -1
-FinishAction=[!UpdateMeterGroup CoverGroup][!CommandMeasure DoWriteUpdate "Stop 1"][!CommandMeasure DoWriteUpdate "Execute 1"]
+Plugin=BetterMusic
+PlayerType=GPMDP
+PlayerInfo=Cover
+DefaultPath=#@#images\nocover.png
+CoverPath=#@#images\coverGPMDP.png
+UpdateDivider = 5
+OnChangeAction=[!CommandMeasure DoWriteUpdate "Stop 1"][!CommandMeasure DoWriteUpdate "Execute 1"]
+
+[MeasureAlbumChangedGPMDPNotifySelf]
+Measure=Plugin
+Plugin=BetterMusic
+PlayerType=GPMDP
+PlayerInfo=Cover
+DefaultPath=#@#images\nocover.png
+CoverPath=#@#images\coverGPMDP.png
+UpdateDivider = 5
+OnChangeAction=[!CommandMeasure DoReadUpdate "Stop 1"][!CommandMeasure DoReadUpdate "Execute 1"]
 
 [GetImagePath]
 Measure=String

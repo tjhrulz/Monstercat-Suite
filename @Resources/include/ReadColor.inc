@@ -27,19 +27,12 @@ PlayerType=Genre
 RegExpSubstitute=1
 Substitute="[^a-zA-Z0-9]":""
 
-[GetSongInfo]
-Measure=Script
-ScriptFile="#@#\scripts\ReadInfoGPMDP.lua"
-FileToRead=#ReadPath#
-UpdateDivider=1
-
-[MeasureAlbumArtGPMDP]
-Measure=String
-String=#CURRENTPATH#DownloadFile\image1.jpg
-Substitute="\":"\\"
-UpdateDivider = -1
-Group = AlbumArtUpdate
-OnUpdateAction=[!CommandMeasure DoReadUpdate "Stop 1"][!CommandMeasure DoReadUpdate "Execute 1"]
+[MeasureAlbumChangedGPMDPNotifySelf]
+Measure=Plugin
+Plugin=BetterMusic
+PlayerType=GPMDP
+PlayerInfo=Album
+OnChangeAction=[!CommandMeasure DoReadUpdate "Stop 1"][!CommandMeasure DoReadUpdate "Execute 1"]
 
 ;[MeasureWallpaperConfigState]
 ;Measure=Plugin
